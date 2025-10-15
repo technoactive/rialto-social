@@ -28,7 +28,7 @@ const actions = [
   {
     icon: Phone,
     label: "Call Us",
-    href: "tel:+44-xxx-xxx-xxxx",
+    href: "tel:+441306742885",
     color: "bg-blue-500 hover:bg-blue-600",
   },
 ];

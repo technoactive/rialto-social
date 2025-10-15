@@ -103,9 +103,9 @@ export function QuickBooking() {
             Prefer to book by phone?
           </p>
           <Button asChild variant="outline" size="lg" className="gap-2">
-            <a href="tel:+44-xxx-xxx-xxxx">
+            <a href="tel:+441306742885">
               <Phone className="w-4 h-4" />
-              <span className="hidden sm:inline">Call</span> +44 XXX XXX XXXX
+              <span className="hidden sm:inline">Call</span> 01306 742885
             </a>
           </Button>
         </motion.div>

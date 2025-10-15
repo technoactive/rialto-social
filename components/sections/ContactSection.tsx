@@ -270,10 +270,10 @@ export function ContactSection() {
                   <div>
                     <p className="font-semibold">Phone</p>
                     <a
-                      href="tel:+44-xxx-xxx-xxxx"
+                      href="tel:+441306742885"
                       className="text-muted-foreground hover:text-primary transition-colors"
                     >
-                      +44 XXX XXX XXXX
+                      01306 742885
                     </a>
                   </div>
                 </div>

@@ -280,7 +280,7 @@ export function EntertainmentPageSection() {
               <Link href="/contact">Book Entertainment</Link>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <a href="tel:+44-xxx-xxx-xxxx">Call Us</a>
+              <a href="tel:+441306742885">Call Us</a>
             </Button>
           </div>
         </motion.div>

@@ -105,7 +105,7 @@ const jsonLdRestaurant = {
   "name": "Rialto Social",
   "image": "https://rialtosocial.co.uk/og-image.jpg",
   "url": "https://rialtosocial.co.uk",
-  "telephone": "+44-xxx-xxx-xxxx",
+  "telephone": "+441306742885",
   "priceRange": "££",
   "servesCuisine": "Italian",
   "amenityFeature": [

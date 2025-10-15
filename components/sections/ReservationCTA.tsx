@@ -43,7 +43,7 @@ export function ReservationCTA() {
               <Phone className="w-8 h-8 text-primary mx-auto mb-3" />
               <h3 className="font-semibold mb-1">Call Us</h3>
               <p className="text-sm text-muted-foreground">
-                +44 XXX XXX XXXX
+                01306 742885
               </p>
             </motion.div>
 
@@ -90,7 +90,7 @@ export function ReservationCTA() {
               <Link href="/contact">Book Online</Link>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <a href="tel:+44-xxx-xxx-xxxx">
+              <a href="tel:+441306742885">
                 <Phone className="w-4 h-4 mr-2" />
                 Call Now
               </a>

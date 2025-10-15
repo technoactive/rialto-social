@@ -86,8 +86,8 @@ export function Header() {
 
           {/* CTA Button & Mobile Menu Button */}
           <div className="flex items-center gap-2 md:gap-4">
-            <motion.a
-              href="tel:+44-xxx-xxx-xxxx"
+                <motion.a
+                  href="tel:+441306742885"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -133,20 +133,7 @@ export function Header() {
       {/* Mobile Navigation */}
       <AnimatePresence>
         {isOpen && (
-          <>
-            {/* Mobile Menu Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="fixed inset-0 bg-black/50 z-30 lg:hidden"
-              style={{ top: headerRef.current ? `${headerRef.current.offsetHeight}px` : "64px" }}
-              onClick={() => setIsOpen(false)}
-            />
-            
-            {/* Mobile Menu Content */}
-            <motion.div
+          <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
@@ -185,7 +172,7 @@ export function Header() {
                   className="pt-4 border-t border-border"
                 >
                   <a
-                    href="tel:+44-xxx-xxx-xxxx"
+                    href="tel:+441306742885"
                     className="flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full hover:bg-primary/90 transition-colors duration-200 w-full justify-center"
                   >
                     <Phone className="w-4 h-4" />
@@ -204,7 +191,6 @@ export function Header() {
                 </motion.div>
               </div>
             </motion.div>
-          </>
         )}
       </AnimatePresence>
     </header>
