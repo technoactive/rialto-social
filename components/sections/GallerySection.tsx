@@ -356,21 +356,11 @@ export function GallerySection() {
               className="max-w-4xl w-full"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="relative">
-                <img
-                  src={selectedImage.src}
-                  alt={selectedImage.title}
-                  className="w-full rounded-lg"
-                />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 rounded-b-lg">
-                  <p className="text-2xl font-display font-bold text-white mb-2">
-                    {selectedImage.title}
-                  </p>
-                  <p className="text-sm text-white/70">
-                    {currentIndex + 1} / {galleryImages.length}
-                  </p>
-                </div>
-              </div>
+              <img
+                src={selectedImage.src}
+                alt={selectedImage.title}
+                className="w-full rounded-lg"
+              />
             </motion.div>
           </motion.div>
         )}
