@@ -1,36 +1,124 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Rialto Social - Italian Restaurant & Entertainment
 
-## Getting Started
+A modern, SEO-optimized website for Rialto Social, an authentic Italian restaurant in Dorking featuring dining, karaoke, and darts entertainment.
 
-First, run the development server:
+🌐 **Live Site**: [rialtosocial.co.uk](https://rialtosocial.co.uk)
+
+## 🚀 Features
+
+### Restaurant Features
+- **Authentic Italian Menu**: Fresh pasta, wood-fired pizzas, and traditional Italian dishes
+- **Online Reservations**: Easy booking system for dining, karaoke, and darts
+- **SEO Optimized**: Full structured data, sitemap, and metadata for excellent search visibility
+- **Mobile-First Design**: Fully responsive across all devices
+
+### Entertainment
+- **Karaoke Nights**: Friday & Saturday with private rooms available
+- **Darts Lounge**: Professional dartboards with leagues and tournaments
+- **Event Packages**: Special packages for parties and corporate events
+
+### Technical Features
+- **Next.js 15.5.5**: Latest framework with App Router
+- **TypeScript**: Type-safe development
+- **Tailwind CSS v4**: Modern styling with container queries
+- **Framer Motion**: Smooth animations and transitions
+- **PWA Support**: Installable with offline capabilities
+- **Performance Optimized**: Lazy loading, optimized fonts, and images
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 15.5.5
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **UI Components**: shadcn/ui
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Fonts**: Playfair Display & Inter
+
+## 📦 Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/yourusername/rialto-social.git
+
+# Navigate to the project
+cd rialto-social
+
+# Install dependencies
+npm install
+
+# Run the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🏗️ Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+rialto-social/
+├── app/                    # Next.js app directory
+│   ├── layout.tsx         # Root layout with metadata
+│   ├── page.tsx           # Homepage
+│   ├── menu/              # Menu page
+│   ├── about/             # About page
+│   ├── entertainment/     # Entertainment page
+│   ├── gallery/           # Gallery page
+│   ├── contact/           # Contact & reservations
+│   └── globals.css        # Global styles
+├── components/            # React components
+│   ├── layout/           # Header, Footer
+│   ├── sections/         # Page sections
+│   └── ui/               # UI components
+├── public/               # Static assets
+│   ├── robots.txt        # SEO robots file
+│   ├── manifest.json     # PWA manifest
+│   └── sw.js            # Service worker
+└── lib/                  # Utilities
+```
 
-## Learn More
+## 🚀 Deployment
 
-To learn more about Next.js, take a look at the following resources:
+The site is optimized for deployment on Vercel:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+# Build for production
+npm run build
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Start production server
+npm start
+```
 
-## Deploy on Vercel
+Or deploy directly to Vercel:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/rialto-social)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📱 Mobile Features
+
+- Touch-friendly navigation
+- Floating action button for quick bookings
+- Responsive typography with fluid sizing
+- Optimized tap targets (44px minimum)
+- Smooth animations optimized for mobile
+
+## 🔍 SEO Features
+
+- Complete structured data (Restaurant schema)
+- Dynamic sitemap generation
+- Open Graph and Twitter cards
+- Optimized meta tags
+- Google-friendly robots.txt
+
+## 📧 Contact
+
+**Rialto Social**  
+45 Dene Street  
+Dorking, Surrey  
+RH4 2DW
+
+Email: info@rialtosocial.co.uk  
+Phone: +44 XXX XXX XXXX
+
+## 📄 License
+
+© 2025 Rialto Social. All rights reserved.
