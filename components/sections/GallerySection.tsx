@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -312,17 +312,21 @@ export function GallerySection() {
         </motion.div>
 
         {/* Lightbox */}
-        {selectedImage && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
-            onClick={() => setSelectedImage(null)}
-          >
-            <button
-              className="absolute top-4 right-4 text-white p-2 hover:bg-white/10 rounded-full transition-colors"
+        <AnimatePresence>
+          {selectedImage && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
               onClick={() => setSelectedImage(null)}
+            >
+            <button
+              className="absolute top-4 right-4 text-white p-2 hover:bg-white/10 rounded-full transition-colors z-60"
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedImage(null);
+              }}
             >
               <X className="w-6 h-6" />
             </button>
@@ -364,6 +368,7 @@ export function GallerySection() {
             </motion.div>
           </motion.div>
         )}
+        </AnimatePresence>
       </div>
     </section>
   );
