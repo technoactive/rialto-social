@@ -299,15 +299,11 @@ export function GallerySection() {
               onClick={() => setSelectedImage(image)}
             >
               <div className="relative aspect-square rounded-2xl overflow-hidden bg-muted">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="font-semibold text-lg">{image.title}</h3>
-                </div>
                 {/* Actual image */}
                 <img
                   src={image.src}
                   alt={image.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover group-hover:brightness-110 transition-all duration-300"
                   loading="lazy"
                 />
               </div>
