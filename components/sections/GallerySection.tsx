@@ -189,13 +189,13 @@ export function GallerySection() {
                   <h3 className="font-semibold text-lg">{image.title}</h3>
                   <p className="text-sm opacity-90">{image.description}</p>
                 </div>
-                {/* Placeholder for image */}
-                <div className="w-full h-full flex items-center justify-center text-muted-foreground">
-                  <div className="text-center">
-                    <p className="font-medium">{image.title}</p>
-                    <p className="text-sm">{image.category}</p>
-                  </div>
-                </div>
+                {/* Actual image */}
+                <img
+                  src={image.src}
+                  alt={image.title}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
             </motion.div>
           ))}
@@ -246,13 +246,18 @@ export function GallerySection() {
               className="max-w-4xl w-full"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="aspect-[4/3] bg-muted rounded-lg flex items-center justify-center">
-                <div className="text-center text-white">
-                  <p className="text-2xl font-display font-bold mb-2">
+              <div className="relative">
+                <img
+                  src={selectedImage.src}
+                  alt={selectedImage.title}
+                  className="w-full rounded-lg"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 rounded-b-lg">
+                  <p className="text-2xl font-display font-bold text-white mb-2">
                     {selectedImage.title}
                   </p>
-                  <p className="text-lg opacity-90">{selectedImage.description}</p>
-                  <p className="text-sm opacity-70 mt-4">
+                  <p className="text-lg text-white/90">{selectedImage.description}</p>
+                  <p className="text-sm text-white/70 mt-2">
                     {currentIndex + 1} / {galleryImages.length}
                   </p>
                 </div>

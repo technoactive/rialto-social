@@ -83,33 +83,37 @@ export function About() {
               <div className="space-y-4">
                 <div className="relative h-48 rounded-2xl overflow-hidden bg-muted">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent" />
-                  {/* Placeholder for image */}
-                  <div className="flex items-center justify-center h-full text-muted-foreground">
-                    Traditional Pizza
-                  </div>
+                  <img
+                    src="/pictures/rialto-social-pizza-quattro-formaggi-dorking.jpg"
+                    alt="Traditional Italian Pizza"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div className="relative h-64 rounded-2xl overflow-hidden bg-muted">
                   <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent" />
-                  {/* Placeholder for image */}
-                  <div className="flex items-center justify-center h-full text-muted-foreground">
-                    Fresh Pasta
-                  </div>
+                  <img
+                    src="/pictures/rialto-social-pasta-carbonara-authentic-italian-dorking.jpg"
+                    alt="Fresh Homemade Pasta"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
               <div className="space-y-4 pt-8">
                 <div className="relative h-64 rounded-2xl overflow-hidden bg-muted">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent" />
-                  {/* Placeholder for image */}
-                  <div className="flex items-center justify-center h-full text-muted-foreground">
-                    Restaurant Interior
-                  </div>
+                  <img
+                    src="/pictures/rialto-social-restaurant-interior-dining-room.jpg"
+                    alt="Rialto Social Interior"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div className="relative h-48 rounded-2xl overflow-hidden bg-muted">
                   <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent" />
-                  {/* Placeholder for image */}
-                  <div className="flex items-center justify-center h-full text-muted-foreground">
-                    Chef at Work
-                  </div>
+                  <img
+                    src="/pictures/rialto-social-kitchen-chefs-cooking.jpg"
+                    alt="Our Chefs at Work"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
             </div>
