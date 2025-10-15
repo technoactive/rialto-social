@@ -6,7 +6,7 @@ import { FloatingActionButton } from "@/components/ui/floating-action-button";
 
 export const metadata: Metadata = {
   title: "Menu",
-  description: "Explore our authentic Italian menu featuring fresh pasta, wood-fired pizzas, and traditional dishes at Rialto Social in Dorking.",
+  description: "Explore our authentic Italian menu featuring fresh pasta, traditional pizzas, and Italian dishes at Rialto Social in Dorking.",
 };
 
 export default function MenuPage() {

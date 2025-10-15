@@ -80,7 +80,7 @@ const menuData = {
   },
   pizza: {
     title: "Pizza",
-    description: "Authentic Neapolitan pizzas from our wood-fired oven",
+    description: "Authentic Neapolitan style pizzas made with traditional methods",
     items: [
       {
         name: "Margherita",

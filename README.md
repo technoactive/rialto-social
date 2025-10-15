@@ -7,7 +7,7 @@ A modern, SEO-optimized website for Rialto Social, an authentic Italian restaura
 ## 🚀 Features
 
 ### Restaurant Features
-- **Authentic Italian Menu**: Fresh pasta, wood-fired pizzas, and traditional Italian dishes
+- **Authentic Italian Menu**: Fresh pasta, authentic pizzas, and traditional Italian dishes
 - **Online Reservations**: Easy booking system for dining, karaoke, and darts
 - **SEO Optimized**: Full structured data, sitemap, and metadata for excellent search visibility
 - **Mobile-First Design**: Fully responsive across all devices

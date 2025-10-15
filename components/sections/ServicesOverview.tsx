@@ -10,7 +10,7 @@ const services = [
     id: "dining",
     icon: ChefHat,
     title: "Italian Dining",
-    description: "Authentic Italian cuisine with fresh pasta and wood-fired pizzas",
+    description: "Authentic Italian cuisine with fresh pasta and traditional pizzas",
     features: ["Lunch & Dinner", "Takeaway Available", "Private Dining"],
     link: "/menu",
     linkText: "View Menu",

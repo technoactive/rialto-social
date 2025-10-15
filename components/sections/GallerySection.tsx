@@ -17,7 +17,7 @@ const galleryImages = [
     id: 2,
     category: "food",
     title: "Margherita Pizza",
-    description: "Wood-fired Neapolitan style",
+    description: "Authentic Neapolitan style",
     src: "/gallery/pizza-1.jpg",
   },
   {

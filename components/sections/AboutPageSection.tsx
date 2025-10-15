@@ -72,7 +72,7 @@ export function AboutPageSection() {
             </p>
             <p className="text-muted-foreground">
               Every dish on our menu tells a story - from our grandmother&apos;s
-              secret pasta recipes to the wood-fired pizza techniques learned
+              secret pasta recipes to the traditional pizza techniques learned
               from master pizzaiolos in Naples. We&apos;ve carefully curated each
               element of our restaurant to transport you to Italy, from the
               warm, rustic décor to the carefully selected Italian wines.

@@ -6,7 +6,7 @@ import { Check } from "lucide-react";
 const features = [
   "Fresh ingredients sourced daily",
   "Traditional recipes from Italy",
-  "Wood-fired pizza oven",
+  "Traditional pizza making",
   "Handmade pasta made in-house",
   "Karaoke nights Friday & Saturday",
   "Professional darts lounge",
@@ -41,7 +41,7 @@ export function About() {
 
             <div className="space-y-4">
               <p className="text-muted-foreground">
-                From our wood-fired pizzas to our handmade pasta, every dish is
+                From our traditional pizzas to our handmade pasta, every dish is
                 crafted with love and respect for Italian culinary traditions.
                 We source the finest ingredients, many imported directly from
                 Italy, to ensure an authentic dining experience.
@@ -85,7 +85,7 @@ export function About() {
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent" />
                   {/* Placeholder for image */}
                   <div className="flex items-center justify-center h-full text-muted-foreground">
-                    Wood-fired Pizza
+                    Traditional Pizza
                   </div>
                 </div>
                 <div className="relative h-64 rounded-2xl overflow-hidden bg-muted">

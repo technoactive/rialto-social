@@ -26,7 +26,7 @@ const menuCategories = [
   },
   {
     name: "Pizza",
-    description: "Wood-fired Neapolitan style pizzas",
+    description: "Authentic Neapolitan style pizzas",
     items: [
       { name: "Margherita", price: "£11.00", description: "San Marzano tomatoes, mozzarella, basil" },
       { name: "Quattro Formaggi", price: "£14.50", description: "Four cheese blend with honey drizzle" },

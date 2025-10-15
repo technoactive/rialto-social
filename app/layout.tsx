@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     default: "Rialto Social - Authentic Italian Restaurant in Dorking",
     template: "%s | Rialto Social"
   },
-  description: "Experience authentic Italian cuisine at Rialto Social in Dorking. Fresh pasta, wood-fired pizzas, karaoke nights, and darts. Located at 45 Dene Street, Dorking RH4 2DW.",
+  description: "Experience authentic Italian cuisine at Rialto Social in Dorking. Fresh pasta, authentic pizzas, karaoke nights, and darts. Located at 45 Dene Street, Dorking RH4 2DW.",
   keywords: ["Italian restaurant Dorking", "Rialto Social", "Italian food Surrey", "restaurant Dorking", "pasta Dorking", "pizza Dorking", "Italian dining", "karaoke Dorking", "darts Dorking", "entertainment venue Dorking"],
   authors: [{ name: "Rialto Social" }],
   creator: "Rialto Social",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     url: "https://rialtosocial.co.uk",
     siteName: "Rialto Social",
     title: "Rialto Social - Italian Restaurant & Entertainment in Dorking",
-    description: "Experience authentic Italian cuisine at Rialto Social in Dorking. Fresh pasta, wood-fired pizzas, plus karaoke nights and darts for entertainment.",
+    description: "Experience authentic Italian cuisine at Rialto Social in Dorking. Fresh pasta, authentic pizzas, plus karaoke nights and darts for entertainment.",
     images: [
       {
         url: "/og-image.jpg",
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Rialto Social - Italian Restaurant & Entertainment in Dorking",
-    description: "Experience authentic Italian cuisine at Rialto Social in Dorking. Fresh pasta, wood-fired pizzas, plus karaoke nights and darts for entertainment.",
+    description: "Experience authentic Italian cuisine at Rialto Social in Dorking. Fresh pasta, authentic pizzas, plus karaoke nights and darts for entertainment.",
     images: ["/og-image.jpg"],
   },
   robots: {

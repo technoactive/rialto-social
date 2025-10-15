@@ -13,7 +13,7 @@ const testimonials = [
   {
     name: "Michael Chen",
     role: "Regular Customer",
-    content: "My family's favorite restaurant in Dorking. The wood-fired pizzas are authentic and delicious. The staff always makes us feel welcome.",
+    content: "My family's favorite restaurant in Dorking. The pizzas are authentic and delicious. The staff always makes us feel welcome.",
     rating: 5,
   },
   {

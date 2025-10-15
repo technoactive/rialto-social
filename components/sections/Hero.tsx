@@ -46,7 +46,7 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto"
           >
-            Experience the heart of Italy in Dorking. Fresh pasta, wood-fired
+            Experience the heart of Italy in Dorking. Fresh pasta, authentic
             pizzas, plus karaoke and darts for unforgettable nights out.
           </motion.p>
 
