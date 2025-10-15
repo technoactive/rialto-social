@@ -39,7 +39,7 @@ A modern, SEO-optimized website for Rialto Social, an authentic Italian restaura
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/rialto-social.git
+git clone https://github.com/technoactive/rialto-social.git
 
 # Navigate to the project
 cd rialto-social
@@ -91,7 +91,7 @@ npm start
 
 Or deploy directly to Vercel:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/rialto-social)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/technoactive/rialto-social)
 
 ## 📱 Mobile Features
 
