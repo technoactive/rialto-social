@@ -6,99 +6,246 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const galleryImages = [
+  // Food Dishes
   {
     id: 1,
     category: "food",
-    title: "Fresh Pasta Primavera",
-    description: "Handmade pasta with shrimp and vegetables",
+    title: "Pasta Primavera",
+    description: "Fresh prawns with seasonal vegetables",
     src: "/pictures/rialto-social-pasta-primavera-shrimp-vegetables.jpg",
   },
   {
     id: 2,
     category: "food",
-    title: "Margherita Pizza",
-    description: "Authentic Neapolitan style",
+    title: "Pizza Margherita",
+    description: "Traditional Neapolitan with fresh basil",
     src: "/pictures/rialto-social-italian-pizza-margherita-dorking.jpg",
   },
   {
     id: 3,
-    category: "interior",
-    title: "Main Dining Area",
-    description: "Warm and inviting atmosphere",
-    src: "/pictures/rialto-social-restaurant-interior-dining-room.jpg",
+    category: "food",
+    title: "Grilled Ribeye Steak",
+    description: "Perfectly seasoned with golden fries",
+    src: "/pictures/rialto-social-grilled-steak-fries-italian-restaurant-dorking.jpg",
   },
   {
     id: 4,
     category: "food",
-    title: "Tiramisu",
-    description: "Classic Italian dessert",
-    src: "/pictures/rialto-social-tiramisu-dessert-authentic-italian.jpg",
+    title: "Pasta Carbonara",
+    description: "Creamy traditional Roman recipe",
+    src: "/pictures/rialto-social-pasta-carbonara-authentic-italian-dorking.jpg",
   },
   {
     id: 5,
-    category: "drinks",
-    title: "Wine Selection",
-    description: "Curated Italian wines",
-    src: "/pictures/rialto-social-wine-selection-italian-restaurant.jpg",
+    category: "food",
+    title: "Seafood Linguine",
+    description: "Fresh prawns in garlic white wine sauce",
+    src: "/pictures/rialto-social-seafood-pasta-linguine-gamberi.jpg",
   },
   {
     id: 6,
-    category: "interior",
-    title: "Private Dining Room",
-    description: "Perfect for special occasions",
-    src: "/pictures/rialto-social-private-dining-area-events.jpg",
+    category: "food",
+    title: "Traditional Lasagna",
+    description: "Layers of pasta with rich meat sauce",
+    src: "/pictures/rialto-social-lasagna-traditional-italian-cuisine.jpg",
   },
   {
     id: 7,
     category: "food",
-    title: "Antipasti Platter",
-    description: "Selection of Italian starters",
+    title: "Antipasti Selection",
+    description: "Italian cured meats and cheeses",
     src: "/pictures/rialto-social-italian-antipasti-platter-dorking.jpg",
   },
   {
     id: 8,
-    category: "team",
-    title: "Our Team",
-    description: "Passionate about Italian cuisine",
-    src: "/pictures/rialto-social-team-staff-italian-restaurant.jpg",
+    category: "food",
+    title: "Seafood Risotto",
+    description: "Creamy arborio rice with mixed seafood",
+    src: "/pictures/rialto-social-risotto-seafood-italian-restaurant.jpg",
   },
   {
     id: 9,
     category: "food",
-    title: "Caprese Salad",
-    description: "Fresh mozzarella and tomatoes",
-    src: "/pictures/rialto-social-caprese-salad-fresh-mozzarella.jpg",
+    title: "Pizza Quattro Formaggi",
+    description: "Four cheese blend with herbs",
+    src: "/pictures/rialto-social-pizza-quattro-formaggi-dorking.jpg",
   },
   {
     id: 10,
-    category: "entertainment",
-    title: "Karaoke Night",
-    description: "Friday & Saturday fun",
-    src: "/pictures/rialto-social-karaoke-room-entertainment-dorking.jpg",
+    category: "food",
+    title: "Bruschetta Classica",
+    description: "Toasted bread with tomatoes and basil",
+    src: "/pictures/rialto-social-bruschetta-appetizer-italian.jpg",
   },
   {
     id: 11,
-    category: "entertainment",
-    title: "Darts Lounge",
-    description: "Challenge your friends",
-    src: "/pictures/rialto-social-darts-area-entertainment-venue.jpg",
+    category: "food",
+    title: "Spinach & Ricotta Ravioli",
+    description: "Handmade pasta with creamy filling",
+    src: "/pictures/rialto-social-ravioli-spinach-ricotta.jpg",
   },
   {
     id: 12,
     category: "food",
-    title: "Grilled Steak",
-    description: "Premium cuts with sides",
-    src: "/pictures/rialto-social-grilled-steak-fries-italian-restaurant-dorking.jpg",
+    title: "Penne Arrabbiata",
+    description: "Spicy tomato sauce with chili",
+    src: "/pictures/rialto-social-pasta-arrabbiata-spicy-italian.jpg",
+  },
+  {
+    id: 13,
+    category: "food",
+    title: "Osso Buco",
+    description: "Braised veal shank Milanese style",
+    src: "/pictures/rialto-social-osso-buco-traditional-italian.jpg",
+  },
+  {
+    id: 14,
+    category: "food",
+    title: "Caprese Salad",
+    description: "Buffalo mozzarella with ripe tomatoes",
+    src: "/pictures/rialto-social-caprese-salad-fresh-mozzarella.jpg",
+  },
+  {
+    id: 15,
+    category: "food",
+    title: "Fresh Seafood Platter",
+    description: "Daily selection of premium seafood",
+    src: "/pictures/rialto-social-seafood-platter-italian-cuisine.jpg",
+  },
+  {
+    id: 16,
+    category: "desserts",
+    title: "Classic Tiramisu",
+    description: "Coffee-soaked ladyfingers with mascarpone",
+    src: "/pictures/rialto-social-tiramisu-dessert-authentic-italian.jpg",
+  },
+  {
+    id: 17,
+    category: "desserts",
+    title: "Artisan Gelato",
+    description: "Daily made Italian ice cream",
+    src: "/pictures/rialto-social-gelato-dessert-authentic-italian.jpg",
+  },
+  // Drinks
+  {
+    id: 18,
+    category: "drinks",
+    title: "Wine Collection",
+    description: "Carefully selected Italian vintages",
+    src: "/pictures/rialto-social-wine-selection-italian-restaurant.jpg",
+  },
+  {
+    id: 19,
+    category: "drinks",
+    title: "Cocktail Creations",
+    description: "Classic and signature mixed drinks",
+    src: "/pictures/rialto-social-cocktails-bar-drinks-menu.jpg",
+  },
+  {
+    id: 20,
+    category: "drinks",
+    title: "Italian Espresso",
+    description: "Rich authentic coffee experience",
+    src: "/pictures/rialto-social-espresso-coffee-italian.jpg",
+  },
+  // Interior & Atmosphere
+  {
+    id: 21,
+    category: "interior",
+    title: "Main Dining Room",
+    description: "Elegant Italian ambiance",
+    src: "/pictures/rialto-social-restaurant-interior-dining-room.jpg",
+  },
+  {
+    id: 22,
+    category: "interior",
+    title: "Bar & Lounge Area",
+    description: "Sophisticated cocktail bar",
+    src: "/pictures/rialto-social-bar-area-italian-restaurant-dorking.jpg",
+  },
+  {
+    id: 23,
+    category: "interior",
+    title: "Private Events Space",
+    description: "Intimate dining for special occasions",
+    src: "/pictures/rialto-social-private-dining-area-events.jpg",
+  },
+  {
+    id: 24,
+    category: "interior",
+    title: "Restaurant Entrance",
+    description: "Welcome to Rialto Social",
+    src: "/pictures/rialto-social-restaurant-exterior-dorking.jpg",
+  },
+  {
+    id: 25,
+    category: "interior",
+    title: "Al Fresco Dining",
+    description: "Outdoor terrace seating",
+    src: "/pictures/rialto-social-outdoor-seating-terrace.jpg",
+  },
+  // Entertainment
+  {
+    id: 26,
+    category: "entertainment",
+    title: "Karaoke Lounge",
+    description: "Private rooms for singing fun",
+    src: "/pictures/rialto-social-karaoke-room-entertainment-dorking.jpg",
+  },
+  {
+    id: 27,
+    category: "entertainment",
+    title: "Darts Area",
+    description: "Professional dartboards for competition",
+    src: "/pictures/rialto-social-darts-area-entertainment-venue.jpg",
+  },
+  {
+    id: 28,
+    category: "entertainment",
+    title: "Live Music Nights",
+    description: "Regular entertainment events",
+    src: "/pictures/rialto-social-live-music-entertainment.jpg",
+  },
+  {
+    id: 29,
+    category: "atmosphere",
+    title: "Celebration Venue",
+    description: "Perfect for parties and events",
+    src: "/pictures/rialto-social-event-celebration-party-venue.jpg",
+  },
+  // Team & Service
+  {
+    id: 30,
+    category: "team",
+    title: "Our Friendly Staff",
+    description: "Dedicated to excellent service",
+    src: "/pictures/rialto-social-team-staff-italian-restaurant.jpg",
+  },
+  {
+    id: 31,
+    category: "team",
+    title: "Expert Chefs at Work",
+    description: "Crafting authentic Italian dishes",
+    src: "/pictures/rialto-social-kitchen-chefs-cooking.jpg",
+  },
+  {
+    id: 32,
+    category: "atmosphere",
+    title: "Happy Diners",
+    description: "Creating memorable experiences",
+    src: "/pictures/rialto-social-happy-customers-dining-dorking.jpg",
   },
 ];
 
 const categories = [
   { id: "all", label: "All" },
   { id: "food", label: "Food" },
+  { id: "desserts", label: "Desserts" },
   { id: "drinks", label: "Drinks" },
   { id: "interior", label: "Interior" },
   { id: "entertainment", label: "Entertainment" },
   { id: "team", label: "Team" },
+  { id: "atmosphere", label: "Atmosphere" },
 ];
 
 export function GallerySection() {
@@ -187,7 +334,6 @@ export function GallerySection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                   <h3 className="font-semibold text-lg">{image.title}</h3>
-                  <p className="text-sm opacity-90">{image.description}</p>
                 </div>
                 {/* Actual image */}
                 <img
@@ -256,8 +402,7 @@ export function GallerySection() {
                   <p className="text-2xl font-display font-bold text-white mb-2">
                     {selectedImage.title}
                   </p>
-                  <p className="text-lg text-white/90">{selectedImage.description}</p>
-                  <p className="text-sm text-white/70 mt-2">
+                  <p className="text-sm text-white/70">
                     {currentIndex + 1} / {galleryImages.length}
                   </p>
                 </div>
