@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, Clock } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -18,6 +19,8 @@ const navItems = [
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
   const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -36,6 +39,8 @@ export function Header() {
         "fixed top-0 left-0 right-0 z-[60] transition-all duration-300",
         scrolled || isOpen
           ? "bg-white dark:bg-gray-950 py-4"
+          : isHomePage && !scrolled
+          ? "bg-black/40 backdrop-blur-md py-6"
           : "bg-transparent py-6",
         scrolled && !isOpen && "shadow-sm"
       )}
@@ -51,12 +56,18 @@ export function Header() {
               transition={{ duration: 0.5 }}
               className="flex flex-col"
             >
-              <span className="text-2xl font-display font-bold text-primary">
-                Rialto Social
-              </span>
-              <span className="text-xs text-muted-foreground tracking-widest uppercase">
-                Italian Cuisine
-              </span>
+                <span className={cn(
+                  "text-2xl font-display font-bold",
+                  isHomePage && !scrolled && !isOpen ? "text-white" : "text-primary"
+                )}>
+                  Rialto Social
+                </span>
+                <span className={cn(
+                  "text-xs tracking-widest uppercase",
+                  isHomePage && !scrolled && !isOpen ? "text-white/80" : "text-muted-foreground"
+                )}>
+                  Italian Cuisine
+                </span>
             </motion.div>
           </Link>
 
@@ -71,7 +82,12 @@ export function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="relative text-foreground/80 hover:text-primary transition-colors duration-200 font-medium"
+                  className={cn(
+                    "relative transition-colors duration-200 font-medium",
+                    isHomePage && !scrolled && !isOpen 
+                      ? "text-white/90 hover:text-white" 
+                      : "text-foreground/80 hover:text-primary"
+                  )}
               >
                 <motion.span
                   initial={{ opacity: 0, y: -10 }}
@@ -99,7 +115,10 @@ export function Header() {
 
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden relative z-10 p-2"
+              className={cn(
+                "lg:hidden relative z-10 p-2",
+                isHomePage && !scrolled && !isOpen ? "text-white" : "text-foreground"
+              )}
               aria-label="Toggle menu"
             >
               <AnimatePresence mode="wait">

@@ -15,8 +15,8 @@ export function Hero() {
           alt="Rialto Social Restaurant"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/20" />
+        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50" />
       </div>
 
       <div className="container mx-auto px-4 pt-20 md:pt-24 pb-12 md:pb-16">
@@ -26,7 +26,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 bg-secondary/80 backdrop-blur-sm px-4 py-2 rounded-full mb-8"
+            className="inline-flex items-center gap-2 bg-white/90 backdrop-blur-md text-foreground px-4 py-2 rounded-full mb-8 shadow-lg"
           >
             <Star className="w-4 h-4 text-primary fill-primary" />
             <span className="text-sm font-medium">Authentic Italian Since 2020</span>
@@ -37,7 +37,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-6"
+            className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-white drop-shadow-2xl"
           >
             Welcome to
             <span className="block text-primary mt-2">Rialto Social</span>
@@ -48,7 +48,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto"
+            className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto drop-shadow-lg"
           >
             Experience the heart of Italy in Dorking. Fresh pasta, authentic
             pizzas, plus karaoke and darts for unforgettable nights out.
