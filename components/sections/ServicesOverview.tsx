@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChefHat, Mic2, Target, Calendar, ArrowRight } from "lucide-react";
+import { ChefHat, Mic2, Target, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 

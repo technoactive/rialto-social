@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { Calendar, Clock, Users, ChefHat, Mic2, Target, Phone } from "lucide-react";
+import { Clock, ChefHat, Mic2, Target, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -38,8 +37,6 @@ const bookingOptions = [
 ];
 
 export function QuickBooking() {
-  const [selectedService, setSelectedService] = useState<string | null>(null);
-
   return (
     <section className="py-12 md:py-16 bg-secondary/20">
       <div className="container mx-auto px-4">
@@ -79,7 +76,6 @@ export function QuickBooking() {
                   option.color,
                   "border border-border hover:border-primary/20"
                 )}
-                onClick={() => setSelectedService(option.id)}
               >
                 <option.icon className="w-10 h-10 text-primary mb-3" />
                 <h3 className="font-semibold text-lg mb-1">{option.title}</h3>

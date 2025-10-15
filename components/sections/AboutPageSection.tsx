@@ -64,16 +64,16 @@ export function AboutPageSection() {
               same magical experience here in Dorking.
             </p>
             <p className="text-muted-foreground">
-              The name "Rialto Social" pays homage to Venice's famous Rialto
+              The name &ldquo;Rialto Social&rdquo; pays homage to Venice&apos;s famous Rialto
               Bridge, a historic gathering place where people have come together
               for centuries. Just like its namesake, our restaurant serves as a
               bridge between cultures and a social hub where friends and
               families create lasting memories over exceptional food.
             </p>
             <p className="text-muted-foreground">
-              Every dish on our menu tells a story - from our grandmother's
+              Every dish on our menu tells a story - from our grandmother&apos;s
               secret pasta recipes to the wood-fired pizza techniques learned
-              from master pizzaiolos in Naples. We've carefully curated each
+              from master pizzaiolos in Naples. We&apos;ve carefully curated each
               element of our restaurant to transport you to Italy, from the
               warm, rustic décor to the carefully selected Italian wines.
             </p>

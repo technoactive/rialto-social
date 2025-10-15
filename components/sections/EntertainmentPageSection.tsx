@@ -95,7 +95,7 @@ export function EntertainmentPageSection() {
             Entertainment at <span className="text-primary">Rialto Social</span>
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            More than just great Italian food - we're Dorking's premier destination
+            More than just great Italian food - we&apos;re Dorking&apos;s premier destination
             for dining and entertainment under one roof
           </p>
         </motion.div>
@@ -271,7 +271,7 @@ export function EntertainmentPageSection() {
             Book Your Entertainment Experience
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Whether it's a birthday party, corporate event, or just a fun night out,
+            Whether it&apos;s a birthday party, corporate event, or just a fun night out,
             we have packages to suit every occasion. Combine great Italian food with
             unforgettable entertainment.
           </p>

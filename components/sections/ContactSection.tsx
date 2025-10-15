@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { MapPin, Phone, Mail, Clock, Send, Calendar, Users, ChefHat, Mic2, Target } from "lucide-react";
@@ -50,7 +50,7 @@ export function ContactSection() {
             Contact <span className="text-primary">Us</span>
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Reserve your table or get in touch with us. We're here to make your
+            Reserve your table or get in touch with us. We&apos;re here to make your
             dining experience memorable.
           </p>
         </motion.div>

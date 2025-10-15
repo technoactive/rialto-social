@@ -276,7 +276,7 @@ export function MenuSection() {
                             V
                           </span>
                         )}
-                        {item.vegan && (
+                        {'vegan' in item && item.vegan && (
                           <span className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">
                             VG
                           </span>
