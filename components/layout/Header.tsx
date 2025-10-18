@@ -63,7 +63,11 @@ export function Header() {
                 width={180}
                 height={56}
                 priority
-                className="h-12 md:h-14 w-auto object-contain brightness-0 invert"
+                className={cn(
+                  "h-12 md:h-14 w-auto object-contain",
+                  // Only invert to white when on transparent header over hero
+                  isHomePage && !scrolled && !isOpen ? "brightness-0 invert" : ""
+                )}
               />
             </motion.div>
           </Link>
