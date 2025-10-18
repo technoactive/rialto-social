@@ -24,7 +24,7 @@ export function ReservationCTA() {
         >
           {/* Heading */}
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
-            Reserve Your <span className="text-primary">Table</span>
+            <span className="text-accent">Reserve</span> Your <span className="text-primary">Table</span>
           </h2>
           <p className="text-lg text-muted-foreground mb-8">
             Join us for an unforgettable Italian dining experience. 
@@ -40,7 +40,7 @@ export function ReservationCTA() {
               viewport={{ once: true }}
               className="bg-card rounded-xl p-6 text-center"
             >
-              <Phone className="w-8 h-8 text-primary mx-auto mb-3" />
+              <Phone className="w-8 h-8 text-accent mx-auto mb-3" />
               <h3 className="font-semibold mb-1">Call Us</h3>
               <p className="text-sm text-muted-foreground">
                 01306 742885
@@ -70,7 +70,7 @@ export function ReservationCTA() {
               viewport={{ once: true }}
               className="bg-card rounded-xl p-6 text-center"
             >
-              <Calendar className="w-8 h-8 text-primary mx-auto mb-3" />
+              <Calendar className="w-8 h-8 text-accent mx-auto mb-3" />
               <h3 className="font-semibold mb-1">Book Online</h3>
               <p className="text-sm text-muted-foreground">
                 Quick & easy online reservations

@@ -16,7 +16,7 @@ const features = [
 
 export function About() {
   return (
-    <section className="py-20 bg-secondary/20">
+    <section className="py-20 bg-accent/5">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
@@ -29,7 +29,7 @@ export function About() {
           >
             <div>
               <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
-                A Taste of Italy in{" "}
+                A Taste of <span className="text-accent">Italy</span> in{" "}
                 <span className="text-primary">Dorking</span>
               </h2>
               <p className="text-lg text-muted-foreground">
@@ -64,7 +64,7 @@ export function About() {
                   viewport={{ once: true }}
                   className="flex items-center gap-2"
                 >
-                  <Check className="w-5 h-5 text-primary flex-shrink-0" />
+                  <Check className={`w-5 h-5 flex-shrink-0 ${index % 2 === 0 ? 'text-accent' : 'text-primary'}`} />
                   <span className="text-sm">{feature}</span>
                 </motion.div>
               ))}

@@ -36,7 +36,7 @@ const entertainmentFeatures = [
 
 export function Entertainment() {
   return (
-    <section className="py-20 bg-secondary/20">
+    <section className="py-20 bg-accent/10">
       <div className="container mx-auto px-4">
         {/* Header */}
         <motion.div
@@ -103,38 +103,38 @@ export function Entertainment() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
           viewport={{ once: true }}
-          className="bg-primary/10 rounded-2xl p-8 text-center"
+          className="bg-accent rounded-2xl p-8 text-center text-white"
         >
           <div className="max-w-3xl mx-auto">
-            <Music className="w-12 h-12 text-primary mx-auto mb-4" />
+            <Music className="w-12 h-12 text-white mx-auto mb-4" />
             <h3 className="font-display text-2xl font-bold mb-4">
               Book Your Entertainment Night
             </h3>
-            <p className="text-muted-foreground mb-6">
+            <p className="text-white/80 mb-6">
               Perfect for birthday parties, corporate events, or just a fun night
               out with friends. We offer special packages that include dining and
               entertainment.
             </p>
             
             <div className="grid sm:grid-cols-3 gap-4 mb-8">
-              <div className="bg-card rounded-xl p-4">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                 <Users className="w-8 h-8 text-primary mx-auto mb-2" />
-                <h4 className="font-semibold">Group Packages</h4>
-                <p className="text-sm text-muted-foreground">
+                <h4 className="font-semibold text-white">Group Packages</h4>
+                <p className="text-sm text-white/70">
                   Special rates for groups of 10+
                 </p>
               </div>
-              <div className="bg-card rounded-xl p-4">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                 <Calendar className="w-8 h-8 text-primary mx-auto mb-2" />
-                <h4 className="font-semibold">Private Events</h4>
-                <p className="text-sm text-muted-foreground">
+                <h4 className="font-semibold text-white">Private Events</h4>
+                <p className="text-sm text-white/70">
                   Book our venue for exclusive use
                 </p>
               </div>
-              <div className="bg-card rounded-xl p-4">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                 <Mic2 className="w-8 h-8 text-primary mx-auto mb-2" />
-                <h4 className="font-semibold">Karaoke Rooms</h4>
-                <p className="text-sm text-muted-foreground">
+                <h4 className="font-semibold text-white">Karaoke Rooms</h4>
+                <p className="text-sm text-white/70">
                   Private rooms for 6-20 people
                 </p>
               </div>

@@ -58,7 +58,7 @@ export function MenuPreview() {
           className="text-center mb-12"
         >
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
-            Our <span className="text-primary">Menu</span>
+            <span className="text-accent">Our</span> <span className="text-primary">Menu</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Discover our carefully curated selection of authentic Italian dishes,

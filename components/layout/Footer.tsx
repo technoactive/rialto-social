@@ -4,7 +4,7 @@ import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Twitter } from "lucide
 
 export function Footer() {
   return (
-    <footer className="bg-secondary/50 border-t border-border">
+    <footer className="bg-accent text-white">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Restaurant Info */}
@@ -15,10 +15,10 @@ export function Footer() {
                 alt="Rialto Social"
                 width={120}
                 height={40}
-                className="h-10 w-auto object-contain"
+                className="h-10 w-auto object-contain brightness-0 invert"
               />
             </div>
-            <p className="text-muted-foreground">
+            <p className="text-white/80">
               Authentic Italian cuisine in the heart of Dorking. Experience the
               taste of Italy with our fresh ingredients and traditional recipes.
             </p>
@@ -27,7 +27,7 @@ export function Footer() {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="text-white/80 hover:text-primary transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
@@ -36,7 +36,7 @@ export function Footer() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="text-white/80 hover:text-primary transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
@@ -45,7 +45,7 @@ export function Footer() {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="text-white/80 hover:text-primary transition-colors"
                 aria-label="Twitter"
               >
                 <Twitter className="w-5 h-5" />
@@ -60,7 +60,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/menu"
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="text-white/80 hover:text-primary transition-colors"
                 >
                   Our Menu
                 </Link>
@@ -68,7 +68,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/about"
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="text-white/80 hover:text-primary transition-colors"
                 >
                   About Us
                 </Link>
@@ -76,7 +76,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/entertainment"
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="text-white/80 hover:text-primary transition-colors"
                 >
                   Entertainment
                 </Link>
@@ -84,7 +84,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/gallery"
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="text-white/80 hover:text-primary transition-colors"
                 >
                   Gallery
                 </Link>
@@ -92,7 +92,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/contact"
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="text-white/80 hover:text-primary transition-colors"
                 >
                   Contact & Reservations
                 </Link>
@@ -106,7 +106,7 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary mt-0.5" />
-                <span className="text-muted-foreground">
+                <span className="text-white/80">
                   45 Dene Street<br />
                   Dorking, Surrey<br />
                   RH4 2DW
@@ -116,7 +116,7 @@ export function Footer() {
                 <Phone className="w-5 h-5 text-primary" />
                 <a
                   href="tel:+441306742885"
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="text-white/80 hover:text-primary transition-colors"
                 >
                   01306 742885
                 </a>
@@ -125,7 +125,7 @@ export function Footer() {
                 <Mail className="w-5 h-5 text-primary" />
                 <a
                   href="mailto:info@rialtosocial.co.uk"
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="text-white/80 hover:text-primary transition-colors"
                 >
                   info@rialtosocial.co.uk
                 </a>
@@ -139,21 +139,21 @@ export function Footer() {
             <ul className="space-y-2">
               <li className="flex items-center gap-3">
                 <Clock className="w-5 h-5 text-primary" />
-                <div className="text-muted-foreground">
+                <div className="text-white/80">
                   <p className="font-medium">Monday - Thursday</p>
                   <p>12:00 PM - 10:00 PM</p>
                 </div>
               </li>
               <li className="flex items-center gap-3">
                 <div className="w-5 h-5" />
-                <div className="text-muted-foreground">
+                <div className="text-white/80">
                   <p className="font-medium">Friday - Saturday</p>
                   <p>12:00 PM - 11:00 PM</p>
                 </div>
               </li>
               <li className="flex items-center gap-3">
                 <div className="w-5 h-5" />
-                <div className="text-muted-foreground">
+                <div className="text-white/80">
                   <p className="font-medium">Sunday</p>
                   <p>12:00 PM - 9:00 PM</p>
                 </div>
@@ -163,8 +163,8 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-border">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
+        <div className="mt-12 pt-8 border-t border-white/20">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/70">
             <p>&copy; 2025 Rialto Social. All rights reserved.</p>
             <div className="flex gap-6">
               <Link href="/privacy" className="hover:text-primary transition-colors">

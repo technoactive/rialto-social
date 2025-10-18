@@ -79,27 +79,31 @@ export function Header() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="hidden lg:flex items-center space-x-8"
           >
-            {navItems.map((item, index) => (
-              <Link
-                key={item.name}
-                href={item.href}
+            {navItems.map((item, index) => {
+              const isActive = pathname === item.href;
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
                   className={cn(
-                    "relative transition-colors duration-200 font-medium group",
-                    isHomePage && !scrolled && !isOpen 
-                      ? "text-white/90 hover:text-white" 
-                      : "text-foreground/80 hover:text-primary"
+                    "relative transition-colors duration-200 font-medium",
+                    isActive
+                      ? "text-accent"
+                      : isHomePage && !scrolled && !isOpen 
+                        ? "text-white/90 hover:text-white" 
+                        : "text-foreground/80 hover:text-primary"
                   )}
-              >
-                <motion.span
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
                 >
-                  {item.name}
-                </motion.span>
-                <span className="absolute -bottom-2 left-0 right-0 h-0.5 bg-primary scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
-              </Link>
-            ))}
+                  <motion.span
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                  >
+                    {item.name}
+                  </motion.span>
+                </Link>
+              );
+            })}
           </motion.div>
 
           {/* CTA Button & Mobile Menu Button */}
@@ -109,7 +113,7 @@ export function Header() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="flex items-center gap-2 bg-primary text-primary-foreground px-3 md:px-4 py-2 rounded-full hover:bg-primary/90 transition-colors duration-200 text-sm"
+              className="flex items-center gap-2 bg-accent text-accent-foreground px-3 md:px-4 py-2 rounded-full hover:bg-accent/90 transition-colors duration-200 text-sm"
             >
               <Phone className="w-4 h-4" />
               <span className="hidden sm:inline font-medium">Reserve</span>
@@ -169,22 +173,30 @@ export function Header() {
               {/* Visual overlap to hide any gap */}
               <div className="absolute -top-1 left-0 right-0 h-2 bg-white dark:bg-gray-950" />
               <div className="px-4 pt-8 pb-4 space-y-4 relative">
-                {navItems.map((item, index) => (
-                  <motion.div
-                    key={item.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.05 }}
-                  >
-                    <Link
-                      href={item.href}
-                      onClick={() => setIsOpen(false)}
-                      className="block text-lg font-medium text-foreground/80 hover:text-primary transition-colors duration-200 py-2"
+                {navItems.map((item, index) => {
+                  const isActive = pathname === item.href;
+                  return (
+                    <motion.div
+                      key={item.name}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.05 }}
                     >
-                      {item.name}
-                    </Link>
-                  </motion.div>
-                ))}
+                      <Link
+                        href={item.href}
+                        onClick={() => setIsOpen(false)}
+                        className={cn(
+                          "block text-lg font-medium transition-colors duration-200 py-2",
+                          isActive 
+                            ? "text-accent" 
+                            : "text-foreground/80 hover:text-primary"
+                        )}
+                      >
+                        {item.name}
+                      </Link>
+                    </motion.div>
+                  );
+                })}
                 
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}

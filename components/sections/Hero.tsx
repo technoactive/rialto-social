@@ -22,13 +22,13 @@ export function Hero() {
       <div className="container mx-auto px-4 pt-20 md:pt-24 pb-12 md:pb-16">
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
-          <motion.div
+            <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 bg-white/90 backdrop-blur-md text-foreground px-4 py-2 rounded-full mb-8 shadow-lg"
+            className="inline-flex items-center gap-2 bg-accent text-white px-4 py-2 rounded-full mb-8 shadow-lg"
           >
-            <Star className="w-4 h-4 text-primary fill-primary" />
+            <Star className="w-4 h-4 text-white fill-white" />
             <span className="text-sm font-medium">Authentic Italian Since 2020</span>
           </motion.div>
 
@@ -80,16 +80,16 @@ export function Hero() {
             className="grid grid-cols-3 gap-8 mt-16 max-w-2xl mx-auto"
           >
             <div className="text-center">
-              <p className="text-3xl md:text-4xl font-bold text-primary">4.8</p>
-              <p className="text-sm text-muted-foreground">Rating</p>
+              <p className="text-3xl md:text-4xl font-bold text-accent">4.8</p>
+              <p className="text-sm text-white/70">Rating</p>
             </div>
             <div className="text-center">
               <p className="text-3xl md:text-4xl font-bold text-primary">127</p>
-              <p className="text-sm text-muted-foreground">Reviews</p>
+              <p className="text-sm text-white/70">Reviews</p>
             </div>
             <div className="text-center">
-              <p className="text-3xl md:text-4xl font-bold text-primary">5+</p>
-              <p className="text-sm text-muted-foreground">Years</p>
+              <p className="text-3xl md:text-4xl font-bold text-accent">5+</p>
+              <p className="text-sm text-white/70">Years</p>
             </div>
           </motion.div>
         </div>

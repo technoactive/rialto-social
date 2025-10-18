@@ -38,7 +38,7 @@ const bookingOptions = [
 
 export function QuickBooking() {
   return (
-    <section className="py-12 md:py-16 bg-secondary/20">
+    <section className="py-12 md:py-16 bg-accent/5">
       <div className="container mx-auto px-4">
         {/* Header */}
         <motion.div
