@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
+import { CookieBanner } from "@/components/ui/cookie-banner";
+import { CookieSettingsButton } from "@/components/ui/cookie-settings-button";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -216,6 +218,8 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased">
         {children}
+        <CookieBanner />
+        <CookieSettingsButton />
       </body>
     </html>
   );

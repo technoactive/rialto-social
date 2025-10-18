@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -45,6 +46,18 @@ export default function PrivacyPage() {
                 We are committed to protecting your personal data and comply with all applicable 
                 data protection laws. Your information is stored securely and never shared with 
                 third parties without your consent.
+              </p>
+
+              <h2 className="font-display text-2xl font-bold mt-8 mb-4">
+                Cookies and Tracking Technologies
+              </h2>
+              <p className="text-muted-foreground mb-4">
+                We use cookies and similar tracking technologies to improve your browsing experience, 
+                analyze website traffic, and understand where our visitors are coming from. For detailed 
+                information about the cookies we use and how to manage your preferences, please see our{" "}
+                <Link href="/cookies" className="text-primary hover:underline">
+                  Cookie Policy
+                </Link>.
               </p>
 
               <h2 className="font-display text-2xl font-bold mt-8 mb-4">
