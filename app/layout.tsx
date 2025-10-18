@@ -40,9 +40,12 @@ export const metadata: Metadata = {
     telephone: false,
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-icon.png",
+    icon: [
+      { url: "/favicon.png", type: "image/png" },
+      { url: "/logo/Rialto.png", sizes: "96x96", type: "image/png" },
+    ],
+    shortcut: "/favicon.png",
+    apple: "/logo/Rialto.png",
   },
   manifest: "/manifest.json",
   openGraph: {

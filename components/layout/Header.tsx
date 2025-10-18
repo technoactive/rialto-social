@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, Clock } from "lucide-react";
@@ -54,20 +55,19 @@ export function Header() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="flex flex-col"
+              className="flex items-center"
             >
-                <span className={cn(
-                  "text-2xl font-display font-bold",
-                  isHomePage && !scrolled && !isOpen ? "text-white" : "text-primary"
-                )}>
-                  Rialto Social
-                </span>
-                <span className={cn(
-                  "text-xs tracking-widest uppercase",
-                  isHomePage && !scrolled && !isOpen ? "text-white/80" : "text-muted-foreground"
-                )}>
-                  Italian Cuisine
-                </span>
+              <Image 
+                src="/logo/Rialto.png" 
+                alt="Rialto Social - Italian Restaurant"
+                width={180}
+                height={56}
+                priority
+                className={cn(
+                  "h-12 md:h-14 w-auto object-contain",
+                  isHomePage && !scrolled && !isOpen ? "brightness-0 invert" : ""
+                )}
+              />
             </motion.div>
           </Link>
 

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Twitter } from "lucide-react";
 
 export function Footer() {
@@ -8,9 +9,15 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Restaurant Info */}
           <div className="space-y-4">
-            <h3 className="font-display text-2xl font-bold text-primary">
-              Rialto Social
-            </h3>
+            <div className="mb-2">
+              <Image 
+                src="/logo/Rialto.png" 
+                alt="Rialto Social"
+                width={120}
+                height={40}
+                className="h-10 w-auto object-contain"
+              />
+            </div>
             <p className="text-muted-foreground">
               Authentic Italian cuisine in the heart of Dorking. Experience the
               taste of Italy with our fresh ingredients and traditional recipes.
