@@ -3,200 +3,48 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { aLaCarteData, pizzaExtras, lunchSpecialData, cocktailsData, dessertsData, coffeeData, teaData, otherBeverages } from "@/lib/data/menu";
+import type { MenuItem, DietaryTag } from "@/lib/types/menu";
+import { Coffee, Martini, Cookie, UtensilsCrossed, Clock, ChevronRight } from "lucide-react";
 
-const menuData = {
-  antipasti: {
-    title: "Antipasti",
-    description: "Begin your Italian journey with our selection of appetizers",
-    items: [
-      {
-        name: "Bruschetta Classica",
-        description: "Toasted ciabatta with fresh tomatoes, basil, garlic, and extra virgin olive oil",
-        price: "£8.50",
-        vegetarian: true,
-      },
-      {
-        name: "Carpaccio di Manzo",
-        description: "Thinly sliced raw beef tenderloin with rocket, parmesan shavings, and truffle oil",
-        price: "£14.00",
-      },
-      {
-        name: "Burrata Pugliese",
-        description: "Creamy burrata with heritage tomatoes, basil, and aged balsamic",
-        price: "£12.50",
-        vegetarian: true,
-      },
-      {
-        name: "Antipasto Misto",
-        description: "Selection of Italian cured meats, cheeses, olives, and grilled vegetables",
-        price: "£18.00 (for 2)",
-      },
-      {
-        name: "Calamari Fritti",
-        description: "Crispy fried squid rings with lemon aioli and fresh herbs",
-        price: "£11.00",
-      },
-    ],
-  },
-  pasta: {
-    title: "Pasta",
-    description: "Handmade fresh pasta, crafted daily in our kitchen",
-    items: [
-      {
-        name: "Spaghetti Carbonara",
-        description: "Classic Roman dish with egg yolk, guanciale, pecorino romano, and black pepper",
-        price: "£13.50",
-      },
-      {
-        name: "Tagliatelle al Tartufo",
-        description: "Fresh tagliatelle with black truffle, cream, and parmigiano reggiano",
-        price: "£18.00",
-        vegetarian: true,
-      },
-      {
-        name: "Linguine alle Vongole",
-        description: "Linguine with fresh clams, white wine, garlic, parsley, and chili",
-        price: "£16.50",
-      },
-      {
-        name: "Penne all'Arrabbiata",
-        description: "Penne in spicy tomato sauce with garlic, chili, and fresh basil",
-        price: "£11.50",
-        vegetarian: true,
-        vegan: true,
-      },
-      {
-        name: "Ravioli di Ricotta e Spinaci",
-        description: "Homemade ravioli filled with ricotta and spinach in sage butter",
-        price: "£14.50",
-        vegetarian: true,
-      },
-      {
-        name: "Paccheri all'Amatriciana",
-        description: "Large tube pasta with guanciale, tomatoes, pecorino, and chili",
-        price: "£13.00",
-      },
-    ],
-  },
-  pizza: {
-    title: "Pizza",
-    description: "Authentic Neapolitan style pizzas made with traditional methods",
-    items: [
-      {
-        name: "Margherita",
-        description: "San Marzano tomatoes, fior di latte mozzarella, fresh basil, extra virgin olive oil",
-        price: "£11.00",
-        vegetarian: true,
-      },
-      {
-        name: "Quattro Formaggi",
-        description: "Mozzarella, gorgonzola, parmesan, taleggio with honey drizzle",
-        price: "£14.50",
-        vegetarian: true,
-      },
-      {
-        name: "Diavola",
-        description: "Tomato sauce, mozzarella, spicy Calabrian salami, chili oil",
-        price: "£13.50",
-      },
-      {
-        name: "Prosciutto e Funghi",
-        description: "Tomato sauce, mozzarella, prosciutto cotto, mushrooms",
-        price: "£14.00",
-      },
-      {
-        name: "Capricciosa",
-        description: "Tomato sauce, mozzarella, ham, mushrooms, artichokes, olives",
-        price: "£15.00",
-      },
-      {
-        name: "Vegetariana",
-        description: "Tomato sauce, mozzarella, grilled vegetables, rocket",
-        price: "£12.50",
-        vegetarian: true,
-      },
-    ],
-  },
-  secondi: {
-    title: "Secondi Piatti",
-    description: "Main courses from land and sea",
-    items: [
-      {
-        name: "Osso Buco alla Milanese",
-        description: "Slow-braised veal shank with saffron risotto and gremolata",
-        price: "£28.00",
-      },
-      {
-        name: "Branzino al Sale",
-        description: "Whole sea bass baked in sea salt, served with lemon and herbs",
-        price: "£26.00",
-      },
-      {
-        name: "Pollo alla Cacciatora",
-        description: "Hunter's chicken with tomatoes, olives, capers, and rosemary",
-        price: "£18.50",
-      },
-      {
-        name: "Melanzane alla Parmigiana",
-        description: "Layers of aubergine, tomato sauce, mozzarella, and parmesan",
-        price: "£16.00",
-        vegetarian: true,
-      },
-      {
-        name: "Tagliata di Manzo",
-        description: "Sliced beef sirloin with rocket, cherry tomatoes, and aged balsamic",
-        price: "£32.00",
-      },
-    ],
-  },
-  dolci: {
-    title: "Dolci",
-    description: "Traditional Italian desserts to complete your meal",
-    items: [
-      {
-        name: "Tiramisu",
-        description: "Classic coffee-soaked savoiardi with mascarpone cream",
-        price: "£7.50",
-        vegetarian: true,
-      },
-      {
-        name: "Panna Cotta",
-        description: "Vanilla bean panna cotta with berry compote",
-        price: "£6.50",
-        vegetarian: true,
-      },
-      {
-        name: "Cannoli Siciliani",
-        description: "Crispy shells filled with sweet ricotta and pistachios",
-        price: "£8.00",
-        vegetarian: true,
-      },
-      {
-        name: "Affogato",
-        description: "Vanilla gelato 'drowned' in hot espresso",
-        price: "£5.50",
-        vegetarian: true,
-      },
-      {
-        name: "Torta della Nonna",
-        description: "Grandmother's lemon tart with pine nuts",
-        price: "£7.00",
-        vegetarian: true,
-      },
-    ],
-  },
-};
-
-const categories = [
-  { id: "antipasti", label: "Antipasti" },
-  { id: "pasta", label: "Pasta" },
-  { id: "pizza", label: "Pizza" },
-  { id: "secondi", label: "Secondi" },
-  { id: "dolci", label: "Dolci" },
+const menuTypes = [
+  { id: "lunch", label: "Lunch Special", icon: Clock },
+  { id: "food", label: "À La Carte", icon: UtensilsCrossed },
+  { id: "cocktails", label: "Cocktails", icon: Martini },
+  { id: "desserts", label: "Desserts & Coffee", icon: Cookie },
 ];
 
+const dietaryTags: Record<DietaryTag, { label: string; className: string }> = {
+  V: { label: "V", className: "bg-green-100 text-green-800" },
+  VE: { label: "VE", className: "bg-green-100 text-green-800" },
+  GF: { label: "GF", className: "bg-blue-100 text-blue-800" },
+  F: { label: "F", className: "bg-amber-100 text-amber-800" },
+};
+
+// Helper function to format price
+function formatPrice(price: number | string): string {
+  if (typeof price === "number") {
+    return `£${price.toFixed(2)}`;
+  }
+  return price;
+}
+
 export function MenuSection() {
+  const [activeMenuType, setActiveMenuType] = useState("food");
   const [activeCategory, setActiveCategory] = useState("antipasti");
+
+  // Get categories based on menu type
+  const getCategories = () => {
+    if (activeMenuType === "food") {
+      return aLaCarteData.map(section => ({
+        id: section.id,
+        label: section.title.replace(/[🥖🥗🍝🍕🍽🍔🍴🔥]/g, '').trim()
+      }));
+    }
+    return [];
+  };
+
+  const categories = getCategories();
 
   return (
     <section className="py-12">
@@ -217,81 +65,328 @@ export function MenuSection() {
           </p>
         </motion.div>
 
-        {/* Category Navigation */}
+        {/* Menu Type Navigation */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="flex flex-wrap justify-center gap-2 mb-12"
+          className="flex flex-wrap justify-center gap-2 mb-8"
         >
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => setActiveCategory(category.id)}
-              className={cn(
-                "px-6 py-3 rounded-full font-medium transition-all duration-200",
-                activeCategory === category.id
-                  ? "bg-primary text-primary-foreground shadow-lg"
-                  : "bg-secondary hover:bg-secondary/80 text-foreground"
-              )}
-            >
-              {category.label}
-            </button>
-          ))}
+          {menuTypes.map((type) => {
+            const Icon = type.icon;
+            return (
+              <button
+                key={type.id}
+                onClick={() => {
+                  setActiveMenuType(type.id);
+                  if (type.id === "food") setActiveCategory("antipasti");
+                }}
+                className={cn(
+                  "px-6 py-3 rounded-full font-medium transition-all duration-200 flex items-center gap-2",
+                  activeMenuType === type.id
+                    ? "bg-primary text-primary-foreground shadow-lg"
+                    : "bg-secondary hover:bg-secondary/80 text-foreground"
+                )}
+              >
+                <Icon className="w-4 h-4" />
+                {type.label}
+              </button>
+            );
+          })}
         </motion.div>
 
-        {/* Menu Items */}
+        {/* Category Navigation for À La Carte */}
+        {activeMenuType === "food" && categories.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="flex flex-wrap justify-center gap-2 mb-12"
+          >
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => setActiveCategory(category.id)}
+                className={cn(
+                  "px-4 py-2 rounded-full text-sm font-medium transition-all duration-200",
+                  activeCategory === category.id
+                    ? "bg-primary/10 text-primary border border-primary"
+                    : "bg-card hover:bg-card/80 text-foreground border border-border"
+                )}
+              >
+                {category.label}
+              </button>
+            ))}
+          </motion.div>
+        )}
+
+        {/* Menu Content */}
         <motion.div
-          key={activeCategory}
+          key={`${activeMenuType}-${activeCategory}`}
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3 }}
           className="max-w-4xl mx-auto"
         >
-          <div className="mb-8 text-center">
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-2">
-              {menuData[activeCategory as keyof typeof menuData].title}
-            </h2>
-            <p className="text-muted-foreground">
-              {menuData[activeCategory as keyof typeof menuData].description}
-            </p>
-          </div>
-
-          <div className="space-y-6">
-            {menuData[activeCategory as keyof typeof menuData].items.map(
-              (item, index) => (
-                <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                  className="bg-card rounded-lg p-6 hover:shadow-md transition-shadow"
-                >
-                  <div className="flex justify-between items-start gap-4">
-                    <div className="flex-1">
-                      <h3 className="font-semibold text-lg mb-1 flex items-center gap-2">
-                        {item.name}
-                        {item.vegetarian && (
-                          <span className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">
-                            V
-                          </span>
-                        )}
-                        {'vegan' in item && item.vegan && (
-                          <span className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">
-                            VG
-                          </span>
-                        )}
-                      </h3>
+          {activeMenuType === "lunch" && (
+            <div>
+              <div className="mb-8 text-center">
+                <h2 className="font-display text-3xl md:text-4xl font-bold mb-2">
+                  {lunchSpecialData.title}
+                </h2>
+                <p className="text-lg text-primary font-semibold mb-2">
+                  {lunchSpecialData.price} • Served until {lunchSpecialData.servedUntil}
+                </p>
+              </div>
+              
+              {/* Primo */}
+              <div className="mb-10">
+                <h3 className="font-display text-2xl font-bold mb-4 text-center">Primo</h3>
+                <div className="space-y-4">
+                  {lunchSpecialData.sections.primo.map((item) => (
+                    <div key={item.id} className="bg-card rounded-lg p-4">
+                      <h4 className="font-semibold text-lg mb-1">{item.name}</h4>
                       <p className="text-muted-foreground">{item.description}</p>
                     </div>
-                    <span className="text-lg font-semibold text-primary">
-                      {item.price}
-                    </span>
+                  ))}
+                </div>
+              </div>
+              
+              {/* Secondi */}
+              <div>
+                <h3 className="font-display text-2xl font-bold mb-4 text-center">Secondi</h3>
+                <div className="space-y-4">
+                  {lunchSpecialData.sections.secondi.map((item) => (
+                    <div key={item.id} className="bg-card rounded-lg p-4">
+                      <h4 className="font-semibold text-lg mb-1">{item.name}</h4>
+                      <p className="text-muted-foreground">{item.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {activeMenuType === "food" && (
+            <>
+              {aLaCarteData
+                .filter((section) => section.id === activeCategory)
+                .map((section) => (
+                  <div key={section.id}>
+                    <div className="mb-8 text-center">
+                      <h2 className="font-display text-3xl md:text-4xl font-bold mb-2">
+                        {section.title}
+                      </h2>
+                      {section.subtitle && (
+                        <p className="text-muted-foreground">{section.subtitle}</p>
+                      )}
+                    </div>
+
+                    <div className="space-y-6">
+                      {section.items.map((item, index) => (
+                        <motion.div
+                          key={item.id}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.3, delay: index * 0.05 }}
+                          className="bg-card rounded-lg p-6 hover:shadow-md transition-shadow"
+                        >
+                          <div className="flex justify-between items-start gap-4">
+                            <div className="flex-1">
+                              <h3 className="font-semibold text-lg mb-1 flex items-center gap-2">
+                                {item.name}
+                                {item.dietary?.map((tag) => (
+                                  <span
+                                    key={tag}
+                                    className={cn(
+                                      "text-xs px-2 py-1 rounded-full",
+                                      dietaryTags[tag].className
+                                    )}
+                                  >
+                                    {dietaryTags[tag].label}
+                                  </span>
+                                ))}
+                              </h3>
+                              {item.description && (
+                                <p className="text-muted-foreground">{item.description}</p>
+                              )}
+                            </div>
+                            <span className="text-lg font-semibold text-primary whitespace-nowrap">
+                              {formatPrice(item.price)}
+                            </span>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+
+                    {/* Pizza Extras */}
+                    {section.id === "pizze" && (
+                      <div className="mt-8 bg-secondary/50 rounded-lg p-6">
+                        <h4 className="font-semibold mb-3">Customise Your Pizza</h4>
+                        <div className="space-y-2 text-sm">
+                          <p>
+                            <span className="font-medium">Extra Toppings (£{pizzaExtras.extraToppingPrice} each):</span>{" "}
+                            {pizzaExtras.toppings.join(", ")}
+                          </p>
+                          <p>
+                            <span className="font-medium">Crust Dippers (£{pizzaExtras.dipperPrice} each):</span>{" "}
+                            {pizzaExtras.crustDippers.join(", ")}
+                          </p>
+                        </div>
+                      </div>
+                    )}
                   </div>
-                </motion.div>
-              )
-            )}
-          </div>
+                ))}
+            </>
+          )}
+
+          {activeMenuType === "cocktails" && (
+            <div>
+              <div className="mb-10">
+                <h3 className="font-display text-2xl font-bold mb-4 text-center">
+                  🍸 The Classic Collection · £11
+                </h3>
+                <div className="grid md:grid-cols-2 gap-4">
+                  {cocktailsData
+                    .filter((item) => item.category === "classic")
+                    .map((item) => (
+                      <div key={item.id} className="bg-card rounded-lg p-4">
+                        <h4 className="font-semibold text-lg mb-1">{item.name}</h4>
+                        <p className="text-muted-foreground text-sm">{item.description}</p>
+                      </div>
+                    ))}
+                </div>
+              </div>
+              
+              <div>
+                <h3 className="font-display text-2xl font-bold mb-4 text-center">
+                  🍹 Recklessly Refreshing · £11
+                </h3>
+                <div className="grid md:grid-cols-2 gap-4">
+                  {cocktailsData
+                    .filter((item) => item.category === "refreshing")
+                    .map((item) => (
+                      <div key={item.id} className="bg-card rounded-lg p-4">
+                        <h4 className="font-semibold text-lg mb-1">{item.name}</h4>
+                        <p className="text-muted-foreground text-sm">{item.description}</p>
+                      </div>
+                    ))}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {activeMenuType === "desserts" && (
+            <div>
+              {/* Desserts */}
+              <div className="mb-10">
+                <h3 className="font-display text-2xl font-bold mb-4 text-center">
+                  🍮 Menù dei Dolci
+                </h3>
+                <div className="space-y-6">
+                  {dessertsData.map((item) => (
+                    <div key={item.id} className="bg-card rounded-lg p-6">
+                      <div className="flex justify-between items-start gap-4">
+                        <div className="flex-1">
+                          <h4 className="font-semibold text-lg mb-2">
+                            {item.name}
+                            {item.vegan && (
+                              <span className="ml-2 text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">
+                                VE
+                              </span>
+                            )}
+                          </h4>
+                          <p className="text-muted-foreground italic">{item.description}</p>
+                        </div>
+                        <span className="text-lg font-semibold text-primary whitespace-nowrap">
+                          £{item.price.toFixed(2)}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Coffee */}
+              <div className="mb-10">
+                <h3 className="font-display text-2xl font-bold mb-4 text-center">
+                  ☕ Caffè & Tisane
+                </h3>
+                
+                <div className="mb-6">
+                  <h4 className="font-semibold text-lg mb-3">Caffè Classici</h4>
+                  <div className="grid md:grid-cols-2 gap-3">
+                    {coffeeData
+                      .filter((item) => !item.description || item.id === "affogato" || item.id === "caffe-frappe")
+                      .map((item) => (
+                        <div key={item.id} className="flex justify-between items-start bg-card rounded-lg p-3">
+                          <div className="flex-1">
+                            <span className="font-medium">{item.name}</span>
+                            {item.description && (
+                              <p className="text-sm text-muted-foreground mt-1">{item.description}</p>
+                            )}
+                          </div>
+                          <span className="text-primary font-semibold ml-4">
+                            £{item.price.toFixed(2)}
+                            {item.double && ` / £${item.double.toFixed(2)}`}
+                          </span>
+                        </div>
+                      ))}
+                  </div>
+                </div>
+
+                <div className="mb-6">
+                  <h4 className="font-semibold text-lg mb-3">Caffè Speciali</h4>
+                  <div className="space-y-3">
+                    {coffeeData
+                      .filter((item) => item.id.includes("coffee") && item.id !== "irish-coffee")
+                      .map((item) => (
+                        <div key={item.id} className="flex justify-between items-start bg-card rounded-lg p-3">
+                          <div className="flex-1">
+                            <span className="font-medium">{item.name}</span>
+                            {item.description && (
+                              <p className="text-sm text-muted-foreground mt-1">{item.description}</p>
+                            )}
+                          </div>
+                          <span className="text-primary font-semibold ml-4">
+                            £{item.price.toFixed(2)}
+                          </span>
+                        </div>
+                      ))}
+                  </div>
+                </div>
+
+                <div className="mb-6">
+                  <h4 className="font-semibold text-lg mb-3">Tisane & Infusi</h4>
+                  <div className="grid md:grid-cols-2 gap-3">
+                    {teaData.map((item) => (
+                      <div key={item.id} className="flex justify-between items-center bg-card rounded-lg p-3">
+                        <span className="font-medium">{item.name}</span>
+                        <span className="text-primary font-semibold">£{item.price.toFixed(2)}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-lg mb-3">Altro</h4>
+                  {otherBeverages.map((item) => (
+                    <div key={item.id} className="flex justify-between items-start bg-card rounded-lg p-3">
+                      <div className="flex-1">
+                        <span className="font-medium">{item.name}</span>
+                        {item.description && (
+                          <p className="text-sm text-muted-foreground mt-1">{item.description}</p>
+                        )}
+                      </div>
+                      <span className="text-primary font-semibold ml-4">
+                        £{item.price.toFixed(2)}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
         </motion.div>
 
         {/* Dietary Information */}
@@ -311,9 +406,21 @@ export function MenuSection() {
             </span>
             <span className="flex items-center gap-2">
               <span className="w-6 h-6 bg-green-100 text-green-800 rounded-full flex items-center justify-center text-xs font-semibold">
-                VG
+                VE
               </span>
               Vegan
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="w-6 h-6 bg-blue-100 text-blue-800 rounded-full flex items-center justify-center text-xs font-semibold">
+                GF
+              </span>
+              Gluten Free
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="w-6 h-6 bg-amber-100 text-amber-800 rounded-full flex items-center justify-center text-xs font-semibold">
+                F
+              </span>
+              Contains Fish
             </span>
           </div>
           <p className="mt-4 text-sm text-muted-foreground">

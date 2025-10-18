@@ -4,34 +4,44 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { aLaCarteData } from "@/lib/data/menu";
 
+// Helper function to format price
+function formatPrice(price: number | string): string {
+  if (typeof price === "number") {
+    return `£${price.toFixed(2)}`;
+  }
+  return price;
+}
+
+// Select featured items from actual menu data
 const menuCategories = [
   {
     name: "Antipasti",
     description: "Start your journey with our selection of appetizers",
-    items: [
-      { name: "Bruschetta Classica", price: "£8.50", description: "Toasted bread with tomatoes, basil, and garlic" },
-      { name: "Carpaccio di Manzo", price: "£14.00", description: "Thinly sliced raw beef with rocket and parmesan" },
-      { name: "Burrata Pugliese", price: "£12.50", description: "Creamy burrata with cherry tomatoes and basil" },
-    ],
+    items: aLaCarteData.find(s => s.id === "antipasti")?.items.slice(0, 3).map(item => ({
+      name: item.name,
+      price: formatPrice(item.price),
+      description: item.description || ""
+    })) || []
   },
   {
-    name: "Pasta",
+    name: "Pasta & Risotti",
     description: "Handmade fresh pasta, crafted daily",
-    items: [
-      { name: "Spaghetti Carbonara", price: "£13.50", description: "Classic Roman dish with egg, guanciale, and pecorino" },
-      { name: "Tagliatelle al Tartufo", price: "£18.00", description: "Fresh tagliatelle with truffle cream sauce" },
-      { name: "Linguine alle Vongole", price: "£16.50", description: "Linguine with fresh clams, garlic, and white wine" },
-    ],
+    items: aLaCarteData.find(s => s.id === "pasta-risotti")?.items.slice(0, 3).map(item => ({
+      name: item.name,
+      price: formatPrice(item.price),
+      description: item.description || ""
+    })) || []
   },
   {
     name: "Pizza",
-    description: "Authentic Neapolitan style pizzas",
-    items: [
-      { name: "Margherita", price: "£11.00", description: "San Marzano tomatoes, mozzarella, basil" },
-      { name: "Quattro Formaggi", price: "£14.50", description: "Four cheese blend with honey drizzle" },
-      { name: "Diavola", price: "£13.50", description: "Spicy salami, mozzarella, chili oil" },
-    ],
+    description: "Authentic traditional Italian pizzas",
+    items: aLaCarteData.find(s => s.id === "pizze")?.items.slice(0, 3).map(item => ({
+      name: item.name,
+      price: formatPrice(item.price),
+      description: item.description || ""
+    })) || []
   },
 ];
 
