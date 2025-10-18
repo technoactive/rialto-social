@@ -54,13 +54,13 @@ function MapComponent({
   className = "",
 }: OpenStreetMapProps) {
   return (
-    <div className={`${className} relative`} style={{ height: "400px", minHeight: "400px" }}>
+    <div className={`${className} relative z-0`} style={{ height: "400px", minHeight: "400px", isolation: "isolate" }}>
       <FixedIcon />
       <MapContainer
         center={[latitude, longitude]}
         zoom={zoom}
-        style={{ height: "100%", width: "100%" }}
-        className="rounded-lg"
+        style={{ height: "100%", width: "100%", position: "relative", zIndex: 0 }}
+        className="rounded-lg [&_.leaflet-control]:!z-[1] [&_.leaflet-pane]:!z-[1] [&_.leaflet-top]:!z-[1] [&_.leaflet-bottom]:!z-[1]"
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

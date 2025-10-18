@@ -305,7 +305,7 @@ export function ContactSection() {
             </div>
 
             {/* Map */}
-            <div className="bg-card rounded-2xl p-2 shadow-sm">
+            <div className="bg-card rounded-2xl p-2 shadow-sm relative z-0">
               <OpenStreetMap
                 latitude={51.2321}
                 longitude={-0.3294}
