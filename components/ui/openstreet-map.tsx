@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import { MapPin } from "lucide-react";
 import dynamic from "next/dynamic";
 
 // Dynamically import Leaflet components to avoid SSR issues
@@ -34,7 +33,7 @@ interface OpenStreetMapProps {
 const FixedIcon = () => {
   useEffect(() => {
     (async () => {
-      // @ts-ignore
+      // @ts-expect-error - Leaflet global is not typed
       delete L.Icon.Default.prototype._getIconUrl;
       const L = (await import("leaflet")).default;
       L.Icon.Default.mergeOptions({
