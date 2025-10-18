@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
+import Image from "next/image";
 
 const features = [
   "Fresh ingredients sourced daily",
@@ -82,37 +83,45 @@ export function About() {
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
                 <div className="relative h-48 rounded-2xl overflow-hidden bg-muted">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent" />
-                  <img
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent z-10" />
+                  <Image
                     src="/pictures/rialto-social-pizza-quattro-formaggi-dorking.jpg"
                     alt="Traditional Italian Pizza"
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 50vw, 25vw"
                   />
                 </div>
                 <div className="relative h-64 rounded-2xl overflow-hidden bg-muted">
-                  <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent" />
-                  <img
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent z-10" />
+                  <Image
                     src="/pictures/rialto-social-pasta-carbonara-authentic-italian-dorking.jpg"
                     alt="Fresh Homemade Pasta"
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 50vw, 25vw"
                   />
                 </div>
               </div>
               <div className="space-y-4 pt-8">
                 <div className="relative h-64 rounded-2xl overflow-hidden bg-muted">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent" />
-                  <img
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent z-10" />
+                  <Image
                     src="/pictures/rialto-social-restaurant-interior-dining-room.jpg"
                     alt="Rialto Social Interior"
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 50vw, 25vw"
                   />
                 </div>
                 <div className="relative h-48 rounded-2xl overflow-hidden bg-muted">
-                  <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent" />
-                  <img
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent z-10" />
+                  <Image
                     src="/pictures/rialto-social-kitchen-chefs-cooking.jpg"
                     alt="Our Chefs at Work"
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 50vw, 25vw"
                   />
                 </div>
               </div>

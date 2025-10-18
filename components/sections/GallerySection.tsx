@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const galleryImages = [
@@ -300,10 +301,12 @@ export function GallerySection() {
             >
               <div className="relative aspect-square rounded-2xl overflow-hidden bg-muted">
                 {/* Actual image */}
-                <img
+                <Image
                   src={image.src}
                   alt={image.title}
-                  className="w-full h-full object-cover group-hover:brightness-110 transition-all duration-300"
+                  fill
+                  className="object-cover group-hover:brightness-110 transition-all duration-300"
+                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   loading="lazy"
                 />
               </div>
@@ -360,11 +363,17 @@ export function GallerySection() {
               className="max-w-4xl w-full"
               onClick={(e) => e.stopPropagation()}
             >
-              <img
-                src={selectedImage.src}
-                alt={selectedImage.title}
-                className="w-full rounded-lg"
-              />
+              <div className="relative w-full aspect-auto">
+                <Image
+                  src={selectedImage.src}
+                  alt={selectedImage.title}
+                  width={1200}
+                  height={800}
+                  className="w-full h-auto rounded-lg"
+                  style={{ maxHeight: '80vh', objectFit: 'contain' }}
+                  priority
+                />
+              </div>
             </motion.div>
           </motion.div>
         )}

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { aLaCarteData, pizzaExtras, lunchSpecialData, cocktailsData, dessertsData, coffeeData, teaData, otherBeverages } from "@/lib/data/menu";
 import type { MenuItem, DietaryTag } from "@/lib/types/menu";
-import { Coffee, Martini, Cookie, UtensilsCrossed, Clock, ChevronRight } from "lucide-react";
+import { Martini, Cookie, UtensilsCrossed, Clock } from "lucide-react";
 
 const menuTypes = [
   { id: "lunch", label: "Lunch Special", icon: Clock },
