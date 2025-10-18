@@ -13,7 +13,6 @@ import {
   Instagram, 
   Twitter,
   ChevronRight,
-  Send,
   ArrowUp,
   Utensils,
   Wine,
@@ -22,8 +21,6 @@ import {
 import { Button } from "@/components/ui/button";
 
 export function Footer() {
-  const [email, setEmail] = useState("");
-  const [isSubscribed, setIsSubscribed] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   useEffect(() => {
@@ -37,17 +34,6 @@ export function Footer() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      setIsSubscribed(true);
-      setTimeout(() => {
-        setEmail("");
-        setIsSubscribed(false);
-      }, 3000);
-    }
-  };
-
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -56,59 +42,6 @@ export function Footer() {
     <footer className="relative bg-gradient-to-b from-accent to-accent/95">
       {/* Decorative Top Border */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-orange-500 to-primary"></div>
-      
-      {/* Newsletter Section */}
-      <div className="bg-primary/10 backdrop-blur-sm">
-        <div className="container mx-auto px-4 py-8">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="max-w-2xl mx-auto text-center"
-          >
-            <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-2">
-              Stay Updated with Rialto Social
-            </h3>
-            <p className="text-white/80 mb-6">
-              Subscribe to receive exclusive offers, event updates, and new menu announcements
-            </p>
-            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 text-white placeholder:text-white/60 focus:outline-none focus:border-primary transition-colors"
-                required
-              />
-              <Button 
-                type="submit" 
-                size="lg"
-                className="bg-primary hover:bg-primary/90 text-white font-semibold group"
-              >
-                {isSubscribed ? (
-                  <>
-                    <motion.span
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      className="mr-2"
-                    >
-                      ✓
-                    </motion.span>
-                    Subscribed!
-                  </>
-                ) : (
-                  <>
-                    Subscribe
-                    <Send className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </>
-                )}
-              </Button>
-            </form>
-          </motion.div>
-        </div>
-      </div>
 
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 py-12">
