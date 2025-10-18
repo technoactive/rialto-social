@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { OpenStreetMap } from "@/components/ui/openstreet-map";
 import { MapPin, Phone, Mail, Clock, Send, Calendar, Users, ChefHat, Mic2, Target } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 
@@ -305,25 +306,13 @@ export function ContactSection() {
 
             {/* Map */}
             <div className="bg-card rounded-2xl p-2 shadow-sm">
-              <div className="aspect-[4/3] bg-muted rounded-lg flex items-center justify-center">
-                <div className="text-center p-8">
-                  <MapPin className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-                  <p className="text-muted-foreground">
-                    Interactive map will be displayed here
-                  </p>
-                  <p className="text-sm text-muted-foreground mt-2">
-                    Google Maps integration required
-                  </p>
-                  <a
-                    href="https://www.google.com/maps/search/?api=1&query=45+Dene+Street+Dorking+RH4+2DW"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 mt-4 text-primary hover:underline"
-                  >
-                    View on Google Maps
-                  </a>
-                </div>
-              </div>
+              <OpenStreetMap
+                latitude={51.2321}
+                longitude={-0.3294}
+                zoom={17}
+                markerTitle="Rialto Social"
+                className="rounded-lg overflow-hidden"
+              />
             </div>
           </motion.div>
         </div>
