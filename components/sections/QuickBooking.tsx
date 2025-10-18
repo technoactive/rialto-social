@@ -13,7 +13,7 @@ const bookingOptions = [
     title: "Book a Table",
     description: "Reserve your dining experience",
     availability: "Daily 12 PM - 10 PM",
-    color: "bg-red-500/10 hover:bg-red-500/20",
+    color: "bg-primary/10 hover:bg-primary/20",
     link: "/contact?service=dining",
   },
   {
@@ -22,7 +22,7 @@ const bookingOptions = [
     title: "Book Karaoke",
     description: "Reserve main stage or private room",
     availability: "Fri-Sat 8 PM - 1 AM",
-    color: "bg-purple-500/10 hover:bg-purple-500/20",
+    color: "bg-accent/10 hover:bg-accent/20",
     link: "/contact?service=karaoke",
   },
   {
@@ -31,7 +31,7 @@ const bookingOptions = [
     title: "Book Darts",
     description: "Reserve your dartboard",
     availability: "Daily from 12 PM",
-    color: "bg-green-500/10 hover:bg-green-500/20",
+    color: "bg-accent/10 hover:bg-accent/20",
     link: "/contact?service=darts",
   },
 ];

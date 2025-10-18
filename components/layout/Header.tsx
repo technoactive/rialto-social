@@ -84,7 +84,7 @@ export function Header() {
                 key={item.name}
                 href={item.href}
                   className={cn(
-                    "relative transition-colors duration-200 font-medium",
+                    "relative transition-colors duration-200 font-medium group",
                     isHomePage && !scrolled && !isOpen 
                       ? "text-white/90 hover:text-white" 
                       : "text-foreground/80 hover:text-primary"
@@ -97,6 +97,7 @@ export function Header() {
                 >
                   {item.name}
                 </motion.span>
+                <span className="absolute -bottom-2 left-0 right-0 h-0.5 bg-primary scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
               </Link>
             ))}
           </motion.div>

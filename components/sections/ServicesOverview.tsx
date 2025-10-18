@@ -14,8 +14,8 @@ const services = [
     features: ["Lunch & Dinner", "Takeaway Available", "Private Dining"],
     link: "/menu",
     linkText: "View Menu",
-    color: "from-red-500/10 to-orange-500/10",
-    borderColor: "border-red-500/20",
+    color: "from-primary/10 to-primary/5",
+    borderColor: "border-primary/20",
     availability: "Daily 12 PM - 10 PM",
   },
   {
@@ -26,8 +26,8 @@ const services = [
     features: ["Fri & Sat 8 PM", "Private Rooms", "Party Packages"],
     link: "/entertainment#karaoke",
     linkText: "Book Karaoke",
-    color: "from-purple-500/10 to-pink-500/10",
-    borderColor: "border-purple-500/20",
+    color: "from-accent/10 to-accent/5",
+    borderColor: "border-accent/20",
     availability: "Fri-Sat 8 PM - 1 AM",
   },
   {
@@ -38,8 +38,8 @@ const services = [
     features: ["Daily Play", "Happy Hour Free", "Tournaments"],
     link: "/entertainment#darts",
     linkText: "Reserve Darts",
-    color: "from-green-500/10 to-blue-500/10",
-    borderColor: "border-green-500/20",
+    color: "from-accent/10 to-primary/5",
+    borderColor: "border-accent/20",
     availability: "Daily from 12 PM",
   },
 ];

@@ -11,25 +11,25 @@ const actions = [
     icon: ChefHat,
     label: "Book Table",
     href: "/contact?service=dining",
-    color: "bg-red-500 hover:bg-red-600",
+    color: "bg-primary hover:bg-primary/90",
   },
   {
     icon: Mic2,
     label: "Book Karaoke",
     href: "/contact?service=karaoke",
-    color: "bg-purple-500 hover:bg-purple-600",
+    color: "bg-accent hover:bg-accent/90",
   },
   {
     icon: Target,
     label: "Book Darts",
     href: "/contact?service=darts",
-    color: "bg-green-500 hover:bg-green-600",
+    color: "bg-accent hover:bg-accent/90",
   },
   {
     icon: Phone,
     label: "Call Us",
     href: "tel:+441306742885",
-    color: "bg-blue-500 hover:bg-blue-600",
+    color: "bg-primary hover:bg-primary/90",
   },
 ];
 

@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  /* Italian-inspired color palette */
+  /* Rialto Social Brand Colors */
   --background: #fdfcfb;
   --foreground: #1a1a1a;
   
-  /* Primary colors - Italian flag inspired */
-  --primary: #c7302b; /* Italian red */
+  /* Primary colors - Corporate Orange */
+  --primary: #ed7700; /* Rialto Orange */
   --primary-foreground: #ffffff;
   
   /* Secondary colors */
   --secondary: #f3f0e8; /* Warm cream */
   --secondary-foreground: #1a1a1a;
   
-  /* Accent colors */
-  --accent: #2a5434; /* Italian green */
+  /* Accent colors - Corporate Blue */
+  --accent: #005eb8; /* Rialto Blue */
   --accent-foreground: #ffffff;
   
   /* Muted colors */
@@ -28,7 +28,7 @@
   --popover-foreground: #1a1a1a;
   --border: #e5e5e0;
   --input: #e5e5e0;
-  --ring: #c7302b;
+  --ring: #ed7700;
   
   /* System colors */
   --destructive: #ef4444;
@@ -69,9 +69,9 @@
   :root {
     --background: #0a0a0a;
     --foreground: #fafafa;
-    --primary: #e84b47;
+    --primary: #ff8c1a; /* Lighter orange for dark mode */
     --secondary: #2a2a2a;
-    --accent: #4a7c54;
+    --accent: #1a7fd4; /* Lighter blue for dark mode */
     --muted: #1a1a1a;
     --muted-foreground: #a8a8a8;
     --card: #141414;
@@ -80,7 +80,7 @@
     --popover-foreground: #fafafa;
     --border: #2a2a2a;
     --input: #2a2a2a;
-    --ring: #e84b47;
+    --ring: #ff8c1a;
   }
 }
 
