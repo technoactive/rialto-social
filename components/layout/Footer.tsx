@@ -1,119 +1,234 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
-import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Twitter } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { 
+  MapPin, 
+  Phone, 
+  Mail, 
+  Clock, 
+  Facebook, 
+  Instagram, 
+  Twitter,
+  ChevronRight,
+  Send,
+  ArrowUp,
+  Utensils,
+  Wine,
+  Calendar
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export function Footer() {
+  const [email, setEmail] = useState("");
+  const [isSubscribed, setIsSubscribed] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowBackToTop(window.scrollY > 300);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) {
+      setIsSubscribed(true);
+      setTimeout(() => {
+        setEmail("");
+        setIsSubscribed(false);
+      }, 3000);
+    }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <footer className="bg-accent text-white">
+    <footer className="relative bg-gradient-to-b from-accent to-accent/95">
+      {/* Decorative Top Border */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-orange-500 to-primary"></div>
+      
+      {/* Newsletter Section */}
+      <div className="bg-primary/10 backdrop-blur-sm">
+        <div className="container mx-auto px-4 py-8">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="max-w-2xl mx-auto text-center"
+          >
+            <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-2">
+              Stay Updated with Rialto Social
+            </h3>
+            <p className="text-white/80 mb-6">
+              Subscribe to receive exclusive offers, event updates, and new menu announcements
+            </p>
+            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+                className="flex-1 px-4 py-3 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 text-white placeholder:text-white/60 focus:outline-none focus:border-primary transition-colors"
+                required
+              />
+              <Button 
+                type="submit" 
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-white font-semibold group"
+              >
+                {isSubscribed ? (
+                  <>
+                    <motion.span
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      className="mr-2"
+                    >
+                      ✓
+                    </motion.span>
+                    Subscribed!
+                  </>
+                ) : (
+                  <>
+                    Subscribe
+                    <Send className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </>
+                )}
+              </Button>
+            </form>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Main Footer Content */}
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Restaurant Info */}
-          <div className="space-y-4">
-            <div className="mb-2">
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="space-y-4"
+          >
+            <div className="mb-4">
               <Image 
                 src="/logo/Rialto.png" 
                 alt="Rialto Social"
-                width={120}
-                height={40}
-                className="h-10 w-auto object-contain brightness-0 invert"
+                width={140}
+                height={50}
+                className="h-12 w-auto object-contain brightness-0 invert"
               />
             </div>
-            <p className="text-white/80">
-              Authentic Italian cuisine in the heart of Dorking. Experience the
-              taste of Italy with our fresh ingredients and traditional recipes.
+            <p className="text-white/80 leading-relaxed">
+              Where authentic Italian cuisine meets modern social dining. 
+              Experience the warmth of Italian hospitality in the heart of Dorking.
             </p>
-            <div className="flex gap-4 pt-2">
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/80 hover:text-primary transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/80 hover:text-primary transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/80 hover:text-primary transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter className="w-5 h-5" />
-              </a>
+            
+            {/* Social Media */}
+            <div className="pt-4">
+              <p className="text-white/60 text-sm mb-3">Follow us for updates</p>
+              <div className="flex gap-3">
+                {[
+                  { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
+                  { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+                  { icon: Twitter, href: "https://twitter.com", label: "Twitter" }
+                ].map((social, index) => (
+                  <motion.a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-white/80 hover:bg-primary hover:text-white transition-all duration-300 group"
+                    aria-label={social.label}
+                    whileHover={{ scale: 1.1 }}
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <social.icon className="w-5 h-5" />
+                  </motion.a>
+                ))}
+              </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Quick Links */}
-          <div className="space-y-4">
-            <h4 className="font-semibold text-lg">Quick Links</h4>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/menu"
-                  className="text-white/80 hover:text-primary transition-colors"
-                >
-                  Our Menu
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about"
-                  className="text-white/80 hover:text-primary transition-colors"
-                >
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/entertainment"
-                  className="text-white/80 hover:text-primary transition-colors"
-                >
-                  Entertainment
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/gallery"
-                  className="text-white/80 hover:text-primary transition-colors"
-                >
-                  Gallery
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="text-white/80 hover:text-primary transition-colors"
-                >
-                  Contact & Reservations
-                </Link>
-              </li>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="space-y-4"
+          >
+            <h4 className="font-display text-xl font-bold text-white flex items-center gap-2">
+              <Utensils className="w-5 h-5 text-primary" />
+              Quick Links
+            </h4>
+            <ul className="space-y-3">
+              {[
+                { href: "/menu", label: "Our Menu" },
+                { href: "/about", label: "About Us" },
+                { href: "/entertainment", label: "Entertainment" },
+                { href: "/gallery", label: "Gallery" },
+                { href: "/contact", label: "Reservations" }
+              ].map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-white/80 hover:text-primary transition-colors inline-flex items-center gap-2 group"
+                  >
+                    <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Contact Info */}
-          <div className="space-y-4">
-            <h4 className="font-semibold text-lg">Contact Info</h4>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-primary mt-0.5" />
-                <span className="text-white/80">
-                  45 Dene Street<br />
-                  Dorking, Surrey<br />
-                  RH4 2DW
-                </span>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="space-y-4"
+          >
+            <h4 className="font-display text-xl font-bold text-white flex items-center gap-2">
+              <Phone className="w-5 h-5 text-primary" />
+              Get in Touch
+            </h4>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3 group">
+                <MapPin className="w-5 h-5 text-primary mt-0.5 group-hover:scale-110 transition-transform" />
+                <div>
+                  <p className="text-white/80 group-hover:text-white transition-colors">
+                    45 Dene Street<br />
+                    Dorking, Surrey<br />
+                    RH4 2DW
+                  </p>
+                  <a 
+                    href="https://www.google.com/maps/search/?api=1&query=45+Dene+Street+Dorking+RH4+2DW"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary text-sm hover:underline mt-1 inline-block"
+                  >
+                    Get directions →
+                  </a>
+                </div>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-primary" />
+              <li className="flex items-center gap-3 group">
+                <Phone className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
                 <a
                   href="tel:+441306742885"
                   className="text-white/80 hover:text-primary transition-colors"
@@ -121,8 +236,8 @@ export function Footer() {
                   01306 742885
                 </a>
               </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-primary" />
+              <li className="flex items-center gap-3 group">
+                <Mail className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
                 <a
                   href="mailto:info@rialtosocial.co.uk"
                   className="text-white/80 hover:text-primary transition-colors"
@@ -131,58 +246,100 @@ export function Footer() {
                 </a>
               </li>
             </ul>
-          </div>
+            
+            {/* Quick Reservation Button */}
+            <Link href="/contact?service=dining">
+              <Button className="mt-4 bg-white/10 hover:bg-primary border border-white/20 text-white group">
+                <Calendar className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform" />
+                Book a Table
+              </Button>
+            </Link>
+          </motion.div>
 
           {/* Opening Hours */}
-          <div className="space-y-4">
-            <h4 className="font-semibold text-lg">Opening Hours</h4>
-            <ul className="space-y-2">
-              <li className="flex items-center gap-3">
-                <Clock className="w-5 h-5 text-primary" />
-                <div className="text-white/80">
-                  <p className="font-medium">Monday - Thursday</p>
-                  <p>12:00 PM - 10:00 PM</p>
-                </div>
-              </li>
-              <li className="flex items-center gap-3">
-                <div className="w-5 h-5" />
-                <div className="text-white/80">
-                  <p className="font-medium">Friday - Saturday</p>
-                  <p>12:00 PM - 11:00 PM</p>
-                </div>
-              </li>
-              <li className="flex items-center gap-3">
-                <div className="w-5 h-5" />
-                <div className="text-white/80">
-                  <p className="font-medium">Sunday</p>
-                  <p>12:00 PM - 9:00 PM</p>
-                </div>
-              </li>
-            </ul>
-          </div>
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="space-y-4"
+          >
+            <h4 className="font-display text-xl font-bold text-white flex items-center gap-2">
+              <Clock className="w-5 h-5 text-primary" />
+              Opening Hours
+            </h4>
+            <div className="space-y-3">
+              {[
+                { days: "Monday - Thursday", hours: "12:00 PM - 10:00 PM" },
+                { days: "Friday - Saturday", hours: "12:00 PM - 11:00 PM" },
+                { days: "Sunday", hours: "12:00 PM - 9:00 PM" }
+              ].map((schedule, index) => (
+                <motion.div 
+                  key={schedule.days}
+                  className="bg-white/5 rounded-lg p-3 backdrop-blur-sm"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <p className="font-medium text-white">{schedule.days}</p>
+                  <p className="text-white/70 text-sm">{schedule.hours}</p>
+                </motion.div>
+              ))}
+              <div className="mt-4 p-3 bg-primary/20 rounded-lg border border-primary/30">
+                <p className="text-sm text-white/90 flex items-center gap-2">
+                  <Wine className="w-4 h-4 text-primary" />
+                  Kitchen closes 30 mins before closing
+                </p>
+              </div>
+            </div>
+          </motion.div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-white/20">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/70">
-            <p>&copy; 2025 Rialto Social. All rights reserved.</p>
-            <div className="flex gap-6">
-              <Link href="/privacy" className="hover:text-primary transition-colors">
-                Privacy Policy
-              </Link>
-              <Link href="/cookies" className="hover:text-primary transition-colors">
-                Cookie Policy
-              </Link>
-              <Link href="/terms" className="hover:text-primary transition-colors">
-                Terms of Service
-              </Link>
-              <Link href="/sitemap.xml" className="hover:text-primary transition-colors">
-                Sitemap
-              </Link>
+        <div className="mt-12 pt-8 border-t border-white/10">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="flex flex-col md:flex-row items-center gap-4 text-sm text-white/60">
+              <p>&copy; {new Date().getFullYear()} Rialto Social. All rights reserved.</p>
+              <span className="hidden md:inline text-white/30">•</span>
+              <p className="text-center">Authentic Italian Dining & Entertainment</p>
+            </div>
+            <div className="flex flex-wrap justify-center gap-4 text-sm">
+              {[
+                { href: "/privacy", label: "Privacy" },
+                { href: "/cookies", label: "Cookies" },
+                { href: "/terms", label: "Terms" },
+                { href: "/sitemap.xml", label: "Sitemap" }
+              ].map((link, index) => (
+                <Link 
+                  key={link.href}
+                  href={link.href} 
+                  className="text-white/60 hover:text-primary transition-colors relative group"
+                >
+                  {link.label}
+                  {index < 3 && (
+                    <span className="ml-4 text-white/30 group-last:hidden">|</span>
+                  )}
+                </Link>
+              ))}
             </div>
           </div>
         </div>
       </div>
+
+      {/* Back to Top Button */}
+      {showBackToTop && (
+        <motion.button
+          onClick={scrollToTop}
+          className="fixed bottom-8 left-8 w-12 h-12 bg-white/10 hover:bg-primary backdrop-blur-sm border border-white/20 text-white rounded-full shadow-lg flex items-center justify-center group transition-all duration-300 z-40"
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0 }}
+          whileHover={{ scale: 1.1 }}
+          transition={{ duration: 0.3 }}
+        >
+          <ArrowUp className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
+        </motion.button>
+      )}
     </footer>
   );
 }
