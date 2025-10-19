@@ -84,7 +84,9 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code",
+    google: "pending-verification",
+    yandex: "pending-verification",
+    bing: "pending-verification",
   },
 };
 
@@ -106,13 +108,21 @@ const jsonLdWebsite = {
 const jsonLdRestaurant = {
   "@context": "https://schema.org",
   "@type": "Restaurant",
-  "@id": "https://rialtosocial.co.uk",
+  "@id": "https://rialtosocial.co.uk/#restaurant",
   "name": "Rialto Social",
-  "image": "https://rialtosocial.co.uk/og-image.jpg",
+  "alternateName": "Rialto Social Italian Restaurant & Bar",
+  "image": [
+    "https://rialtosocial.co.uk/pictures/rialto-social-restaurant-exterior.jpg",
+    "https://rialtosocial.co.uk/pictures/rialto-social-dining-area.jpg",
+    "https://rialtosocial.co.uk/pictures/rialto-social-pizza-making.jpg"
+  ],
+  "logo": "https://rialtosocial.co.uk/logo/Rialto.png",
   "url": "https://rialtosocial.co.uk",
   "telephone": "+441306742885",
+  "email": "info@rialtosocial.co.uk",
   "priceRange": "££",
-  "servesCuisine": "Italian",
+  "description": "Authentic Italian restaurant in Dorking serving fresh pasta, traditional pizzas, and classic Italian dishes. Features karaoke nights and darts for entertainment.",
+  "servesCuisine": ["Italian", "Pizza", "Pasta", "Mediterranean"],
   "amenityFeature": [
     {
       "@type": "LocationFeatureSpecification",
@@ -128,19 +138,49 @@ const jsonLdRestaurant = {
       "@type": "LocationFeatureSpecification",
       "name": "Live Entertainment",
       "value": true
-    }
-  ],
-  "hasMenu": [
+    },
     {
-      "@type": "Menu",
-      "name": "Food Menu",
-      "url": "https://rialtosocial.co.uk/menu"
+      "@type": "LocationFeatureSpecification",
+      "name": "Dine-in",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Takeaway",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Wheelchair accessible",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Free WiFi",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Family friendly",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Bar",
+      "value": true
     }
   ],
+  "hasMenu": {
+    "@type": "Menu",
+    "name": "Rialto Social Menu",
+    "url": "https://rialtosocial.co.uk/menu",
+    "description": "Our menu features authentic Italian dishes including fresh pasta, traditional pizzas, and classic Italian mains."
+  },
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "45 Dene Street",
     "addressLocality": "Dorking",
+    "addressRegion": "Surrey",
     "postalCode": "RH4 2DW",
     "addressCountry": "GB"
   },
@@ -153,29 +193,86 @@ const jsonLdRestaurant = {
     {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
-      "opens": "12:00",
-      "closes": "22:00"
+      "opens": "17:00",
+      "closes": "23:00"
     },
     {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Friday", "Saturday"],
       "opens": "12:00",
-      "closes": "23:00"
+      "closes": "00:00"
     },
     {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": "Sunday",
       "opens": "12:00",
-      "closes": "21:00"
+      "closes": "22:00"
     }
   ],
   "menu": "https://rialtosocial.co.uk/menu",
   "acceptsReservations": "True",
+  "reservationUrl": "https://rialtosocial.co.uk/contact",
+  "paymentAccepted": ["Cash", "Credit Card", "Debit Card"],
+  "currenciesAccepted": "GBP",
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.8",
-    "reviewCount": "127"
-  }
+    "reviewCount": "127",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "potentialAction": {
+    "@type": "ReserveAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://rialtosocial.co.uk/contact",
+      "actionPlatform": [
+        "http://schema.org/DesktopWebPlatform",
+        "http://schema.org/MobileWebPlatform"
+      ]
+    },
+    "result": {
+      "@type": "Reservation",
+      "name": "Table Reservation"
+    }
+  },
+  "sameAs": [
+    "https://www.facebook.com/rialtosocial",
+    "https://www.instagram.com/rialtosocial"
+  ]
+};
+
+const jsonLdOrganization = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://rialtosocial.co.uk/#organization",
+  "name": "Rialto Social",
+  "url": "https://rialtosocial.co.uk",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://rialtosocial.co.uk/logo/Rialto.png",
+    "width": 200,
+    "height": 200
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+44-1306-742885",
+    "contactType": "customer service",
+    "areaServed": "GB",
+    "availableLanguage": ["English"]
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "45 Dene Street",
+    "addressLocality": "Dorking",
+    "addressRegion": "Surrey",
+    "postalCode": "RH4 2DW",
+    "addressCountry": "GB"
+  },
+  "sameAs": [
+    "https://www.facebook.com/rialtosocial",
+    "https://www.instagram.com/rialtosocial"
+  ]
 };
 
 export default function RootLayout({
@@ -199,6 +296,14 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(jsonLdRestaurant),
+          }}
+          strategy="afterInteractive"
+        />
+        <Script
+          id="json-ld-organization"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLdOrganization),
           }}
           strategy="afterInteractive"
         />

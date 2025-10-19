@@ -1,15 +1,63 @@
 # Robots.txt for rialtosocial.co.uk
-# Allow all crawlers
+# Last updated: 2025-10-19
 
+# Allow all legitimate crawlers
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /404
+Disallow: *.json$
+Disallow: /*?*
+
+# Googlebot specific rules
+User-agent: Googlebot
+Allow: /
+Allow: /*.js
+Allow: /*.css
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.png
+Allow: /*.gif
+Allow: /*.webp
+Crawl-delay: 0
+
+# Bingbot specific rules
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Social media crawlers
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Image crawlers
+User-agent: Googlebot-Image
+Allow: /pictures/
+Allow: /logo/
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.png
+Allow: /*.webp
 
 # Sitemap location
 Sitemap: https://rialtosocial.co.uk/sitemap.xml
 
-# Crawl-delay for responsible crawling
-Crawl-delay: 1
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
 
-# Disallow admin or private areas (if any)
-# Disallow: /admin/
-# Disallow: /private/
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /

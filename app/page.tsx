@@ -7,6 +7,7 @@ import { About } from "@/components/sections/About";
 import { MenuPreview } from "@/components/sections/MenuPreview";
 import { Entertainment } from "@/components/sections/Entertainment";
 import { Testimonials } from "@/components/sections/Testimonials";
+import { FAQSection } from "@/components/sections/FAQSection";
 import { ReservationCTA } from "@/components/sections/ReservationCTA";
 import { FloatingActionButton } from "@/components/ui/floating-action-button";
 
@@ -22,6 +23,7 @@ export default function Home() {
         <MenuPreview />
         <Entertainment />
         <Testimonials />
+        <FAQSection />
         <ReservationCTA />
       </main>
       <Footer />
