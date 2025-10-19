@@ -29,12 +29,23 @@
 
 ## 🚀 Next Steps You Need to Take
 
-### 1. Google Search Console Setup (URGENT)
+### 1. Search Engine Verification (URGENT)
+
+#### Google Search Console
 1. Go to https://search.google.com/search-console
 2. Add property: https://rialtosocial.co.uk
 3. Verify ownership (HTML tag method recommended)
 4. Replace "pending-verification" in layout.tsx with your verification code
 5. Submit sitemap: https://rialtosocial.co.uk/sitemap.xml
+
+#### Bing Webmaster Tools
+1. Go to https://www.bing.com/webmasters
+2. Add your site: https://rialtosocial.co.uk
+3. Verify ownership (meta tag method)
+4. Add the verification meta tag manually to your HTML head section
+5. Submit sitemap
+
+Note: Bing verification requires a separate meta tag that isn't supported in Next.js metadata object
 
 ### 2. Google Business Profile (CRITICAL for Local SEO)
 1. Go to https://business.google.com
