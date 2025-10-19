@@ -1,290 +1,555 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mic2, Target, Music, Trophy, Users, Clock, Calendar, Star } from "lucide-react";
+import { Mic2, Target, Music, Trophy, Users, Clock, Calendar, Star, ChevronRight, Sparkles, PartyPopper, Award, Heart, Volume2, Smartphone, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
+import { useState } from "react";
+import { cn } from "@/lib/utils";
 
-const karaokeDetails = {
-  title: "Karaoke Nights",
-  description: "Turn your dinner into an unforgettable night of entertainment",
-  features: [
-    {
-      icon: Mic2,
-      title: "State-of-the-Art System",
-      description: "Professional karaoke setup with crystal clear sound and HD screens",
-    },
-    {
-      icon: Music,
-      title: "10,000+ Songs",
-      description: "From classic hits to current chart-toppers in multiple languages",
-    },
-    {
-      icon: Users,
-      title: "Private Rooms",
-      description: "3 private karaoke rooms for groups of 6-20 people",
-    },
-    {
-      icon: Star,
-      title: "VIP Packages",
-      description: "Special dining and karaoke packages for celebrations",
-    },
-  ],
-  schedule: {
-    regular: "Every Friday & Saturday: 8 PM - 1 AM",
-    private: "Private rooms available all week with reservation",
+const karafunFeatures = [
+  {
+    icon: Music,
+    title: "44,000+ Songs",
+    description: "The UK's largest karaoke catalog with songs in 23 languages"
   },
-  pricing: [
-    { type: "Main Stage", price: "Free with dining" },
-    { type: "Private Room (Small)", price: "£30/hour (6-10 people)" },
-    { type: "Private Room (Large)", price: "£50/hour (10-20 people)" },
-    { type: "VIP Package", price: "From £35 per person (includes meal)" },
-  ],
-};
+  {
+    icon: Smartphone,
+    title: "Mobile App Control",
+    description: "Queue songs from your phone with the free Karafun app"
+  },
+  {
+    icon: Globe,
+    title: "Updated Weekly",
+    description: "New releases added every week - sing the latest hits"
+  },
+  {
+    icon: Volume2,
+    title: "Studio Quality",
+    description: "Professional audio system with vocal effects and pitch control"
+  }
+];
 
-const dartsDetails = {
-  title: "Darts Lounge",
-  description: "Challenge friends or join our leagues in our dedicated darts area",
-  features: [
-    {
-      icon: Target,
-      title: "4 Professional Boards",
-      description: "Tournament-standard bristle dartboards with proper lighting",
-    },
-    {
-      icon: Trophy,
-      title: "Weekly Leagues",
-      description: "Join our Wednesday night leagues for all skill levels",
-    },
-    {
-      icon: Clock,
-      title: "Happy Hour Special",
-      description: "Free darts play during happy hour (3-6 PM daily)",
-    },
-    {
-      icon: Calendar,
-      title: "Monthly Tournaments",
-      description: "Cash prizes and restaurant vouchers for winners",
-    },
-  ],
-  schedule: {
-    regular: "Daily from opening to close",
-    leagues: "Wednesday nights: 7 PM - 10 PM",
-    tournaments: "Last Saturday of each month",
+const entertainmentHighlights = [
+  {
+    stat: "3",
+    label: "Private Karaoke Rooms",
+    icon: Mic2
   },
-  pricing: [
-    { type: "Casual Play", price: "£3 per hour" },
-    { type: "Happy Hour", price: "Free (3-6 PM)" },
-    { type: "League Entry", price: "£5 per person" },
-    { type: "Tournament Entry", price: "£10 per person" },
-  ],
-};
+  {
+    stat: "4",
+    label: "Pro Dart Boards",
+    icon: Target
+  },
+  {
+    stat: "44K+",
+    label: "Karaoke Songs",
+    icon: Music
+  },
+  {
+    stat: "50+",
+    label: "Weekly Players",
+    icon: Users
+  }
+];
+
+const testimonials = [
+  {
+    name: "Sarah M.",
+    rating: 5,
+    text: "Best karaoke setup in Surrey! The Karafun system is amazing and the private rooms are perfect for parties."
+  },
+  {
+    name: "James K.",
+    rating: 5,
+    text: "Love the darts league here. Great atmosphere, well-maintained boards, and excellent Italian food!"
+  },
+  {
+    name: "Emma L.",
+    rating: 5,
+    text: "Had my birthday here - dinner, karaoke, and darts all in one place. Couldn't ask for better!"
+  }
+];
 
 export function EntertainmentPageSection() {
+  const [activeTab, setActiveTab] = useState<"karaoke" | "darts">("karaoke");
+
   return (
-    <section className="py-12">
-      <div className="container mx-auto px-4">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
-          <h1 className="font-display text-5xl md:text-6xl font-bold mb-4">
-            Entertainment at <span className="text-primary">Rialto Social</span>
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            More than just great Italian food - we&apos;re Dorking&apos;s premier destination
-            for dining and entertainment under one roof
-          </p>
-        </motion.div>
+    <>
+      {/* Hero Section */}
+      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-accent/10 via-primary/5 to-accent/10">
+        <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-transparent to-primary/20" />
+        
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <motion.div
+            animate={{
+              rotate: 360,
+              scale: [1, 1.2, 1],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+            className="absolute -top-20 -right-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl"
+          />
+          <motion.div
+            animate={{
+              rotate: -360,
+              scale: [1, 1.3, 1],
+            }}
+            transition={{
+              duration: 25,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+            className="absolute -bottom-20 -left-20 w-96 h-96 bg-accent/10 rounded-full blur-3xl"
+          />
+        </div>
 
-        {/* Karaoke Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="mb-20"
-        >
-          <div className="text-center mb-12">
-            <Mic2 className="w-16 h-16 text-primary mx-auto mb-4" />
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-              {karaokeDetails.title}
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              {karaokeDetails.description}
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center max-w-4xl mx-auto"
+          >
+            <div className="flex justify-center gap-2 mb-6">
+              <Sparkles className="w-8 h-8 text-primary animate-pulse" />
+              <PartyPopper className="w-8 h-8 text-accent animate-bounce" />
+              <Sparkles className="w-8 h-8 text-primary animate-pulse" />
+            </div>
+            
+            <h1 className="font-display text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+              Entertainment Hub
+            </h1>
+            <p className="text-xl md:text-2xl text-muted-foreground mb-8">
+              Dorking's Premier Venue for Karaoke & Darts
             </p>
-          </div>
+            
+            {/* Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+              {entertainmentHighlights.map((item, index) => (
+                <motion.div
+                  key={item.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg"
+                >
+                  <item.icon className="w-8 h-8 text-accent mx-auto mb-2" />
+                  <div className="text-3xl font-bold text-primary">{item.stat}</div>
+                  <div className="text-sm text-muted-foreground">{item.label}</div>
+                </motion.div>
+              ))}
+            </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {karaokeDetails.features.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                className="bg-card rounded-xl p-6 text-center"
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="bg-gradient-to-r from-accent to-primary text-white font-semibold">
+                <Link href="/contact" className="flex items-center gap-2">
+                  Book Your Night <ChevronRight className="w-4 h-4" />
+                </Link>
+              </Button>
+              <Button size="lg" variant="outline" className="border-2">
+                <a href="tel:+441306742885" className="flex items-center gap-2">
+                  <Phone className="w-4 h-4" /> Call 01306 742885
+                </a>
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Tab Navigation */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-center mb-12">
+            <div className="inline-flex bg-muted rounded-full p-1">
+              <button
+                onClick={() => setActiveTab("karaoke")}
+                className={cn(
+                  "px-8 py-3 rounded-full font-medium transition-all duration-300",
+                  activeTab === "karaoke"
+                    ? "bg-primary text-white shadow-lg"
+                    : "text-muted-foreground hover:text-foreground"
+                )}
               >
-                <feature.icon className="w-10 h-10 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold text-lg mb-2">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground">
-                  {feature.description}
-                </p>
-              </motion.div>
-            ))}
+                <Mic2 className="w-5 h-5 inline-block mr-2" />
+                Karaoke with Karafun
+              </button>
+              <button
+                onClick={() => setActiveTab("darts")}
+                className={cn(
+                  "px-8 py-3 rounded-full font-medium transition-all duration-300",
+                  activeTab === "darts"
+                    ? "bg-primary text-white shadow-lg"
+                    : "text-muted-foreground hover:text-foreground"
+                )}
+              >
+                <Target className="w-5 h-5 inline-block mr-2" />
+                Darts Lounge
+              </button>
+            </div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8">
-            <div className="bg-secondary/20 rounded-2xl p-8">
-              <h3 className="font-display text-2xl font-bold mb-4">Schedule</h3>
-              <div className="space-y-3">
-                <div className="flex items-start gap-3">
-                  <Clock className="w-5 h-5 text-primary mt-0.5" />
+          {/* Karaoke Content */}
+          {activeTab === "karaoke" && (
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              {/* Karafun Hero */}
+              <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-3xl p-8 md:p-12 mb-16">
+                <div className="grid lg:grid-cols-2 gap-8 items-center">
                   <div>
-                    <p className="font-semibold">Regular Karaoke</p>
-                    <p className="text-sm text-muted-foreground">
-                      {karaokeDetails.schedule.regular}
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="bg-gradient-to-r from-accent to-primary text-white px-6 py-2 rounded-lg">
+                        <span className="font-bold text-2xl">KARAFUN</span>
+                      </div>
+                      <span className="text-sm bg-accent text-white px-3 py-1 rounded-full">
+                        Official Partner
+                      </span>
+                    </div>
+                    <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
+                      The Ultimate Karaoke Experience
+                    </h2>
+                    <p className="text-lg text-muted-foreground mb-6">
+                      We're proud to feature Karafun - Europe's #1 karaoke system. With the world's 
+                      largest catalog of high-quality karaoke songs and cutting-edge technology, 
+                      your performance will sound incredible!
                     </p>
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2">
+                        <Check className="w-5 h-5 text-accent" />
+                        <span>Control everything from your smartphone</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Check className="w-5 h-5 text-accent" />
+                        <span>Studio-quality backing tracks</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Check className="w-5 h-5 text-accent" />
+                        <span>Real-time pitch adjustment</span>
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Calendar className="w-5 h-5 text-primary mt-0.5" />
-                  <div>
-                    <p className="font-semibold">Private Rooms</p>
-                    <p className="text-sm text-muted-foreground">
-                      {karaokeDetails.schedule.private}
-                    </p>
+                  <div className="relative h-[400px] rounded-2xl overflow-hidden">
+                    <Image
+                      src="/pictures/rialto-social-karaoke-room-entertainment-dorking.jpg"
+                      alt="Karaoke at Rialto Social"
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                    <div className="absolute bottom-6 left-6 text-white">
+                      <p className="text-sm opacity-90">Private Karaoke Rooms</p>
+                      <p className="text-2xl font-bold">Sing Your Heart Out</p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div className="bg-card rounded-2xl p-8">
-              <h3 className="font-display text-2xl font-bold mb-4">Pricing</h3>
-              <div className="space-y-3">
-                {karaokeDetails.pricing.map((item) => (
-                  <div key={item.type} className="flex justify-between items-center">
-                    <span className="font-medium">{item.type}</span>
-                    <span className="text-primary font-semibold">{item.price}</span>
-                  </div>
-                ))}
+              {/* Karafun Features */}
+              <div className="mb-16">
+                <h3 className="font-display text-2xl font-bold text-center mb-8">
+                  Why Karafun Makes Us Different
+                </h3>
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {karafunFeatures.map((feature, index) => (
+                    <motion.div
+                      key={feature.title}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                      className="bg-card rounded-2xl p-6 text-center hover:shadow-lg transition-shadow"
+                    >
+                      <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <feature.icon className="w-8 h-8 text-primary" />
+                      </div>
+                      <h4 className="font-semibold text-lg mb-2">{feature.title}</h4>
+                      <p className="text-sm text-muted-foreground">{feature.description}</p>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
+
+              {/* Pricing and Schedule */}
+              <div className="grid lg:grid-cols-2 gap-8 mb-16">
+                <div className="bg-accent/5 rounded-3xl p-8">
+                  <h3 className="font-display text-2xl font-bold mb-6 text-accent">
+                    Karaoke Schedule
+                  </h3>
+                  <div className="space-y-4">
+                    <div className="bg-white rounded-xl p-4">
+                      <div className="flex justify-between items-start">
+                        <div>
+                          <p className="font-semibold">Open Mic Karaoke</p>
+                          <p className="text-sm text-muted-foreground">Main dining area stage</p>
+                        </div>
+                        <div className="text-right">
+                          <p className="font-bold text-accent">Free</p>
+                          <p className="text-sm">Fri & Sat 8pm-1am</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-white rounded-xl p-4">
+                      <div className="flex justify-between items-start">
+                        <div>
+                          <p className="font-semibold">Private Rooms</p>
+                          <p className="text-sm text-muted-foreground">3 rooms available</p>
+                        </div>
+                        <div className="text-right">
+                          <p className="font-bold text-accent">From £30/hr</p>
+                          <p className="text-sm">7 days a week</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl p-4">
+                      <div className="flex justify-between items-start">
+                        <div>
+                          <p className="font-semibold">VIP Package</p>
+                          <p className="text-sm text-muted-foreground">Dinner + 2hr karaoke</p>
+                        </div>
+                        <div className="text-right">
+                          <p className="font-bold text-primary">£35pp</p>
+                          <p className="text-sm">Min 6 people</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-primary/5 rounded-3xl p-8">
+                  <h3 className="font-display text-2xl font-bold mb-6 text-primary">
+                    Room Options
+                  </h3>
+                  <div className="space-y-4">
+                    <div className="bg-white rounded-xl p-4">
+                      <h4 className="font-semibold mb-2">Harmony Room</h4>
+                      <p className="text-sm text-muted-foreground mb-2">Perfect for small groups</p>
+                      <div className="flex justify-between text-sm">
+                        <span>6-8 people</span>
+                        <span className="font-bold">£30/hour</span>
+                      </div>
+                    </div>
+                    <div className="bg-white rounded-xl p-4">
+                      <h4 className="font-semibold mb-2">Melody Suite</h4>
+                      <p className="text-sm text-muted-foreground mb-2">Our most popular room</p>
+                      <div className="flex justify-between text-sm">
+                        <span>10-15 people</span>
+                        <span className="font-bold">£45/hour</span>
+                      </div>
+                    </div>
+                    <div className="bg-white rounded-xl p-4 border-2 border-primary">
+                      <h4 className="font-semibold mb-2">Symphony Hall</h4>
+                      <p className="text-sm text-muted-foreground mb-2">Perfect for large parties</p>
+                      <div className="flex justify-between text-sm">
+                        <span>15-25 people</span>
+                        <span className="font-bold">£60/hour</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          )}
+
+          {/* Darts Content */}
+          {activeTab === "darts" && (
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              {/* Darts Hero */}
+              <div className="bg-gradient-to-r from-accent/10 to-primary/10 rounded-3xl p-8 md:p-12 mb-16">
+                <div className="grid lg:grid-cols-2 gap-8 items-center">
+                  <div className="order-2 lg:order-1 relative h-[400px] rounded-2xl overflow-hidden">
+                    <Image
+                      src="/pictures/rialto-social-darts-area-entertainment-venue.jpg"
+                      alt="Darts at Rialto Social"
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                    <div className="absolute bottom-6 left-6 text-white">
+                      <p className="text-sm opacity-90">Professional Setup</p>
+                      <p className="text-2xl font-bold">Hit the Bullseye</p>
+                    </div>
+                  </div>
+                  <div className="order-1 lg:order-2">
+                    <div className="flex items-center gap-3 mb-6">
+                      <Target className="w-12 h-12 text-accent" />
+                      <h2 className="font-display text-3xl md:text-4xl font-bold">
+                        Professional Darts Lounge
+                      </h2>
+                    </div>
+                    <p className="text-lg text-muted-foreground mb-6">
+                      Step into Surrey's finest darts venue. With 4 professional boards, 
+                      perfect lighting, and a vibrant atmosphere, we're home to casual players 
+                      and serious competitors alike.
+                    </p>
+                    <div className="grid grid-cols-2 gap-4 mb-6">
+                      <div className="bg-white rounded-xl p-4 text-center">
+                        <Trophy className="w-8 h-8 text-primary mx-auto mb-2" />
+                        <p className="font-bold text-2xl">£500</p>
+                        <p className="text-sm text-muted-foreground">Monthly Prize Pool</p>
+                      </div>
+                      <div className="bg-white rounded-xl p-4 text-center">
+                        <Users className="w-8 h-8 text-accent mx-auto mb-2" />
+                        <p className="font-bold text-2xl">8</p>
+                        <p className="text-sm text-muted-foreground">League Teams</p>
+                      </div>
+                    </div>
+                    <Button size="lg" className="w-full bg-accent hover:bg-accent/90">
+                      Join Our Darts League
+                    </Button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Darts Features */}
+              <div className="grid md:grid-cols-3 gap-6 mb-16">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  viewport={{ once: true }}
+                  className="bg-card rounded-2xl p-6 text-center"
+                >
+                  <Award className="w-12 h-12 text-primary mx-auto mb-4" />
+                  <h4 className="font-semibold text-lg mb-2">Tournament Ready</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Bristle boards, proper lighting, and regulation throwing distance
+                  </p>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  viewport={{ once: true }}
+                  className="bg-card rounded-2xl p-6 text-center"
+                >
+                  <Calendar className="w-12 h-12 text-accent mx-auto mb-4" />
+                  <h4 className="font-semibold text-lg mb-2">Weekly Events</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Leagues on Wednesday, tournaments monthly, casual play daily
+                  </p>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  viewport={{ once: true }}
+                  className="bg-card rounded-2xl p-6 text-center"
+                >
+                  <Heart className="w-12 h-12 text-primary mx-auto mb-4" />
+                  <h4 className="font-semibold text-lg mb-2">All Welcome</h4>
+                  <p className="text-sm text-muted-foreground">
+                    From beginners to pros, everyone finds their place here
+                  </p>
+                </motion.div>
+              </div>
+
+              {/* Darts Schedule & Pricing */}
+              <div className="bg-gradient-to-br from-accent/5 to-primary/5 rounded-3xl p-8 md:p-12">
+                <h3 className="font-display text-2xl font-bold mb-8 text-center">
+                  Darts Schedule & Pricing
+                </h3>
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                  <div className="bg-white rounded-xl p-6 text-center">
+                    <Clock className="w-8 h-8 text-accent mx-auto mb-3" />
+                    <h4 className="font-semibold mb-2">Happy Hour</h4>
+                    <p className="text-2xl font-bold text-primary mb-1">FREE</p>
+                    <p className="text-sm text-muted-foreground">3-6pm Daily</p>
+                  </div>
+                  <div className="bg-white rounded-xl p-6 text-center">
+                    <Target className="w-8 h-8 text-primary mx-auto mb-3" />
+                    <h4 className="font-semibold mb-2">Casual Play</h4>
+                    <p className="text-2xl font-bold text-primary mb-1">£3/hr</p>
+                    <p className="text-sm text-muted-foreground">Per person</p>
+                  </div>
+                  <div className="bg-white rounded-xl p-6 text-center">
+                    <Users className="w-8 h-8 text-accent mx-auto mb-3" />
+                    <h4 className="font-semibold mb-2">League Night</h4>
+                    <p className="text-2xl font-bold text-primary mb-1">£5</p>
+                    <p className="text-sm text-muted-foreground">Wed 7-10pm</p>
+                  </div>
+                  <div className="bg-white rounded-xl p-6 text-center border-2 border-primary">
+                    <Trophy className="w-8 h-8 text-primary mx-auto mb-3" />
+                    <h4 className="font-semibold mb-2">Tournament</h4>
+                    <p className="text-2xl font-bold text-primary mb-1">£10</p>
+                    <p className="text-sm text-muted-foreground">Last Sat/month</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          )}
+
+          {/* Testimonials */}
+          <div className="mt-20">
+            <h3 className="font-display text-3xl font-bold text-center mb-12">
+              What Our Guests Say
+            </h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              {testimonials.map((testimonial, index) => (
+                <motion.div
+                  key={testimonial.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="bg-card rounded-2xl p-6"
+                >
+                  <div className="flex gap-1 mb-3">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 fill-primary text-primary" />
+                    ))}
+                  </div>
+                  <p className="text-muted-foreground mb-4">&ldquo;{testimonial.text}&rdquo;</p>
+                  <p className="font-semibold">{testimonial.name}</p>
+                </motion.div>
+              ))}
             </div>
           </div>
-        </motion.div>
 
-        {/* Darts Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="mb-20"
-        >
-          <div className="text-center mb-12">
-            <Target className="w-16 h-16 text-primary mx-auto mb-4" />
+          {/* Final CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="mt-20 bg-gradient-to-r from-primary to-accent rounded-3xl p-12 text-center text-white"
+          >
+            <PartyPopper className="w-16 h-16 mx-auto mb-6 animate-bounce" />
             <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-              {dartsDetails.title}
+              Ready for an Unforgettable Night?
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              {dartsDetails.description}
+            <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+              Book your table, reserve a karaoke room, or join our darts league. 
+              Great food, amazing entertainment, memorable nights!
             </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {dartsDetails.features.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-card rounded-xl p-6 text-center"
-              >
-                <feature.icon className="w-10 h-10 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold text-lg mb-2">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground">
-                  {feature.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-8">
-            <div className="bg-secondary/20 rounded-2xl p-8">
-              <h3 className="font-display text-2xl font-bold mb-4">Schedule</h3>
-              <div className="space-y-3">
-                <div className="flex items-start gap-3">
-                  <Clock className="w-5 h-5 text-primary mt-0.5" />
-                  <div>
-                    <p className="font-semibold">General Play</p>
-                    <p className="text-sm text-muted-foreground">
-                      {dartsDetails.schedule.regular}
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Users className="w-5 h-5 text-primary mt-0.5" />
-                  <div>
-                    <p className="font-semibold">League Nights</p>
-                    <p className="text-sm text-muted-foreground">
-                      {dartsDetails.schedule.leagues}
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Trophy className="w-5 h-5 text-primary mt-0.5" />
-                  <div>
-                    <p className="font-semibold">Tournaments</p>
-                    <p className="text-sm text-muted-foreground">
-                      {dartsDetails.schedule.tournaments}
-                    </p>
-                  </div>
-                </div>
-              </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" variant="secondary" className="font-semibold">
+                <Link href="/contact" className="flex items-center gap-2">
+                  Book Entertainment <ChevronRight className="w-4 h-4" />
+                </Link>
+              </Button>
+              <Button size="lg" variant="outline" className="bg-white/10 border-white text-white hover:bg-white/20">
+                <a href="tel:+441306742885">Call 01306 742885</a>
+              </Button>
             </div>
-
-            <div className="bg-card rounded-2xl p-8">
-              <h3 className="font-display text-2xl font-bold mb-4">Pricing</h3>
-              <div className="space-y-3">
-                {dartsDetails.pricing.map((item) => (
-                  <div key={item.type} className="flex justify-between items-center">
-                    <span className="font-medium">{item.type}</span>
-                    <span className="text-primary font-semibold">{item.price}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="bg-primary/10 rounded-2xl p-12 text-center"
-        >
-          <h2 className="font-display text-3xl font-bold mb-4">
-            Book Your Entertainment Experience
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Whether it&apos;s a birthday party, corporate event, or just a fun night out,
-            we have packages to suit every occasion. Combine great Italian food with
-            unforgettable entertainment.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg">
-              <Link href="/contact">Book Entertainment</Link>
-            </Button>
-            <Button asChild variant="outline" size="lg">
-              <a href="tel:+441306742885">Call Us</a>
-            </Button>
-          </div>
-        </motion.div>
-      </div>
-    </section>
+          </motion.div>
+        </div>
+      </section>
+    </>
   );
 }
+
+// Add missing imports
+import { Check } from "lucide-react";
+import { Phone } from "lucide-react";
