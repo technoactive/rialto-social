@@ -78,8 +78,17 @@ export function EntertainmentPageSection() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-accent/10 via-primary/5 to-accent/10">
-        <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-transparent to-primary/20" />
+      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-black via-accent/20 to-primary/20">
+        <div className="absolute inset-0">
+          <Image
+            src="/pictures/entertainment/karaoke.jpg"
+            alt="Entertainment at Rialto Social"
+            fill
+            className="object-cover opacity-20"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/80" />
+        </div>
         
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden">
@@ -93,7 +102,7 @@ export function EntertainmentPageSection() {
               repeat: Infinity,
               ease: "linear"
             }}
-            className="absolute -top-20 -right-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl"
+            className="absolute -top-20 -right-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl"
           />
           <motion.div
             animate={{
@@ -105,8 +114,31 @@ export function EntertainmentPageSection() {
               repeat: Infinity,
               ease: "linear"
             }}
-            className="absolute -bottom-20 -left-20 w-96 h-96 bg-accent/10 rounded-full blur-3xl"
+            className="absolute -bottom-20 -left-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl"
           />
+          {/* Add floating music notes */}
+          {[...Array(5)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute text-primary/30 text-6xl"
+              initial={{ 
+                x: i * 200,
+                y: 800 
+              }}
+              animate={{ 
+                y: -100,
+                x: (i * 200) + (i % 2 === 0 ? 100 : -100)
+              }}
+              transition={{
+                duration: 10 + Math.random() * 10,
+                repeat: Infinity,
+                delay: i * 2,
+                ease: "linear"
+              }}
+            >
+              ♪
+            </motion.div>
+          ))}
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
@@ -137,11 +169,21 @@ export function EntertainmentPageSection() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg"
+                  whileHover={{ 
+                    y: -5, 
+                    scale: 1.05,
+                    transition: { duration: 0.2 }
+                  }}
+                  className="bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 border border-white/50 group cursor-pointer"
                 >
-                  <item.icon className="w-8 h-8 text-accent mx-auto mb-2" />
-                  <div className="text-3xl font-bold text-primary">{item.stat}</div>
-                  <div className="text-sm text-muted-foreground">{item.label}</div>
+                  <motion.div
+                    whileHover={{ rotate: [0, -10, 10, -10, 0] }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <item.icon className="w-10 h-10 text-accent mx-auto mb-3 group-hover:text-primary transition-colors" />
+                  </motion.div>
+                  <div className="text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">{item.stat}</div>
+                  <div className="text-sm text-gray-700 font-medium">{item.label}</div>
                 </motion.div>
               ))}
             </div>
@@ -165,33 +207,52 @@ export function EntertainmentPageSection() {
       {/* Tab Navigation */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <div className="flex justify-center mb-12">
-            <div className="inline-flex bg-muted rounded-full p-1">
-              <button
+          <div className="flex justify-center mb-16">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex bg-gradient-to-r from-accent/10 to-primary/10 backdrop-blur-lg rounded-full p-2 shadow-2xl"
+            >
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={() => setActiveTab("karaoke")}
                 className={cn(
-                  "px-8 py-3 rounded-full font-medium transition-all duration-300",
+                  "px-10 py-4 rounded-full font-semibold transition-all duration-500 flex items-center gap-3",
                   activeTab === "karaoke"
-                    ? "bg-primary text-white shadow-lg"
-                    : "text-muted-foreground hover:text-foreground"
+                    ? "bg-gradient-to-r from-accent to-primary text-white shadow-xl"
+                    : "text-gray-700 hover:text-primary bg-white/50 hover:bg-white/80"
                 )}
               >
-                <Mic2 className="w-5 h-5 inline-block mr-2" />
-                Karaoke with Karafun
-              </button>
-              <button
+                <motion.div
+                  animate={{ rotate: activeTab === "karaoke" ? [0, -10, 10, 0] : 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <Mic2 className="w-6 h-6" />
+                </motion.div>
+                <span className="text-lg">Karaoke with Karafun</span>
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={() => setActiveTab("darts")}
                 className={cn(
-                  "px-8 py-3 rounded-full font-medium transition-all duration-300",
+                  "px-10 py-4 rounded-full font-semibold transition-all duration-500 flex items-center gap-3",
                   activeTab === "darts"
-                    ? "bg-primary text-white shadow-lg"
-                    : "text-muted-foreground hover:text-foreground"
+                    ? "bg-gradient-to-r from-accent to-primary text-white shadow-xl"
+                    : "text-gray-700 hover:text-primary bg-white/50 hover:bg-white/80"
                 )}
               >
-                <Target className="w-5 h-5 inline-block mr-2" />
-                Darts Lounge
-              </button>
-            </div>
+                <motion.div
+                  animate={{ rotate: activeTab === "darts" ? 360 : 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <Target className="w-6 h-6" />
+                </motion.div>
+                <span className="text-lg">Darts Lounge</span>
+              </motion.button>
+            </motion.div>
           </div>
 
           {/* Karaoke Content */}
@@ -202,17 +263,36 @@ export function EntertainmentPageSection() {
               transition={{ duration: 0.5 }}
             >
               {/* Karafun Hero */}
-              <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-3xl p-8 md:p-12 mb-16">
-                <div className="grid lg:grid-cols-2 gap-8 items-center">
+              <div className="relative bg-gradient-to-br from-primary/20 via-accent/10 to-primary/20 rounded-3xl p-8 md:p-12 mb-16 overflow-hidden shadow-2xl">
+                {/* Background pattern */}
+                <div className="absolute inset-0 opacity-10">
+                  <div className="absolute inset-0" style={{
+                    backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 70px)`,
+                  }} />
+                </div>
+                
+                <div className="relative grid lg:grid-cols-2 gap-8 items-center">
                   <div>
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="bg-gradient-to-r from-accent to-primary text-white px-6 py-2 rounded-lg">
-                        <span className="font-bold text-2xl">KARAFUN</span>
-                      </div>
-                      <span className="text-sm bg-accent text-white px-3 py-1 rounded-full">
-                        Official Partner
-                      </span>
-                    </div>
+                    <motion.div 
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6 }}
+                      className="flex items-center gap-3 mb-6"
+                    >
+                      <motion.div 
+                        whileHover={{ scale: 1.05 }}
+                        className="bg-gradient-to-r from-accent to-primary text-white px-8 py-3 rounded-2xl shadow-lg"
+                      >
+                        <span className="font-bold text-3xl tracking-wider">KARAFUN</span>
+                      </motion.div>
+                      <motion.span 
+                        animate={{ scale: [1, 1.1, 1] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                        className="text-sm bg-white text-accent px-4 py-1.5 rounded-full font-semibold shadow-md"
+                      >
+                        ⭐ Official Partner
+                      </motion.span>
+                    </motion.div>
                     <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
                       The Ultimate Karaoke Experience
                     </h2>
@@ -238,7 +318,7 @@ export function EntertainmentPageSection() {
                   </div>
                   <div className="relative h-[400px] rounded-2xl overflow-hidden">
                     <Image
-                      src="/pictures/rialto-social-karaoke-room-entertainment-dorking.jpg"
+                      src="/pictures/entertainment/karaoke.jpg"
                       alt="Karaoke at Rialto Social"
                       fill
                       className="object-cover"
@@ -254,24 +334,43 @@ export function EntertainmentPageSection() {
 
               {/* Karafun Features */}
               <div className="mb-16">
-                <h3 className="font-display text-2xl font-bold text-center mb-8">
+                <motion.h3 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="font-display text-3xl font-bold text-center mb-12 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent"
+                >
                   Why Karafun Makes Us Different
-                </h3>
+                </motion.h3>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                   {karafunFeatures.map((feature, index) => (
                     <motion.div
                       key={feature.title}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      initial={{ opacity: 0, y: 30, rotateY: -30 }}
+                      whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.15 }}
                       viewport={{ once: true }}
-                      className="bg-card rounded-2xl p-6 text-center hover:shadow-lg transition-shadow"
+                      whileHover={{ 
+                        y: -10, 
+                        boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
+                        transition: { duration: 0.3 }
+                      }}
+                      className="bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 text-center border border-gray-100 relative overflow-hidden group cursor-pointer"
                     >
-                      <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                        <feature.icon className="w-8 h-8 text-primary" />
-                      </div>
-                      <h4 className="font-semibold text-lg mb-2">{feature.title}</h4>
-                      <p className="text-sm text-muted-foreground">{feature.description}</p>
+                      {/* Hover effect background */}
+                      <motion.div 
+                        className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                      />
+                      
+                      <motion.div 
+                        whileHover={{ rotate: 360, scale: 1.1 }}
+                        transition={{ duration: 0.5 }}
+                        className="relative w-20 h-20 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg"
+                      >
+                        <feature.icon className="w-10 h-10 text-accent" />
+                      </motion.div>
+                      <h4 className="relative font-bold text-xl mb-3 text-gray-800">{feature.title}</h4>
+                      <p className="relative text-sm text-gray-600 leading-relaxed">{feature.description}</p>
                     </motion.div>
                   ))}
                 </div>
@@ -370,21 +469,46 @@ export function EntertainmentPageSection() {
               transition={{ duration: 0.5 }}
             >
               {/* Darts Hero */}
-              <div className="bg-gradient-to-r from-accent/10 to-primary/10 rounded-3xl p-8 md:p-12 mb-16">
-                <div className="grid lg:grid-cols-2 gap-8 items-center">
-                  <div className="order-2 lg:order-1 relative h-[400px] rounded-2xl overflow-hidden">
-                    <Image
-                      src="/pictures/rialto-social-darts-area-entertainment-venue.jpg"
-                      alt="Darts at Rialto Social"
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    <div className="absolute bottom-6 left-6 text-white">
-                      <p className="text-sm opacity-90">Professional Setup</p>
-                      <p className="text-2xl font-bold">Hit the Bullseye</p>
+              <div className="relative bg-gradient-to-br from-accent/20 via-primary/10 to-accent/20 rounded-3xl p-8 md:p-12 mb-16 overflow-hidden shadow-2xl">
+                {/* Dart board pattern background */}
+                <div className="absolute inset-0 opacity-5">
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                    <div className="w-96 h-96 rounded-full border-8 border-black">
+                      <div className="w-80 h-80 rounded-full border-8 border-black mx-auto mt-4">
+                        <div className="w-64 h-64 rounded-full border-8 border-black mx-auto mt-4">
+                          <div className="w-48 h-48 rounded-full border-8 border-black mx-auto mt-4">
+                            <div className="w-32 h-32 rounded-full bg-red-600 mx-auto mt-4"></div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
+                </div>
+                
+                <div className="relative grid lg:grid-cols-2 gap-8 items-center">
+                  <motion.div 
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6 }}
+                    className="order-2 lg:order-1 relative h-[450px] rounded-3xl overflow-hidden shadow-2xl group"
+                  >
+                    <Image
+                      src="/pictures/entertainment/darts.jpg"
+                      alt="Darts at Rialto Social"
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                    <motion.div 
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.3 }}
+                      className="absolute bottom-8 left-8 text-white"
+                    >
+                      <p className="text-lg opacity-90 font-medium">Professional Setup</p>
+                      <p className="text-3xl font-bold">Hit the Bullseye 🎯</p>
+                    </motion.div>
+                  </motion.div>
                   <div className="order-1 lg:order-2">
                     <div className="flex items-center gap-3 mb-6">
                       <Target className="w-12 h-12 text-accent" />
@@ -495,27 +619,56 @@ export function EntertainmentPageSection() {
           )}
 
           {/* Testimonials */}
-          <div className="mt-20">
-            <h3 className="font-display text-3xl font-bold text-center mb-12">
+          <div className="mt-20 relative">
+            <motion.h3 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="font-display text-4xl font-bold text-center mb-16 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent"
+            >
               What Our Guests Say
-            </h3>
-            <div className="grid md:grid-cols-3 gap-6">
+            </motion.h3>
+            <div className="grid md:grid-cols-3 gap-8">
               {testimonials.map((testimonial, index) => (
                 <motion.div
                   key={testimonial.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
                   viewport={{ once: true }}
-                  className="bg-card rounded-2xl p-6"
+                  whileHover={{ 
+                    y: -10,
+                    boxShadow: "0 30px 60px rgba(0,0,0,0.15)",
+                    transition: { duration: 0.3 }
+                  }}
+                  className="bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 relative overflow-hidden group cursor-pointer shadow-lg border border-gray-100"
                 >
-                  <div className="flex gap-1 mb-3">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-                    ))}
+                  {/* Decorative quote mark */}
+                  <div className="absolute -top-4 -left-4 text-8xl text-primary/10 font-serif">&ldquo;</div>
+                  
+                  <div className="relative">
+                    <div className="flex gap-1 mb-4">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <motion.div
+                          key={i}
+                          initial={{ opacity: 0, scale: 0 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: 0.1 * i }}
+                          viewport={{ once: true }}
+                        >
+                          <Star className="w-6 h-6 fill-primary text-primary" />
+                        </motion.div>
+                      ))}
+                    </div>
+                    <p className="text-gray-700 leading-relaxed mb-6 text-lg italic">{testimonial.text}</p>
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-12 bg-gradient-to-b from-accent to-primary rounded-full" />
+                      <p className="font-bold text-lg">{testimonial.name}</p>
+                    </div>
                   </div>
-                  <p className="text-muted-foreground mb-4">&ldquo;{testimonial.text}&rdquo;</p>
-                  <p className="font-semibold">{testimonial.name}</p>
+                  
+                  {/* Hover effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </motion.div>
               ))}
             </div>

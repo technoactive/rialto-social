@@ -17,7 +17,7 @@ const entertainmentFeatures = [
       "VIP dinner & karaoke packages",
     ],
     schedule: "Fri & Sat: 8 PM - 1 AM",
-    image: "/pictures/rialto-social-karaoke-room-entertainment-dorking.jpg",
+    image: "/pictures/entertainment/karaoke.jpg",
   },
   {
     icon: Target,
@@ -30,7 +30,7 @@ const entertainmentFeatures = [
       "Happy hour free play 3-6 PM",
     ],
     schedule: "Daily: Opening - Close",
-    image: "/pictures/rialto-social-darts-area-entertainment-venue.jpg",
+    image: "/pictures/entertainment/darts.jpg",
   },
 ];
 
