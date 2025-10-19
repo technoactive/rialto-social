@@ -77,8 +77,8 @@ export function EntertainmentPageSection() {
 
   return (
     <>
-      {/* Professional Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-gradient-to-b from-black to-gray-900">
+      {/* Vibrant Hero Section */}
+      <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-gradient-to-br from-primary/20 via-white to-accent/20">
         {/* Split background images */}
         <div className="absolute inset-0 grid grid-cols-2">
           <div className="relative overflow-hidden">
@@ -86,25 +86,25 @@ export function EntertainmentPageSection() {
               src="/pictures/entertainment/karaoke.jpg"
               alt="Karaoke at Rialto Social"
               fill
-              className="object-cover opacity-30 scale-110"
+              className="object-cover opacity-60 scale-110"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-transparent to-transparent mix-blend-multiply" />
           </div>
           <div className="relative overflow-hidden">
             <Image
               src="/pictures/entertainment/darts.jpg"
               alt="Darts at Rialto Social"
               fill
-              className="object-cover opacity-30 scale-110"
+              className="object-cover opacity-60 scale-110"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-l from-black via-black/80 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-l from-accent/30 via-transparent to-transparent mix-blend-multiply" />
           </div>
         </div>
         
-        {/* Professional overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/50" />
+        {/* Bright overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-transparent to-white/60" />
         
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -113,30 +113,30 @@ export function EntertainmentPageSection() {
             transition={{ duration: 0.6 }}
             className="text-center max-w-5xl mx-auto"
           >
-            {/* Professional badge */}
+            {/* Vibrant badge */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-6 py-2 mb-8 border border-white/20"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-accent text-white rounded-full px-6 py-2 mb-8 shadow-lg"
             >
-              <Star className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-white">Premium Entertainment Venue</span>
-              <Star className="w-4 h-4 text-primary" />
+              <Star className="w-4 h-4 text-white" />
+              <span className="text-sm font-bold">Premium Entertainment Venue</span>
+              <Star className="w-4 h-4 text-white" />
             </motion.div>
             
-            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white">
+            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-gray-900">
               Entertainment
-              <span className="block text-3xl md:text-5xl lg:text-6xl mt-2 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              <span className="block text-3xl md:text-5xl lg:text-6xl mt-2 bg-gradient-to-r from-primary via-primary/80 to-accent bg-clip-text text-transparent">
                 Karaoke & Darts Experience
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed font-medium">
               Professional entertainment venue featuring Karafun&apos;s premium karaoke system 
               and tournament-standard darts facilities in the heart of Dorking
             </p>
             
-            {/* Professional Stats */}
+            {/* Vibrant Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
               {entertainmentHighlights.map((item, index) => (
                 <motion.div
@@ -144,25 +144,31 @@ export function EntertainmentPageSection() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-white/10"
+                  className="bg-white rounded-2xl p-4 shadow-lg border-2 border-transparent hover:border-primary transition-all duration-300"
                 >
-                  <item.icon className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <div className="text-3xl font-bold text-white">{item.stat}</div>
-                  <div className="text-xs text-gray-400 uppercase tracking-wider">{item.label}</div>
+                  <item.icon className={cn(
+                    "w-8 h-8 mx-auto mb-2",
+                    index % 2 === 0 ? "text-primary" : "text-accent"
+                  )} />
+                  <div className={cn(
+                    "text-3xl font-bold",
+                    index % 2 === 0 ? "text-primary" : "text-accent"
+                  )}>{item.stat}</div>
+                  <div className="text-xs text-gray-600 uppercase tracking-wider font-semibold">{item.label}</div>
                 </motion.div>
               ))}
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-6 text-lg shadow-lg">
+                <Button size="lg" className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold px-8 py-6 text-lg shadow-xl">
                   <Link href="/contact" className="flex items-center gap-2">
                     Book Entertainment <ChevronRight className="w-5 h-5" />
                   </Link>
                 </Button>
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button size="lg" variant="outline" className="border-2 border-white/20 bg-white/5 text-white hover:bg-white/10 backdrop-blur-sm px-8 py-6 text-lg">
+                <Button size="lg" variant="outline" className="border-2 border-accent bg-white text-accent hover:bg-accent hover:text-white font-semibold px-8 py-6 text-lg shadow-lg transition-all">
                   <a href="tel:+441306742885" className="flex items-center gap-2">
                     <Phone className="w-5 h-5" /> 01306 742885
                   </a>
@@ -173,15 +179,15 @@ export function EntertainmentPageSection() {
         </div>
       </section>
 
-      {/* Optimized Tab Navigation */}
-      <section className="py-12 bg-gradient-to-b from-gray-900 to-background">
+      {/* Vibrant Tab Navigation */}
+      <section className="py-12 bg-gradient-to-b from-white via-primary/5 to-accent/5">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto mb-12">
             <motion.div 
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="grid grid-cols-2 gap-4 p-2 bg-gray-100 rounded-xl"
+              className="grid grid-cols-2 gap-4 p-2 bg-white rounded-2xl shadow-xl border border-gray-100"
             >
               <button
                 onClick={() => setActiveTab("karaoke")}
@@ -237,16 +243,16 @@ export function EntertainmentPageSection() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              {/* Professional Karafun Section */}
-              <div className="bg-gray-50 rounded-2xl p-8 md:p-12 mb-16 shadow-lg">
+              {/* Vibrant Karafun Section */}
+              <div className="bg-gradient-to-br from-primary/10 via-white to-accent/10 rounded-3xl p-8 md:p-12 mb-16 shadow-xl border border-primary/20">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                   <div>
                     <div className="flex items-center gap-4 mb-8">
-                      <div className="bg-accent text-white px-6 py-2 rounded-lg">
+                      <div className="bg-gradient-to-r from-accent to-primary text-white px-6 py-2 rounded-lg shadow-lg">
                         <span className="font-bold text-2xl">KARAFUN</span>
                       </div>
-                      <span className="text-sm bg-accent/10 text-accent px-4 py-1.5 rounded-full font-medium">
-                        Official Partner
+                      <span className="text-sm bg-gradient-to-r from-primary/20 to-accent/20 text-accent px-4 py-1.5 rounded-full font-bold">
+                        ⭐ Official Partner
                       </span>
                     </div>
                     <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
@@ -288,9 +294,9 @@ export function EntertainmentPageSection() {
                 </div>
               </div>
 
-              {/* Professional Features Grid */}
+              {/* Colorful Features Grid */}
               <div className="mb-16">
-                <h3 className="font-display text-2xl font-bold text-center mb-10 text-gray-800">
+                <h3 className="font-display text-2xl font-bold text-center mb-10 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                   Why Choose Our Karaoke Experience
                 </h3>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -301,22 +307,30 @@ export function EntertainmentPageSection() {
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                       viewport={{ once: true }}
-                      className="bg-white rounded-xl p-6 text-center shadow-md hover:shadow-xl transition-shadow duration-300"
+                      className="bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-primary group"
                     >
-                      <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                        <feature.icon className="w-8 h-8 text-accent" />
+                      <div className={cn(
+                        "w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 transition-colors",
+                        index % 2 === 0 
+                          ? "bg-gradient-to-br from-primary/20 to-primary/10 group-hover:from-primary/30 group-hover:to-primary/20" 
+                          : "bg-gradient-to-br from-accent/20 to-accent/10 group-hover:from-accent/30 group-hover:to-accent/20"
+                      )}>
+                        <feature.icon className={cn(
+                          "w-8 h-8",
+                          index % 2 === 0 ? "text-primary" : "text-accent"
+                        )} />
                       </div>
-                      <h4 className="font-semibold text-lg mb-2 text-gray-800">{feature.title}</h4>
+                      <h4 className="font-bold text-lg mb-2 text-gray-800">{feature.title}</h4>
                       <p className="text-sm text-gray-600 leading-relaxed">{feature.description}</p>
                     </motion.div>
                   ))}
                 </div>
               </div>
 
-              {/* Pricing and Schedule */}
+              {/* Vibrant Pricing and Schedule */}
               <div className="grid lg:grid-cols-2 gap-8 mb-16">
-                <div className="bg-accent/5 rounded-3xl p-8">
-                  <h3 className="font-display text-2xl font-bold mb-6 text-accent">
+                <div className="bg-gradient-to-br from-accent/10 to-accent/5 rounded-3xl p-8 shadow-lg border border-accent/20">
+                  <h3 className="font-display text-2xl font-bold mb-6 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
                     Karaoke Schedule
                   </h3>
                   <div className="space-y-4">
@@ -359,8 +373,8 @@ export function EntertainmentPageSection() {
                   </div>
                 </div>
 
-                <div className="bg-primary/5 rounded-3xl p-8">
-                  <h3 className="font-display text-2xl font-bold mb-6 text-primary">
+                <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-3xl p-8 shadow-lg border border-primary/20">
+                  <h3 className="font-display text-2xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                     Private Room Details
                   </h3>
                   <div className="space-y-4">
@@ -405,8 +419,8 @@ export function EntertainmentPageSection() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              {/* Professional Darts Section */}
-              <div className="bg-gray-50 rounded-2xl p-8 md:p-12 mb-16 shadow-lg">
+              {/* Vibrant Darts Section */}
+              <div className="bg-gradient-to-br from-accent/10 via-white to-primary/10 rounded-3xl p-8 md:p-12 mb-16 shadow-xl border border-accent/20">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                   <div className="order-2 lg:order-1 relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
                     <Image
@@ -415,10 +429,10 @@ export function EntertainmentPageSection() {
                       fill
                       className="object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-accent/80 via-transparent to-transparent" />
                     <div className="absolute bottom-6 left-6 text-white">
-                      <p className="text-sm font-medium uppercase tracking-wider opacity-90">Tournament Standard</p>
-                      <p className="text-2xl font-bold">Professional Darts Venue</p>
+                      <p className="text-sm font-bold uppercase tracking-wider">Tournament Standard</p>
+                      <p className="text-2xl font-bold drop-shadow-lg">Professional Darts Venue</p>
                     </div>
                   </div>
                   <div className="order-1 lg:order-2">
@@ -452,34 +466,40 @@ export function EntertainmentPageSection() {
                 </div>
               </div>
 
-              {/* Professional Darts Features */}
+              {/* Colorful Darts Features */}
               <div className="grid md:grid-cols-3 gap-6 mb-16">
-                <div className="bg-white rounded-xl p-6 text-center shadow-md">
-                  <Award className="w-10 h-10 text-primary mx-auto mb-4" />
-                  <h4 className="font-semibold text-lg mb-2 text-gray-800">Tournament Ready</h4>
+                <div className="bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-primary group">
+                  <div className="w-14 h-14 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:from-primary/30 group-hover:to-primary/20 transition-colors">
+                    <Award className="w-8 h-8 text-primary" />
+                  </div>
+                  <h4 className="font-bold text-lg mb-2 text-gray-800">Tournament Ready</h4>
                   <p className="text-sm text-gray-600">
                     Bristle boards, proper lighting, and regulation throwing distance
                   </p>
                 </div>
-                <div className="bg-white rounded-xl p-6 text-center shadow-md">
-                  <Calendar className="w-10 h-10 text-accent mx-auto mb-4" />
-                  <h4 className="font-semibold text-lg mb-2 text-gray-800">Weekly Events</h4>
+                <div className="bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-accent group">
+                  <div className="w-14 h-14 bg-gradient-to-br from-accent/20 to-accent/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:from-accent/30 group-hover:to-accent/20 transition-colors">
+                    <Calendar className="w-8 h-8 text-accent" />
+                  </div>
+                  <h4 className="font-bold text-lg mb-2 text-gray-800">Weekly Events</h4>
                   <p className="text-sm text-gray-600">
                     Leagues on Wednesday, tournaments monthly, casual play daily
                   </p>
                 </div>
-                <div className="bg-white rounded-xl p-6 text-center shadow-md">
-                  <Heart className="w-10 h-10 text-primary mx-auto mb-4" />
-                  <h4 className="font-semibold text-lg mb-2 text-gray-800">All Welcome</h4>
+                <div className="bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-primary group">
+                  <div className="w-14 h-14 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:from-primary/30 group-hover:to-primary/20 transition-colors">
+                    <Heart className="w-8 h-8 text-primary" />
+                  </div>
+                  <h4 className="font-bold text-lg mb-2 text-gray-800">All Welcome</h4>
                   <p className="text-sm text-gray-600">
                     From beginners to pros, everyone finds their place here
                   </p>
                 </div>
               </div>
 
-              {/* Darts Schedule & Pricing */}
-              <div className="bg-gradient-to-br from-accent/5 to-primary/5 rounded-3xl p-8 md:p-12">
-                <h3 className="font-display text-2xl font-bold mb-8 text-center">
+              {/* Vibrant Darts Schedule & Pricing */}
+              <div className="bg-gradient-to-br from-accent/10 via-white to-primary/10 rounded-3xl p-8 md:p-12 shadow-xl border border-accent/20">
+                <h3 className="font-display text-2xl font-bold mb-8 text-center bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
                   Darts Schedule & Pricing
                 </h3>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -512,47 +532,61 @@ export function EntertainmentPageSection() {
             </motion.div>
           )}
 
-          {/* Professional Testimonials */}
+          {/* Colorful Testimonials */}
           <div className="mt-20">
-            <h3 className="font-display text-3xl font-bold text-center mb-12 text-gray-800">
+            <h3 className="font-display text-3xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               Guest Reviews
             </h3>
             <div className="grid md:grid-cols-3 gap-6">
               {testimonials.map((testimonial, index) => (
                 <div
                   key={testimonial.name}
-                  className="bg-white rounded-xl p-6 shadow-md"
+                  className={cn(
+                    "rounded-2xl p-6 shadow-lg",
+                    index === 0 ? "bg-gradient-to-br from-primary/10 to-white border border-primary/20" :
+                    index === 1 ? "bg-gradient-to-br from-accent/10 to-white border border-accent/20" :
+                    "bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20"
+                  )}
                 >
                   <div className="flex gap-1 mb-3">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <Star key={i} className="w-5 h-5 fill-primary text-primary" />
                     ))}
                   </div>
-                  <p className="text-gray-700 mb-4 italic">&ldquo;{testimonial.text}&rdquo;</p>
-                  <p className="font-semibold text-gray-900">– {testimonial.name}</p>
+                  <p className="text-gray-700 mb-4 italic font-medium">&ldquo;{testimonial.text}&rdquo;</p>
+                  <p className="font-bold text-gray-900">– {testimonial.name}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Professional CTA */}
-          <div className="mt-20 bg-gradient-to-br from-gray-900 to-black rounded-2xl p-12 text-center text-white">
-            <h2 className="font-display text-3xl font-bold mb-4">
-              Book Your Entertainment Experience
-            </h2>
-            <p className="text-lg mb-8 max-w-2xl mx-auto text-gray-300">
-              Reserve your table, book our private karaoke room, or join our weekly darts league. 
-              Premium entertainment awaits at Rialto Social.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-3">
-                <Link href="/contact" className="flex items-center gap-2">
-                  Make a Booking <ChevronRight className="w-4 h-4" />
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10">
-                <a href="tel:+441306742885">Call 01306 742885</a>
-              </Button>
+          {/* Vibrant CTA */}
+          <div className="mt-20 bg-gradient-to-r from-primary via-accent to-primary rounded-3xl p-12 text-center text-white shadow-2xl relative overflow-hidden">
+            {/* Animated background pattern */}
+            <div className="absolute inset-0 opacity-20">
+              <div className="absolute inset-0" style={{
+                backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 70px)`,
+              }} />
+            </div>
+            
+            <div className="relative z-10">
+              <h2 className="font-display text-3xl md:text-4xl font-bold mb-4 text-white drop-shadow-lg">
+                Book Your Entertainment Experience
+              </h2>
+              <p className="text-lg mb-8 max-w-2xl mx-auto text-white/90 font-medium">
+                Reserve your table, book our private karaoke room, or join our weekly darts league. 
+                Premium entertainment awaits at Rialto Social.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" className="bg-white text-primary hover:bg-white/90 font-bold px-8 py-3 shadow-xl">
+                  <Link href="/contact" className="flex items-center gap-2">
+                    Make a Booking <ChevronRight className="w-4 h-4" />
+                  </Link>
+                </Button>
+                <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary font-bold transition-all">
+                  <a href="tel:+441306742885">Call 01306 742885</a>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
