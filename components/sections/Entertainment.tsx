@@ -13,7 +13,7 @@ const entertainmentFeatures = [
     details: [
       "44,000+ songs in 23 languages",
       "Control from your smartphone",
-      "3 private karaoke rooms",
+      "1 private karaoke room",
       "VIP dinner & karaoke packages",
     ],
     schedule: "Fri & Sat: 8 PM - 1 AM",

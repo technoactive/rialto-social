@@ -33,8 +33,8 @@ const karafunFeatures = [
 
 const entertainmentHighlights = [
   {
-    stat: "3",
-    label: "Private Karaoke Rooms",
+    stat: "1",
+    label: "Private Karaoke Room",
     icon: Mic2
   },
   {
@@ -245,7 +245,7 @@ export function EntertainmentPageSection() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                     <div className="absolute bottom-6 left-6 text-white">
-                      <p className="text-sm opacity-90">Private Karaoke Rooms</p>
+                      <p className="text-sm opacity-90">Private Karaoke Room</p>
                       <p className="text-2xl font-bold">Sing Your Heart Out</p>
                     </div>
                   </div>
@@ -299,8 +299,8 @@ export function EntertainmentPageSection() {
                     <div className="bg-white rounded-xl p-4">
                       <div className="flex justify-between items-start">
                         <div>
-                          <p className="font-semibold">Private Rooms</p>
-                          <p className="text-sm text-muted-foreground">3 rooms available</p>
+                          <p className="font-semibold">Private Room</p>
+                          <p className="text-sm text-muted-foreground">Available for booking</p>
                         </div>
                         <div className="text-right">
                           <p className="font-bold text-accent">From £30/hr</p>
@@ -325,32 +325,36 @@ export function EntertainmentPageSection() {
 
                 <div className="bg-primary/5 rounded-3xl p-8">
                   <h3 className="font-display text-2xl font-bold mb-6 text-primary">
-                    Room Options
+                    Private Room Details
                   </h3>
                   <div className="space-y-4">
-                    <div className="bg-white rounded-xl p-4">
-                      <h4 className="font-semibold mb-2">Harmony Room</h4>
-                      <p className="text-sm text-muted-foreground mb-2">Perfect for small groups</p>
-                      <div className="flex justify-between text-sm">
-                        <span>6-8 people</span>
-                        <span className="font-bold">£30/hour</span>
+                    <div className="bg-white rounded-xl p-6 border-2 border-primary">
+                      <h4 className="font-semibold mb-2 text-lg">Our Karaoke Room</h4>
+                      <p className="text-sm text-muted-foreground mb-4">Perfect for private parties and celebrations</p>
+                      <div className="space-y-2">
+                        <div className="flex justify-between">
+                          <span>Capacity:</span>
+                          <span className="font-bold">Up to 20 people</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Equipment:</span>
+                          <span className="font-bold">Karafun Pro System</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Hourly Rate:</span>
+                          <span className="font-bold text-primary">£40/hour</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Minimum Booking:</span>
+                          <span className="font-bold">2 hours</span>
+                        </div>
                       </div>
                     </div>
-                    <div className="bg-white rounded-xl p-4">
-                      <h4 className="font-semibold mb-2">Melody Suite</h4>
-                      <p className="text-sm text-muted-foreground mb-2">Our most popular room</p>
-                      <div className="flex justify-between text-sm">
-                        <span>10-15 people</span>
-                        <span className="font-bold">£45/hour</span>
-                      </div>
-                    </div>
-                    <div className="bg-white rounded-xl p-4 border-2 border-primary">
-                      <h4 className="font-semibold mb-2">Symphony Hall</h4>
-                      <p className="text-sm text-muted-foreground mb-2">Perfect for large parties</p>
-                      <div className="flex justify-between text-sm">
-                        <span>15-25 people</span>
-                        <span className="font-bold">£60/hour</span>
-                      </div>
+                    <div className="bg-accent/10 rounded-xl p-4 text-center">
+                      <p className="text-sm font-medium">
+                        Book early for weekends!<br/>
+                        Call 01306 742885 to reserve
+                      </p>
                     </div>
                   </div>
                 </div>
