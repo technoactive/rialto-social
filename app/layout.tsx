@@ -86,7 +86,6 @@ export const metadata: Metadata = {
   verification: {
     google: "pending-verification",
     yandex: "pending-verification",
-    bing: "pending-verification",
   },
 };
 
