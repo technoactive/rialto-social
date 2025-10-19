@@ -1,11 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mic2, Target, Music, Trophy, Users, Clock, Calendar, Star, ChevronRight, Award, Heart, Volume2, Smartphone, Globe } from "lucide-react";
+import { Mic2, Target, Music, Trophy, Users, Clock, Calendar, Star, ChevronRight, Award, Heart, Volume2, Smartphone, Globe, Phone, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
 const karafunFeatures = [
@@ -74,37 +74,55 @@ const testimonials = [
 
 export function EntertainmentPageSection() {
   const [activeTab, setActiveTab] = useState<"karaoke" | "darts">("karaoke");
+  const [heroSlide, setHeroSlide] = useState<"karaoke" | "darts">("karaoke");
+  
+  // Auto-slide every 3 seconds for hero only
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHeroSlide(prev => prev === "karaoke" ? "darts" : "karaoke");
+    }, 3000);
+    
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <>
-      {/* Vibrant Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-gradient-to-br from-primary/20 via-white to-accent/20">
-        {/* Split background images */}
-        <div className="absolute inset-0 grid grid-cols-2">
-          <div className="relative overflow-hidden">
-            <Image
-              src="/pictures/entertainment/karaoke.jpg"
-              alt="Karaoke at Rialto Social"
-              fill
-              className="object-cover opacity-60 scale-110"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-transparent to-transparent mix-blend-multiply" />
-          </div>
-          <div className="relative overflow-hidden">
-            <Image
-              src="/pictures/entertainment/darts.jpg"
-              alt="Darts at Rialto Social"
-              fill
-              className="object-cover opacity-60 scale-110"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-l from-accent/30 via-transparent to-transparent mix-blend-multiply" />
-          </div>
+      {/* Carousel Hero Section */}
+      <section className="relative min-h-[60vh] flex items-center overflow-hidden">
+        {/* Auto-sliding carousel background */}
+        <div className="absolute inset-0">
+          <motion.div
+            animate={{
+              x: heroSlide === "karaoke" ? "0%" : "-50%"
+            }}
+            transition={{ duration: 0.7, ease: "easeInOut" }}
+            className="flex w-[200%] h-full"
+          >
+            {/* Karaoke Slide */}
+            <div className="relative w-1/2 h-full">
+              <Image
+                src="/pictures/entertainment/karaoke.jpg"
+                alt="Karaoke at Rialto Social"
+                fill
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
+            </div>
+            
+            {/* Darts Slide */}
+            <div className="relative w-1/2 h-full">
+              <Image
+                src="/pictures/entertainment/darts.jpg"
+                alt="Darts at Rialto Social"
+                fill
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
+            </div>
+          </motion.div>
         </div>
-        
-        {/* Bright overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-transparent to-white/60" />
         
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -113,62 +131,84 @@ export function EntertainmentPageSection() {
             transition={{ duration: 0.6 }}
             className="text-center max-w-5xl mx-auto"
           >
-            {/* Vibrant badge */}
+            {/* Dynamic content based on current slide */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-accent text-white rounded-full px-6 py-2 mb-8 shadow-lg"
+              key={heroSlide}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+              className="text-center"
             >
-              <Star className="w-4 h-4 text-white" />
-              <span className="text-sm font-bold">Premium Entertainment Venue</span>
-              <Star className="w-4 h-4 text-white" />
+              {heroSlide === "karaoke" ? (
+                <>
+                  <div className="inline-flex items-center gap-2 bg-white rounded-full px-6 py-2 mb-8 shadow-2xl">
+                    <Mic2 className="w-4 h-4 text-primary" />
+                    <span className="text-sm font-bold text-gray-800">Karafun Premium Partner</span>
+                  </div>
+                  
+                  <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 30px rgba(0,0,0,0.5)'}}>
+                    Karaoke Experience
+                    <span className="block text-4xl md:text-5xl lg:text-6xl mt-2">
+                      Sing Your Heart Out
+                    </span>
+                  </h1>
+                  <p className="text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto leading-relaxed font-semibold" style={{textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.5)'}}>
+                    Europe&apos;s #1 karaoke system with 44,000+ songs in 23 languages. 
+                    Private room available for your special celebrations.
+                  </p>
+                </>
+              ) : (
+                <>
+                  <div className="inline-flex items-center gap-2 bg-white rounded-full px-6 py-2 mb-8 shadow-2xl">
+                    <Target className="w-4 h-4 text-accent" />
+                    <span className="text-sm font-bold text-gray-800">Tournament Standard Venue</span>
+                  </div>
+                  
+                  <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 30px rgba(0,0,0,0.5)'}}>
+                    Professional Darts
+                    <span className="block text-4xl md:text-5xl lg:text-6xl mt-2">
+                      Hit The Bullseye
+                    </span>
+                  </h1>
+                  <p className="text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto leading-relaxed font-semibold" style={{textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.5)'}}>
+                    4 professional dartboards with proper lighting and regulation distance. 
+                    Weekly leagues and monthly tournaments.
+                  </p>
+                </>
+              )}
             </motion.div>
             
-            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-gray-900">
-              Entertainment
-              <span className="block text-3xl md:text-5xl lg:text-6xl mt-2 bg-gradient-to-r from-primary via-primary/80 to-accent bg-clip-text text-transparent">
-                Karaoke & Darts Experience
-              </span>
-            </h1>
-            <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed font-medium">
-              Professional entertainment venue featuring Karafun&apos;s premium karaoke system 
-              and tournament-standard darts facilities in the heart of Dorking
-            </p>
-            
-            {/* Vibrant Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-              {entertainmentHighlights.map((item, index) => (
-                <motion.div
-                  key={item.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white rounded-2xl p-4 shadow-lg border-2 border-transparent hover:border-primary transition-all duration-300"
-                >
-                  <item.icon className={cn(
-                    "w-8 h-8 mx-auto mb-2",
-                    index % 2 === 0 ? "text-primary" : "text-accent"
-                  )} />
-                  <div className={cn(
-                    "text-3xl font-bold",
-                    index % 2 === 0 ? "text-primary" : "text-accent"
-                  )}>{item.stat}</div>
-                  <div className="text-xs text-gray-600 uppercase tracking-wider font-semibold">{item.label}</div>
-                </motion.div>
-              ))}
+            {/* Carousel Indicators */}
+            <div className="flex justify-center gap-3 mb-10">
+              <button
+                onClick={() => setHeroSlide("karaoke")}
+                className={cn(
+                  "w-3 h-3 rounded-full transition-all duration-300",
+                  heroSlide === "karaoke" ? "bg-white w-8" : "bg-white/40"
+                )}
+                aria-label="Show karaoke slide"
+              />
+              <button
+                onClick={() => setHeroSlide("darts")}
+                className={cn(
+                  "w-3 h-3 rounded-full transition-all duration-300",
+                  heroSlide === "darts" ? "bg-white w-8" : "bg-white/40"
+                )}
+                aria-label="Show darts slide"
+              />
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button size="lg" className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold px-8 py-6 text-lg shadow-xl">
+                <Button size="lg" className="bg-white text-gray-900 hover:bg-gray-100 font-bold px-8 py-6 text-lg shadow-2xl">
                   <Link href="/contact" className="flex items-center gap-2">
                     Book Entertainment <ChevronRight className="w-5 h-5" />
                   </Link>
                 </Button>
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button size="lg" variant="outline" className="border-2 border-accent bg-white text-accent hover:bg-accent hover:text-white font-semibold px-8 py-6 text-lg shadow-lg transition-all">
+                <Button size="lg" className="bg-black/20 backdrop-blur border-2 border-white text-white hover:bg-white hover:text-gray-900 font-bold px-8 py-6 text-lg shadow-2xl transition-all">
                   <a href="tel:+441306742885" className="flex items-center gap-2">
                     <Phone className="w-5 h-5" /> 01306 742885
                   </a>
@@ -176,6 +216,34 @@ export function EntertainmentPageSection() {
               </motion.div>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Entertainment Stats */}
+      <section className="py-12 bg-gradient-to-b from-gray-50 to-white">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            {entertainmentHighlights.map((item, index) => (
+              <motion.div
+                key={item.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-primary transition-all duration-300 text-center"
+              >
+                <item.icon className={cn(
+                  "w-10 h-10 mx-auto mb-3",
+                  index % 2 === 0 ? "text-primary" : "text-accent"
+                )} />
+                <div className={cn(
+                  "text-3xl font-bold mb-1",
+                  index % 2 === 0 ? "text-primary" : "text-accent"
+                )}>{item.stat}</div>
+                <div className="text-xs text-gray-600 uppercase tracking-wider font-semibold">{item.label}</div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -583,8 +651,10 @@ export function EntertainmentPageSection() {
                     Make a Booking <ChevronRight className="w-4 h-4" />
                   </Link>
                 </Button>
-                <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary font-bold transition-all">
-                  <a href="tel:+441306742885">Call 01306 742885</a>
+                <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary font-bold transition-all bg-white/20 backdrop-blur">
+                  <a href="tel:+441306742885" className="flex items-center gap-2">
+                    <Phone className="w-4 h-4" /> Call 01306 742885
+                  </a>
                 </Button>
               </div>
             </div>
@@ -594,7 +664,3 @@ export function EntertainmentPageSection() {
     </>
   );
 }
-
-// Add missing imports
-import { Check } from "lucide-react";
-import { Phone } from "lucide-react";
