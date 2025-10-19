@@ -3,7 +3,6 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { GallerySection } from "@/components/sections/GallerySection";
 import { FloatingActionButton } from "@/components/ui/floating-action-button";
-import { Breadcrumb } from "@/components/ui/breadcrumb";
 
 export const metadata: Metadata = {
   title: "Gallery | Rialto Social Restaurant Photos",
@@ -15,8 +14,7 @@ export default function GalleryPage() {
   return (
     <>
       <Header />
-      <Breadcrumb />
-      <main>
+      <main className="pt-24">
         <GallerySection />
       </main>
       <Footer />

@@ -3,7 +3,6 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { AboutPageSection } from "@/components/sections/AboutPageSection";
 import { FloatingActionButton } from "@/components/ui/floating-action-button";
-import { Breadcrumb } from "@/components/ui/breadcrumb";
 
 export const metadata: Metadata = {
   title: "About Us | Rialto Social Italian Restaurant",
@@ -15,8 +14,7 @@ export default function AboutPage() {
   return (
     <>
       <Header />
-      <Breadcrumb />
-      <main>
+      <main className="pt-24">
         <AboutPageSection />
       </main>
       <Footer />

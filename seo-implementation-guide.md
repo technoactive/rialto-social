@@ -7,7 +7,6 @@
    - Restaurant schema with complete details
    - Organization schema
    - FAQ schema on homepage
-   - Breadcrumb schema on all pages
    - Website search schema
 
 2. **Meta Tags Optimization**
@@ -17,10 +16,10 @@
    - OpenGraph and Twitter Card tags
 
 3. **Site Structure**
-   - Added breadcrumb navigation
    - Improved robots.txt with specific directives
    - XML sitemap with proper priorities
    - Clean URL structure
+   - Simple navigation structure (appropriate for small restaurant site)
 
 4. **Content Optimization**
    - FAQ section added to homepage

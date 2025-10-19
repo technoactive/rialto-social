@@ -4,7 +4,6 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { FloatingActionButton } from "@/components/ui/floating-action-button";
-import { Breadcrumb } from "@/components/ui/breadcrumb";
 
 export const metadata: Metadata = {
   title: "Contact & Reservations | Rialto Social Dorking",
@@ -16,8 +15,7 @@ export default function ContactPage() {
   return (
     <>
       <Header />
-      <Breadcrumb />
-      <main>
+      <main className="pt-24">
         <Suspense fallback={<div className="min-h-screen" />}>
           <ContactSection />
         </Suspense>
