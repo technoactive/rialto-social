@@ -16,7 +16,7 @@ export default function EntertainmentPage() {
     <>
       <Header />
       <Breadcrumb />
-      <main className="pt-24">
+      <main>
         <EntertainmentPageSection />
       </main>
       <Footer />

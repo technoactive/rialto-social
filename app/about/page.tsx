@@ -16,7 +16,7 @@ export default function AboutPage() {
     <>
       <Header />
       <Breadcrumb />
-      <main className="pt-24">
+      <main>
         <AboutPageSection />
       </main>
       <Footer />

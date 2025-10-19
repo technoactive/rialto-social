@@ -16,7 +16,7 @@ export default function GalleryPage() {
     <>
       <Header />
       <Breadcrumb />
-      <main className="pt-24">
+      <main>
         <GallerySection />
       </main>
       <Footer />

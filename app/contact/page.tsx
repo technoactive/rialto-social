@@ -17,7 +17,7 @@ export default function ContactPage() {
     <>
       <Header />
       <Breadcrumb />
-      <main className="pt-24">
+      <main>
         <Suspense fallback={<div className="min-h-screen" />}>
           <ContactSection />
         </Suspense>

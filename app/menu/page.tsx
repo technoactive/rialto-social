@@ -16,7 +16,7 @@ export default function MenuPage() {
     <>
       <Header />
       <Breadcrumb />
-      <main className="pt-24">
+      <main>
         <MenuSection />
       </main>
       <Footer />

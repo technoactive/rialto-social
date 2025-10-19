@@ -68,7 +68,7 @@ export function Breadcrumb() {
         }}
         strategy="afterInteractive"
       />
-      <nav aria-label="Breadcrumb" className="w-full bg-gray-50 border-b">
+      <nav aria-label="Breadcrumb" className="w-full bg-gray-50 border-b pt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ol className="flex items-center space-x-2 py-3 text-sm">
             {breadcrumbs.map((item, index) => (
