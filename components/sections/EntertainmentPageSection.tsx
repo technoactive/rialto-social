@@ -12,7 +12,7 @@ const karafunFeatures = [
   {
     icon: Music,
     title: "44,000+ Songs",
-    description: "The UK's largest karaoke catalog with songs in 23 languages"
+    description: "The UK&apos;s largest karaoke catalog with songs in 23 languages"
   },
   {
     icon: Smartphone,
@@ -68,7 +68,7 @@ const testimonials = [
   {
     name: "Emma L.",
     rating: 5,
-    text: "Had my birthday here - dinner, karaoke, and darts all in one place. Couldn't ask for better!"
+    text: "Had my birthday here - dinner, karaoke, and darts all in one place. Couldn&apos;t ask for better!"
   }
 ];
 
@@ -126,7 +126,7 @@ export function EntertainmentPageSection() {
               Entertainment Hub
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-8">
-              Dorking's Premier Venue for Karaoke & Darts
+              Dorking&apos;s Premier Venue for Karaoke & Darts
             </p>
             
             {/* Stats */}
@@ -217,7 +217,7 @@ export function EntertainmentPageSection() {
                       The Ultimate Karaoke Experience
                     </h2>
                     <p className="text-lg text-muted-foreground mb-6">
-                      We're proud to feature Karafun - Europe's #1 karaoke system. With the world's 
+                      We&apos;re proud to feature Karafun - Europe&apos;s #1 karaoke system. With the world&apos;s 
                       largest catalog of high-quality karaoke songs and cutting-edge technology, 
                       your performance will sound incredible!
                     </p>
@@ -389,8 +389,8 @@ export function EntertainmentPageSection() {
                       </h2>
                     </div>
                     <p className="text-lg text-muted-foreground mb-6">
-                      Step into Surrey's finest darts venue. With 4 professional boards, 
-                      perfect lighting, and a vibrant atmosphere, we're home to casual players 
+                      Step into Surrey&apos;s finest darts venue. With 4 professional boards, 
+                      perfect lighting, and a vibrant atmosphere, we&apos;re home to casual players 
                       and serious competitors alike.
                     </p>
                     <div className="grid grid-cols-2 gap-4 mb-6">
