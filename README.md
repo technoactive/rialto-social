@@ -122,3 +122,6 @@ Phone: 01306 742885
 ## 📄 License
 
 © 2025 Rialto Social. All rights reserved.
+
+---
+Last updated: October 20, 2025
