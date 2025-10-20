@@ -33,7 +33,7 @@ export function Hero() {
             className="inline-flex items-center gap-2 bg-accent text-white px-4 py-2 rounded-full mb-8 shadow-lg"
           >
             <Star className="w-4 h-4 text-white fill-white" />
-            <span className="text-sm font-medium">Authentic Italian Since 2020</span>
+            <span className="text-sm font-medium">Authentic Italian Since 2001</span>
           </motion.div>
 
           {/* Main Heading */}
@@ -54,7 +54,7 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto drop-shadow-lg"
           >
-            Experience the heart of Italy in Dorking. Fresh pasta, authentic
+            A taste of Italy in Dorking. Traditional stone baked Neapolitan style 
             pizzas, plus karaoke and darts for unforgettable nights out.
           </motion.p>
 
@@ -92,7 +92,7 @@ export function Hero() {
               <p className="text-sm text-white/70">Reviews</p>
             </div>
             <div className="text-center">
-              <p className="text-3xl md:text-4xl font-bold text-accent">5+</p>
+              <p className="text-3xl md:text-4xl font-bold text-accent">23+</p>
               <p className="text-sm text-white/70">Years</p>
             </div>
           </motion.div>

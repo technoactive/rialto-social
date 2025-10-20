@@ -7,7 +7,7 @@ const testimonials = [
   {
     name: "Sarah Thompson",
     role: "Food Critic",
-    content: "Rialto Social captures the essence of Italian dining perfectly. The handmade pasta is exceptional, and the atmosphere transports you straight to Italy.",
+    content: "Rialto Social captures the essence of Italian dining perfectly. The authentic Italian cuisine is exceptional, and the atmosphere transports you straight to Italy.",
     rating: 5,
   },
   {

@@ -16,7 +16,7 @@ const faqs = [
   },
   {
     question: "What are your opening hours?",
-    answer: "Monday to Thursday: 5:00 PM - 11:00 PM, Friday & Saturday: 12:00 PM - 12:00 AM, Sunday: 12:00 PM - 10:00 PM. We're closed for lunch Monday through Thursday."
+    answer: "Monday to Thursday: 12:00 - 23:00 (kitchen closes at 22:00), Friday & Saturday: 12:00 - 24:00 (kitchen closes at 22:00), Sunday: 12:00 - 23:00 (kitchen closes at 21:30)."
   },
   {
     question: "Do you offer takeaway services?",
@@ -24,7 +24,7 @@ const faqs = [
   },
   {
     question: "Do you have entertainment options?",
-    answer: "Yes! We feature karaoke nights, professional dartboards, and live entertainment. Perfect for parties, celebrations, or a fun night out with friends."
+    answer: "Yes! We feature karaoke (available all week), interactive darts, and a PS5 gaming room. Perfect for parties, celebrations, or a fun night out with friends."
   },
   {
     question: "Can I make a reservation?",

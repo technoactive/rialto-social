@@ -108,7 +108,7 @@ export const aLaCarteData: MenuSection[] = [
       {
         id: 'frutti-mare-salad',
         name: 'Insalata Frutti di Mare',
-        description: 'Chilled seafood salad with crostini',
+        description: 'Mixed seafood salad with prawns, squid, mussels, olive oil, lemon & fresh herbs. Served chilled with crostini',
         price: '£9.95 / £14.95',
         category: 'salads',
         dietary: ['F']
@@ -125,14 +125,14 @@ export const aLaCarteData: MenuSection[] = [
   },
   {
     id: 'pasta-risotti',
-    title: '🍝 Pasta & Risotti',
+    title: '🍝 Pasta & Risotto',
     displayOrder: 3,
     items: [
       {
         id: 'spaghetti-bolognese',
         name: 'Spaghetti alla Bolognese',
         description: 'Beef ragù with tomatoes, red wine & herbs',
-        price: 14.95,
+        price: 15.95,
         category: 'pasta'
       },
       {
@@ -146,7 +146,7 @@ export const aLaCarteData: MenuSection[] = [
         id: 'linguini-pescatore',
         name: 'Linguini/Riso Pescatore',
         description: 'Seafood with garlic, chilli, white wine & tomato sauce',
-        price: 14.95,
+        price: 18.95,
         category: 'pasta',
         dietary: ['F']
       },
@@ -178,7 +178,7 @@ export const aLaCarteData: MenuSection[] = [
         id: 'risotto-funghi',
         name: 'Risotto ai Funghi di Bosco',
         description: 'Creamy risotto with wild mushrooms & white wine',
-        price: 15.95,
+        price: 14.95,
         category: 'pasta',
         dietary: ['V', 'GF']
       }
@@ -193,7 +193,7 @@ export const aLaCarteData: MenuSection[] = [
         id: 'margherita',
         name: 'Margherita',
         description: 'Nonna sauce, mozzarella & basil',
-        price: 14.25,
+        price: 14.95,
         category: 'pizza',
         dietary: ['V']
       },
@@ -209,14 +209,14 @@ export const aLaCarteData: MenuSection[] = [
         id: 'quattro-formaggi',
         name: 'Quattro Formaggi',
         description: 'Mozzarella, goat cheese, gorgonzola, parmesan & ricotta',
-        price: 14.25,
+        price: 14.95,
         category: 'pizza',
         dietary: ['V']
       },
       {
         id: 'quattro-stagioni',
         name: 'Quattro Stagioni',
-        description: 'Ham, olives & mushrooms',
+        description: 'Ham, olives, mushrooms & artichokes',
         price: 14.95,
         category: 'pizza'
       },
@@ -224,14 +224,14 @@ export const aLaCarteData: MenuSection[] = [
         id: 'suprema-picante',
         name: 'Suprema Picante',
         description: 'Ham, pepperoni, beef, peppers, olives & chilli',
-        price: 14.25,
+        price: 14.95,
         category: 'pizza'
       },
       {
         id: 'calabrese',
         name: 'Calabrese',
         description: 'Pepperoni, spicy nduja, rocket & burrata',
-        price: 14.25,
+        price: 14.95,
         category: 'pizza'
       },
       {
@@ -254,14 +254,14 @@ export const aLaCarteData: MenuSection[] = [
         id: 'prosciutto-rucola',
         name: 'Prosciutto e Rucola',
         description: 'Parma ham & rocket',
-        price: 14.95,
+        price: 14.25,
         category: 'pizza'
       },
       {
         id: 'pepperoni',
         name: 'Pepperoni',
         description: 'Mozzarella & pepperoni',
-        price: 14.95,
+        price: 14.25,
         category: 'pizza'
       },
       {
@@ -343,6 +343,14 @@ export const aLaCarteData: MenuSection[] = [
         description: 'Beef ragù, béchamel & Parmigiano. Baked until golden',
         price: 14.95,
         category: 'secondi'
+      },
+      {
+        id: 'verdure-miste-grilla',
+        name: 'Verdure Miste alla Grilla',
+        description: 'Selection of seasonal grilled vegetables, served with artisanal bread and roasted potatoes',
+        price: '£45.25 / £65.25',
+        category: 'secondi',
+        dietary: ['V', 'VE', 'GF']
       }
     ]
   },

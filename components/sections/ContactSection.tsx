@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { OpenStreetMap } from "@/components/ui/openstreet-map";
-import { MapPin, Phone, Mail, Clock, Send, Calendar, Users, ChefHat, Mic2, Target } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Send, Calendar, Users, ChefHat, Mic2, Target, Gamepad2 } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 
 export function ContactSection() {
@@ -130,12 +130,14 @@ export function ContactSection() {
                       <option value="dining">Restaurant Dining</option>
                       <option value="karaoke">Karaoke</option>
                       <option value="darts">Darts</option>
+                      <option value="ps5">PS5 Gaming</option>
                       <option value="event">Private Event</option>
                     </select>
                     <div className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none">
                       {formData.service === "dining" && <ChefHat className="w-4 h-4 text-muted-foreground" />}
                       {formData.service === "karaoke" && <Mic2 className="w-4 h-4 text-muted-foreground" />}
                       {formData.service === "darts" && <Target className="w-4 h-4 text-muted-foreground" />}
+                      {formData.service === "ps5" && <Gamepad2 className="w-4 h-4 text-muted-foreground" />}
                       {formData.service === "event" && <Users className="w-4 h-4 text-muted-foreground" />}
                     </div>
                   </div>
@@ -295,9 +297,9 @@ export function ContactSection() {
                   <div>
                     <p className="font-semibold">Opening Hours</p>
                     <div className="text-muted-foreground space-y-1">
-                      <p>Monday - Thursday: 12:00 PM - 10:00 PM</p>
-                      <p>Friday - Saturday: 12:00 PM - 11:00 PM</p>
-                      <p>Sunday: 12:00 PM - 9:00 PM</p>
+                      <p>Monday - Thursday: 12:00 - 23:00 (kitchen closes 22:00)</p>
+                      <p>Friday - Saturday: 12:00 - 24:00 (kitchen closes 22:00)</p>
+                      <p>Sunday: 12:00 - 23:00 (kitchen closes 21:30)</p>
                     </div>
                   </div>
                 </div>

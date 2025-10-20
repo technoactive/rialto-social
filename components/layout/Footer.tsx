@@ -10,8 +10,7 @@ import {
   Mail, 
   Clock, 
   Facebook, 
-  Instagram, 
-  Twitter,
+  Instagram,
   ChevronRight,
   ArrowUp,
   Utensils,
@@ -73,9 +72,8 @@ export function Footer() {
               <p className="text-white/60 text-sm mb-3">Follow us for updates</p>
               <div className="flex gap-3">
                 {[
-                  { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
-                  { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-                  { icon: Twitter, href: "https://twitter.com", label: "Twitter" }
+                  { icon: Facebook, href: "https://www.facebook.com/rialtosocial", label: "Facebook" },
+                  { icon: Instagram, href: "https://www.instagram.com/rialtosocial", label: "Instagram" }
                 ].map((social, index) => (
                   <motion.a
                     key={social.label}
@@ -203,9 +201,9 @@ export function Footer() {
             </h4>
             <div className="space-y-3">
               {[
-                { days: "Monday - Thursday", hours: "12:00 PM - 10:00 PM" },
-                { days: "Friday - Saturday", hours: "12:00 PM - 11:00 PM" },
-                { days: "Sunday", hours: "12:00 PM - 9:00 PM" }
+                { days: "Monday - Thursday", hours: "12:00 - 23:00" },
+                { days: "Friday - Saturday", hours: "12:00 - 24:00" },
+                { days: "Sunday", hours: "12:00 - 23:00" }
               ].map((schedule, index) => (
                 <motion.div 
                   key={schedule.days}
@@ -221,7 +219,7 @@ export function Footer() {
               <div className="mt-4 p-3 bg-primary/20 rounded-lg border border-primary/30">
                 <p className="text-sm text-white/90 flex items-center gap-2">
                   <Wine className="w-4 h-4 text-primary" />
-                  Kitchen closes 30 mins before closing
+                  Kitchen closes at 22:00 (Sun 21:30)
                 </p>
               </div>
             </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChefHat, Mic2, Target, ArrowRight } from "lucide-react";
+import { ChefHat, Mic2, Target, ArrowRight, Gamepad2, IceCream } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -10,37 +10,61 @@ const services = [
     id: "dining",
     icon: ChefHat,
     title: "Italian Dining",
-    description: "Authentic Italian cuisine with fresh pasta and traditional pizzas",
+    description: "Traditional stone baked Neapolitan style pizzas and authentic Italian cuisine",
     features: ["Lunch & Dinner", "Takeaway Available", "Private Dining"],
     link: "/menu",
     linkText: "View Menu",
     color: "from-primary/10 to-primary/5",
     borderColor: "border-primary/20",
-    availability: "Daily 12 PM - 10 PM",
+    availability: "Daily - See hours below",
   },
   {
     id: "karaoke",
     icon: Mic2,
     title: "Karaoke Nights",
-    description: "Sing your heart out with 10,000+ songs and private rooms",
-    features: ["Fri & Sat 8 PM", "Private Rooms", "Party Packages"],
+    description: "Monday to Sunday - Private room available all day",
+    features: ["44,000+ Songs", "Private Room", "Karafun System"],
     link: "/entertainment#karaoke",
     linkText: "Book Karaoke",
     color: "from-accent/10 to-accent/5",
     borderColor: "border-accent/20",
-    availability: "Fri-Sat 8 PM - 1 AM",
+    availability: "All Week - All Day",
+  },
+  {
+    id: "gelato",
+    icon: IceCream,
+    title: "Artisanal Gelato",
+    description: "Authentic Italian gelato made fresh daily by our artisanal gelato makers",
+    features: ["Made Fresh Daily", "Traditional Flavors", "Vegan Options"],
+    link: "/menu#desserts",
+    linkText: "View Flavors",
+    color: "from-primary/10 to-accent/5",
+    borderColor: "border-primary/20",
+    availability: "Daily",
   },
   {
     id: "darts",
     icon: Target,
-    title: "Darts Lounge",
-    description: "Professional dartboards with leagues and tournaments",
-    features: ["Daily Play", "Happy Hour Free", "Tournaments"],
+    title: "Interactive Darts",
+    description: "Professional dartboards for casual play and fun with friends",
+    features: ["4 Boards", "Daily Play", "Group Bookings"],
     link: "/entertainment#darts",
     linkText: "Reserve Darts",
     color: "from-accent/10 to-primary/5",
     borderColor: "border-accent/20",
     availability: "Daily from 12 PM",
+  },
+  {
+    id: "ps5",
+    icon: Gamepad2,
+    title: "PS5 Gaming Room",
+    description: "Local hot seat gaming - FIFA, Mortal Kombat, Rugby 25, NBA 2K25, Top Spin, F1 25, Gran Turismo, UFC 5",
+    features: ["Latest Games", "Private Room", "Group Sessions"],
+    link: "/entertainment#gaming",
+    linkText: "Book PS5 Room",
+    color: "from-primary/10 to-primary/5",
+    borderColor: "border-primary/20",
+    availability: "Daily",
   },
 ];
 
@@ -65,7 +89,7 @@ export function ServicesOverview() {
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 lg:gap-8">
           {services.map((service, index) => (
             <motion.div
               key={service.id}

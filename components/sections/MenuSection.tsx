@@ -3,12 +3,11 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { aLaCarteData, pizzaExtras, lunchSpecialData, cocktailsData, dessertsData, coffeeData, teaData, otherBeverages } from "@/lib/data/menu";
+import { aLaCarteData, pizzaExtras, cocktailsData, dessertsData, coffeeData, teaData, otherBeverages } from "@/lib/data/menu";
 import type { DietaryTag } from "@/lib/types/menu";
-import { Martini, Cookie, UtensilsCrossed, Clock } from "lucide-react";
+import { Martini, Cookie, UtensilsCrossed } from "lucide-react";
 
 const menuTypes = [
-  { id: "lunch", label: "Lunch Special", icon: Clock },
   { id: "food", label: "À La Carte", icon: UtensilsCrossed },
   { id: "cocktails", label: "Cocktails", icon: Martini },
   { id: "desserts", label: "Desserts & Coffee", icon: Cookie },
@@ -128,44 +127,6 @@ export function MenuSection() {
           transition={{ duration: 0.3 }}
           className="max-w-4xl mx-auto"
         >
-          {activeMenuType === "lunch" && (
-            <div>
-              <div className="mb-8 text-center">
-                <h2 className="font-display text-3xl md:text-4xl font-bold mb-2">
-                  {lunchSpecialData.title}
-                </h2>
-                <p className="text-lg text-primary font-semibold mb-2">
-                  {lunchSpecialData.price} • Served until {lunchSpecialData.servedUntil}
-                </p>
-              </div>
-              
-              {/* Primo */}
-              <div className="mb-10">
-                <h3 className="font-display text-2xl font-bold mb-4 text-center">Primo</h3>
-                <div className="space-y-4">
-                  {lunchSpecialData.sections.primo.map((item) => (
-                    <div key={item.id} className="bg-card rounded-lg p-4">
-                      <h4 className="font-semibold text-lg mb-1">{item.name}</h4>
-                      <p className="text-muted-foreground">{item.description}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              
-              {/* Secondi */}
-              <div>
-                <h3 className="font-display text-2xl font-bold mb-4 text-center">Secondi</h3>
-                <div className="space-y-4">
-                  {lunchSpecialData.sections.secondi.map((item) => (
-                    <div key={item.id} className="bg-card rounded-lg p-4">
-                      <h4 className="font-semibold text-lg mb-1">{item.name}</h4>
-                      <p className="text-muted-foreground">{item.description}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
 
           {activeMenuType === "food" && (
             <>

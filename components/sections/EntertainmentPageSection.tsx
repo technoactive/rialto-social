@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mic2, Target, Music, Trophy, Users, Clock, Calendar, Star, ChevronRight, Award, Heart, Volume2, Smartphone, Globe, Phone, Check } from "lucide-react";
+import { Mic2, Target, Music, Trophy, Users, Clock, Calendar, Star, ChevronRight, Award, Heart, Volume2, Smartphone, Globe, Phone, Check, Gamepad2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
@@ -23,11 +23,6 @@ const karafunFeatures = [
     icon: Globe,
     title: "Updated Weekly",
     description: "New releases added every week - sing the latest hits"
-  },
-  {
-    icon: Volume2,
-    title: "Studio Quality",
-    description: "Professional audio system with vocal effects and pitch control"
   }
 ];
 
@@ -63,17 +58,17 @@ const testimonials = [
   {
     name: "James K.",
     rating: 5,
-    text: "Love the darts league here. Great atmosphere, well-maintained boards, and excellent Italian food!"
+    text: "Love playing darts here. Great atmosphere, well-maintained boards, and excellent Italian food!"
   },
   {
     name: "Emma L.",
     rating: 5,
-    text: "Had my birthday here - dinner, karaoke, and darts all in one place. Couldn&apos;t ask for better!"
+    text: "Perfect venue for celebrations! The private karaoke room is amazing and the PS5 gaming adds extra fun. Highly recommend!"
   }
 ];
 
 export function EntertainmentPageSection() {
-  const [activeTab, setActiveTab] = useState<"karaoke" | "darts">("karaoke");
+  const [activeTab, setActiveTab] = useState<"karaoke" | "darts" | "ps5">("karaoke");
   const [heroSlide, setHeroSlide] = useState<"karaoke" | "darts">("karaoke");
   
   // Auto-slide every 3 seconds for hero only
@@ -162,7 +157,7 @@ export function EntertainmentPageSection() {
                 <>
                   <div className="inline-flex items-center gap-2 bg-white rounded-full px-6 py-2 mb-8 shadow-2xl">
                     <Target className="w-4 h-4 text-accent" />
-                    <span className="text-sm font-bold text-gray-800">Tournament Standard Venue</span>
+                    <span className="text-sm font-bold text-gray-800">Interactive Darts Venue</span>
                   </div>
                   
                   <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 30px rgba(0,0,0,0.5)'}}>
@@ -173,7 +168,7 @@ export function EntertainmentPageSection() {
                   </h1>
                   <p className="text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto leading-relaxed font-semibold" style={{textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.5)'}}>
                     4 professional dartboards with proper lighting and regulation distance. 
-                    Weekly leagues and monthly tournaments.
+                    Perfect for casual play and fun with friends.
                   </p>
                 </>
               )}
@@ -255,7 +250,7 @@ export function EntertainmentPageSection() {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="grid grid-cols-2 gap-4 p-2 bg-white rounded-2xl shadow-xl border border-gray-100"
+              className="grid grid-cols-3 gap-4 p-2 bg-white rounded-2xl shadow-xl border border-gray-100"
             >
               <button
                 onClick={() => setActiveTab("karaoke")}
@@ -301,6 +296,28 @@ export function EntertainmentPageSection() {
                   <span className="sm:hidden">Darts</span>
                 </span>
               </button>
+              <button
+                onClick={() => setActiveTab("ps5")}
+                className={cn(
+                  "relative py-4 px-6 rounded-lg font-semibold text-center transition-all duration-300",
+                  activeTab === "ps5"
+                    ? "text-white"
+                    : "text-gray-700 hover:text-gray-900"
+                )}
+              >
+                {activeTab === "ps5" && (
+                  <motion.div
+                    layoutId="activeTab"
+                    className="absolute inset-0 bg-gradient-to-r from-accent to-primary rounded-lg shadow-lg"
+                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                  />
+                )}
+                <span className="relative flex items-center justify-center gap-2">
+                  <Gamepad2 className="w-5 h-5" />
+                  <span className="hidden sm:inline">PS5 Gaming</span>
+                  <span className="sm:hidden">PS5</span>
+                </span>
+              </button>
             </motion.div>
           </div>
 
@@ -334,7 +351,7 @@ export function EntertainmentPageSection() {
                     <div className="space-y-3">
                       <div className="flex items-center gap-2">
                         <Check className="w-5 h-5 text-accent" />
-                        <span>Control everything from your smartphone</span>
+                        <span>Easy song selection with Karafun app</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <Check className="w-5 h-5 text-accent" />
@@ -364,7 +381,7 @@ export function EntertainmentPageSection() {
 
               {/* Colorful Features Grid */}
               <div className="mb-16">
-                <h3 className="font-display text-2xl font-bold text-center mb-10 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                <h3 className="font-display text-2xl font-bold text-center mb-10 text-accent">
                   Why Choose Our Karaoke Experience
                 </h3>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -398,31 +415,31 @@ export function EntertainmentPageSection() {
               {/* Vibrant Pricing and Schedule */}
               <div className="grid lg:grid-cols-2 gap-8 mb-16">
                 <div className="bg-gradient-to-br from-accent/10 to-accent/5 rounded-3xl p-8 shadow-lg border border-accent/20">
-                  <h3 className="font-display text-2xl font-bold mb-6 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+                  <h3 className="font-display text-2xl font-bold mb-6 text-accent">
                     Karaoke Schedule
                   </h3>
                   <div className="space-y-4">
                     <div className="bg-white rounded-xl p-4">
                       <div className="flex justify-between items-start">
                         <div>
-                          <p className="font-semibold">Open Mic Karaoke</p>
-                          <p className="text-sm text-muted-foreground">Main dining area stage</p>
+                          <p className="font-semibold">Private Karaoke Room</p>
+                          <p className="text-sm text-muted-foreground">Available all day, every day</p>
                         </div>
                         <div className="text-right">
-                          <p className="font-bold text-accent">Free</p>
-                          <p className="text-sm">Fri & Sat 8pm-1am</p>
+                          <p className="font-bold text-accent">From £15/hr</p>
+                          <p className="text-sm">Monday to Sunday</p>
                         </div>
                       </div>
                     </div>
                     <div className="bg-white rounded-xl p-4">
                       <div className="flex justify-between items-start">
                         <div>
-                          <p className="font-semibold">Private Room</p>
-                          <p className="text-sm text-muted-foreground">Available for booking</p>
+                          <p className="font-semibold">Group Bookings</p>
+                          <p className="text-sm text-muted-foreground">Perfect for parties</p>
                         </div>
                         <div className="text-right">
-                          <p className="font-bold text-accent">From £30/hr</p>
-                          <p className="text-sm">7 days a week</p>
+                          <p className="font-bold text-accent">Contact Us</p>
+                          <p className="text-sm">For special rates</p>
                         </div>
                       </div>
                     </div>
@@ -430,7 +447,7 @@ export function EntertainmentPageSection() {
                       <div className="flex justify-between items-start">
                         <div>
                           <p className="font-semibold">VIP Package</p>
-                          <p className="text-sm text-muted-foreground">Dinner + 2hr karaoke</p>
+                          <p className="text-sm text-muted-foreground">Please contact us for the menu</p>
                         </div>
                         <div className="text-right">
                           <p className="font-bold text-primary">£35pp</p>
@@ -442,30 +459,23 @@ export function EntertainmentPageSection() {
                 </div>
 
                 <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-3xl p-8 shadow-lg border border-primary/20">
-                  <h3 className="font-display text-2xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                  <h3 className="font-display text-2xl font-bold mb-6 text-accent">
                     Private Room Details
                   </h3>
                   <div className="space-y-4">
                     <div className="bg-white rounded-xl p-6 border-2 border-primary">
-                      <h4 className="font-semibold mb-2 text-lg">Our Karaoke Room</h4>
-                      <p className="text-sm text-muted-foreground mb-4">Perfect for private parties and celebrations</p>
-                      <div className="space-y-2">
-                        <div className="flex justify-between">
-                          <span>Capacity:</span>
-                          <span className="font-bold">Up to 20 people</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span>Equipment:</span>
-                          <span className="font-bold">Karafun Pro System</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span>Hourly Rate:</span>
-                          <span className="font-bold text-primary">£40/hour</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span>Minimum Booking:</span>
-                          <span className="font-bold">2 hours</span>
-                        </div>
+                      <h4 className="font-semibold mb-2 text-lg">The Private Room</h4>
+                      <p className="text-base text-gray-700 mb-4 leading-relaxed">
+                        An intimate setting for up to 20 guests, where Venetian artistry meets contemporary spirit. 
+                        The walls are adorned with bespoke graffiti murals by our local maestro, Uncle Stubble—bold, 
+                        expressive, and unmistakably Rialto. Overhead, hand-blown glass fixtures from a hidden workshop 
+                        in Venice cast a warm, golden glow, inviting conversation and celebration. Ideal for private 
+                        dinners, spirited gatherings, or moments that deserve a touch of magic.
+                      </p>
+                      <div className="mt-6 p-4 bg-primary/10 rounded-lg">
+                        <p className="text-center font-semibold text-gray-800">
+                          Contact our events team for booking and menu options
+                        </p>
                       </div>
                     </div>
                     <div className="bg-accent/10 rounded-xl p-4 text-center">
@@ -499,7 +509,7 @@ export function EntertainmentPageSection() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-accent/80 via-transparent to-transparent" />
                     <div className="absolute bottom-6 left-6 text-white">
-                      <p className="text-sm font-bold uppercase tracking-wider">Tournament Standard</p>
+                      <p className="text-sm font-bold uppercase tracking-wider">Interactive Entertainment</p>
                       <p className="text-2xl font-bold drop-shadow-lg">Professional Darts Venue</p>
                     </div>
                   </div>
@@ -507,28 +517,28 @@ export function EntertainmentPageSection() {
                     <div className="flex items-center gap-3 mb-6">
                       <Target className="w-12 h-12 text-accent" />
                       <h2 className="font-display text-3xl md:text-4xl font-bold">
-                        Professional Darts Lounge
+                        Interactive Darts Lounge
                       </h2>
                     </div>
                     <p className="text-lg text-muted-foreground mb-6">
-                      Step into Surrey&apos;s finest darts venue. With 4 professional boards, 
-                      perfect lighting, and a vibrant atmosphere, we&apos;re home to casual players 
-                      and serious competitors alike.
+                      Step into Surrey&apos;s finest interactive darts venue. With 4 professional boards, 
+                      perfect lighting, and a vibrant atmosphere, we&apos;re the perfect place for 
+                      fun and socializing with friends.
                     </p>
                     <div className="grid grid-cols-2 gap-4 mb-6">
                       <div className="bg-white rounded-xl p-4 text-center">
-                        <Trophy className="w-8 h-8 text-primary mx-auto mb-2" />
-                        <p className="font-bold text-2xl">£500</p>
-                        <p className="text-sm text-muted-foreground">Monthly Prize Pool</p>
+                        <Target className="w-8 h-8 text-primary mx-auto mb-2" />
+                        <p className="font-bold text-2xl">4</p>
+                        <p className="text-sm text-muted-foreground">Professional Boards</p>
                       </div>
                       <div className="bg-white rounded-xl p-4 text-center">
                         <Users className="w-8 h-8 text-accent mx-auto mb-2" />
-                        <p className="font-bold text-2xl">8</p>
-                        <p className="text-sm text-muted-foreground">League Teams</p>
+                        <p className="font-bold text-2xl">20+</p>
+                        <p className="text-sm text-muted-foreground">Daily Players</p>
                       </div>
                     </div>
                     <Button size="lg" className="w-full bg-accent hover:bg-accent/90">
-                      Join Our Darts League
+                      Book Your Darts Session
                     </Button>
                   </div>
                 </div>
@@ -540,7 +550,7 @@ export function EntertainmentPageSection() {
                   <div className="w-14 h-14 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:from-primary/30 group-hover:to-primary/20 transition-colors">
                     <Award className="w-8 h-8 text-primary" />
                   </div>
-                  <h4 className="font-bold text-lg mb-2 text-gray-800">Tournament Ready</h4>
+                  <h4 className="font-bold text-lg mb-2 text-gray-800">Professional Setup</h4>
                   <p className="text-sm text-gray-600">
                     Bristle boards, proper lighting, and regulation throwing distance
                   </p>
@@ -549,9 +559,9 @@ export function EntertainmentPageSection() {
                   <div className="w-14 h-14 bg-gradient-to-br from-accent/20 to-accent/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:from-accent/30 group-hover:to-accent/20 transition-colors">
                     <Calendar className="w-8 h-8 text-accent" />
                   </div>
-                  <h4 className="font-bold text-lg mb-2 text-gray-800">Weekly Events</h4>
+                  <h4 className="font-bold text-lg mb-2 text-gray-800">Daily Available</h4>
                   <p className="text-sm text-gray-600">
-                    Leagues on Wednesday, tournaments monthly, casual play daily
+                    Open every day for casual play and group bookings
                   </p>
                 </div>
                 <div className="bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-primary group">
@@ -567,33 +577,126 @@ export function EntertainmentPageSection() {
 
               {/* Vibrant Darts Schedule & Pricing */}
               <div className="bg-gradient-to-br from-accent/10 via-white to-primary/10 rounded-3xl p-8 md:p-12 shadow-xl border border-accent/20">
-                <h3 className="font-display text-2xl font-bold mb-8 text-center bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
-                  Darts Schedule & Pricing
+                <h3 className="font-display text-2xl font-bold mb-8 text-center text-accent">
+                  Darts Pricing
                 </h3>
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                  <div className="bg-white rounded-xl p-6 text-center">
-                    <Clock className="w-8 h-8 text-accent mx-auto mb-3" />
-                    <h4 className="font-semibold mb-2">Happy Hour</h4>
-                    <p className="text-2xl font-bold text-primary mb-1">FREE</p>
-                    <p className="text-sm text-muted-foreground">3-6pm Daily</p>
-                  </div>
+                <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
                   <div className="bg-white rounded-xl p-6 text-center">
                     <Target className="w-8 h-8 text-primary mx-auto mb-3" />
                     <h4 className="font-semibold mb-2">Casual Play</h4>
-                    <p className="text-2xl font-bold text-primary mb-1">£3/hr</p>
+                    <p className="text-2xl font-bold text-primary mb-1">£3/hour</p>
                     <p className="text-sm text-muted-foreground">Per person</p>
                   </div>
                   <div className="bg-white rounded-xl p-6 text-center">
                     <Users className="w-8 h-8 text-accent mx-auto mb-3" />
-                    <h4 className="font-semibold mb-2">League Night</h4>
-                    <p className="text-2xl font-bold text-primary mb-1">£5</p>
-                    <p className="text-sm text-muted-foreground">Wed 7-10pm</p>
+                    <h4 className="font-semibold mb-2">Group Bookings</h4>
+                    <p className="text-2xl font-bold text-primary mb-1">Contact Us</p>
+                    <p className="text-sm text-muted-foreground">For special rates</p>
                   </div>
-                  <div className="bg-white rounded-xl p-6 text-center border-2 border-primary">
-                    <Trophy className="w-8 h-8 text-primary mx-auto mb-3" />
-                    <h4 className="font-semibold mb-2">Tournament</h4>
-                    <p className="text-2xl font-bold text-primary mb-1">£10</p>
-                    <p className="text-sm text-muted-foreground">Last Sat/month</p>
+                </div>
+              </div>
+            </motion.div>
+          )}
+
+          {/* PS5 Gaming Content */}
+          {activeTab === "ps5" && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              {/* PS5 Gaming Section */}
+              <div className="bg-gradient-to-br from-primary/10 via-white to-accent/10 rounded-3xl p-8 md:p-12 mb-16 shadow-xl border border-primary/20">
+                <div className="grid lg:grid-cols-2 gap-12 items-center">
+                  <div>
+                    <div className="flex items-center gap-3 mb-6">
+                      <Gamepad2 className="w-12 h-12 text-primary" />
+                      <h2 className="font-display text-3xl md:text-4xl font-bold">
+                        PS5 Gaming Room
+                      </h2>
+                    </div>
+                    <p className="text-lg text-muted-foreground mb-6">
+                      Experience the latest gaming on our PS5 console. Perfect for groups, 
+                      parties, or just hanging out with friends. Local hot seat gaming at its finest!
+                    </p>
+                    <div className="space-y-4 mb-8">
+                      <h3 className="font-semibold text-xl text-gray-800">Available Games:</h3>
+                      <div className="grid grid-cols-2 gap-3">
+                        {[
+                          "FIFA", "Mortal Kombat", "Rugby 25", "NBA 2K25",
+                          "Top Spin", "F1 25", "Gran Turismo", "UFC 5"
+                        ].map((game) => (
+                          <div key={game} className="flex items-center gap-2">
+                            <Check className="w-4 h-4 text-primary" />
+                            <span className="text-gray-700">{game}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <Button size="lg" className="w-full bg-primary hover:bg-primary/90">
+                      Book PS5 Room
+                    </Button>
+                  </div>
+                  <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                      <Gamepad2 className="w-32 h-32 text-white/20" />
+                    </div>
+                    <div className="absolute bottom-6 left-6 text-white">
+                      <p className="text-sm font-bold uppercase tracking-wider">Local Gaming</p>
+                      <p className="text-2xl font-bold drop-shadow-lg">Latest Console Experience</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* PS5 Features */}
+              <div className="grid md:grid-cols-3 gap-6 mb-16">
+                <div className="bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-primary group">
+                  <div className="w-14 h-14 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:from-primary/30 group-hover:to-primary/20 transition-colors">
+                    <Gamepad2 className="w-8 h-8 text-primary" />
+                  </div>
+                  <h4 className="font-bold text-lg mb-2 text-gray-800">Latest Games</h4>
+                  <p className="text-sm text-gray-600">
+                    Always updated with the newest releases
+                  </p>
+                </div>
+                <div className="bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-accent group">
+                  <div className="w-14 h-14 bg-gradient-to-br from-accent/20 to-accent/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:from-accent/30 group-hover:to-accent/20 transition-colors">
+                    <Users className="w-8 h-8 text-accent" />
+                  </div>
+                  <h4 className="font-bold text-lg mb-2 text-gray-800">Group Play</h4>
+                  <p className="text-sm text-gray-600">
+                    Perfect for parties and social gaming
+                  </p>
+                </div>
+                <div className="bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-primary group">
+                  <div className="w-14 h-14 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:from-primary/30 group-hover:to-primary/20 transition-colors">
+                    <Trophy className="w-8 h-8 text-primary" />
+                  </div>
+                  <h4 className="font-bold text-lg mb-2 text-gray-800">Competitions</h4>
+                  <p className="text-sm text-gray-600">
+                    Host your own tournaments with friends
+                  </p>
+                </div>
+              </div>
+
+              {/* PS5 Pricing */}
+              <div className="bg-gradient-to-br from-primary/10 via-white to-accent/10 rounded-3xl p-8 md:p-12 shadow-xl border border-primary/20">
+                <h3 className="font-display text-2xl font-bold mb-8 text-center text-accent">
+                  PS5 Room Pricing
+                </h3>
+                <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                  <div className="bg-white rounded-xl p-6 text-center">
+                    <Gamepad2 className="w-8 h-8 text-primary mx-auto mb-3" />
+                    <h4 className="font-semibold mb-2">Hourly Rate</h4>
+                    <p className="text-2xl font-bold text-primary mb-1">£20/hour</p>
+                    <p className="text-sm text-muted-foreground">Up to 4 players</p>
+                  </div>
+                  <div className="bg-white rounded-xl p-6 text-center">
+                    <Calendar className="w-8 h-8 text-accent mx-auto mb-3" />
+                    <h4 className="font-semibold mb-2">Party Package</h4>
+                    <p className="text-2xl font-bold text-primary mb-1">Contact Us</p>
+                    <p className="text-sm text-muted-foreground">Special rates for events</p>
                   </div>
                 </div>
               </div>
@@ -602,7 +705,7 @@ export function EntertainmentPageSection() {
 
           {/* Colorful Testimonials */}
           <div className="mt-20">
-            <h3 className="font-display text-3xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            <h3 className="font-display text-3xl font-bold text-center mb-12 text-accent">
               Guest Reviews
             </h3>
             <div className="grid md:grid-cols-3 gap-6">
@@ -642,7 +745,7 @@ export function EntertainmentPageSection() {
                 Book Your Entertainment Experience
               </h2>
               <p className="text-lg mb-8 max-w-2xl mx-auto text-white/90 font-medium">
-                Reserve your table, book our private karaoke room, or join our weekly darts league. 
+                Reserve your table, book our private karaoke room, darts session, or PS5 gaming room. 
                 Premium entertainment awaits at Rialto Social.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -57,9 +57,9 @@ export function ReservationCTA() {
               <Clock className="w-8 h-8 text-primary mx-auto mb-3" />
               <h3 className="font-semibold mb-1">Opening Hours</h3>
               <p className="text-sm text-muted-foreground">
-                Mon-Thu: 12-10pm<br />
-                Fri-Sat: 12-11pm<br />
-                Sun: 12-9pm
+                Mon-Thu: 12:00-23:00<br />
+                Fri-Sat: 12:00-24:00<br />
+                Sun: 12:00-23:00
               </p>
             </motion.div>
 

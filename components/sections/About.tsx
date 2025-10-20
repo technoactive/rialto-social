@@ -8,7 +8,7 @@ const features = [
   "Fresh ingredients sourced daily",
   "Traditional recipes from Italy",
   "Traditional pizza making",
-  "Handmade pasta made in-house",
+  "Traditional Italian recipes",
   "Karaoke nights Friday & Saturday",
   "Professional darts lounge",
   "Extensive wine selection",
@@ -42,7 +42,7 @@ export function About() {
 
             <div className="space-y-4">
               <p className="text-muted-foreground">
-                From our traditional pizzas to our handmade pasta, every dish is
+                From our traditional pizzas to our authentic Italian dishes, every meal is
                 crafted with love and respect for Italian culinary traditions.
                 We source the finest ingredients, many imported directly from
                 Italy, to ensure an authentic dining experience.

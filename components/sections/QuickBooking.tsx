@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Clock, ChefHat, Mic2, Target, Phone } from "lucide-react";
+import { Clock, ChefHat, Mic2, Target, Phone, Gamepad2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -12,7 +12,7 @@ const bookingOptions = [
     icon: ChefHat,
     title: "Book a Table",
     description: "Reserve your dining experience",
-    availability: "Daily 12 PM - 10 PM",
+    availability: "Daily - See hours",
     color: "bg-primary/10 hover:bg-primary/20",
     link: "/contact?service=dining",
   },
@@ -20,8 +20,8 @@ const bookingOptions = [
     id: "karaoke",
     icon: Mic2,
     title: "Book Karaoke",
-    description: "Reserve main stage or private room",
-    availability: "Fri-Sat 8 PM - 1 AM",
+    description: "Reserve private karaoke room",
+    availability: "All Week - All Day",
     color: "bg-accent/10 hover:bg-accent/20",
     link: "/contact?service=karaoke",
   },
@@ -33,6 +33,15 @@ const bookingOptions = [
     availability: "Daily from 12 PM",
     color: "bg-accent/10 hover:bg-accent/20",
     link: "/contact?service=darts",
+  },
+  {
+    id: "ps5",
+    icon: Gamepad2,
+    title: "Book PS5 Room",
+    description: "Reserve gaming session",
+    availability: "Daily",
+    color: "bg-primary/10 hover:bg-primary/20",
+    link: "/contact?service=ps5",
   },
 ];
 
@@ -57,7 +66,7 @@ export function QuickBooking() {
         </motion.div>
 
         {/* Booking Options Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto">
           {bookingOptions.map((option, index) => (
             <motion.div
               key={option.id}

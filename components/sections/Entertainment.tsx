@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mic2, Target, Music, Users, Calendar, Clock } from "lucide-react";
+import { Mic2, Target, Music, Users, Calendar, Clock, Gamepad2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -12,25 +12,38 @@ const entertainmentFeatures = [
     description: "Experience Europe's #1 karaoke system",
     details: [
       "44,000+ songs in 23 languages",
-      "Control from your smartphone",
-      "1 private karaoke room",
+      "Private karaoke room available",
+      "Available all week, all day",
       "VIP dinner & karaoke packages",
     ],
-    schedule: "Fri & Sat: 8 PM - 1 AM",
+    schedule: "Monday - Sunday: All Day",
     image: "/pictures/entertainment/karaoke.jpg",
   },
   {
     icon: Target,
-    title: "Professional Darts",
+    title: "Interactive Darts",
     description: "Surrey's premier darts venue",
     details: [
-      "4 tournament-standard boards",
-      "Weekly league - Wednesdays",
-      "Monthly tournaments - £500 prizes",
-      "Happy hour free play 3-6 PM",
+      "4 professional-standard boards",
+      "Perfect for casual play",
+      "Group bookings available",
+      "Fun atmosphere for all skill levels",
     ],
-    schedule: "Daily: Opening - Close",
+    schedule: "Daily from 12 PM",
     image: "/pictures/entertainment/darts.jpg",
+  },
+  {
+    icon: Gamepad2,
+    title: "PS5 Gaming Room",
+    description: "Latest gaming experience",
+    details: [
+      "FIFA, Mortal Kombat, NBA 2K25 & more",
+      "Local hot seat gaming",
+      "Perfect for groups and parties",
+      "Private room available",
+    ],
+    schedule: "Daily",
+    image: "/pictures/entertainment/ps5-gaming.jpg",
   },
 ];
 
@@ -50,13 +63,13 @@ export function Entertainment() {
             Entertainment & <span className="text-primary">Fun</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            More than just great food - enjoy karaoke nights and darts with
-            friends while savoring authentic Italian cuisine
+            More than just great food - enjoy karaoke, darts, and PS5 gaming
+            with friends while savoring authentic Italian cuisine
           </p>
         </motion.div>
 
         {/* Entertainment Cards */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {entertainmentFeatures.map((feature, index) => (
             <motion.div
               key={feature.title}
@@ -133,9 +146,9 @@ export function Entertainment() {
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                 <Mic2 className="w-8 h-8 text-primary mx-auto mb-2" />
-                <h4 className="font-semibold text-white">Karaoke Rooms</h4>
+                <h4 className="font-semibold text-white">Karaoke & PS5</h4>
                 <p className="text-sm text-white/70">
-                  Private rooms for 6-20 people
+                  Private rooms available
                 </p>
               </div>
             </div>
