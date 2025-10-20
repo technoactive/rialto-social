@@ -237,7 +237,7 @@ const jsonLdRestaurant = {
   },
   "sameAs": [
     "https://www.facebook.com/caferialto.dorking",
-    "https://www.instagram.com/rialtosocial"
+    "https://www.instagram.com/rialtolounge_dorking/"
   ]
 };
 
@@ -270,7 +270,7 @@ const jsonLdOrganization = {
   },
   "sameAs": [
     "https://www.facebook.com/caferialto.dorking",
-    "https://www.instagram.com/rialtosocial"
+    "https://www.instagram.com/rialtolounge_dorking/"
   ]
 };
 

@@ -73,7 +73,7 @@ export function Footer() {
               <div className="flex gap-3">
                 {[
                   { icon: Facebook, href: "https://www.facebook.com/caferialto.dorking", label: "Facebook" },
-                  { icon: Instagram, href: "https://www.instagram.com/rialtosocial", label: "Instagram" }
+                  { icon: Instagram, href: "https://www.instagram.com/rialtolounge_dorking/", label: "Instagram" }
                 ].map((social, index) => (
                   <motion.a
                     key={social.label}
