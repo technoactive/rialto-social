@@ -236,7 +236,7 @@ const jsonLdRestaurant = {
     }
   },
   "sameAs": [
-    "https://www.facebook.com/rialtosocial",
+    "https://www.facebook.com/caferialto.dorking",
     "https://www.instagram.com/rialtosocial"
   ]
 };
@@ -269,7 +269,7 @@ const jsonLdOrganization = {
     "addressCountry": "GB"
   },
   "sameAs": [
-    "https://www.facebook.com/rialtosocial",
+    "https://www.facebook.com/caferialto.dorking",
     "https://www.instagram.com/rialtosocial"
   ]
 };

@@ -127,7 +127,7 @@ This comprehensive SEO plan is designed to improve rialtosocial.co.uk's search e
     }
   ],
   "sameAs": [
-    "https://www.facebook.com/rialtosocial",
+    "https://www.facebook.com/caferialto.dorking",
     "https://www.instagram.com/rialtosocial",
     "https://www.tripadvisor.com/rialtosocial"
   ],

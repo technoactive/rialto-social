@@ -72,7 +72,7 @@ export function Footer() {
               <p className="text-white/60 text-sm mb-3">Follow us for updates</p>
               <div className="flex gap-3">
                 {[
-                  { icon: Facebook, href: "https://www.facebook.com/rialtosocial", label: "Facebook" },
+                  { icon: Facebook, href: "https://www.facebook.com/caferialto.dorking", label: "Facebook" },
                   { icon: Instagram, href: "https://www.instagram.com/rialtosocial", label: "Instagram" }
                 ].map((social, index) => (
                   <motion.a
