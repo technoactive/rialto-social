@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mic2, Target, Music, Trophy, Users, Clock, Calendar, Star, ChevronRight, Award, Heart, Volume2, Smartphone, Globe, Phone, Check, Gamepad2 } from "lucide-react";
+import { Mic2, Target, Music, Trophy, Users, Calendar, Star, ChevronRight, Award, Heart, Smartphone, Globe, Phone, Check, Gamepad2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
