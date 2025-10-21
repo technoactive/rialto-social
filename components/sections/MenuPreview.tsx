@@ -26,9 +26,9 @@ const menuCategories = [
     })) || []
   },
   {
-    name: "Pasta & Risotti",
+    name: "Pasta & Risotto",
     description: "Handmade fresh pasta, crafted daily",
-    items: aLaCarteData.find(s => s.id === "pasta-risotti")?.items.slice(0, 3).map(item => ({
+    items: aLaCarteData.find(s => s.id === "pasta-risotto")?.items.slice(0, 3).map(item => ({
       name: item.name,
       price: formatPrice(item.price),
       description: item.description || ""

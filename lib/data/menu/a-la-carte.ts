@@ -124,7 +124,7 @@ export const aLaCarteData: MenuSection[] = [
     ]
   },
   {
-    id: 'pasta-risotti',
+    id: 'pasta-risotto',
     title: '🍝 Pasta & Risotto',
     displayOrder: 3,
     items: [
