@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChefHat, Heart, MapPin, Award, Music, Target, Users, Bridge } from "lucide-react";
+import { ChefHat, Heart, MapPin, Award, Music, Target, Users, Building2 } from "lucide-react";
 
 const values = [
   {
@@ -104,7 +104,7 @@ export function AboutPageSection() {
           <div className="grid md:grid-cols-2 gap-12">
             <div className="space-y-4">
               <h3 className="font-display text-2xl font-bold flex items-center gap-2">
-                <Bridge className="w-6 h-6 text-primary" />
+                <Building2 className="w-6 h-6 text-primary" />
                 The &apos;Rialto&apos; You Love...
               </h3>
               <p className="text-muted-foreground">
