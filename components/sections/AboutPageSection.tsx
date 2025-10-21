@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ChefHat, Heart, MapPin, Award, Music, Target, Users, Building2 } from "lucide-react";
+import Image from "next/image";
 
 const values = [
   {
@@ -79,11 +80,16 @@ export function AboutPageSection() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="relative"
           >
-            <div className="aspect-[4/5] rounded-2xl bg-muted relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20" />
-              <div className="flex items-center justify-center h-full text-muted-foreground text-center p-8">
-                <p className="text-lg">Restaurant Interior Photo</p>
-              </div>
+            <div className="aspect-[4/5] rounded-2xl relative overflow-hidden shadow-2xl">
+              <Image
+                src="/pictures/about/rialto.jpg"
+                alt="Rialto Social Restaurant - Our Journey from Venice to Dorking"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
             </div>
             <div className="absolute -bottom-8 -right-8 w-48 h-48 bg-primary/10 rounded-full blur-3xl" />
             <div className="absolute -top-8 -left-8 w-32 h-32 bg-accent/10 rounded-full blur-2xl" />
