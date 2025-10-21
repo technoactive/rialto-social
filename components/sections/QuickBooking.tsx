@@ -75,23 +75,24 @@ export function QuickBooking() {
               transition={{ duration: 0.3, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileTap={{ scale: 0.98 }}
-              className="relative"
+              className="relative h-full"
             >
               <Link
                 href={option.link}
                 className={cn(
-                  "block p-6 rounded-xl transition-all duration-200",
+                  "block p-6 rounded-xl transition-all duration-200 h-full",
                   "bg-card hover:shadow-lg",
                   option.color,
-                  "border border-border hover:border-primary/20"
+                  "border border-border hover:border-primary/20",
+                  "flex flex-col"
                 )}
               >
                 <option.icon className="w-10 h-10 text-primary mb-3" />
                 <h3 className="font-semibold text-lg mb-1">{option.title}</h3>
-                <p className="text-sm text-muted-foreground mb-3">
+                <p className="text-sm text-muted-foreground mb-3 flex-grow">
                   {option.description}
                 </p>
-                <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                <div className="flex items-center gap-2 text-xs text-muted-foreground mt-auto">
                   <Clock className="w-3 h-3" />
                   <span>{option.availability}</span>
                 </div>
