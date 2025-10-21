@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Clock, ChefHat, Mic2, Target, Phone, Gamepad2 } from "lucide-react";
+import { Clock, ChefHat, Mic2, Target, Phone, Gamepad2, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -47,20 +47,36 @@ const bookingOptions = [
 
 export function QuickBooking() {
   return (
-    <section className="py-12 md:py-16 bg-accent/5">
-      <div className="container mx-auto px-4">
+    <section className="py-16 md:py-24 relative bg-gradient-to-b from-accent/5 to-background">
+      {/* Decorative elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -left-40 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
+        <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-primary/10 rounded-full blur-3xl" />
+      </div>
+      
+      <div className="container mx-auto px-4 relative">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mb-8"
+          className="text-center mb-12"
         >
-          <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-            Quick <span className="text-primary">Booking</span>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full mb-6"
+          >
+            <Clock className="w-4 h-4" />
+            <span className="text-sm font-medium">Book Now</span>
+          </motion.div>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+            Quick <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Booking</span>
           </h2>
-          <p className="text-base md:text-lg text-muted-foreground">
+          <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto">
             Choose your experience and book in seconds
           </p>
         </motion.div>
@@ -80,21 +96,51 @@ export function QuickBooking() {
               <Link
                 href={option.link}
                 className={cn(
-                  "block p-6 rounded-xl transition-all duration-200 h-full",
-                  "bg-card hover:shadow-lg",
-                  option.color,
-                  "border border-border hover:border-primary/20",
-                  "flex flex-col"
+                  "relative block p-6 rounded-2xl transition-all duration-300 h-full",
+                  "bg-card/50 backdrop-blur-sm",
+                  "hover:shadow-2xl hover:scale-105 hover:-translate-y-1",
+                  "border border-border/50 hover:border-primary/30",
+                  "flex flex-col group overflow-hidden"
                 )}
               >
-                <option.icon className="w-10 h-10 text-primary mb-3" />
-                <h3 className="font-semibold text-lg mb-1">{option.title}</h3>
-                <p className="text-sm text-muted-foreground mb-3 flex-grow">
-                  {option.description}
-                </p>
-                <div className="flex items-center gap-2 text-xs text-muted-foreground mt-auto">
-                  <Clock className="w-3 h-3" />
-                  <span>{option.availability}</span>
+                {/* Background gradient effect on hover */}
+                <div className={cn(
+                  "absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300",
+                  option.color
+                )} />
+                
+                {/* Content */}
+                <div className="relative z-10">
+                  {/* Icon with background */}
+                  <div className="mb-4">
+                    <div className={cn(
+                      "w-14 h-14 rounded-xl flex items-center justify-center transition-all duration-300",
+                      option.color,
+                      "group-hover:scale-110 group-hover:shadow-lg"
+                    )}>
+                      <option.icon className="w-7 h-7 text-primary" />
+                    </div>
+                  </div>
+                  
+                  <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">
+                    {option.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-4 flex-grow">
+                    {option.description}
+                  </p>
+                  
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2 text-xs">
+                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                      <span className="text-muted-foreground">{option.availability}</span>
+                    </div>
+                    <motion.div
+                      className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center"
+                      whileHover={{ scale: 1.1 }}
+                    >
+                      <ArrowRight className="w-4 h-4 text-primary" />
+                    </motion.div>
+                  </div>
                 </div>
               </Link>
             </motion.div>

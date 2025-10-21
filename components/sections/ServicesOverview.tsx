@@ -70,7 +70,13 @@ const services = [
 
 export function ServicesOverview() {
   return (
-    <section className="py-16 md:py-20">
+    <section className="py-16 md:py-24 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+      </div>
+      
       <div className="container mx-auto px-4">
         {/* Header */}
         <motion.div
@@ -78,10 +84,19 @@ export function ServicesOverview() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
+          <motion.span 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="inline-block px-4 py-1 mb-4 text-sm font-medium text-primary bg-primary/10 rounded-full"
+          >
+            Our Services
+          </motion.span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            Everything Under <span className="text-primary">One Roof</span>
+            Everything Under <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">One Roof</span>
           </h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Dine, sing, play - experience it all at Rialto Social
@@ -101,57 +116,74 @@ export function ServicesOverview() {
             >
               <div
                 className={cn(
-                  "relative h-full bg-gradient-to-br rounded-2xl overflow-hidden",
+                  "relative h-full rounded-3xl overflow-hidden transition-all duration-300",
+                  "bg-gradient-to-br",
                   service.color,
-                  service.borderColor,
-                  "border backdrop-blur-sm"
+                  "border border-border/50",
+                  "group-hover:shadow-2xl group-hover:scale-105 group-hover:border-primary/30"
                 )}
               >
+                {/* Animated background */}
+                <motion.div 
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  initial={false}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5" />
+                </motion.div>
+                
                 {/* Card Content */}
-                <div className="p-6 md:p-8">
-                  {/* Icon */}
-                  <div className="mb-4">
-                    <service.icon className="w-12 h-12 text-primary" />
+                <div className="relative p-6 md:p-8 h-full flex flex-col">
+                  {/* Icon Container */}
+                  <div className="mb-6">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-background to-background/50 shadow-lg flex items-center justify-center group-hover:shadow-xl transition-shadow">
+                      <service.icon className="w-8 h-8 text-primary" />
+                    </div>
                   </div>
 
                   {/* Title & Description */}
-                  <h3 className="font-display text-2xl font-bold mb-2">
+                  <h3 className="font-display text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
                     {service.title}
                   </h3>
-                  <p className="text-muted-foreground mb-4">
+                  <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
                     {service.description}
                   </p>
 
                   {/* Features */}
-                  <ul className="space-y-2 mb-6">
+                  <ul className="space-y-2 mb-6 flex-grow">
                     {service.features.map((feature) => (
                       <li
                         key={feature}
                         className="flex items-center gap-2 text-sm"
                       >
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full" />
-                        <span>{feature}</span>
+                        <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center">
+                          <div className="w-2 h-2 bg-primary rounded-full" />
+                        </div>
+                        <span className="text-foreground/80">{feature}</span>
                       </li>
                     ))}
                   </ul>
 
-                  {/* Availability */}
-                  <div className="mb-6 text-sm text-muted-foreground bg-background/50 rounded-lg px-3 py-2 inline-block">
-                    {service.availability}
+                  {/* Availability Badge */}
+                  <div className="mb-6">
+                    <span className="text-xs font-medium text-muted-foreground bg-muted/50 rounded-full px-3 py-1.5 inline-flex items-center gap-1">
+                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                      {service.availability}
+                    </span>
                   </div>
 
-                  {/* CTA */}
+                  {/* CTA Button */}
                   <Link
                     href={service.link}
-                    className="inline-flex items-center gap-2 text-primary font-semibold group-hover:gap-3 transition-all"
+                    className="inline-flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-primary/10 text-primary font-semibold hover:bg-primary hover:text-primary-foreground transition-all group-hover:gap-3"
                   >
                     {service.linkText}
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
 
-                {/* Decorative gradient */}
-                <div className="absolute -bottom-2 -right-2 w-32 h-32 bg-primary/10 rounded-full blur-3xl" />
+                {/* Decorative gradient orbs */}
+                <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-accent/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               </div>
             </motion.div>
           ))}

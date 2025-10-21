@@ -19,9 +19,41 @@ export function Hero() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-black/70" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50" />
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/50" />
+        
+        {/* Decorative overlay pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 1px)`,
+            backgroundSize: '40px 40px'
+          }} />
+        </div>
       </div>
+      
+      {/* Animated accent shapes */}
+      <motion.div
+        animate={{
+          rotate: [0, 360],
+        }}
+        transition={{
+          duration: 50,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+        className="absolute top-10 right-10 w-96 h-96 rounded-full bg-gradient-to-r from-primary/10 to-accent/10 blur-3xl"
+      />
+      <motion.div
+        animate={{
+          rotate: [360, 0],
+        }}
+        transition={{
+          duration: 40,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+        className="absolute bottom-10 left-10 w-72 h-72 rounded-full bg-gradient-to-r from-accent/10 to-primary/10 blur-3xl"
+      />
 
       <div className="container mx-auto px-4 pt-20 md:pt-24 pb-12 md:pb-16">
         <div className="max-w-4xl mx-auto text-center">
@@ -83,18 +115,41 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="grid grid-cols-3 gap-8 mt-16 max-w-2xl mx-auto"
           >
-            <div className="text-center">
-              <p className="text-3xl md:text-4xl font-bold text-accent">4.8</p>
-              <p className="text-sm text-white/70">Rating</p>
-            </div>
-            <div className="text-center">
-              <p className="text-3xl md:text-4xl font-bold text-primary">127</p>
-              <p className="text-sm text-white/70">Reviews</p>
-            </div>
-            <div className="text-center">
-              <p className="text-3xl md:text-4xl font-bold text-accent">23+</p>
-              <p className="text-sm text-white/70">Years</p>
-            </div>
+            <motion.div 
+              whileHover={{ scale: 1.05 }}
+              className="relative group"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-accent/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all" />
+              <div className="relative bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                <div className="flex items-center justify-center gap-1 mb-2">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className={`w-3 h-3 ${i < 5 ? 'fill-accent text-accent' : 'text-white/30'}`} />
+                  ))}
+                </div>
+                <p className="text-3xl md:text-4xl font-bold text-white">4.8</p>
+                <p className="text-sm text-white/70 mt-1">Rating</p>
+              </div>
+            </motion.div>
+            <motion.div 
+              whileHover={{ scale: 1.05 }}
+              className="relative group"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all" />
+              <div className="relative bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                <p className="text-3xl md:text-4xl font-bold text-white">127</p>
+                <p className="text-sm text-white/70 mt-1">Happy Reviews</p>
+              </div>
+            </motion.div>
+            <motion.div 
+              whileHover={{ scale: 1.05 }}
+              className="relative group"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-accent/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all" />
+              <div className="relative bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                <p className="text-3xl md:text-4xl font-bold text-white">23+</p>
+                <p className="text-sm text-white/70 mt-1">Years of Excellence</p>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
