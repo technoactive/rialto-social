@@ -5,9 +5,9 @@ import { AboutPageSection } from "@/components/sections/AboutPageSection";
 import { FloatingActionButton } from "@/components/ui/floating-action-button";
 
 export const metadata: Metadata = {
-  title: "About Us | Rialto Social Italian Restaurant",
-  description: "Learn about Rialto Social's story, our passion for authentic Italian cuisine, and our commitment to bringing the taste of Italy to Dorking. Family-owned since establishment.",
-  keywords: ["about Rialto Social", "Italian restaurant story", "Dorking restaurant history", "authentic Italian Dorking", "family restaurant Surrey"],
+  title: "Our Story | Rialto Social - 25 Years of Italian Excellence in Dorking",
+  description: "From a Venetian dream to 25 years as Dorking's beloved Italian restaurant, discover how Rialto has transformed into Rialto Social - combining authentic Italian dining with modern social entertainment.",
+  keywords: ["Rialto Social story", "25 years Dorking Italian", "Italian restaurant history", "Rialto bridge mural", "social darts karaoke restaurant", "Dorking institution", "authentic Italian Surrey"],
 };
 
 export default function AboutPage() {
