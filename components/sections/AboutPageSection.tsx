@@ -31,7 +31,7 @@ export function AboutPageSection() {
   return (
     <section className="relative">
       {/* Hero Section with Background */}
-      <div className="relative min-h-[60vh] flex items-center justify-center overflow-hidden mb-20">
+      <div className="relative min-h-[50vh] md:min-h-[60vh] flex items-center justify-center overflow-hidden mb-12 md:mb-20">
         {/* Background gradient and pattern */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent/10 to-background">
           <div className="absolute inset-0 opacity-20">
@@ -42,7 +42,7 @@ export function AboutPageSection() {
           </div>
         </div>
         
-        {/* Animated shapes */}
+        {/* Animated shapes - hidden on mobile for performance */}
         <motion.div
           animate={{
             y: [0, -20, 0],
@@ -53,7 +53,7 @@ export function AboutPageSection() {
             repeat: Infinity,
             ease: "easeInOut"
           }}
-          className="absolute top-20 left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl"
+          className="hidden md:block absolute top-20 left-10 w-32 md:w-64 h-32 md:h-64 bg-primary/10 rounded-full blur-3xl"
         />
         <motion.div
           animate={{
@@ -65,7 +65,7 @@ export function AboutPageSection() {
             repeat: Infinity,
             ease: "easeInOut"
           }}
-          className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl"
+          className="hidden md:block absolute bottom-20 right-10 w-48 md:w-96 h-48 md:h-96 bg-accent/10 rounded-full blur-3xl"
         />
         
         <div className="container mx-auto px-4 relative z-10">
@@ -79,16 +79,16 @@ export function AboutPageSection() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6 }}
-              className="inline-block mb-6"
+              className="inline-block mb-4 md:mb-6"
             >
-              <span className="px-4 py-2 bg-primary/10 backdrop-blur-sm rounded-full text-primary font-medium text-sm">
+              <span className="px-3 py-1.5 md:px-4 md:py-2 bg-primary/10 backdrop-blur-sm rounded-full text-primary font-medium text-xs md:text-sm">
                 Est. 2001 • Reimagined 2024
               </span>
             </motion.div>
-            <h1 className="font-display text-5xl md:text-7xl font-bold mb-6">
-              Our Story: <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">The Next Chapter</span>
+            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 px-2">
+              Our Story: <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent block sm:inline">The Next Chapter</span>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto px-4">
               From a Venetian dream to 25 years in Dorking, and now... our new home as Rialto Social
             </p>
           </motion.div>
@@ -97,35 +97,35 @@ export function AboutPageSection() {
 
       {/* Story Section */}
       <div className="container mx-auto px-4">
-        <div className="relative mb-32">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="relative mb-16 md:mb-32">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="relative"
+              className="relative order-2 lg:order-1"
             >
-              {/* Decorative number */}
+              {/* Decorative number - smaller on mobile */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="absolute -top-20 -left-10 text-[200px] font-bold text-primary/5 font-display"
+                className="hidden sm:block absolute -top-10 md:-top-20 -left-5 md:-left-10 text-[80px] sm:text-[120px] md:text-[160px] lg:text-[200px] font-bold text-primary/5 font-display"
               >
                 25
               </motion.div>
               
-              <div className="relative z-10 space-y-6">
+              <div className="relative z-10 space-y-4 md:space-y-6">
                 <motion.h2 
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.1 }}
                   viewport={{ once: true }}
-                  className="font-display text-4xl md:text-5xl font-bold"
+                  className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold"
                 >
-                  A Dorking Favourite, <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Reimagined</span>
+                  A Dorking Favourite, <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent block sm:inline">Reimagined</span>
                 </motion.h2>
                 
                 <div className="space-y-4">
@@ -142,7 +142,7 @@ export function AboutPageSection() {
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
                       viewport={{ once: true }}
-                      className={`text-lg leading-relaxed ${index === 0 ? 'text-foreground font-medium' : 'text-muted-foreground'}`}
+                      className={`text-sm sm:text-base md:text-lg leading-relaxed ${index === 0 ? 'text-foreground font-medium' : 'text-muted-foreground'}`}
                     >
                       {paragraph}
                     </motion.p>
@@ -156,41 +156,44 @@ export function AboutPageSection() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="relative lg:h-[700px]"
+              className="relative h-[400px] sm:h-[500px] lg:h-[700px] order-1 lg:order-2"
             >
               <motion.div
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
-                className="relative h-full"
+                className="relative h-full w-full"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-2xl" />
-                <div className="relative h-full rounded-3xl overflow-hidden shadow-2xl bg-card">
-                  <Image
-                    src="/pictures/about/rialto.jpg"
-                    alt="Rialto Social Restaurant - Our Journey from Venice to Dorking"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    priority
-                  />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-2xl md:rounded-3xl blur-xl md:blur-2xl" />
+                <div className="relative h-full w-full rounded-2xl md:rounded-3xl overflow-hidden shadow-xl md:shadow-2xl bg-card">
+                  <div className="relative w-full h-full">
+                    <Image
+                      src="/pictures/about/rialto.jpg"
+                      alt="Rialto Social Restaurant - Our Journey from Venice to Dorking"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      priority
+                      quality={90}
+                    />
+                  </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                   
                   {/* Overlay content */}
-                  <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                  <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white z-10">
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.5 }}
                       viewport={{ once: true }}
                     >
-                      <p className="text-sm font-medium mb-2 text-white/80">Our Heritage</p>
-                      <p className="text-2xl font-display font-bold">Venice to Dorking</p>
+                      <p className="text-xs md:text-sm font-medium mb-1 md:mb-2 text-white/80">Our Heritage</p>
+                      <p className="text-lg md:text-2xl font-display font-bold">Venice to Dorking</p>
                     </motion.div>
                   </div>
                 </div>
               </motion.div>
               
-              {/* Floating accent elements */}
+              {/* Floating accent elements - hidden on mobile */}
               <motion.div
                 animate={{
                   y: [0, -10, 0],
@@ -200,7 +203,7 @@ export function AboutPageSection() {
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
-                className="absolute -top-10 -right-10 w-32 h-32 bg-primary/20 rounded-full blur-2xl"
+                className="hidden md:block absolute -top-10 -right-10 w-24 md:w-32 h-24 md:h-32 bg-primary/20 rounded-full blur-2xl"
               />
               <motion.div
                 animate={{
@@ -211,7 +214,7 @@ export function AboutPageSection() {
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
-                className="absolute -bottom-10 -left-10 w-40 h-40 bg-accent/20 rounded-full blur-2xl"
+                className="hidden md:block absolute -bottom-10 -left-10 w-32 md:w-40 h-32 md:h-40 bg-accent/20 rounded-full blur-2xl"
               />
             </motion.div>
           </div>
