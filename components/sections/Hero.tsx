@@ -117,10 +117,10 @@ export function Hero() {
           >
             <motion.div 
               whileHover={{ scale: 1.05 }}
-              className="relative group"
+              className="relative group h-full"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-accent/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all" />
-              <div className="relative bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+              <div className="relative bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 h-full flex flex-col items-center justify-center min-h-[140px]">
                 <div className="flex items-center justify-center gap-1 mb-2">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className={`w-3 h-3 ${i < 5 ? 'fill-accent text-accent' : 'text-white/30'}`} />
@@ -132,20 +132,22 @@ export function Hero() {
             </motion.div>
             <motion.div 
               whileHover={{ scale: 1.05 }}
-              className="relative group"
+              className="relative group h-full"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all" />
-              <div className="relative bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+              <div className="relative bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 h-full flex flex-col items-center justify-center min-h-[140px]">
+                <div className="h-5 mb-2" /> {/* Spacer to match stars height */}
                 <p className="text-3xl md:text-4xl font-bold text-white">127</p>
                 <p className="text-sm text-white/70 mt-1">Happy Reviews</p>
               </div>
             </motion.div>
             <motion.div 
               whileHover={{ scale: 1.05 }}
-              className="relative group"
+              className="relative group h-full"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-accent/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all" />
-              <div className="relative bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+              <div className="relative bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 h-full flex flex-col items-center justify-center min-h-[140px]">
+                <div className="h-5 mb-2" /> {/* Spacer to match stars height */}
                 <p className="text-3xl md:text-4xl font-bold text-white">23+</p>
                 <p className="text-sm text-white/70 mt-1">Years of Excellence</p>
               </div>

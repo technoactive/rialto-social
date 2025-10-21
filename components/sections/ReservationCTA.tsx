@@ -74,17 +74,19 @@ export function ReservationCTA() {
               whileHover={{ y: -5, scale: 1.02 }}
               transition={{ duration: 0.5, delay: 0.1 }}
               viewport={{ once: true }}
-              className="relative group"
+              className="relative group h-full"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-accent/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative bg-card/50 backdrop-blur-sm rounded-2xl p-8 text-center border border-border/50 group-hover:border-accent/30 transition-colors">
+              <div className="relative bg-card/50 backdrop-blur-sm rounded-2xl p-8 text-center border border-border/50 group-hover:border-accent/30 transition-colors h-full flex flex-col justify-center min-h-[200px]">
                 <div className="w-14 h-14 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                   <Phone className="w-7 h-7 text-accent" />
                 </div>
-                <h3 className="font-semibold text-lg mb-2">Call Us</h3>
-                <p className="text-base font-medium text-foreground">
-                  01306 742885
-                </p>
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">Call Us</h3>
+                  <p className="text-base font-medium text-foreground">
+                    01306 742885
+                  </p>
+                </div>
               </div>
             </motion.div>
 
@@ -94,19 +96,21 @@ export function ReservationCTA() {
               whileHover={{ y: -5, scale: 1.02 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}
-              className="relative group"
+              className="relative group h-full"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative bg-card/50 backdrop-blur-sm rounded-2xl p-8 text-center border border-border/50 group-hover:border-primary/30 transition-colors">
+              <div className="relative bg-card/50 backdrop-blur-sm rounded-2xl p-8 text-center border border-border/50 group-hover:border-primary/30 transition-colors h-full flex flex-col justify-center min-h-[200px]">
                 <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                   <Clock className="w-7 h-7 text-primary" />
                 </div>
-                <h3 className="font-semibold text-lg mb-2">Opening Hours</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Mon-Thu: 12:00-23:00<br />
-                  Fri-Sat: 12:00-24:00<br />
-                  Sun: 12:00-23:00
-                </p>
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">Opening Hours</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Mon-Thu: 12:00-23:00<br />
+                    Fri-Sat: 12:00-24:00<br />
+                    Sun: 12:00-23:00
+                  </p>
+                </div>
               </div>
             </motion.div>
 
@@ -116,17 +120,19 @@ export function ReservationCTA() {
               whileHover={{ y: -5, scale: 1.02 }}
               transition={{ duration: 0.5, delay: 0.3 }}
               viewport={{ once: true }}
-              className="relative group"
+              className="relative group h-full"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-accent/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative bg-card/50 backdrop-blur-sm rounded-2xl p-8 text-center border border-border/50 group-hover:border-accent/30 transition-colors">
+              <div className="relative bg-card/50 backdrop-blur-sm rounded-2xl p-8 text-center border border-border/50 group-hover:border-accent/30 transition-colors h-full flex flex-col justify-center min-h-[200px]">
                 <div className="w-14 h-14 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                   <Calendar className="w-7 h-7 text-accent" />
                 </div>
-                <h3 className="font-semibold text-lg mb-2">Book Online</h3>
-                <p className="text-sm text-muted-foreground">
-                  Quick & easy online reservations
-                </p>
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">Book Online</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Quick & easy online reservations
+                  </p>
+                </div>
               </div>
             </motion.div>
           </div>
