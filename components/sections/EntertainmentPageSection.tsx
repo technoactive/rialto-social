@@ -426,8 +426,8 @@ export function EntertainmentPageSection() {
                           <p className="text-sm text-muted-foreground">Available all day, every day</p>
                         </div>
                         <div className="text-right">
-                          <p className="font-bold text-accent">From £15/hr</p>
-                          <p className="text-sm">Monday to Sunday</p>
+                          <p className="font-bold text-accent">£5 per person</p>
+                          <p className="text-sm">Min 6 people (£30) / 1hr</p>
                         </div>
                       </div>
                     </div>
@@ -578,20 +578,36 @@ export function EntertainmentPageSection() {
               {/* Vibrant Darts Schedule & Pricing */}
               <div className="bg-gradient-to-br from-accent/10 via-white to-primary/10 rounded-3xl p-8 md:p-12 shadow-xl border border-accent/20">
                 <h3 className="font-display text-2xl font-bold mb-8 text-center text-accent">
-                  Darts Pricing
+                  Interactive Darts Pricing
                 </h3>
-                <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-                  <div className="bg-white rounded-xl p-6 text-center">
+                <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+                  <div className="bg-white rounded-xl p-6 border-2 border-primary/20">
                     <Target className="w-8 h-8 text-primary mx-auto mb-3" />
-                    <h4 className="font-semibold mb-2">Casual Play</h4>
-                    <p className="text-2xl font-bold text-primary mb-1">£3/hour</p>
-                    <p className="text-sm text-muted-foreground">Per person</p>
+                    <h4 className="font-semibold mb-4 text-lg text-center">Off Peak (12-6pm)</h4>
+                    <div className="space-y-2">
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-600">30 minutes</span>
+                        <span className="text-xl font-bold text-primary">£10</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-600">1 hour</span>
+                        <span className="text-xl font-bold text-primary">£20</span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="bg-white rounded-xl p-6 text-center">
-                    <Users className="w-8 h-8 text-accent mx-auto mb-3" />
-                    <h4 className="font-semibold mb-2">Group Bookings</h4>
-                    <p className="text-2xl font-bold text-primary mb-1">Contact Us</p>
-                    <p className="text-sm text-muted-foreground">For special rates</p>
+                  <div className="bg-white rounded-xl p-6 border-2 border-accent/20">
+                    <Target className="w-8 h-8 text-accent mx-auto mb-3" />
+                    <h4 className="font-semibold mb-4 text-lg text-center">Peak Time (6-11pm)</h4>
+                    <div className="space-y-2">
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-600">30 minutes</span>
+                        <span className="text-xl font-bold text-accent">£15</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-600">1 hour</span>
+                        <span className="text-xl font-bold text-accent">£29.95</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -685,18 +701,17 @@ export function EntertainmentPageSection() {
                 <h3 className="font-display text-2xl font-bold mb-8 text-center text-accent">
                   PS5 Room Pricing
                 </h3>
-                <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-                  <div className="bg-white rounded-xl p-6 text-center">
-                    <Gamepad2 className="w-8 h-8 text-primary mx-auto mb-3" />
-                    <h4 className="font-semibold mb-2">Hourly Rate</h4>
-                    <p className="text-2xl font-bold text-primary mb-1">£20/hour</p>
-                    <p className="text-sm text-muted-foreground">Up to 4 players</p>
-                  </div>
-                  <div className="bg-white rounded-xl p-6 text-center">
-                    <Calendar className="w-8 h-8 text-accent mx-auto mb-3" />
-                    <h4 className="font-semibold mb-2">Party Package</h4>
-                    <p className="text-2xl font-bold text-primary mb-1">Contact Us</p>
-                    <p className="text-sm text-muted-foreground">Special rates for events</p>
+                <div className="bg-white rounded-xl p-8 max-w-md mx-auto">
+                  <Gamepad2 className="w-12 h-12 text-primary mx-auto mb-4" />
+                  <div className="text-center">
+                    <h4 className="font-semibold text-lg mb-3">Gaming Session</h4>
+                    <p className="text-3xl font-bold text-primary mb-2">£5 per controller</p>
+                    <p className="text-sm text-muted-foreground">For 1 hour</p>
+                    <div className="mt-6 p-4 bg-primary/5 rounded-lg">
+                      <p className="text-sm text-gray-600">
+                        Up to 4 players can join with their own controllers
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
