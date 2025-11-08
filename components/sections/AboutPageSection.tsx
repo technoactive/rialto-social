@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChefHat, Heart, MapPin, Award, Music, Target, Users, Building2, ArrowRight, Calendar } from "lucide-react";
+import { ChefHat, Heart, MapPin, Music, Target, Users, Building2, ArrowRight, Calendar } from "lucide-react";
 import Image from "next/image";
 
 const values = [

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, Clock, MapPin, Users, Music, Target, Gamepad2, Tag, ArrowRight, Phone } from "lucide-react";
+import { Calendar, Clock, Users, Music, Target, Gamepad2, Tag, ArrowRight, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
@@ -163,7 +163,7 @@ export function EventsSection() {
               className="inline-flex items-center gap-2 bg-white/90 backdrop-blur text-primary px-6 py-2 rounded-full mb-6 shadow-lg"
             >
               <Calendar className="w-5 h-5" />
-              <span className="text-sm font-bold">What's On at Rialto</span>
+              <span className="text-sm font-bold">What&apos;s On at Rialto</span>
             </motion.div>
             
             <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
@@ -189,7 +189,7 @@ export function EventsSection() {
               className="text-center mb-12"
             >
               <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
-                Don't Miss Out
+                Don&apos;t Miss Out
               </span>
               <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold">
                 Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Events</span>
