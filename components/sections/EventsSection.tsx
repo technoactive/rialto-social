@@ -109,7 +109,7 @@ export function EventsSection() {
   const regularEvents = upcomingEvents.filter(e => !e.featured);
 
   return (
-    <section className="relative">
+    <section className="relative pb-20">
       {/* Enhanced Hero Section */}
       <div className="relative min-h-[50vh] flex items-center justify-center overflow-hidden mb-20">
         {/* Animated background */}
