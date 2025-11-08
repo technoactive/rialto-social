@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, Clock, MapPin, Users, Music, Target, Gamepad2, Tag, ArrowRight } from "lucide-react";
+import { Calendar, Clock, MapPin, Users, Music, Target, Gamepad2, Tag, ArrowRight, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
@@ -109,51 +109,92 @@ export function EventsSection() {
   const regularEvents = upcomingEvents.filter(e => !e.featured);
 
   return (
-    <section className="py-12 relative">
-      {/* Background decoration */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-20 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
-      </div>
-
-      <div className="container mx-auto px-4">
-        {/* Header */}
+    <section className="relative">
+      {/* Enhanced Hero Section */}
+      <div className="relative min-h-[50vh] flex items-center justify-center overflow-hidden mb-20">
+        {/* Animated background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent/10 to-background">
+          <div className="absolute inset-0 opacity-20">
+            <div className="absolute inset-0" style={{
+              backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 1px)`,
+              backgroundSize: '32px 32px'
+            }} />
+          </div>
+        </div>
+        
+        {/* Floating shapes */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
+          animate={{
+            y: [0, -20, 0],
+            rotate: [0, 5, 0],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute top-20 left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{
+            y: [0, 20, 0],
+            rotate: [0, -5, 0],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl"
+        />
+
+        <div className="container mx-auto px-4 relative z-10">
+          {/* Header */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center"
           >
-            <Calendar className="w-4 h-4" />
-            <span className="text-sm font-medium">What's On</span>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="inline-flex items-center gap-2 bg-white/90 backdrop-blur text-primary px-6 py-2 rounded-full mb-6 shadow-lg"
+            >
+              <Calendar className="w-5 h-5" />
+              <span className="text-sm font-bold">What's On at Rialto</span>
+            </motion.div>
+            
+            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
+              Upcoming <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Events</span>
+            </h1>
+            <p className="text-lg md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Join us for special nights, entertainment, and unforgettable experiences at Rialto Social
+            </p>
           </motion.div>
-          
-          <h1 className="font-display text-4xl md:text-6xl font-bold mb-4">
-            Upcoming <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Events</span>
-          </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Join us for special nights, entertainment, and unforgettable experiences at Rialto Social
-          </p>
-        </motion.div>
+        </div>
+      </div>
+      
+      <div className="container mx-auto px-4">
 
         {/* Featured Events */}
         {featuredEvents.length > 0 && (
-          <div className="mb-20">
-            <motion.h2
+          <div className="mb-24">
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="font-display text-2xl md:text-3xl font-bold mb-8"
+              className="text-center mb-12"
             >
-              Featured Events
-            </motion.h2>
+              <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+                Don't Miss Out
+              </span>
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold">
+                Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Events</span>
+              </h2>
+            </motion.div>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {featuredEvents.map((event, index) => {
@@ -165,75 +206,109 @@ export function EventsSection() {
                     key={event.id}
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    whileHover={{ y: -5 }}
+                    whileHover={{ y: -10 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
                     className="group relative"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     
-                    <div className="relative bg-card/50 backdrop-blur-sm rounded-3xl overflow-hidden border border-border/50 group-hover:border-primary/30 transition-all duration-300 h-full flex flex-col">
+                    <div className="relative bg-white rounded-3xl overflow-hidden border-2 border-border/50 group-hover:border-primary/40 group-hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
                       {/* Event Image or Gradient */}
-                      <div className="relative h-48 bg-gradient-to-br from-primary/20 to-accent/20">
+                      <div className="relative h-56 bg-gradient-to-br from-primary/20 to-accent/20 overflow-hidden">
                         {event.image ? (
                           <Image
                             src={event.image}
                             alt={event.title}
                             fill
-                            className="object-cover"
+                            className="object-cover group-hover:scale-110 transition-transform duration-500"
                           />
                         ) : (
                           <div className={`absolute inset-0 bg-gradient-to-br ${config.color} flex items-center justify-center`}>
-                            <CategoryIcon className="w-20 h-20 text-white/30" />
+                            <motion.div
+                              animate={{
+                                scale: [1, 1.1, 1],
+                                rotate: [0, 5, 0],
+                              }}
+                              transition={{
+                                duration: 4,
+                                repeat: Infinity,
+                                ease: "easeInOut"
+                              }}
+                            >
+                              <CategoryIcon className="w-24 h-24 text-white/40" />
+                            </motion.div>
                           </div>
                         )}
                         
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                        
                         {/* Category Badge */}
                         <div className="absolute top-4 left-4">
-                          <span className={`inline-flex items-center gap-2 ${config.bgColor} backdrop-blur-sm text-gray-800 px-3 py-1 rounded-full text-xs font-semibold`}>
-                            <CategoryIcon className="w-3 h-3" />
+                          <span className="inline-flex items-center gap-2 bg-white backdrop-blur-sm text-gray-800 px-4 py-2 rounded-full text-xs font-bold shadow-lg">
+                            <CategoryIcon className="w-4 h-4" />
                             {config.label}
                           </span>
                         </div>
                       </div>
                       
                       {/* Event Content */}
-                      <div className="p-6 flex flex-col flex-grow">
-                        <h3 className="font-display text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
+                      <div className="p-8 flex flex-col flex-grow">
+                        <h3 className="font-display text-2xl md:text-3xl font-bold mb-4 group-hover:text-primary transition-colors">
                           {event.title}
                         </h3>
                         
-                        <div className="space-y-2 mb-4">
-                          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                            <Calendar className="w-4 h-4 text-primary" />
-                            <span>{event.date}</span>
+                        <div className="space-y-3 mb-6">
+                          <div className="flex items-center gap-3 bg-gray-50 rounded-lg p-3">
+                            <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                              <Calendar className="w-5 h-5 text-primary" />
+                            </div>
+                            <div>
+                              <p className="text-xs text-muted-foreground font-medium">Date</p>
+                              <p className="font-semibold">{event.date}</p>
+                            </div>
                           </div>
-                          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                            <Clock className="w-4 h-4 text-accent" />
-                            <span>{event.time}</span>
+                          <div className="flex items-center gap-3 bg-gray-50 rounded-lg p-3">
+                            <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+                              <Clock className="w-5 h-5 text-accent" />
+                            </div>
+                            <div>
+                              <p className="text-xs text-muted-foreground font-medium">Time</p>
+                              <p className="font-semibold">{event.time}</p>
+                            </div>
                           </div>
                           {event.price && (
-                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                              <Tag className="w-4 h-4 text-primary" />
-                              <span>{event.price}</span>
+                            <div className="flex items-center gap-3 bg-primary/5 rounded-lg p-3">
+                              <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
+                                <Tag className="w-5 h-5 text-primary" />
+                              </div>
+                              <div>
+                                <p className="text-xs text-muted-foreground font-medium">Price</p>
+                                <p className="font-bold text-primary">{event.price}</p>
+                              </div>
                             </div>
                           )}
                           {event.capacity && (
-                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                              <Users className="w-4 h-4 text-accent" />
-                              <span>{event.capacity}</span>
+                            <div className="flex items-center gap-3 bg-gray-50 rounded-lg p-3">
+                              <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+                                <Users className="w-5 h-5 text-accent" />
+                              </div>
+                              <div>
+                                <p className="text-xs text-muted-foreground font-medium">Availability</p>
+                                <p className="font-semibold">{event.capacity}</p>
+                              </div>
                             </div>
                           )}
                         </div>
                         
-                        <p className="text-sm text-muted-foreground leading-relaxed mb-6 flex-grow">
+                        <p className="text-base text-gray-700 leading-relaxed mb-8 flex-grow">
                           {event.description}
                         </p>
                         
-                        <Button className="w-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-all group-hover:shadow-lg">
+                        <Button className="w-full bg-gradient-to-r from-primary to-accent text-white hover:from-primary/90 hover:to-accent/90 font-bold py-6 shadow-lg group-hover:shadow-xl transition-all">
                           <Link href="/contact" className="flex items-center justify-center gap-2 w-full">
-                            Book Now
-                            <ArrowRight className="w-4 h-4" />
+                            Book This Event
+                            <ArrowRight className="w-5 h-5" />
                           </Link>
                         </Button>
                       </div>
@@ -247,16 +322,21 @@ export function EventsSection() {
 
         {/* Regular Events */}
         {regularEvents.length > 0 && (
-          <div className="mb-16">
-            <motion.h2
+          <div className="mb-24">
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="font-display text-2xl md:text-3xl font-bold mb-8"
+              className="text-center mb-12"
             >
-              Regular Events
-            </motion.h2>
+              <span className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4">
+                Weekly Schedule
+              </span>
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold">
+                Regular <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Events</span>
+              </h2>
+            </motion.div>
             
             <div className="grid md:grid-cols-2 gap-6">
               {regularEvents.map((event, index) => {
@@ -266,40 +346,43 @@ export function EventsSection() {
                 return (
                   <motion.div
                     key={event.id}
-                    initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    whileHover={{ y: -5 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="group"
+                    className="group relative"
                   >
-                    <div className="bg-card rounded-2xl p-6 border border-border/50 group-hover:border-primary/30 transition-all duration-300 group-hover:shadow-lg h-full">
-                      <div className="flex items-start gap-4">
-                        <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${config.color} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
-                          <CategoryIcon className="w-7 h-7 text-white" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    
+                    <div className="relative bg-white rounded-2xl p-8 border-2 border-border/50 group-hover:border-primary/30 transition-all duration-300 group-hover:shadow-xl h-full">
+                      <div className="flex items-start gap-6">
+                        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${config.color} flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 group-hover:shadow-xl transition-all`}>
+                          <CategoryIcon className="w-8 h-8 text-white" />
                         </div>
                         
                         <div className="flex-grow">
-                          <h3 className="font-display text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+                          <h3 className="font-display text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
                             {event.title}
                           </h3>
                           
-                          <div className="space-y-1 mb-3">
-                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                              <Calendar className="w-3 h-3" />
-                              <span>{event.date}</span>
-                              <span className="text-muted-foreground/50">•</span>
-                              <Clock className="w-3 h-3" />
-                              <span>{event.time}</span>
+                          <div className="space-y-2 mb-4">
+                            <div className="flex items-center gap-2 text-sm">
+                              <Calendar className="w-4 h-4 text-primary" />
+                              <span className="font-medium">{event.date}</span>
+                              <span className="text-muted-foreground/50 mx-1">•</span>
+                              <Clock className="w-4 h-4 text-accent" />
+                              <span className="font-medium">{event.time}</span>
                             </div>
                             {event.price && (
-                              <div className="flex items-center gap-2 text-sm">
+                              <div className="inline-flex items-center gap-2 bg-primary/10 px-3 py-1 rounded-full">
                                 <Tag className="w-3 h-3 text-primary" />
-                                <span className="font-semibold text-primary">{event.price}</span>
+                                <span className="font-bold text-primary text-sm">{event.price}</span>
                               </div>
                             )}
                           </div>
                           
-                          <p className="text-sm text-muted-foreground leading-relaxed">
+                          <p className="text-base text-gray-600 leading-relaxed">
                             {event.description}
                           </p>
                         </div>
@@ -312,78 +395,140 @@ export function EventsSection() {
           </div>
         )}
 
-        {/* Event Types Filter/Info */}
+        {/* Event Types Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-br from-card via-card/80 to-card backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-border/50"
+          className="relative mb-20"
         >
-          <h2 className="font-display text-2xl md:text-3xl font-bold text-center mb-8">
-            Event Categories
-          </h2>
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5 rounded-3xl blur-2xl" />
           
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {Object.entries(categoryConfig).map(([key, config], index) => {
-              const Icon = config.icon;
-              return (
-                <motion.div
-                  key={key}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="text-center"
-                >
-                  <div className={`w-16 h-16 mx-auto mb-3 rounded-2xl bg-gradient-to-br ${config.color} flex items-center justify-center shadow-lg`}>
-                    <Icon className="w-8 h-8 text-white" />
-                  </div>
-                  <p className="font-semibold">{config.label}</p>
-                </motion.div>
-              );
-            })}
+          <div className="relative bg-white rounded-3xl p-10 md:p-16 border-2 border-border/50">
+            <div className="text-center mb-12">
+              <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+                What We Offer
+              </span>
+              <h2 className="font-display text-3xl md:text-4xl font-bold">
+                Event <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Categories</span>
+              </h2>
+            </div>
+            
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {Object.entries(categoryConfig).map(([key, config], index) => {
+                const Icon = config.icon;
+                return (
+                  <motion.div
+                    key={key}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    whileHover={{ y: -10 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="group relative"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    
+                    <div className="relative bg-gray-50 rounded-2xl p-6 text-center group-hover:bg-white transition-colors">
+                      <motion.div
+                        whileHover={{ rotate: [0, -5, 5, 0] }}
+                        transition={{ duration: 0.5 }}
+                        className="w-20 h-20 mx-auto mb-4"
+                      >
+                        <div className={`w-full h-full rounded-2xl bg-gradient-to-br ${config.color} flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow`}>
+                          <Icon className="w-10 h-10 text-white" />
+                        </div>
+                      </motion.div>
+                      <p className="font-bold text-lg group-hover:text-primary transition-colors">{config.label}</p>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
         </motion.div>
 
         {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="mt-16 text-center bg-gradient-to-r from-primary via-accent to-primary rounded-3xl p-12 text-white relative overflow-hidden"
-        >
-          {/* Pattern overlay */}
-          <div className="absolute inset-0 opacity-20">
-            <div className="absolute inset-0" style={{
-              backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 70px)`,
-            }} />
-          </div>
+        <div className="relative">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="absolute inset-0 bg-gradient-to-r from-primary/30 via-accent/30 to-primary/30 blur-3xl"
+          />
           
-          <div className="relative z-10">
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-              Want to Host Your Own Event?
-            </h2>
-            <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto text-white/90">
-              We offer custom event packages for birthdays, corporate events, and special celebrations. 
-              Contact us to discuss your requirements.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button size="lg" className="bg-white text-primary hover:bg-white/90 font-bold shadow-xl">
-                  <Link href="/contact">Contact Events Team</Link>
-                </Button>
-              </motion.div>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary font-bold">
-                  <a href="tel:+441306742885">Call 01306 742885</a>
-                </Button>
-              </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="relative bg-gradient-to-br from-gray-900 via-black to-gray-900 rounded-3xl overflow-hidden border-2 border-primary/20"
+          >
+            {/* Animated pattern overlay */}
+            <div className="absolute inset-0 opacity-10">
+              <motion.div 
+                animate={{
+                  backgroundPosition: ['0px 0px', '100px 100px'],
+                }}
+                transition={{
+                  duration: 20,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
+                className="absolute inset-0"
+                style={{
+                  backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 70px)`,
+                }} 
+              />
             </div>
-          </div>
-        </motion.div>
+            
+            <div className="relative p-12 md:p-20 text-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <h2 className="font-display text-3xl md:text-5xl font-bold mb-6 text-white">
+                  Want to Host Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Own Event?</span>
+                </h2>
+                <p className="text-lg md:text-xl mb-10 max-w-3xl mx-auto text-white/80 leading-relaxed">
+                  We offer custom event packages for birthdays, corporate events, and special celebrations. 
+                  Contact us to discuss your requirements.
+                </p>
+              </motion.div>
+              
+              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Button size="lg" className="bg-white text-gray-900 hover:bg-gray-100 font-bold shadow-2xl px-8 py-6 text-lg">
+                    <Link href="/contact" className="flex items-center gap-2">
+                      Contact Events Team
+                      <ArrowRight className="w-5 h-5" />
+                    </Link>
+                  </Button>
+                </motion.div>
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Button size="lg" className="bg-primary/20 backdrop-blur-md border-2 border-white/30 text-white hover:bg-white hover:text-gray-900 font-bold shadow-2xl px-8 py-6 text-lg transition-all">
+                    <a href="tel:+441306742885" className="flex items-center gap-2">
+                      <Phone className="w-5 h-5" />
+                      Call 01306 742885
+                    </a>
+                  </Button>
+                </motion.div>
+              </div>
+            </div>
+            
+            {/* Decorative corners */}
+            <div className="absolute top-0 left-0 w-32 h-32">
+              <div className="absolute top-4 left-4 w-24 h-24 border-t-2 border-l-2 border-primary/30 rounded-tl-3xl" />
+            </div>
+            <div className="absolute bottom-0 right-0 w-32 h-32">
+              <div className="absolute bottom-4 right-4 w-24 h-24 border-b-2 border-r-2 border-accent/30 rounded-br-3xl" />
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
