@@ -12,7 +12,7 @@ export function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/pictures/rialto-social-restaurant-exterior-dorking.jpg"
+          src="/pictures/rialto-restaurant-interior.jpg"
           alt="Rialto Social Restaurant"
           fill
           priority
