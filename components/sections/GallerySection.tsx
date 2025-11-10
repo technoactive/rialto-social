@@ -196,7 +196,6 @@ export function GallerySection() {
               onClick={() => setSelectedImage(image)}
             >
               <div className="relative aspect-square rounded-2xl overflow-hidden bg-muted">
-                {/* Actual image */}
                 <Image
                   src={image.src}
                   alt={image.title}
@@ -205,14 +204,6 @@ export function GallerySection() {
                   sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   loading="lazy"
                 />
-                {/* Overlay with title */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <h3 className="text-white font-semibold text-lg">
-                      {image.title}
-                    </h3>
-                  </div>
-                </div>
               </div>
             </motion.div>
           ))}
@@ -285,12 +276,6 @@ export function GallerySection() {
                   priority
                 />
                 
-                {/* Image info */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-8">
-                  <h3 className="text-white text-2xl font-bold">
-                    {selectedImage.title}
-                  </h3>
-                </div>
               </motion.div>
             </motion.div>
           )}
