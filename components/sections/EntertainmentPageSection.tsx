@@ -96,7 +96,7 @@ export function EntertainmentPageSection() {
             {/* Karaoke Slide */}
             <div className="relative w-1/2 h-full">
               <Image
-                src="/pictures/entertainment/karaoke.jpg"
+                src="/pictures/rialto-karaoke-room.jpg"
                 alt="Karaoke at Rialto Social"
                 fill
                 className="object-cover"
@@ -108,7 +108,7 @@ export function EntertainmentPageSection() {
             {/* Darts Slide */}
             <div className="relative w-1/2 h-full">
               <Image
-                src="/pictures/entertainment/darts.jpg"
+                src="/pictures/rialto-darts-area.jpg"
                 alt="Darts at Rialto Social"
                 fill
                 className="object-cover"
@@ -365,7 +365,7 @@ export function EntertainmentPageSection() {
                   </div>
                   <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
                     <Image
-                      src="/pictures/entertainment/karaoke.jpg"
+                      src="/pictures/rialto-karaoke-room.jpg"
                       alt="Karaoke at Rialto Social"
                       fill
                       className="object-cover"
@@ -502,7 +502,7 @@ export function EntertainmentPageSection() {
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                   <div className="order-2 lg:order-1 relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
                     <Image
-                      src="/pictures/entertainment/darts.jpg"
+                      src="/pictures/rialto-darts-area.jpg"
                       alt="Darts at Rialto Social"
                       fill
                       className="object-cover"
