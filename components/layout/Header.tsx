@@ -5,8 +5,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, Clock, Sparkles } from "lucide-react";
+import { Menu, X, Clock, Sparkles, CalendarCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
+
+// Gloria Food configuration
+const GLORIA_FOOD_CONFIG = {
+  cuid: "282c52e6-d4a9-4a64-96ea-8dbd56e40dd1",
+  ruid: "15f3c4e8-239f-4391-86d5-0685b3c97e04",
+};
 
 const navItems = [
   { name: "Home", href: "/", highlight: false },
@@ -196,16 +202,18 @@ export function Header() {
 
           {/* CTA Button & Mobile Menu Button */}
           <div className="flex items-center gap-2 md:gap-4">
-                <motion.a
-                  href="tel:+441306742885"
+            <motion.span
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="flex items-center gap-2 bg-accent text-accent-foreground px-3 md:px-4 py-2 rounded-full hover:bg-accent/90 transition-colors duration-200 text-sm"
+              className="glf-button reservation flex items-center gap-2 bg-accent text-accent-foreground px-3 md:px-4 py-2 rounded-full hover:bg-accent/90 transition-all duration-200 text-sm cursor-pointer hover:scale-105 active:scale-95 shadow-md hover:shadow-lg"
+              data-glf-cuid={GLORIA_FOOD_CONFIG.cuid}
+              data-glf-ruid={GLORIA_FOOD_CONFIG.ruid}
+              data-glf-reservation="true"
             >
-              <Phone className="w-4 h-4" />
+              <CalendarCheck className="w-4 h-4" />
               <span className="hidden sm:inline font-medium">Reserve</span>
-            </motion.a>
+            </motion.span>
 
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -341,13 +349,16 @@ export function Header() {
                   transition={{ duration: 0.3, delay: 0.3 }}
                   className="pt-4 border-t border-border"
                 >
-                  <a
-                    href="tel:+441306742885"
-                    className="flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full hover:bg-primary/90 transition-colors duration-200 w-full justify-center"
+                  <span
+                    className="glf-button reservation flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full hover:bg-primary/90 transition-all duration-200 w-full justify-center cursor-pointer active:scale-95"
+                    data-glf-cuid={GLORIA_FOOD_CONFIG.cuid}
+                    data-glf-ruid={GLORIA_FOOD_CONFIG.ruid}
+                    data-glf-reservation="true"
+                    onClick={() => setIsOpen(false)}
                   >
-                    <Phone className="w-4 h-4" />
+                    <CalendarCheck className="w-4 h-4" />
                     <span className="font-medium">Reserve Table</span>
-                  </a>
+                  </span>
                 </motion.div>
 
                 <motion.div

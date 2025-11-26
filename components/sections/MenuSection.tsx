@@ -5,10 +5,16 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { aLaCarteData, pizzaExtras, cocktailsData, dessertsData, coffeeData, teaData, otherBeverages } from "@/lib/data/menu";
 import type { DietaryTag } from "@/lib/types/menu";
-import { Martini, Cookie, UtensilsCrossed } from "lucide-react";
+import { Martini, Cookie, UtensilsCrossed as UtensilsCrossedIcon, ShoppingBag, CalendarCheck } from "lucide-react";
+
+// Gloria Food configuration
+const GLORIA_FOOD_CONFIG = {
+  cuid: "282c52e6-d4a9-4a64-96ea-8dbd56e40dd1",
+  ruid: "15f3c4e8-239f-4391-86d5-0685b3c97e04",
+};
 
 const menuTypes = [
-  { id: "food", label: "À La Carte", icon: UtensilsCrossed },
+  { id: "food", label: "À La Carte", icon: UtensilsCrossedIcon },
   { id: "cocktails", label: "Cocktails", icon: Martini },
   { id: "desserts", label: "Desserts & Coffee", icon: Cookie },
 ];
@@ -58,10 +64,36 @@ export function MenuSection() {
           <h1 className="font-display text-5xl md:text-6xl font-bold mb-4">
             Our <span className="text-primary">Menu</span>
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-6">
             Authentic Italian cuisine made with passion, using the finest
             ingredients imported from Italy and sourced locally
           </p>
+          
+          {/* Gloria Food Order & Reserve Buttons */}
+          <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+            <motion.span
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="glf-button inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white shadow-lg shadow-amber-500/25 hover:shadow-xl transition-all px-6 py-3 rounded-full cursor-pointer font-semibold text-lg"
+              data-glf-cuid={GLORIA_FOOD_CONFIG.cuid}
+              data-glf-ruid={GLORIA_FOOD_CONFIG.ruid}
+            >
+              <ShoppingBag className="w-5 h-5" />
+              Order Online
+            </motion.span>
+            
+            <motion.span
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="glf-button reservation inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all px-6 py-3 rounded-full cursor-pointer font-semibold text-lg"
+              data-glf-cuid={GLORIA_FOOD_CONFIG.cuid}
+              data-glf-ruid={GLORIA_FOOD_CONFIG.ruid}
+              data-glf-reservation="true"
+            >
+              <CalendarCheck className="w-5 h-5" />
+              Book a Table
+            </motion.span>
+          </div>
         </motion.div>
 
         {/* Menu Type Navigation */}

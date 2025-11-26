@@ -319,6 +319,12 @@ export default function RootLayout({
             `,
           }}
         />
+        {/* Gloria Food Online Ordering & Reservation System */}
+        <Script
+          id="gloria-food"
+          src="https://www.fbgcdn.com/embedder/js/ewm2.js"
+          strategy="lazyOnload"
+        />
       </head>
       <body className="font-sans antialiased">
         {children}

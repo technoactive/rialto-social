@@ -2,8 +2,13 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Phone, Calendar, Clock } from "lucide-react";
-import Link from "next/link";
+import { Phone, CalendarCheck, Clock, UtensilsCrossed } from "lucide-react";
+
+// Gloria Food configuration
+const GLORIA_FOOD_CONFIG = {
+  cuid: "282c52e6-d4a9-4a64-96ea-8dbd56e40dd1",
+  ruid: "15f3c4e8-239f-4391-86d5-0685b3c97e04",
+};
 
 export function ReservationCTA() {
   return (
@@ -53,7 +58,7 @@ export function ReservationCTA() {
             viewport={{ once: true }}
             className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full mb-6"
           >
-            <Calendar className="w-4 h-4" />
+            <CalendarCheck className="w-4 h-4" />
             <span className="text-sm font-medium">Reserve Now</span>
           </motion.div>
           
@@ -125,7 +130,7 @@ export function ReservationCTA() {
               <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-accent/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="relative bg-card/50 backdrop-blur-sm rounded-2xl p-8 text-center border border-border/50 group-hover:border-accent/30 transition-colors h-full flex flex-col justify-center min-h-[200px]">
                 <div className="w-14 h-14 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                  <Calendar className="w-7 h-7 text-accent" />
+                  <CalendarCheck className="w-7 h-7 text-accent" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg mb-2">Book Online</h3>
@@ -137,7 +142,7 @@ export function ReservationCTA() {
             </motion.div>
           </div>
 
-          {/* CTA Buttons */}
+          {/* CTA Buttons - Gloria Food Integration */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -145,14 +150,32 @@ export function ReservationCTA() {
             viewport={{ once: true }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button asChild size="lg" className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg hover:shadow-xl transition-all px-8">
-                <Link href="/contact">
-                  <Calendar className="w-4 h-4 mr-2" />
-                  Book Online
-                </Link>
-              </Button>
-            </motion.div>
+            {/* Book a Table Button */}
+            <motion.span
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="glf-button reservation inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground shadow-lg hover:shadow-xl transition-all px-8 py-3 rounded-md cursor-pointer font-medium"
+              data-glf-cuid={GLORIA_FOOD_CONFIG.cuid}
+              data-glf-ruid={GLORIA_FOOD_CONFIG.ruid}
+              data-glf-reservation="true"
+            >
+              <CalendarCheck className="w-4 h-4" />
+              Book a Table
+            </motion.span>
+            
+            {/* Order Online Button */}
+            <motion.span
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="glf-button inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white shadow-lg shadow-amber-500/25 hover:shadow-xl transition-all px-8 py-3 rounded-md cursor-pointer font-medium"
+              data-glf-cuid={GLORIA_FOOD_CONFIG.cuid}
+              data-glf-ruid={GLORIA_FOOD_CONFIG.ruid}
+            >
+              <UtensilsCrossed className="w-4 h-4" />
+              Order Online
+            </motion.span>
+            
+            {/* Phone Button */}
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button asChild variant="outline" size="lg" className="border-2 hover:bg-accent hover:text-accent-foreground hover:border-accent transition-all px-8">
                 <a href="tel:+441306742885">
