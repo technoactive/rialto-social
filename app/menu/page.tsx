@@ -5,9 +5,17 @@ import { MenuSection } from "@/components/sections/MenuSection";
 import { FloatingActionButton } from "@/components/ui/floating-action-button";
 
 export const metadata: Metadata = {
-  title: "Menu | Italian Restaurant Dorking",
-  description: "Explore our authentic Italian menu featuring fresh pasta, traditional pizzas, and Italian dishes at Rialto Social in Dorking. View prices and dietary options.",
-  keywords: ["Italian menu Dorking", "pizza menu Surrey", "pasta dishes Dorking", "Rialto Social menu", "Italian food prices"],
+  title: "Menu - Pizza, Pasta & Gelato | Best Italian Food in Dorking",
+  description: "View our menu: authentic Italian pizza, fresh pasta, risotto, tiramisu & artisan gelato. Best Italian food in Dorking with takeaway available. See prices & order online!",
+  keywords: [
+    "pizza dorking", "pasta dorking", "italian food dorking", "gelato dorking", "ice cream dorking",
+    "italian menu dorking", "takeaway dorking", "dorking pizza restaurants", "best pizza dorking",
+    "margherita pizza", "carbonara", "lasagne", "risotto", "tiramisu", "bruschetta",
+    "italian restaurants dorking", "dorking takeaway", "food dorking"
+  ],
+  alternates: {
+    canonical: "https://rialtosocial.co.uk/menu",
+  },
 };
 
 export default function MenuPage() {

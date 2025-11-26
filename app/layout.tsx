@@ -28,11 +28,25 @@ export const viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://rialtosocial.co.uk"),
   title: {
-    default: "Rialto Social - Authentic Italian Restaurant in Dorking",
-    template: "%s | Rialto Social"
+    default: "Rialto Social - Best Italian Restaurant in Dorking | Pizza, Pasta & Gelato",
+    template: "%s | Rialto Social Dorking"
   },
-  description: "Experience authentic Italian cuisine at Rialto Social in Dorking. Fresh pasta, authentic pizzas, karaoke nights, and darts. Located at 45 Dene Street, Dorking RH4 2DW.",
-  keywords: ["Italian restaurant Dorking", "Rialto Social", "Italian food Surrey", "restaurant Dorking", "pasta Dorking", "pizza Dorking", "Italian dining", "karaoke Dorking", "darts Dorking", "entertainment venue Dorking"],
+  description: "Best Italian restaurant in Dorking serving authentic pizza, fresh pasta & artisan gelato. Karaoke nights, darts & takeaway available. Located on Dene Street, Dorking town centre. Book your table today!",
+  keywords: [
+    // High volume keywords from Google Business
+    "restaurants dorking", "dorking restaurants", "italian restaurant dorking", "pizza dorking",
+    "best restaurants dorking", "places to eat dorking", "italian dorking", "takeaway dorking",
+    // Brand keywords
+    "rialto social", "rialto dorking", "rialto lounge dorking", "cafe rialto",
+    // Food specific
+    "gelato dorking", "ice cream dorking", "pasta dorking", "italian food dorking",
+    // Meal times
+    "lunch dorking", "dinner dorking", "brunch dorking", "breakfast dorking",
+    // Entertainment
+    "karaoke dorking", "darts dorking", "entertainment dorking",
+    // Location variants
+    "restaurants dorking town centre", "best italian restaurant surrey", "dorking high street restaurants"
+  ],
   authors: [{ name: "Rialto Social" }],
   creator: "Rialto Social",
   publisher: "Rialto Social",
@@ -55,21 +69,21 @@ export const metadata: Metadata = {
     locale: "en_GB",
     url: "https://rialtosocial.co.uk",
     siteName: "Rialto Social",
-    title: "Rialto Social - Italian Restaurant & Entertainment in Dorking",
-    description: "Experience authentic Italian cuisine at Rialto Social in Dorking. Fresh pasta, authentic pizzas, plus karaoke nights and darts for entertainment.",
+    title: "Rialto Social - Best Italian Restaurant in Dorking | Pizza, Pasta & Gelato",
+    description: "Dorking's favourite Italian restaurant! Authentic pizza, fresh pasta, artisan gelato & ice cream. Plus karaoke nights & darts. Dine-in or takeaway. Book now!",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Rialto Social Italian Restaurant & Entertainment",
+        alt: "Rialto Social - Best Italian Restaurant in Dorking",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rialto Social - Italian Restaurant & Entertainment in Dorking",
-    description: "Experience authentic Italian cuisine at Rialto Social in Dorking. Fresh pasta, authentic pizzas, plus karaoke nights and darts for entertainment.",
+    title: "Rialto Social - Best Italian Restaurant in Dorking",
+    description: "Dorking's favourite Italian! Authentic pizza, pasta & gelato. Karaoke nights & darts. Dine-in or takeaway available. Book your table today!",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -109,7 +123,7 @@ const jsonLdRestaurant = {
   "@type": "Restaurant",
   "@id": "https://rialtosocial.co.uk/#restaurant",
   "name": "Rialto Social",
-  "alternateName": "Rialto Social Italian Restaurant & Bar",
+  "alternateName": ["Rialto Social Italian Restaurant", "Rialto Dorking", "Cafe Rialto Dorking", "Rialto Lounge Dorking"],
   "image": [
     "https://rialtosocial.co.uk/pictures/rialto-social-restaurant-exterior.jpg",
     "https://rialtosocial.co.uk/pictures/rialto-social-dining-area.jpg",
@@ -120,8 +134,9 @@ const jsonLdRestaurant = {
   "telephone": "+441306742885",
   "email": "dorking@rialtolounge.co.uk",
   "priceRange": "££",
-  "description": "Authentic Italian restaurant in Dorking serving fresh pasta, traditional pizzas, and classic Italian dishes. Features karaoke nights and darts for entertainment.",
-  "servesCuisine": ["Italian", "Pizza", "Pasta", "Mediterranean"],
+  "description": "Best Italian restaurant in Dorking town centre serving authentic pizza, fresh pasta, artisan gelato and ice cream. Features karaoke nights, darts, and PS5 gaming. Dine-in and takeaway available. One of the best places to eat in Dorking.",
+  "servesCuisine": ["Italian", "Pizza", "Pasta", "Mediterranean", "Gelato", "Ice Cream"],
+  "keywords": "restaurants dorking, italian restaurant dorking, pizza dorking, best restaurants dorking, places to eat dorking, karaoke dorking, gelato dorking, takeaway dorking",
   "amenityFeature": [
     {
       "@type": "LocationFeatureSpecification",
@@ -135,7 +150,22 @@ const jsonLdRestaurant = {
     },
     {
       "@type": "LocationFeatureSpecification",
+      "name": "PS5 Gaming",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
       "name": "Live Entertainment",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Artisan Gelato",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Ice Cream",
       "value": true
     },
     {
@@ -146,6 +176,11 @@ const jsonLdRestaurant = {
     {
       "@type": "LocationFeatureSpecification",
       "name": "Takeaway",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Delivery",
       "value": true
     },
     {
@@ -166,6 +201,11 @@ const jsonLdRestaurant = {
     {
       "@type": "LocationFeatureSpecification",
       "name": "Bar",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Cocktails",
       "value": true
     }
   ],

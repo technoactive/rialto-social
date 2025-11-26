@@ -5,9 +5,16 @@ import { GallerySection } from "@/components/sections/GallerySection";
 import { FloatingActionButton } from "@/components/ui/floating-action-button";
 
 export const metadata: Metadata = {
-  title: "Gallery | Rialto Social Restaurant Photos",
-  description: "View our photo gallery showcasing the authentic Italian dishes, cozy atmosphere, and memorable moments at Rialto Social in Dorking.",
-  keywords: ["Rialto Social photos", "Italian restaurant gallery", "Dorking restaurant images", "Italian food photos", "restaurant interior Dorking"],
+  title: "Gallery - Photos of Best Italian Restaurant in Dorking | Rialto Social",
+  description: "See our delicious Italian pizza, pasta, gelato & ice cream. View photos of our cozy restaurant, karaoke rooms & entertainment at Rialto Social Dorking.",
+  keywords: [
+    "italian restaurant dorking photos", "pizza dorking", "gelato dorking", "ice cream dorking",
+    "rialto social gallery", "dorking restaurant photos", "karaoke room dorking",
+    "best restaurants dorking", "italian food photos"
+  ],
+  alternates: {
+    canonical: "https://rialtosocial.co.uk/gallery",
+  },
 };
 
 export default function GalleryPage() {

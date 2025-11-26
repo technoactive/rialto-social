@@ -5,9 +5,17 @@ import { EntertainmentPageSection } from "@/components/sections/EntertainmentPag
 import { FloatingActionButton } from "@/components/ui/floating-action-button";
 
 export const metadata: Metadata = {
-  title: "Entertainment - Karaoke with Karafun & Darts | Rialto Social",
-  description: "Experience Karafun karaoke with 44,000+ songs and professional darts at Rialto Social Dorking. Private karaoke rooms, 4 dartboards, weekly leagues, and special packages.",
-  keywords: ["Karafun karaoke Dorking", "darts Dorking", "karaoke rooms Surrey", "entertainment venue Dorking", "darts league Surrey", "Rialto Social entertainment", "karaoke bar Dorking"],
+  title: "Karaoke Dorking & Darts - Best Entertainment Venue | Rialto Social",
+  description: "Looking for karaoke in Dorking? Rialto Social offers private karaoke rooms with 44,000+ songs, professional darts, PS5 gaming & live music. Best entertainment venue in Dorking!",
+  keywords: [
+    "karaoke dorking", "dorking karaoke", "darts dorking", "entertainment dorking",
+    "karaoke bar dorking", "karaoke nights surrey", "darts venue dorking",
+    "ps5 gaming dorking", "live music dorking", "nightlife dorking",
+    "bars dorking", "pubs dorking", "things to do dorking", "fun activities dorking"
+  ],
+  alternates: {
+    canonical: "https://rialtosocial.co.uk/entertainment",
+  },
 };
 
 export default function EntertainmentPage() {
