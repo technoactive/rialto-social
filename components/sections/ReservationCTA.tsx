@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { Phone, CalendarCheck, Clock, UtensilsCrossed } from "lucide-react";
 
 // Gloria Food configuration
@@ -189,12 +188,13 @@ export function ReservationCTA() {
             
             {/* Phone Button */}
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button asChild variant="outline" size="lg" className="border-2 hover:bg-accent hover:text-accent-foreground hover:border-accent transition-all px-8">
-                <a href="tel:+441306742885">
-                  <Phone className="w-4 h-4 mr-2" />
-                  Call Now
-                </a>
-              </Button>
+              <a 
+                href="tel:+441306742885"
+                className="inline-flex items-center justify-center gap-2 border-2 border-border bg-background hover:bg-accent hover:text-accent-foreground hover:border-accent shadow-lg hover:shadow-xl transition-all px-8 py-3 rounded-md cursor-pointer font-medium"
+              >
+                <Phone className="w-4 h-4" />
+                Call Now
+              </a>
             </motion.div>
           </motion.div>
 
