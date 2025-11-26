@@ -190,7 +190,7 @@ export function ReservationCTA() {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <a 
                 href="tel:+441306742885"
-                className="inline-flex items-center justify-center gap-2 border-2 border-border bg-background hover:bg-accent hover:text-accent-foreground hover:border-accent shadow-lg hover:shadow-xl transition-all px-8 py-3 rounded-md cursor-pointer font-medium"
+                className="inline-flex items-center justify-center gap-2 border-2 border-border bg-background hover:bg-accent hover:text-accent-foreground hover:border-accent shadow-lg hover:shadow-xl transition-all px-8 py-[10px] rounded-md cursor-pointer font-medium"
               >
                 <Phone className="w-4 h-4" />
                 Call Now
