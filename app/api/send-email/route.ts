@@ -3,9 +3,9 @@ import { NextResponse } from 'next/server';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-// Email recipient - your restaurant email
+// Email configuration
 const RESTAURANT_EMAIL = 'dorking@rialtolounge.co.uk';
-const FROM_EMAIL = 'reservations@rialtosocial.co.uk'; // You'll need to verify this domain in Resend
+const FROM_EMAIL = 'reservations@rialtosocial.co.uk'; // Verify rialtosocial.co.uk domain in Resend
 
 interface ReservationData {
   name: string;
@@ -211,7 +211,7 @@ export async function POST(request: Request) {
 
     // Send email to restaurant
     const { error: restaurantError } = await resend.emails.send({
-      from: `Rialto Social Website <${FROM_EMAIL}>`,
+      from: `Rialto Social Reservations <${FROM_EMAIL}>`,
       to: [RESTAURANT_EMAIL],
       subject: `🍽️ New ${getServiceLabel(service)} Reservation - ${name} (${formatDate(date)})`,
       html: restaurantEmailHtml,
@@ -228,10 +228,11 @@ export async function POST(request: Request) {
 
     // Send confirmation email to customer
     const { error: customerError } = await resend.emails.send({
-      from: `Rialto Social <${FROM_EMAIL}>`,
+      from: `Rialto Social Reservations <${FROM_EMAIL}>`,
       to: [email],
       subject: `Your Reservation Request at Rialto Social - ${formatDate(date)}`,
       html: customerEmailHtml,
+      replyTo: RESTAURANT_EMAIL,
     });
 
     if (customerError) {
