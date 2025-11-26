@@ -6,6 +6,12 @@ import { ArrowRight, Star } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
+// Gloria Food configuration
+const GLORIA_FOOD_CONFIG = {
+  cuid: "282c52e6-d4a9-4a64-96ea-8dbd56e40dd1",
+  ruid: "15f3c4e8-239f-4391-86d5-0685b3c97e04",
+};
+
 export function Hero() {
   return (
     <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
@@ -103,9 +109,19 @@ export function Hero() {
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
-            <Button asChild size="lg" className="border-2 border-white bg-white/10 text-white hover:bg-white hover:text-primary backdrop-blur-sm">
-              <Link href="/contact">Book a Table</Link>
-            </Button>
+            {/* Book a Table - with Gloria Food overlay */}
+            <div className="relative">
+              <span
+                className="glf-button reservation absolute inset-0 z-10 opacity-0 cursor-pointer"
+                data-glf-cuid={GLORIA_FOOD_CONFIG.cuid}
+                data-glf-ruid={GLORIA_FOOD_CONFIG.ruid}
+                data-glf-reservation="true"
+                style={{ fontSize: 0 }}
+              />
+              <Button size="lg" className="border-2 border-white bg-white/10 text-white hover:bg-white hover:text-primary backdrop-blur-sm cursor-pointer">
+                Book a Table
+              </Button>
+            </div>
           </motion.div>
 
           {/* Stats */}
