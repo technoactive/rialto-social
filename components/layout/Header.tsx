@@ -5,17 +5,17 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, Clock } from "lucide-react";
+import { Menu, X, Phone, Clock, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { name: "Home", href: "/" },
-  { name: "Menu", href: "/menu" },
-  { name: "About", href: "/about" },
-  { name: "Entertainment", href: "/entertainment" },
-  { name: "Events", href: "/events" },
-  { name: "Gallery", href: "/gallery" },
-  { name: "Contact", href: "/contact" },
+  { name: "Home", href: "/", highlight: false },
+  { name: "Menu", href: "/menu", highlight: false },
+  { name: "About", href: "/about", highlight: false },
+  { name: "Entertainment", href: "/entertainment", highlight: false },
+  { name: "Events", href: "/events", highlight: true },
+  { name: "Gallery", href: "/gallery", highlight: false },
+  { name: "Contact", href: "/contact", highlight: false },
 ];
 
 export function Header() {
@@ -82,6 +82,93 @@ export function Header() {
           >
             {navItems.map((item, index) => {
               const isActive = pathname === item.href;
+              
+              // Special highlighted item (Events)
+              if (item.highlight) {
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="relative group"
+                  >
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.1 }}
+                      className="relative"
+                    >
+                      {/* Animated glow background */}
+                      <motion.div
+                        className={cn(
+                          "absolute -inset-x-3 -inset-y-1.5 rounded-full",
+                          isHomePage && !scrolled && !isOpen
+                            ? "bg-gradient-to-r from-amber-400/20 via-orange-400/30 to-red-400/20"
+                            : "bg-gradient-to-r from-amber-500/15 via-orange-500/25 to-red-500/15"
+                        )}
+                        animate={{
+                          opacity: [0.5, 1, 0.5],
+                          scale: [1, 1.05, 1],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                        }}
+                      />
+                      
+                      {/* Shimmer effect */}
+                      <motion.div
+                        className="absolute -inset-x-3 -inset-y-1.5 rounded-full overflow-hidden"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                      >
+                        <motion.div
+                          className={cn(
+                            "absolute inset-0 w-[200%]",
+                            isHomePage && !scrolled && !isOpen
+                              ? "bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                              : "bg-gradient-to-r from-transparent via-amber-400/20 to-transparent"
+                          )}
+                          animate={{
+                            x: ["-100%", "100%"],
+                          }}
+                          transition={{
+                            duration: 3,
+                            repeat: Infinity,
+                            ease: "linear",
+                            repeatDelay: 2,
+                          }}
+                        />
+                      </motion.div>
+                      
+                      {/* Text with icon */}
+                      <span className={cn(
+                        "relative flex items-center gap-1.5 font-semibold transition-colors duration-200 px-3 py-1.5",
+                        isActive
+                          ? "text-accent"
+                          : isHomePage && !scrolled && !isOpen 
+                            ? "text-white group-hover:text-amber-200" 
+                            : "text-foreground group-hover:text-amber-600"
+                      )}>
+                        <Sparkles className="w-3.5 h-3.5" />
+                        {item.name}
+                        
+                        {/* Pulsing dot indicator */}
+                        <span className="relative flex h-2 w-2">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                          <span className={cn(
+                            "relative inline-flex rounded-full h-2 w-2",
+                            isHomePage && !scrolled && !isOpen
+                              ? "bg-amber-300"
+                              : "bg-amber-500"
+                          )}></span>
+                        </span>
+                      </span>
+                    </motion.div>
+                  </Link>
+                );
+              }
+              
               return (
                 <Link
                   key={item.name}
@@ -176,6 +263,55 @@ export function Header() {
               <div className="px-4 pt-8 pb-4 space-y-4 relative">
                 {navItems.map((item, index) => {
                   const isActive = pathname === item.href;
+                  
+                  // Special highlighted item (Events) for mobile
+                  if (item.highlight) {
+                    return (
+                      <motion.div
+                        key={item.name}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.3, delay: index * 0.05 }}
+                        className="relative"
+                      >
+                        <Link
+                          href={item.href}
+                          onClick={() => setIsOpen(false)}
+                          className="relative block py-2"
+                        >
+                          {/* Animated glow background for mobile */}
+                          <motion.div
+                            className="absolute -inset-x-2 -inset-y-1 rounded-lg bg-gradient-to-r from-amber-500/10 via-orange-500/20 to-red-500/10"
+                            animate={{
+                              opacity: [0.5, 1, 0.5],
+                            }}
+                            transition={{
+                              duration: 2,
+                              repeat: Infinity,
+                              ease: "easeInOut",
+                            }}
+                          />
+                          
+                          <span className={cn(
+                            "relative flex items-center gap-2 text-lg font-semibold",
+                            isActive 
+                              ? "text-accent" 
+                              : "text-amber-600 dark:text-amber-400"
+                          )}>
+                            <Sparkles className="w-4 h-4" />
+                            {item.name}
+                            
+                            {/* Pulsing dot for mobile */}
+                            <span className="relative flex h-2 w-2 ml-1">
+                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                              <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                            </span>
+                          </span>
+                        </Link>
+                      </motion.div>
+                    );
+                  }
+                  
                   return (
                     <motion.div
                       key={item.name}
