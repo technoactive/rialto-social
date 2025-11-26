@@ -20,60 +20,31 @@ type Event = {
   featured?: boolean;
 };
 
-// Sample events - you can easily add/edit these
+// Christmas events
 const upcomingEvents: Event[] = [
   {
-    id: "karaoke-night-1",
-    title: "Friday Karaoke Night",
-    date: "Every Friday",
-    time: "8:00 PM - 1:00 AM",
-    category: "karaoke",
-    description: "Join us for our weekly karaoke night! Sing your favorite songs with our Karafun system featuring 44,000+ tracks. Private room also available for booking.",
-    price: "Free entry",
-    capacity: "Walk-ins welcome",
-    featured: true,
-  },
-  {
-    id: "karaoke-night-2",
-    title: "Saturday Karaoke Night",
-    date: "Every Saturday",
-    time: "8:00 PM - 1:00 AM",
-    category: "karaoke",
-    description: "Weekend karaoke extravaganza! Perfect for celebrations and parties. Book our private karaoke room for your group.",
-    price: "Free entry",
-    capacity: "Walk-ins welcome",
-    featured: true,
-  },
-  {
-    id: "italian-food-night",
-    title: "Italian Food Festival",
-    date: "Last Friday of Every Month",
-    time: "6:00 PM - 11:00 PM",
+    id: "christmas-eve",
+    title: "Christmas Eve Live Music",
+    date: "December 24th, 2025",
+    time: "From 7:00 PM",
     category: "special",
-    description: "Special Italian menu featuring regional dishes, live entertainment, and complimentary wine tasting. A celebration of Italian cuisine and culture.",
-    price: "Special menu prices",
-    capacity: "Reservations recommended",
-    featured: true,
-  },
-  {
-    id: "gaming-tournament",
-    title: "PS5 FIFA Tournament",
-    date: "First Saturday of Month",
-    time: "2:00 PM - 6:00 PM",
-    category: "gaming",
-    description: "Monthly FIFA tournament on PS5. Compete with other gamers, win prizes, and enjoy special gaming packages with food and drinks.",
-    price: "£10 entry",
-    capacity: "Limited spots",
-  },
-  {
-    id: "family-sunday",
-    title: "Family Sunday",
-    date: "Every Sunday",
-    time: "12:00 PM - 4:00 PM",
-    category: "special",
-    description: "Special family-friendly atmosphere with kids' activities, special menu, and entertainment. Perfect for family gatherings.",
+    description: "Join us for a magical Christmas Eve celebration with live music by Deleelah! Enjoy festive atmosphere, special Christmas menu, and unforgettable entertainment. Limited tables available - book today!",
+    image: "/pictures/events/christmas-eve-live-music-deleelah.jpg",
     price: "Regular menu prices",
-    capacity: "Walk-ins welcome",
+    capacity: "Limited tables - book today!",
+    featured: true,
+  },
+  {
+    id: "new-years-eve",
+    title: "New Year's Eve Celebration 2026",
+    date: "December 31st, 2025",
+    time: "7:00 PM onwards",
+    category: "special",
+    description: "Ring in the New Year at Rialto Social! Join us for an unforgettable night with live music by Siobhan Élouise, special New Year's menu, champagne toast at midnight, and dancing until late. Celebrate 2026 with us!",
+    image: "/pictures/events/new-years-eve-celebration-siobhan.jpg",
+    price: "Special event pricing",
+    capacity: "Reservations essential",
+    featured: true,
   },
 ];
 
@@ -163,14 +134,14 @@ export function EventsSection() {
               className="inline-flex items-center gap-2 bg-white/90 backdrop-blur text-primary px-6 py-2 rounded-full mb-6 shadow-lg"
             >
               <Calendar className="w-5 h-5" />
-              <span className="text-sm font-bold">What&apos;s On at Rialto</span>
+              <span className="text-sm font-bold">Festive Season at Rialto</span>
             </motion.div>
             
             <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
-              Upcoming <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Events</span>
+              Christmas & New Year <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Events</span>
             </h1>
             <p className="text-lg md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Join us for special nights, entertainment, and unforgettable experiences at Rialto Social
+              Celebrate the festive season with live music, special menus, and unforgettable moments at Rialto Social
             </p>
           </motion.div>
         </div>
