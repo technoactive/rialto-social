@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ChefHat, Mic2, Target, ArrowRight, Gamepad2, IceCream } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const services = [
@@ -17,6 +18,7 @@ const services = [
     color: "from-primary/10 to-primary/5",
     borderColor: "border-primary/20",
     availability: "Daily - See hours below",
+    image: "/pictures/rialto-margherita-pizza.jpg",
   },
   {
     id: "gelato",
@@ -29,6 +31,7 @@ const services = [
     color: "from-primary/10 to-accent/5",
     borderColor: "border-primary/20",
     availability: "Daily",
+    image: "/pictures/rialto-gelato-display.jpg",
   },
   {
     id: "karaoke",
@@ -41,6 +44,7 @@ const services = [
     color: "from-accent/10 to-accent/5",
     borderColor: "border-accent/20",
     availability: "All Week - All Day",
+    image: "/pictures/rialto-karaoke-room.jpg",
   },
   {
     id: "darts",
@@ -53,6 +57,7 @@ const services = [
     color: "from-accent/10 to-primary/5",
     borderColor: "border-accent/20",
     availability: "Daily from 12 PM",
+    image: "/pictures/rialto-darts-area.jpg",
   },
   {
     id: "ps5",
@@ -65,6 +70,7 @@ const services = [
     color: "from-primary/10 to-primary/5",
     borderColor: "border-primary/20",
     availability: "Daily",
+    image: "/pictures/rialto-ps5-gaming-room.jpg",
   },
 ];
 
@@ -117,22 +123,23 @@ export function ServicesOverview() {
               <div
                 className={cn(
                   "relative h-full rounded-3xl overflow-hidden transition-all duration-300",
-                  "bg-gradient-to-br",
-                  service.color,
+                  "bg-white",
                   "border border-border/50",
                   "group-hover:shadow-2xl group-hover:scale-105 group-hover:border-primary/30"
                 )}
               >
-                {/* Animated background */}
-                <motion.div 
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  initial={false}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5" />
-                </motion.div>
-                
+                {/* Image Section - No overlays or captions */}
+                <div className="relative w-full h-48 overflow-hidden">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+
                 {/* Card Content */}
-                <div className="relative p-6 md:p-8 h-full flex flex-col">
+                <div className={cn("relative p-6 md:p-8 h-full flex flex-col bg-gradient-to-br", service.color)}>
                   {/* Icon Container */}
                   <div className="mb-6">
                     <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-background to-background/50 shadow-lg flex items-center justify-center group-hover:shadow-xl transition-shadow">
