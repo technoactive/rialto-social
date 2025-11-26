@@ -217,11 +217,7 @@ h4, h5, h6 {
   z-index: 2 !important;
 }
 
-/* Gloria Food - Hide trigger buttons visually but keep them accessible to scripts */
-.glf-button.glf-hidden {
-  position: fixed !important;
-  left: -9999px !important;
-  top: -9999px !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
+/* Gloria Food - Overlay buttons need to fill their container */
+.glf-button {
+  display: block;
 }

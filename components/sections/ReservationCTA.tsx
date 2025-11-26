@@ -150,44 +150,42 @@ export function ReservationCTA() {
             viewport={{ once: true }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            {/* Hidden Gloria Food triggers */}
-            <span
-              id="cta-glf-reserve"
-              className="glf-button reservation glf-hidden"
-              data-glf-cuid={GLORIA_FOOD_CONFIG.cuid}
-              data-glf-ruid={GLORIA_FOOD_CONFIG.ruid}
-              data-glf-reservation="true"
-              aria-hidden="true"
-            />
-            <span
-              id="cta-glf-order"
-              className="glf-button glf-hidden"
-              data-glf-cuid={GLORIA_FOOD_CONFIG.cuid}
-              data-glf-ruid={GLORIA_FOOD_CONFIG.ruid}
-              aria-hidden="true"
-            />
-            
-            {/* Book a Table Button */}
-            <motion.button
+            {/* Book a Table Button - with Gloria Food overlay */}
+            <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => document.getElementById('cta-glf-reserve')?.click()}
-              className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground shadow-lg hover:shadow-xl transition-all px-8 py-3 rounded-md cursor-pointer font-medium"
+              className="relative"
             >
-              <CalendarCheck className="w-4 h-4" />
-              Book a Table
-            </motion.button>
+              <span
+                className="glf-button reservation absolute inset-0 z-10 opacity-0 cursor-pointer"
+                data-glf-cuid={GLORIA_FOOD_CONFIG.cuid}
+                data-glf-ruid={GLORIA_FOOD_CONFIG.ruid}
+                data-glf-reservation="true"
+                style={{ fontSize: 0 }}
+              />
+              <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground shadow-lg hover:shadow-xl transition-all px-8 py-3 rounded-md cursor-pointer font-medium">
+                <CalendarCheck className="w-4 h-4" />
+                Book a Table
+              </div>
+            </motion.div>
             
-            {/* Order Online Button */}
-            <motion.button
+            {/* Order Online Button - with Gloria Food overlay */}
+            <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => document.getElementById('cta-glf-order')?.click()}
-              className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white shadow-lg shadow-amber-500/25 hover:shadow-xl transition-all px-8 py-3 rounded-md cursor-pointer font-medium"
+              className="relative"
             >
-              <UtensilsCrossed className="w-4 h-4" />
-              Order Online
-            </motion.button>
+              <span
+                className="glf-button absolute inset-0 z-10 opacity-0 cursor-pointer"
+                data-glf-cuid={GLORIA_FOOD_CONFIG.cuid}
+                data-glf-ruid={GLORIA_FOOD_CONFIG.ruid}
+                style={{ fontSize: 0 }}
+              />
+              <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white shadow-lg shadow-amber-500/25 hover:shadow-xl transition-all px-8 py-3 rounded-md cursor-pointer font-medium">
+                <UtensilsCrossed className="w-4 h-4" />
+                Order Online
+              </div>
+            </motion.div>
             
             {/* Phone Button */}
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
