@@ -186,23 +186,37 @@ export function Footer() {
             
             {/* Gloria Food Buttons */}
             <div className="mt-4 flex flex-col gap-2">
+              {/* Hidden Gloria Food triggers */}
               <span
-                className="glf-button footer-reserve reservation"
+                id="footer-glf-reserve"
+                className="glf-button reservation hidden"
                 data-glf-cuid={GLORIA_FOOD_CONFIG.cuid}
                 data-glf-ruid={GLORIA_FOOD_CONFIG.ruid}
                 data-glf-reservation="true"
-              >
-                <CalendarCheck className="w-4 h-4" />
-                Book a Table
-              </span>
+                aria-hidden="true"
+              />
               <span
-                className="glf-button footer-order"
+                id="footer-glf-order"
+                className="glf-button hidden"
                 data-glf-cuid={GLORIA_FOOD_CONFIG.cuid}
                 data-glf-ruid={GLORIA_FOOD_CONFIG.ruid}
+                aria-hidden="true"
+              />
+              {/* Styled buttons */}
+              <button
+                onClick={() => document.getElementById('footer-glf-reserve')?.click()}
+                className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-primary border border-white/20 text-white px-4 py-2 rounded-md cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 group"
               >
-                <UtensilsCrossed className="w-4 h-4" />
+                <CalendarCheck className="w-4 h-4 group-hover:rotate-12 transition-transform" />
+                Book a Table
+              </button>
+              <button
+                onClick={() => document.getElementById('footer-glf-order')?.click()}
+                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white px-4 py-2 rounded-md cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 group shadow-lg shadow-amber-500/25"
+              >
+                <UtensilsCrossed className="w-4 h-4 group-hover:rotate-12 transition-transform" />
                 Order Online
-              </span>
+              </button>
             </div>
           </motion.div>
 

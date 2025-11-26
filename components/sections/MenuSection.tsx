@@ -71,24 +71,42 @@ export function MenuSection() {
           
           {/* Gloria Food Order & Reserve Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+            {/* Hidden Gloria Food triggers */}
             <span
-              className="glf-button order-online"
+              id="menu-glf-order"
+              className="glf-button hidden"
               data-glf-cuid={GLORIA_FOOD_CONFIG.cuid}
               data-glf-ruid={GLORIA_FOOD_CONFIG.ruid}
-            >
-              <ShoppingBag className="w-5 h-5" />
-              Order Online
-            </span>
-            
+              aria-hidden="true"
+            />
             <span
-              className="glf-button book-table reservation"
+              id="menu-glf-reserve"
+              className="glf-button reservation hidden"
               data-glf-cuid={GLORIA_FOOD_CONFIG.cuid}
               data-glf-ruid={GLORIA_FOOD_CONFIG.ruid}
               data-glf-reservation="true"
+              aria-hidden="true"
+            />
+            {/* Styled buttons */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => document.getElementById('menu-glf-order')?.click()}
+              className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white shadow-lg shadow-amber-500/25 hover:shadow-xl transition-all px-6 py-3 rounded-full cursor-pointer font-semibold text-lg"
+            >
+              <ShoppingBag className="w-5 h-5" />
+              Order Online
+            </motion.button>
+            
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => document.getElementById('menu-glf-reserve')?.click()}
+              className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all px-6 py-3 rounded-full cursor-pointer font-semibold text-lg"
             >
               <CalendarCheck className="w-5 h-5" />
               Book a Table
-            </span>
+            </motion.button>
           </div>
         </motion.div>
 

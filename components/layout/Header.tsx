@@ -202,18 +202,26 @@ export function Header() {
 
           {/* CTA Button & Mobile Menu Button */}
           <div className="flex items-center gap-2 md:gap-4">
-            <motion.span
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="glf-button header-reserve reservation"
+            {/* Hidden Gloria Food trigger */}
+            <span
+              id="header-glf-trigger"
+              className="glf-button reservation hidden"
               data-glf-cuid={GLORIA_FOOD_CONFIG.cuid}
               data-glf-ruid={GLORIA_FOOD_CONFIG.ruid}
               data-glf-reservation="true"
+              aria-hidden="true"
+            />
+            {/* Our styled button */}
+            <motion.button
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              onClick={() => document.getElementById('header-glf-trigger')?.click()}
+              className="flex items-center gap-2 bg-accent text-accent-foreground px-3 md:px-4 py-2 rounded-full hover:bg-accent/90 transition-all duration-200 text-sm cursor-pointer hover:scale-105 active:scale-95 shadow-md hover:shadow-lg"
             >
               <CalendarCheck className="w-4 h-4" />
-              <span className="hidden sm:inline">Reserve</span>
-            </motion.span>
+              <span className="hidden sm:inline font-medium">Reserve</span>
+            </motion.button>
 
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -349,16 +357,25 @@ export function Header() {
                   transition={{ duration: 0.3, delay: 0.3 }}
                   className="pt-4 border-t border-border"
                 >
+                  {/* Hidden Gloria Food trigger for mobile */}
                   <span
-                    className="glf-button book-table reservation w-full"
+                    id="mobile-glf-trigger"
+                    className="glf-button reservation hidden"
                     data-glf-cuid={GLORIA_FOOD_CONFIG.cuid}
                     data-glf-ruid={GLORIA_FOOD_CONFIG.ruid}
                     data-glf-reservation="true"
-                    onClick={() => setIsOpen(false)}
+                    aria-hidden="true"
+                  />
+                  <button
+                    onClick={() => {
+                      document.getElementById('mobile-glf-trigger')?.click();
+                      setIsOpen(false);
+                    }}
+                    className="flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full hover:bg-primary/90 transition-all duration-200 w-full justify-center cursor-pointer active:scale-95"
                   >
                     <CalendarCheck className="w-4 h-4" />
-                    <span>Reserve Table</span>
-                  </span>
+                    <span className="font-medium">Reserve Table</span>
+                  </button>
                 </motion.div>
 
                 <motion.div
