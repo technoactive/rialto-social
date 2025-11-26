@@ -167,7 +167,7 @@ export function AboutPageSection() {
                 <div className="relative h-full w-full rounded-2xl md:rounded-3xl overflow-hidden shadow-xl md:shadow-2xl bg-card">
                   <div className="relative w-full h-full">
                     <Image
-                      src="/pictures/rialto-restaurant-interior.jpg"
+                      src="/pictures/about/rialto.jpg"
                       alt="Rialto Social Restaurant - Our Journey from Venice to Dorking"
                       fill
                       className="object-cover"
