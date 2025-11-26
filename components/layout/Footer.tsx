@@ -173,14 +173,22 @@ export function Footer() {
                   01306 742885
                 </a>
               </li>
-              <li className="flex items-center gap-3 group">
-                <Mail className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
-                <a
-                  href="mailto:info@rialtosocial.co.uk"
-                  className="text-white/80 hover:text-primary transition-colors"
-                >
-                  info@rialtosocial.co.uk
-                </a>
+              <li className="flex items-start gap-3 group">
+                <Mail className="w-5 h-5 text-primary group-hover:scale-110 transition-transform mt-0.5" />
+                <div className="flex flex-col gap-1">
+                  <a
+                    href="mailto:dorking@rialtolounge.co.uk"
+                    className="text-white/80 hover:text-primary transition-colors"
+                  >
+                    dorking@rialtolounge.co.uk
+                  </a>
+                  <a
+                    href="mailto:info@rialtosocial.co.uk"
+                    className="text-white/60 hover:text-primary transition-colors text-sm"
+                  >
+                    info@rialtosocial.co.uk
+                  </a>
+                </div>
               </li>
             </ul>
             

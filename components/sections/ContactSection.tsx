@@ -280,16 +280,24 @@ export function ContactSection() {
                     </a>
                   </div>
                 </div>
-                <div className="flex items-center gap-4">
-                  <Mail className="w-5 h-5 text-primary" />
+                <div className="flex items-start gap-4">
+                  <Mail className="w-5 h-5 text-primary mt-0.5" />
                   <div>
                     <p className="font-semibold">Email</p>
-                    <a
-                      href="mailto:info@rialtosocial.co.uk"
-                      className="text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      info@rialtosocial.co.uk
-                    </a>
+                    <div className="flex flex-col gap-1">
+                      <a
+                        href="mailto:dorking@rialtolounge.co.uk"
+                        className="text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        dorking@rialtolounge.co.uk
+                      </a>
+                      <a
+                        href="mailto:info@rialtosocial.co.uk"
+                        className="text-muted-foreground/70 hover:text-primary transition-colors text-sm"
+                      >
+                        info@rialtosocial.co.uk
+                      </a>
+                    </div>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">

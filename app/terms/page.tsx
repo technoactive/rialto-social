@@ -61,6 +61,10 @@ export default function TermsPage() {
               </h2>
               <p className="text-muted-foreground">
                 For any questions regarding our terms of service, please contact us at:{" "}
+                <a href="mailto:dorking@rialtolounge.co.uk" className="text-primary hover:underline">
+                  dorking@rialtolounge.co.uk
+                </a>{" "}
+                or{" "}
                 <a href="mailto:info@rialtosocial.co.uk" className="text-primary hover:underline">
                   info@rialtosocial.co.uk
                 </a>

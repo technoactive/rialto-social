@@ -65,6 +65,10 @@ export default function PrivacyPage() {
               </h2>
               <p className="text-muted-foreground">
                 If you have any questions about our privacy policy, please contact us at:{" "}
+                <a href="mailto:dorking@rialtolounge.co.uk" className="text-primary hover:underline">
+                  dorking@rialtolounge.co.uk
+                </a>{" "}
+                or{" "}
                 <a href="mailto:info@rialtosocial.co.uk" className="text-primary hover:underline">
                   info@rialtosocial.co.uk
                 </a>

@@ -116,7 +116,7 @@ Or deploy directly to Vercel:
 Dorking, Surrey  
 RH4 2DW
 
-Email: info@rialtosocial.co.uk  
+Email: dorking@rialtolounge.co.uk / info@rialtosocial.co.uk  
 Phone: 01306 742885
 
 ## 📄 License

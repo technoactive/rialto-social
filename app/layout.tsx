@@ -118,7 +118,7 @@ const jsonLdRestaurant = {
   "logo": "https://rialtosocial.co.uk/logo/Rialto.png",
   "url": "https://rialtosocial.co.uk",
   "telephone": "+441306742885",
-  "email": "info@rialtosocial.co.uk",
+  "email": "dorking@rialtolounge.co.uk",
   "priceRange": "££",
   "description": "Authentic Italian restaurant in Dorking serving fresh pasta, traditional pizzas, and classic Italian dishes. Features karaoke nights and darts for entertainment.",
   "servesCuisine": ["Italian", "Pizza", "Pasta", "Mediterranean"],
