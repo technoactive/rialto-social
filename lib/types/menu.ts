@@ -83,3 +83,23 @@ export interface TeaMenuItem {
   name: string;
   price: number;
 }
+
+export interface WinePrice {
+  glass125?: number;
+  glass175?: number;
+  glass250?: number;
+  bottle: number;
+}
+
+export interface WineMenuItem {
+  id: string;
+  number: number;
+  name: string;
+  region: string;
+  country: string;
+  year?: string;
+  description: string;
+  prices: WinePrice;
+  recommended?: boolean;
+  category: 'white' | 'red' | 'rose' | 'sparkling';
+}

@@ -3,9 +3,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { aLaCarteData, pizzaExtras, cocktailsData, dessertsData, coffeeData, teaData, otherBeverages } from "@/lib/data/menu";
+import { aLaCarteData, pizzaExtras, cocktailsData, dessertsData, coffeeData, teaData, otherBeverages, winesData, wineCategories } from "@/lib/data/menu";
 import type { DietaryTag } from "@/lib/types/menu";
-import { Martini, Cookie, UtensilsCrossed as UtensilsCrossedIcon, ShoppingBag, CalendarCheck } from "lucide-react";
+import { Martini, Cookie, UtensilsCrossed as UtensilsCrossedIcon, ShoppingBag, CalendarCheck, Wine, Star } from "lucide-react";
 
 // Gloria Food configuration
 const GLORIA_FOOD_CONFIG = {
@@ -15,6 +15,7 @@ const GLORIA_FOOD_CONFIG = {
 
 const menuTypes = [
   { id: "food", label: "À La Carte", icon: UtensilsCrossedIcon },
+  { id: "wines", label: "Wine List", icon: Wine },
   { id: "cocktails", label: "Cocktails", icon: Martini },
   { id: "desserts", label: "Desserts & Coffee", icon: Cookie },
 ];
@@ -245,6 +246,104 @@ export function MenuSection() {
                   </div>
                 ))}
             </>
+          )}
+
+          {activeMenuType === "wines" && (
+            <div>
+              {/* Wine Price Legend */}
+              <div className="mb-8 bg-gradient-to-r from-purple-900/20 to-red-900/20 rounded-xl p-6 text-center">
+                <h3 className="font-display text-xl font-bold mb-3 text-foreground">Glass & Bottle Prices</h3>
+                <div className="flex flex-wrap justify-center gap-4 text-sm">
+                  <span className="bg-card/50 px-3 py-1 rounded-full">125ml</span>
+                  <span className="bg-card/50 px-3 py-1 rounded-full">175ml</span>
+                  <span className="bg-card/50 px-3 py-1 rounded-full">250ml</span>
+                  <span className="bg-card/50 px-3 py-1 rounded-full">Bottle</span>
+                </div>
+              </div>
+
+              {wineCategories.map((category) => {
+                const categoryWines = winesData.filter(wine => wine.category === category.id);
+                if (categoryWines.length === 0) return null;
+                
+                return (
+                  <div key={category.id} className="mb-12">
+                    <h3 className="font-display text-2xl font-bold mb-6 text-center flex items-center justify-center gap-2">
+                      <span>{category.icon}</span>
+                      {category.name}
+                    </h3>
+                    <div className="space-y-4">
+                      {categoryWines.map((wine, index) => (
+                        <motion.div
+                          key={wine.id}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.3, delay: index * 0.05 }}
+                          className={cn(
+                            "bg-card rounded-xl p-5 hover:shadow-lg transition-all border",
+                            wine.recommended 
+                              ? "border-amber-500/50 bg-gradient-to-r from-amber-500/5 to-transparent" 
+                              : "border-transparent"
+                          )}
+                        >
+                          <div className="flex flex-col md:flex-row md:items-start gap-4">
+                            <div className="flex-1">
+                              <div className="flex items-start gap-3 mb-2">
+                                <span className="text-sm font-bold text-primary bg-primary/10 w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0">
+                                  {wine.number}
+                                </span>
+                                <div className="flex-1">
+                                  <h4 className="font-semibold text-lg leading-tight flex items-center gap-2 flex-wrap">
+                                    {wine.name}
+                                    {wine.recommended && (
+                                      <span className="inline-flex items-center gap-1 text-xs bg-amber-500/20 text-amber-600 px-2 py-0.5 rounded-full">
+                                        <Star className="w-3 h-3 fill-amber-500" />
+                                        Rialto Recommends
+                                      </span>
+                                    )}
+                                  </h4>
+                                  <p className="text-sm text-muted-foreground">
+                                    {wine.region}, {wine.country}
+                                  </p>
+                                </div>
+                              </div>
+                              <p className="text-muted-foreground text-sm ml-10 mb-3">
+                                {wine.description}
+                              </p>
+                            </div>
+                            
+                            {/* Prices */}
+                            <div className="flex flex-wrap gap-2 ml-10 md:ml-0">
+                              {wine.prices.glass125 && (
+                                <div className="text-center bg-secondary/50 rounded-lg px-3 py-2 min-w-[60px]">
+                                  <p className="text-xs text-muted-foreground">125ml</p>
+                                  <p className="font-semibold text-primary">£{wine.prices.glass125.toFixed(2)}</p>
+                                </div>
+                              )}
+                              {wine.prices.glass175 && (
+                                <div className="text-center bg-secondary/50 rounded-lg px-3 py-2 min-w-[60px]">
+                                  <p className="text-xs text-muted-foreground">175ml</p>
+                                  <p className="font-semibold text-primary">£{wine.prices.glass175.toFixed(2)}</p>
+                                </div>
+                              )}
+                              {wine.prices.glass250 && (
+                                <div className="text-center bg-secondary/50 rounded-lg px-3 py-2 min-w-[60px]">
+                                  <p className="text-xs text-muted-foreground">250ml</p>
+                                  <p className="font-semibold text-primary">£{wine.prices.glass250.toFixed(2)}</p>
+                                </div>
+                              )}
+                              <div className="text-center bg-primary/10 rounded-lg px-3 py-2 min-w-[70px]">
+                                <p className="text-xs text-muted-foreground">Bottle</p>
+                                <p className="font-bold text-primary">£{wine.prices.bottle.toFixed(2)}</p>
+                              </div>
+                            </div>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           )}
 
           {activeMenuType === "cocktails" && (
