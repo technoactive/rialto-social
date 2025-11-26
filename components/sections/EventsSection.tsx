@@ -58,20 +58,17 @@ export function EventsSection() {
               key={event.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ y: -10 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className="relative group"
+              className="relative"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image
                   src={event.image}
                   alt={event.title}
                   width={800}
                   height={800}
-                  className="w-full h-auto group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-auto"
                 />
               </div>
             </motion.div>
@@ -128,22 +125,22 @@ export function EventsSection() {
               </motion.div>
               
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Button size="lg" className="bg-white text-gray-900 hover:bg-gray-100 font-bold shadow-2xl px-8 py-6 text-lg">
+                <div>
+                  <Button size="lg" className="bg-white text-gray-900 font-bold shadow-2xl px-8 py-6 text-lg">
                     <Link href="/contact" className="flex items-center gap-2">
                       Book Now
                       <ArrowRight className="w-5 h-5" />
                     </Link>
                   </Button>
-                </motion.div>
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Button size="lg" className="bg-primary/20 backdrop-blur-md border-2 border-white/30 text-white hover:bg-white hover:text-gray-900 font-bold shadow-2xl px-8 py-6 text-lg transition-all">
+                </div>
+                <div>
+                  <Button size="lg" className="bg-primary/20 backdrop-blur-md border-2 border-white/30 text-white font-bold shadow-2xl px-8 py-6 text-lg">
                     <a href="tel:+441306742885" className="flex items-center gap-2">
                       <Phone className="w-5 h-5" />
                       Call 01306 742885
                     </a>
                   </Button>
-                </motion.div>
+                </div>
               </div>
             </div>
             
