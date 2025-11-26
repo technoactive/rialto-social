@@ -18,7 +18,7 @@ const entertainmentFeatures = [
       "VIP dinner & karaoke packages",
     ],
     schedule: "Monday - Sunday: All Day",
-    image: "/pictures/rialto-karaoke-room.jpg",
+    image: "/pictures/entertainment/karaoke.jpg",
   },
   {
     icon: Target,
@@ -31,7 +31,7 @@ const entertainmentFeatures = [
       "Fun atmosphere for all skill levels",
     ],
     schedule: "Daily from 12 PM",
-    image: "/pictures/rialto-darts-area.jpg",
+    image: "/pictures/entertainment/darts.jpg",
   },
   {
     icon: Gamepad2,
