@@ -151,29 +151,25 @@ export function ReservationCTA() {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             {/* Book a Table Button */}
-            <motion.span
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="glf-button reservation inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground shadow-lg hover:shadow-xl transition-all px-8 py-3 rounded-md cursor-pointer font-medium"
+            <span
+              className="glf-button cta-reserve reservation"
               data-glf-cuid={GLORIA_FOOD_CONFIG.cuid}
               data-glf-ruid={GLORIA_FOOD_CONFIG.ruid}
               data-glf-reservation="true"
             >
               <CalendarCheck className="w-4 h-4" />
               Book a Table
-            </motion.span>
+            </span>
             
             {/* Order Online Button */}
-            <motion.span
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="glf-button inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white shadow-lg shadow-amber-500/25 hover:shadow-xl transition-all px-8 py-3 rounded-md cursor-pointer font-medium"
+            <span
+              className="glf-button cta-order"
               data-glf-cuid={GLORIA_FOOD_CONFIG.cuid}
               data-glf-ruid={GLORIA_FOOD_CONFIG.ruid}
             >
               <UtensilsCrossed className="w-4 h-4" />
               Order Online
-            </motion.span>
+            </span>
             
             {/* Phone Button */}
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>

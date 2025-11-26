@@ -187,20 +187,20 @@ export function Footer() {
             {/* Gloria Food Buttons */}
             <div className="mt-4 flex flex-col gap-2">
               <span
-                className="glf-button reservation inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-primary border border-white/20 text-white px-4 py-2 rounded-md cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 group"
+                className="glf-button footer-reserve reservation"
                 data-glf-cuid={GLORIA_FOOD_CONFIG.cuid}
                 data-glf-ruid={GLORIA_FOOD_CONFIG.ruid}
                 data-glf-reservation="true"
               >
-                <CalendarCheck className="w-4 h-4 group-hover:rotate-12 transition-transform" />
+                <CalendarCheck className="w-4 h-4" />
                 Book a Table
               </span>
               <span
-                className="glf-button inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white px-4 py-2 rounded-md cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 group shadow-lg shadow-amber-500/25"
+                className="glf-button footer-order"
                 data-glf-cuid={GLORIA_FOOD_CONFIG.cuid}
                 data-glf-ruid={GLORIA_FOOD_CONFIG.ruid}
               >
-                <UtensilsCrossed className="w-4 h-4 group-hover:rotate-12 transition-transform" />
+                <UtensilsCrossed className="w-4 h-4" />
                 Order Online
               </span>
             </div>

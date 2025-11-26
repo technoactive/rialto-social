@@ -206,13 +206,13 @@ export function Header() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="glf-button reservation flex items-center gap-2 bg-accent text-accent-foreground px-3 md:px-4 py-2 rounded-full hover:bg-accent/90 transition-all duration-200 text-sm cursor-pointer hover:scale-105 active:scale-95 shadow-md hover:shadow-lg"
+              className="glf-button header-reserve reservation"
               data-glf-cuid={GLORIA_FOOD_CONFIG.cuid}
               data-glf-ruid={GLORIA_FOOD_CONFIG.ruid}
               data-glf-reservation="true"
             >
               <CalendarCheck className="w-4 h-4" />
-              <span className="hidden sm:inline font-medium">Reserve</span>
+              <span className="hidden sm:inline">Reserve</span>
             </motion.span>
 
             <button
@@ -350,14 +350,14 @@ export function Header() {
                   className="pt-4 border-t border-border"
                 >
                   <span
-                    className="glf-button reservation flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full hover:bg-primary/90 transition-all duration-200 w-full justify-center cursor-pointer active:scale-95"
+                    className="glf-button book-table reservation w-full"
                     data-glf-cuid={GLORIA_FOOD_CONFIG.cuid}
                     data-glf-ruid={GLORIA_FOOD_CONFIG.ruid}
                     data-glf-reservation="true"
                     onClick={() => setIsOpen(false)}
                   >
                     <CalendarCheck className="w-4 h-4" />
-                    <span className="font-medium">Reserve Table</span>
+                    <span>Reserve Table</span>
                   </span>
                 </motion.div>
 
