@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Mic2, Target, Music, Users, Calendar, Clock, Gamepad2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 
 const entertainmentFeatures = [
   {
@@ -17,7 +18,7 @@ const entertainmentFeatures = [
       "VIP dinner & karaoke packages",
     ],
     schedule: "Monday - Sunday: All Day",
-    image: "/pictures/entertainment/karaoke.jpg",
+    image: "/pictures/rialto-karaoke-room.jpg",
   },
   {
     icon: Target,
@@ -30,7 +31,7 @@ const entertainmentFeatures = [
       "Fun atmosphere for all skill levels",
     ],
     schedule: "Daily from 12 PM",
-    image: "/pictures/entertainment/darts.jpg",
+    image: "/pictures/rialto-darts-area.jpg",
   },
   {
     icon: Gamepad2,
@@ -43,7 +44,7 @@ const entertainmentFeatures = [
       "Private room available",
     ],
     schedule: "Daily",
-    image: "/pictures/entertainment/ps5-gaming.jpg",
+    image: "/pictures/rialto-ps5-gaming-room.jpg",
   },
 ];
 
@@ -77,13 +78,21 @@ export function Entertainment() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-card rounded-2xl overflow-hidden shadow-lg"
+              className="bg-card rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group"
             >
-              <div className="aspect-video bg-muted relative">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <div className="aspect-video bg-muted relative group">
+                <Image
+                  src={feature.image}
+                  alt={feature.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 <div className="absolute bottom-4 left-4 text-white">
-                  <feature.icon className="w-12 h-12 mb-2" />
-                  <h3 className="font-display text-2xl font-bold">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-full p-3 w-fit mb-3">
+                    <feature.icon className="w-8 h-8" />
+                  </div>
+                  <h3 className="font-display text-2xl font-bold drop-shadow-lg">
                     {feature.title}
                   </h3>
                 </div>
