@@ -323,7 +323,7 @@ export default function RootLayout({
         <Script
           id="gloria-food"
           src="https://www.fbgcdn.com/embedder/js/ewm2.js"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
         />
       </head>
       <body className="font-sans antialiased">
