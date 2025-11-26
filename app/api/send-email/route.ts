@@ -97,11 +97,11 @@ export async function POST(request: Request) {
           </tr>
           <tr>
             <td style="padding: 12px 0; border-bottom: 1px solid #eee; font-weight: 600; color: #666;">Email:</td>
-            <td style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="mailto:${email}" style="color: #ed7700;">${email}</a></td>
+            <td style="padding: 12px 0; border-bottom: 1px solid #eee; color: #ed7700;">${email}</td>
           </tr>
           <tr>
             <td style="padding: 12px 0; border-bottom: 1px solid #eee; font-weight: 600; color: #666;">Phone:</td>
-            <td style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="tel:${phone}" style="color: #ed7700;">${phone}</a></td>
+            <td style="padding: 12px 0; border-bottom: 1px solid #eee; color: #ed7700;">${phone}</td>
           </tr>
           <tr>
             <td style="padding: 12px 0; border-bottom: 1px solid #eee; font-weight: 600; color: #666;">Date:</td>
@@ -203,8 +203,8 @@ export async function POST(request: Request) {
           <tr>
             <td style="padding: 20px; text-align: center;">
               <h3 style="margin: 0 0 15px 0; color: #333;">Need to make changes?</h3>
-              <p style="margin: 5px 0; color: #666;">📞 <a href="tel:+441306742885" style="color: #ed7700; text-decoration: none;">01306 742885</a></p>
-              <p style="margin: 5px 0; color: #666;">📧 <a href="mailto:dorking@rialtolounge.co.uk" style="color: #ed7700; text-decoration: none;">dorking@rialtolounge.co.uk</a></p>
+              <p style="margin: 5px 0; color: #666;">📞 <span style="color: #ed7700;">01306 742885</span></p>
+              <p style="margin: 5px 0; color: #666;">📧 <span style="color: #ed7700;">dorking@rialtolounge.co.uk</span></p>
               <p style="margin: 5px 0; color: #666;">📍 45 Dene Street, Dorking, Surrey RH4 2DW</p>
             </td>
           </tr>
@@ -216,9 +216,7 @@ export async function POST(request: Request) {
       <td style="background-color: #f0f0f0; padding: 30px; text-align: center;">
         <p style="margin: 0 0 10px 0; color: #333;"><strong>Rialto Social</strong> - Authentic Italian Restaurant & Entertainment</p>
         <p style="margin: 0 0 15px 0;">
-          <a href="https://www.facebook.com/caferialto.dorking" style="color: #666; text-decoration: none; margin: 0 10px;">Facebook</a> |
-          <a href="https://www.instagram.com/rialtolounge_dorking/" style="color: #666; text-decoration: none; margin: 0 10px;">Instagram</a> |
-          <a href="https://rialtosocial.co.uk" style="color: #666; text-decoration: none; margin: 0 10px;">Website</a>
+          <a href="https://rialtosocial.co.uk" style="color: #ed7700; text-decoration: none;">rialtosocial.co.uk</a>
         </p>
         <p style="margin: 0; color: #888; font-size: 12px;">© ${new Date().getFullYear()} Rialto Social. All rights reserved.</p>
       </td>
