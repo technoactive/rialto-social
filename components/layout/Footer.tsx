@@ -189,7 +189,7 @@ export function Footer() {
               {/* Hidden Gloria Food triggers */}
               <span
                 id="footer-glf-reserve"
-                className="glf-button reservation hidden"
+                className="glf-button reservation glf-hidden"
                 data-glf-cuid={GLORIA_FOOD_CONFIG.cuid}
                 data-glf-ruid={GLORIA_FOOD_CONFIG.ruid}
                 data-glf-reservation="true"
@@ -197,7 +197,7 @@ export function Footer() {
               />
               <span
                 id="footer-glf-order"
-                className="glf-button hidden"
+                className="glf-button glf-hidden"
                 data-glf-cuid={GLORIA_FOOD_CONFIG.cuid}
                 data-glf-ruid={GLORIA_FOOD_CONFIG.ruid}
                 aria-hidden="true"

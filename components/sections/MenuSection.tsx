@@ -74,14 +74,14 @@ export function MenuSection() {
             {/* Hidden Gloria Food triggers */}
             <span
               id="menu-glf-order"
-              className="glf-button hidden"
+              className="glf-button glf-hidden"
               data-glf-cuid={GLORIA_FOOD_CONFIG.cuid}
               data-glf-ruid={GLORIA_FOOD_CONFIG.ruid}
               aria-hidden="true"
             />
             <span
               id="menu-glf-reserve"
-              className="glf-button reservation hidden"
+              className="glf-button reservation glf-hidden"
               data-glf-cuid={GLORIA_FOOD_CONFIG.cuid}
               data-glf-ruid={GLORIA_FOOD_CONFIG.ruid}
               data-glf-reservation="true"

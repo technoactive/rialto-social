@@ -205,7 +205,7 @@ export function Header() {
             {/* Hidden Gloria Food trigger */}
             <span
               id="header-glf-trigger"
-              className="glf-button reservation hidden"
+              className="glf-button reservation glf-hidden"
               data-glf-cuid={GLORIA_FOOD_CONFIG.cuid}
               data-glf-ruid={GLORIA_FOOD_CONFIG.ruid}
               data-glf-reservation="true"
@@ -360,7 +360,7 @@ export function Header() {
                   {/* Hidden Gloria Food trigger for mobile */}
                   <span
                     id="mobile-glf-trigger"
-                    className="glf-button reservation hidden"
+                    className="glf-button reservation glf-hidden"
                     data-glf-cuid={GLORIA_FOOD_CONFIG.cuid}
                     data-glf-ruid={GLORIA_FOOD_CONFIG.ruid}
                     data-glf-reservation="true"
