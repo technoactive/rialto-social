@@ -61,7 +61,7 @@ export function Hero() {
         className="absolute bottom-10 left-10 w-72 h-72 rounded-full bg-gradient-to-r from-accent/10 to-primary/10 blur-3xl"
       />
 
-      <div className="container mx-auto px-4 pt-20 md:pt-24 pb-12 md:pb-16">
+      <div className="container mx-auto px-4 pt-28 md:pt-32 pb-12 md:pb-16">
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
             <motion.div
