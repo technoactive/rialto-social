@@ -3,9 +3,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { aLaCarteData, pizzaExtras, cocktailsData, dessertsData, coffeeData, teaData, otherBeverages, winesData, wineCategories } from "@/lib/data/menu";
+import { aLaCarteData, pizzaExtras, cocktailsData, dessertsData, coffeeData, teaData, otherBeverages, winesData, wineCategories, specialsData, festiveData } from "@/lib/data/menu";
 import type { DietaryTag } from "@/lib/types/menu";
-import { Martini, Cookie, UtensilsCrossed as UtensilsCrossedIcon, ShoppingBag, CalendarCheck, Wine, Star } from "lucide-react";
+import { Martini, Cookie, UtensilsCrossed as UtensilsCrossedIcon, ShoppingBag, CalendarCheck, Wine, Star, Sparkles, TreePine } from "lucide-react";
 
 // Gloria Food configuration
 const GLORIA_FOOD_CONFIG = {
@@ -15,6 +15,8 @@ const GLORIA_FOOD_CONFIG = {
 
 const menuTypes = [
   { id: "food", label: "À La Carte", icon: UtensilsCrossedIcon },
+  { id: "specials", label: "Specials", icon: Sparkles },
+  { id: "festive", label: "Festive Menu", icon: TreePine },
   { id: "wines", label: "Wine List", icon: Wine },
   { id: "cocktails", label: "Cocktails", icon: Martini },
   { id: "desserts", label: "Desserts & Coffee", icon: Cookie },
@@ -246,6 +248,117 @@ export function MenuSection() {
                   </div>
                 ))}
             </>
+          )}
+
+          {activeMenuType === "specials" && (
+            <div>
+              <div className="mb-8 text-center">
+                <h2 className="font-display text-3xl md:text-4xl font-bold mb-2">
+                  🌟 Rialto Specials
+                </h2>
+                <p className="text-muted-foreground">Chef&apos;s special dishes - Social • Cucina Rustica</p>
+              </div>
+              
+              {specialsData.map((section) => (
+                <div key={section.id} className="mb-10">
+                  <h3 className="font-display text-2xl font-bold mb-4 text-center">
+                    {section.title}
+                  </h3>
+                  <div className="space-y-6">
+                    {section.items.map((item, index) => (
+                      <motion.div
+                        key={item.id}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, delay: index * 0.05 }}
+                        className="bg-card rounded-lg p-6 hover:shadow-md transition-shadow border-l-4 border-amber-500"
+                      >
+                        <div className="flex justify-between items-start gap-4">
+                          <div className="flex-1">
+                            <h3 className="font-semibold text-lg mb-1 flex items-center gap-2">
+                              {item.name}
+                              {item.dietary?.map((tag) => (
+                                <span
+                                  key={tag}
+                                  className={cn(
+                                    "text-xs px-2 py-1 rounded-full",
+                                    dietaryTags[tag].className
+                                  )}
+                                >
+                                  {dietaryTags[tag].label}
+                                </span>
+                              ))}
+                            </h3>
+                            {item.description && (
+                              <p className="text-muted-foreground">{item.description}</p>
+                            )}
+                          </div>
+                          <span className="text-lg font-semibold text-primary whitespace-nowrap">
+                            {formatPrice(item.price)}
+                          </span>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {activeMenuType === "festive" && (
+            <div>
+              <div className="mb-8 text-center">
+                <h2 className="font-display text-3xl md:text-4xl font-bold mb-2">
+                  🎄 Festive Menu
+                </h2>
+                <p className="text-muted-foreground">Celebrate the season with our special festive dishes</p>
+                <p className="text-sm text-amber-600 mt-2">Please ask staff for pricing</p>
+              </div>
+              
+              {festiveData.map((section) => (
+                <div key={section.id} className="mb-10">
+                  <h3 className="font-display text-2xl font-bold mb-4 text-center">
+                    {section.title}
+                  </h3>
+                  <div className="space-y-6">
+                    {section.items.map((item, index) => (
+                      <motion.div
+                        key={item.id}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, delay: index * 0.05 }}
+                        className="bg-gradient-to-r from-red-900/10 to-green-900/10 rounded-lg p-6 hover:shadow-md transition-shadow border border-red-900/20"
+                      >
+                        <div className="flex justify-between items-start gap-4">
+                          <div className="flex-1">
+                            <h3 className="font-semibold text-lg mb-1 flex items-center gap-2">
+                              {item.name}
+                              {item.dietary?.map((tag) => (
+                                <span
+                                  key={tag}
+                                  className={cn(
+                                    "text-xs px-2 py-1 rounded-full",
+                                    dietaryTags[tag].className
+                                  )}
+                                >
+                                  {dietaryTags[tag].label}
+                                </span>
+                              ))}
+                            </h3>
+                            {item.description && (
+                              <p className="text-muted-foreground">{item.description}</p>
+                            )}
+                          </div>
+                          <span className="text-sm font-medium text-amber-600 whitespace-nowrap bg-amber-50 px-3 py-1 rounded-full">
+                            {formatPrice(item.price)}
+                          </span>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
           )}
 
           {activeMenuType === "wines" && (
