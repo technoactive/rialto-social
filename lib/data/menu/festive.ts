@@ -1,10 +1,18 @@
 // Rialto Festive Menu
-import type { MenuItem } from "@/lib/types/menu";
+import type { DietaryTag } from "@/lib/types/menu";
+
+export interface FestiveMenuItem {
+  id: string;
+  name: string;
+  description: string;
+  price: number | string;
+  dietary?: DietaryTag[];
+}
 
 export interface FestiveSection {
   id: string;
   title: string;
-  items: MenuItem[];
+  items: FestiveMenuItem[];
 }
 
 export const festiveData: FestiveSection[] = [
@@ -75,4 +83,5 @@ export const festiveData: FestiveSection[] = [
     ],
   },
 ];
+
 

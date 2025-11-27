@@ -1,10 +1,18 @@
 // Rialto Specials Menu
-import type { MenuItem } from "@/lib/types/menu";
+import type { DietaryTag } from "@/lib/types/menu";
+
+export interface SpecialsMenuItem {
+  id: string;
+  name: string;
+  description: string;
+  price: number | string;
+  dietary?: DietaryTag[];
+}
 
 export interface SpecialsSection {
   id: string;
   title: string;
-  items: MenuItem[];
+  items: SpecialsMenuItem[];
 }
 
 export const specialsData: SpecialsSection[] = [
@@ -61,4 +69,5 @@ export const specialsData: SpecialsSection[] = [
     ],
   },
 ];
+
 
