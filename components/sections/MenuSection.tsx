@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { aLaCarteData, pizzaExtras, cocktailsData, dessertsData, coffeeData, teaData, otherBeverages, winesData, wineCategories, specialsData, festiveData } from "@/lib/data/menu";
+import { aLaCarteData, pizzaExtras, cocktailsData, dessertsData, coffeeData, teaData, otherBeverages, winesData, wineCategories, specialsData, festiveData, FESTIVE_MENU_PRICE } from "@/lib/data/menu";
 import type { DietaryTag } from "@/lib/types/menu";
 import { Martini, Cookie, UtensilsCrossed as UtensilsCrossedIcon, ShoppingBag, CalendarCheck, Wine, Star, Sparkles, TreePine } from "lucide-react";
 
@@ -309,10 +309,15 @@ export function MenuSection() {
             <div>
               <div className="mb-8 text-center">
                 <h2 className="font-display text-3xl md:text-4xl font-bold mb-2">
-                  🎄 Festive Menu
+                  🎄 Festive Set Menu
                 </h2>
-                <p className="text-muted-foreground">Celebrate the season with our special festive dishes</p>
-                <p className="text-sm text-amber-600 mt-2">Please ask staff for pricing</p>
+                <p className="text-muted-foreground mb-4">Celebrate the season with our special festive dishes</p>
+                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-green-600 text-white px-6 py-3 rounded-full shadow-lg">
+                  <span className="text-lg font-bold">2 Courses</span>
+                  <span className="text-2xl font-bold">£{FESTIVE_MENU_PRICE.toFixed(2)}</span>
+                  <span className="text-sm opacity-90">per person</span>
+                </div>
+                <p className="text-sm text-muted-foreground mt-3">Choose one starter and one main</p>
               </div>
               
               {festiveData.map((section) => (
@@ -320,38 +325,33 @@ export function MenuSection() {
                   <h3 className="font-display text-2xl font-bold mb-4 text-center">
                     {section.title}
                   </h3>
-                  <div className="space-y-6">
+                  <div className="space-y-4">
                     {section.items.map((item, index) => (
                       <motion.div
                         key={item.id}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.3, delay: index * 0.05 }}
-                        className="bg-gradient-to-r from-red-900/10 to-green-900/10 rounded-lg p-6 hover:shadow-md transition-shadow border border-red-900/20"
+                        className="bg-gradient-to-r from-red-900/10 to-green-900/10 rounded-lg p-5 hover:shadow-md transition-shadow border border-red-900/20"
                       >
-                        <div className="flex justify-between items-start gap-4">
-                          <div className="flex-1">
-                            <h3 className="font-semibold text-lg mb-1 flex items-center gap-2">
-                              {item.name}
-                              {item.dietary?.map((tag) => (
-                                <span
-                                  key={tag}
-                                  className={cn(
-                                    "text-xs px-2 py-1 rounded-full",
-                                    dietaryTags[tag].className
-                                  )}
-                                >
-                                  {dietaryTags[tag].label}
-                                </span>
-                              ))}
-                            </h3>
-                            {item.description && (
-                              <p className="text-muted-foreground">{item.description}</p>
-                            )}
-                          </div>
-                          <span className="text-sm font-medium text-amber-600 whitespace-nowrap bg-amber-50 px-3 py-1 rounded-full">
-                            {formatPrice(item.price)}
-                          </span>
+                        <div className="flex-1">
+                          <h3 className="font-semibold text-lg mb-1 flex items-center gap-2 flex-wrap">
+                            {item.name}
+                            {item.dietary?.map((tag) => (
+                              <span
+                                key={tag}
+                                className={cn(
+                                  "text-xs px-2 py-1 rounded-full",
+                                  dietaryTags[tag].className
+                                )}
+                              >
+                                {dietaryTags[tag].label}
+                              </span>
+                            ))}
+                          </h3>
+                          {item.description && (
+                            <p className="text-muted-foreground">{item.description}</p>
+                          )}
                         </div>
                       </motion.div>
                     ))}

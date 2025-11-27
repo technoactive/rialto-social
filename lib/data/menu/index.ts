@@ -5,4 +5,4 @@ export { cocktailsData } from './cocktails';
 export { dessertsData, coffeeData, teaData, otherBeverages } from './desserts';
 export { winesData, wineCategories } from './wines';
 export { specialsData } from './specials';
-export { festiveData } from './festive';
+export { festiveData, FESTIVE_MENU_PRICE } from './festive';
