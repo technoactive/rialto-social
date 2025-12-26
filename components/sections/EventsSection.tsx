@@ -13,11 +13,6 @@ export function EventsSection() {
       title: "Christmas Eve Live Music",
       image: "/pictures/events/christmas-eve-live-music-deleelah.jpg",
     },
-    {
-      id: "new-years-eve",
-      title: "New Year's Eve Celebration",
-      image: "/pictures/events/new-years-eve-celebration-siobhan.jpg",
-    },
   ];
 
   return (
@@ -44,7 +39,7 @@ export function EventsSection() {
             </motion.div>
             
             <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
-              Christmas & New Year <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Events</span>
+              Christmas <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Events</span>
             </h1>
           </motion.div>
         </div>
@@ -52,7 +47,7 @@ export function EventsSection() {
       
       <div className="container mx-auto px-4">
         {/* Event Images */}
-        <div className="grid md:grid-cols-2 gap-8 mb-20">
+        <div className="flex justify-center mb-20">
           {events.map((event, index) => (
             <motion.div
               key={event.id}
@@ -60,7 +55,7 @@ export function EventsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className="relative"
+              className="relative max-w-lg w-full"
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image
