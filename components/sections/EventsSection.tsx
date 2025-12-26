@@ -7,6 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export function EventsSection() {
+  // Only Christmas Eve - New Year's Eve cancelled
   const events = [
     {
       id: "christmas-eve",
