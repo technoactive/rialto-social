@@ -68,7 +68,7 @@ export function EventsSection() {
             </h2>
             
             <p className="text-lg md:text-xl text-white/80 mb-8 leading-relaxed">
-              Our Christmas celebrations were a wonderful success! Thank you to everyone who joined us for the festive season.
+              We&apos;re busy planning exciting new events for the year ahead. Stay tuned for live music, themed nights, and special celebrations!
             </p>
             
             <div className="flex items-center justify-center gap-2 text-accent mb-8">

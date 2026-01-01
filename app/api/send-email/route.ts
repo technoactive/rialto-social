@@ -1,8 +1,6 @@
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 // Email configuration
 const RESTAURANT_EMAIL = 'dorking@rialtolounge.co.uk';
 const FROM_EMAIL = 'reservations@rialtosocial.co.uk'; // Verify rialtosocial.co.uk domain in Resend
@@ -49,6 +47,9 @@ function formatTime(timeStr: string): string {
 
 export async function POST(request: Request) {
   try {
+    // Initialize Resend at runtime to avoid build errors
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    
     const body: ReservationData = await request.json();
     const { name, email, phone, date, time, guests, service, message } = body;
 
