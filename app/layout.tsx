@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/react";
 import { CookieBanner } from "@/components/ui/cookie-banner";
 import { CookieSettingsButton } from "@/components/ui/cookie-settings-button";
 
@@ -389,6 +390,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
         {children}
+        <Analytics />
         <CookieBanner />
         <CookieSettingsButton />
       </body>
