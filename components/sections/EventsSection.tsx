@@ -64,7 +64,7 @@ export function EventsSection() {
             </motion.div>
             
             <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-6">
-              Exciting Events Coming in <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">2025!</span>
+              Exciting Events Coming in <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">2026!</span>
             </h2>
             
             <p className="text-lg md:text-xl text-white/80 mb-8 leading-relaxed">
