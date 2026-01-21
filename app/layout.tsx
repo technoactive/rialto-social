@@ -29,6 +29,9 @@ export const viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://rialtosocial.co.uk"),
+  verification: {
+    google: "tZ-2qF9afyVQSmHMY79tfOLLd5Dtk12Vmuc2kkeiRew",
+  },
   title: {
     default: "Rialto Social - Best Italian Restaurant in Dorking | Pizza, Pasta & Gelato",
     template: "%s | Rialto Social Dorking"
@@ -98,10 +101,6 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
-  },
-  verification: {
-    google: "pending-verification",
-    yandex: "pending-verification",
   },
 };
 
