@@ -16,7 +16,7 @@ const faqs = [
   },
   {
     question: "What are your opening hours?",
-    answer: "Monday to Thursday: 12:00 - 23:00 (kitchen closes at 22:00), Friday & Saturday: 12:00 - 24:00 (kitchen closes at 22:00), Sunday: 12:00 - 23:00 (kitchen closes at 21:30)."
+    answer: "Monday to Thursday: 12:00 - 23:00 (kitchen closes at 22:00), Friday & Saturday: 12:00 - 00:00 (kitchen closes at 22:00), Sunday: 12:00 - 22:00 (kitchen closes at 21:30)."
   },
   {
     question: "Do you offer takeaway services?",

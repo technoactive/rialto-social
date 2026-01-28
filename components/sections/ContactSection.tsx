@@ -386,8 +386,8 @@ export function ContactSection() {
                     <p className="font-semibold">Opening Hours</p>
                     <div className="text-muted-foreground space-y-1">
                       <p>Monday - Thursday: 12:00 - 23:00 (kitchen closes 22:00)</p>
-                      <p>Friday - Saturday: 12:00 - 24:00 (kitchen closes 22:00)</p>
-                      <p>Sunday: 12:00 - 23:00 (kitchen closes 21:30)</p>
+                      <p>Friday - Saturday: 12:00 - 00:00 (kitchen closes 22:00)</p>
+                      <p>Sunday: 12:00 - 22:00 (kitchen closes 21:30)</p>
                     </div>
                   </div>
                 </div>

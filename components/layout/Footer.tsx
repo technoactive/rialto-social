@@ -239,8 +239,8 @@ export function Footer() {
             <div className="space-y-3">
               {[
                 { days: "Monday - Thursday", hours: "12:00 - 23:00" },
-                { days: "Friday - Saturday", hours: "12:00 - 24:00" },
-                { days: "Sunday", hours: "12:00 - 23:00" }
+                { days: "Friday - Saturday", hours: "12:00 - 00:00" },
+                { days: "Sunday", hours: "12:00 - 22:00" }
               ].map((schedule, index) => (
                 <motion.div 
                   key={schedule.days}
