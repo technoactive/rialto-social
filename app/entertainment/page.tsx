@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "bars dorking", "pubs dorking", "things to do dorking", "fun activities dorking"
   ],
   alternates: {
-    canonical: "https://rialtosocial.co.uk/entertainment",
+    canonical: "https://www.rialtosocial.co.uk/entertainment",
   },
 };
 

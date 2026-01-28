@@ -28,7 +28,7 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://rialtosocial.co.uk"),
+  metadataBase: new URL("https://www.rialtosocial.co.uk"),
   verification: {
     google: "tZ-2qF9afyVQSmHMY79tfOLLd5Dtk12Vmuc2kkeiRew",
   },
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_GB",
-    url: "https://rialtosocial.co.uk",
+    url: "https://www.rialtosocial.co.uk",
     siteName: "Rialto Social",
     title: "Rialto Social - Best Italian Restaurant in Dorking | Pizza, Pasta & Gelato",
     description: "Dorking's favourite Italian restaurant! Authentic pizza, fresh pasta, artisan gelato & ice cream. Plus karaoke nights & darts. Dine-in or takeaway. Book now!",
@@ -108,12 +108,12 @@ const jsonLdWebsite = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Rialto Social",
-  "url": "https://rialtosocial.co.uk",
+  "url": "https://www.rialtosocial.co.uk",
   "potentialAction": {
     "@type": "SearchAction",
     "target": {
       "@type": "EntryPoint",
-      "urlTemplate": "https://rialtosocial.co.uk/search?q={search_term_string}"
+      "urlTemplate": "https://www.rialtosocial.co.uk/search?q={search_term_string}"
     },
     "query-input": "required name=search_term_string"
   }
@@ -122,18 +122,18 @@ const jsonLdWebsite = {
 const jsonLdRestaurant = {
   "@context": "https://schema.org",
   "@type": "Restaurant",
-  "@id": "https://rialtosocial.co.uk/#restaurant",
+  "@id": "https://www.rialtosocial.co.uk/#restaurant",
   "name": "Rialto Social",
   "alternateName": ["Rialto Social Italian Restaurant", "Rialto Dorking", "Cafe Rialto Dorking", "Rialto Lounge Dorking"],
   "image": [
-    "https://rialtosocial.co.uk/pictures/rialto-social-restaurant-exterior.jpg",
-    "https://rialtosocial.co.uk/pictures/rialto-social-dining-area.jpg",
-    "https://rialtosocial.co.uk/pictures/rialto-social-pizza-making.jpg"
+    "https://www.rialtosocial.co.uk/pictures/rialto-social-restaurant-exterior.jpg",
+    "https://www.rialtosocial.co.uk/pictures/rialto-social-dining-area.jpg",
+    "https://www.rialtosocial.co.uk/pictures/rialto-social-pizza-making.jpg"
   ],
-  "logo": "https://rialtosocial.co.uk/logo/Rialto.png",
-  "url": "https://rialtosocial.co.uk",
+  "logo": "https://www.rialtosocial.co.uk/logo/Rialto.png",
+  "url": "https://www.rialtosocial.co.uk",
   "telephone": "+441306742885",
-  "email": "dorking@rialtolounge.co.uk",
+  "email": "info@rialtosocial.co.uk",
   "priceRange": "££",
   "description": "Best Italian restaurant in Dorking town centre serving authentic pizza, fresh pasta, artisan gelato and ice cream. Features karaoke nights, darts, and PS5 gaming. Dine-in and takeaway available. One of the best places to eat in Dorking.",
   "servesCuisine": ["Italian", "Pizza", "Pasta", "Mediterranean", "Gelato", "Ice Cream"],
@@ -181,11 +181,6 @@ const jsonLdRestaurant = {
     },
     {
       "@type": "LocationFeatureSpecification",
-      "name": "Delivery",
-      "value": true
-    },
-    {
-      "@type": "LocationFeatureSpecification",
       "name": "Wheelchair accessible",
       "value": true
     },
@@ -213,7 +208,7 @@ const jsonLdRestaurant = {
   "hasMenu": {
     "@type": "Menu",
     "name": "Rialto Social Menu",
-    "url": "https://rialtosocial.co.uk/menu",
+    "url": "https://www.rialtosocial.co.uk/menu",
     "description": "Our menu features authentic Italian dishes including fresh pasta, traditional pizzas, and classic Italian mains."
   },
   "address": {
@@ -233,7 +228,7 @@ const jsonLdRestaurant = {
     {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
-      "opens": "17:00",
+      "opens": "12:00",
       "closes": "23:00"
     },
     {
@@ -249,23 +244,16 @@ const jsonLdRestaurant = {
       "closes": "22:00"
     }
   ],
-  "menu": "https://rialtosocial.co.uk/menu",
-  "acceptsReservations": "True",
-  "reservationUrl": "https://rialtosocial.co.uk/contact",
+  "menu": "https://www.rialtosocial.co.uk/menu",
+  "acceptsReservations": true,
+  "reservationUrl": "https://www.rialtosocial.co.uk/contact",
   "paymentAccepted": ["Cash", "Credit Card", "Debit Card"],
   "currenciesAccepted": "GBP",
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.8",
-    "reviewCount": "127",
-    "bestRating": "5",
-    "worstRating": "1"
-  },
   "potentialAction": {
     "@type": "ReserveAction",
     "target": {
       "@type": "EntryPoint",
-      "urlTemplate": "https://rialtosocial.co.uk/contact",
+      "urlTemplate": "https://www.rialtosocial.co.uk/contact",
       "actionPlatform": [
         "http://schema.org/DesktopWebPlatform",
         "http://schema.org/MobileWebPlatform"
@@ -285,22 +273,32 @@ const jsonLdRestaurant = {
 const jsonLdOrganization = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "@id": "https://rialtosocial.co.uk/#organization",
+  "@id": "https://www.rialtosocial.co.uk/#organization",
   "name": "Rialto Social",
-  "url": "https://rialtosocial.co.uk",
+  "url": "https://www.rialtosocial.co.uk",
   "logo": {
     "@type": "ImageObject",
-    "url": "https://rialtosocial.co.uk/logo/Rialto.png",
+    "url": "https://www.rialtosocial.co.uk/logo/Rialto.png",
     "width": 200,
     "height": 200
   },
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+44-1306-742885",
-    "contactType": "customer service",
-    "areaServed": "GB",
-    "availableLanguage": ["English"]
-  },
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+44-1306-742885",
+      "email": "info@rialtosocial.co.uk",
+      "contactType": "customer service",
+      "areaServed": "GB",
+      "availableLanguage": ["English"]
+    },
+    {
+      "@type": "ContactPoint",
+      "email": "dorking@rialtolounge.co.uk",
+      "contactType": "reservations",
+      "areaServed": "GB",
+      "availableLanguage": ["English"]
+    }
+  ],
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "45 Dene Street",

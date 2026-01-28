@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "italian restaurants dorking", "dorking takeaway", "food dorking"
   ],
   alternates: {
-    canonical: "https://rialtosocial.co.uk/menu",
+    canonical: "https://www.rialtosocial.co.uk/menu",
   },
 };
 

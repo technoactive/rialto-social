@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: "Rialto Social - Best Italian Restaurant in Dorking | Pizza, Pasta, Gelato & Karaoke",
   description: "Looking for the best restaurants in Dorking? Rialto Social serves authentic Italian pizza, fresh pasta & artisan gelato. Plus karaoke nights, darts & takeaway. One of the best places to eat in Dorking town centre!",
   alternates: {
-    canonical: "https://rialtosocial.co.uk",
+    canonical: "https://www.rialtosocial.co.uk",
   },
 };
 

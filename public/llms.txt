@@ -1,0 +1,26 @@
+User-agent: GPTBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Anthropic-AI
+Allow: /
+
+# Block mass data scrapers / bad bots
+User-agent: CCBot
+Disallow: /
+
+## Core Pages
+-[Home](https://www.rialtosocial.co.uk/):Rialto Social homepage—Italian dining in Dorking plus karaoke, darts, and PS5 room bookings.
+-[Menu](https://www.rialtosocial.co.uk/menu):Food & drink menus including pizza, pasta, gelato and more.
+-[About](https://www.rialtosocial.co.uk/about):The Rialto story (est. 2001) and the "Rialto Social" reimagining with new experiences.
+-[Entertainment](https://www.rialtosocial.co.uk/entertainment):Karaoke (Karafun), darts and PS5 gaming information plus booking details.
+-[Events](https://www.rialtosocial.co.uk/events):Upcoming events and announcements.
+-[Gallery](https://www.rialtosocial.co.uk/gallery):Venue and food photos, rooms, and atmosphere.
+-[Contact](https://www.rialtosocial.co.uk/contact):How to contact Rialto Social, location details, and booking options.
+
+## Policies
+-[Privacy Policy](https://www.rialtosocial.co.uk/privacy):How Rialto Social collects and uses personal data (e.g., reservations and enquiries).
+-[Cookie Policy](https://www.rialtosocial.co.uk/cookies):Cookie usage, categories, and preference management.
+-[Terms of Service](https://www.rialtosocial.co.uk/terms):Terms for reservations, cancellations, dietary requirements, and service charge.

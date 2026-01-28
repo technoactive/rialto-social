@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Our Story | Rialto Social - 25 Years of Italian Excellence in Dorking",
   description: "From a Venetian dream to 25 years as Dorking's beloved Italian restaurant, discover how Rialto has transformed into Rialto Social - combining authentic Italian dining with modern social entertainment.",
   keywords: ["Rialto Social story", "25 years Dorking Italian", "Italian restaurant history", "Rialto bridge mural", "social darts karaoke restaurant", "Dorking institution", "authentic Italian Surrey"],
+  alternates: {
+    canonical: "https://www.rialtosocial.co.uk/about",
+  },
 };
 
 export default function AboutPage() {

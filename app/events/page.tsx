@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Upcoming Events | Rialto Social - Dorking Entertainment",
   description: "Discover upcoming events at Rialto Social Dorking. Special nights, themed parties, karaoke competitions, darts tournaments, gaming events and more. Book your spot today!",
   keywords: ["events Dorking", "Rialto Social events", "karaoke nights Dorking", "gaming events Surrey", "special events Italian restaurant", "party venue Dorking", "entertainment calendar"],
+  alternates: {
+    canonical: "https://www.rialtosocial.co.uk/events",
+  },
 };
 
 export default function EventsPage() {

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "45 dene street dorking", "karaoke booking dorking", "darts booking dorking"
   ],
   alternates: {
-    canonical: "https://rialtosocial.co.uk/contact",
+    canonical: "https://www.rialtosocial.co.uk/contact",
   },
 };
 

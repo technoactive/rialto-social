@@ -5,6 +5,9 @@ import { Footer } from "@/components/layout/Footer";
 export const metadata: Metadata = {
   title: "Terms of Service",
   description: "Terms of Service for Rialto Social Italian Restaurant in Dorking.",
+  alternates: {
+    canonical: "https://www.rialtosocial.co.uk/terms",
+  },
 };
 
 export default function TermsPage() {

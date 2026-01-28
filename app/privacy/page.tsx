@@ -6,6 +6,9 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "Privacy Policy for Rialto Social Italian Restaurant in Dorking.",
+  alternates: {
+    canonical: "https://www.rialtosocial.co.uk/privacy",
+  },
 };
 
 export default function PrivacyPage() {

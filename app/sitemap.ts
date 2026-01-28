@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://rialtosocial.co.uk'
+  const baseUrl = 'https://www.rialtosocial.co.uk'
   
   // Define your routes with their priorities and change frequencies
   const routes = [

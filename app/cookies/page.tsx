@@ -8,6 +8,9 @@ import { Footer } from "@/components/layout/Footer";
 export const metadata: Metadata = {
   title: "Cookie Policy | Rialto Social",
   description: "Learn about how Rialto Social uses cookies to improve your experience",
+  alternates: {
+    canonical: "https://www.rialtosocial.co.uk/cookies",
+  },
 };
 
 export default function CookiePolicyPage() {
