@@ -111,8 +111,8 @@ export function ReservationCTA() {
                   <h3 className="font-semibold text-lg mb-2">Opening Hours</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     Mon-Thu: 12:00-23:00<br />
-                    Fri-Sat: 12:00-24:00<br />
-                    Sun: 12:00-23:00
+                    Fri-Sat: 12:00-00:00<br />
+                    Sun: 12:00-22:00
                   </p>
                 </div>
               </div>

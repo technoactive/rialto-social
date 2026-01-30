@@ -1,7 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import Image from "next/image";
 
 const features = [
@@ -69,6 +71,22 @@ export function About() {
                   <span className="text-sm">{feature}</span>
                 </motion.div>
               ))}
+            </div>
+
+            {/* CTA Links */}
+            <div className="flex flex-wrap gap-4 pt-4">
+              <Button asChild variant="default" className="group">
+                <Link href="/about">
+                  Read Our Full Story
+                  <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </Button>
+              <Button asChild variant="outline" className="group">
+                <Link href="/gallery">
+                  View Our Gallery
+                  <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </Button>
             </div>
           </motion.div>
 

@@ -1,7 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Star, Quote } from "lucide-react";
+import { Star, Quote, Images } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const testimonials = [
   {
@@ -152,6 +154,14 @@ export function Testimonials() {
               </div>
             </div>
           </div>
+          
+          {/* Gallery CTA */}
+          <Button asChild variant="outline" className="mt-6 group">
+            <Link href="/gallery" className="inline-flex items-center gap-2">
+              <Images className="w-4 h-4" />
+              See Our Restaurant Gallery
+            </Link>
+          </Button>
         </motion.div>
       </div>
     </section>

@@ -109,6 +109,11 @@ export function Hero() {
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
+            <Button asChild size="lg" variant="outline" className="border-2 border-white/50 bg-white/10 text-white hover:bg-white hover:text-primary backdrop-blur-sm">
+              <Link href="/about">
+                Our Story
+              </Link>
+            </Button>
             {/* Book a Table - with Gloria Food overlay */}
             <div className="relative">
               <span

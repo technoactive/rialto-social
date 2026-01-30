@@ -162,9 +162,14 @@ export function Entertainment() {
               </div>
             </div>
 
-            <Button asChild size="lg">
-              <Link href="/contact">Enquire About Events</Link>
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button asChild size="lg">
+                <Link href="/contact">Enquire About Events</Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10">
+                <Link href="/events">View Upcoming Events</Link>
+              </Button>
+            </div>
           </div>
         </motion.div>
       </div>
