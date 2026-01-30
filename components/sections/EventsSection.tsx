@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Calendar, Sparkles, PartyPopper, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export function EventsSection() {
   return (
@@ -68,7 +69,13 @@ export function EventsSection() {
             </h2>
             
             <p className="text-lg md:text-xl text-white/80 mb-8 leading-relaxed">
-              We&apos;re busy planning exciting new events for the year ahead. Stay tuned for live music, themed nights, and special celebrations!
+              We&apos;re busy planning exciting new events for the year ahead. Stay tuned for{" "}
+              <Link href="/entertainment" className="text-primary hover:underline font-semibold">
+                live music and restaurant
+              </Link>{" "}
+              <Link href="/entertainment" className="text-primary hover:underline font-semibold">
+                themed nights
+              </Link>, and special celebrations!
             </p>
             
             <div className="flex items-center justify-center gap-2 text-accent mb-8">

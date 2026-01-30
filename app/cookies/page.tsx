@@ -43,8 +43,11 @@ export default function CookiePolicyPage() {
 
           <h2 className="text-2xl font-bold mt-8 mb-4">How we use cookies</h2>
           <p>
-            Rialto Social uses cookies and similar tracking technologies to improve your browsing 
-            experience and provide personalized content. This policy explains what cookies we use, 
+            Rialto Social uses cookies and similar tracking technologies to improve your{" "}
+            <Link href="/" className="text-primary hover:underline">
+              Italian dining experience
+            </Link>{" "}
+            and provide personalized content. This policy explains what cookies we use, 
             why we use them, and how you can manage your preferences.
           </p>
 
@@ -158,12 +161,14 @@ export default function CookiePolicyPage() {
 
           <h2 className="text-2xl font-bold mt-8 mb-4">Contact us</h2>
           <p className="mb-6">
-            If you have any questions about our use of cookies or other technologies, please email 
-            us at{" "}
+            If you have any questions about our use of cookies or other technologies, please{" "}
+            <Link href="/contact" className="text-primary hover:underline">
+              contact us
+            </Link>{" "}
+            or email us at{" "}
             <a href="mailto:privacy@rialtosocial.co.uk" className="text-primary hover:underline">
               privacy@rialtosocial.co.uk
-            </a>{" "}
-            or contact us at:
+            </a>. You can also reach us at:
           </p>
 
           <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-6">

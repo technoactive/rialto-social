@@ -67,7 +67,11 @@ export default function PrivacyPage() {
                 Contact Us
               </h2>
               <p className="text-muted-foreground">
-                If you have any questions about our privacy policy, please contact us at:{" "}
+                If you have any questions about our privacy policy, please{" "}
+                <Link href="/contact" className="text-primary hover:underline">
+                  contact us
+                </Link>{" "}
+                or email us at:{" "}
                 <a href="mailto:dorking@rialtolounge.co.uk" className="text-primary hover:underline">
                   dorking@rialtolounge.co.uk
                 </a>{" "}

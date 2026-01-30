@@ -469,12 +469,18 @@ export function EntertainmentPageSection() {
                         An intimate setting for up to 20 guests, where Venetian artistry meets contemporary spirit. 
                         The walls are adorned with bespoke graffiti murals by our local maestro, Uncle Stubble—bold, 
                         expressive, and unmistakably Rialto. Overhead, hand-blown glass fixtures from a hidden workshop 
-                        in Venice cast a warm, golden glow, inviting conversation and celebration. Ideal for private 
-                        dinners, spirited gatherings, or moments that deserve a touch of magic.
+                        in Venice cast a warm, golden glow, inviting conversation and celebration. Ideal for{" "}
+                        <Link href="/" className="text-primary hover:underline font-semibold">
+                          private dinner restaurants
+                        </Link>, spirited gatherings, or moments that deserve a touch of magic.
                       </p>
                       <div className="mt-6 p-4 bg-primary/10 rounded-lg">
                         <p className="text-center font-semibold text-gray-800">
-                          Contact our events team for booking and menu options
+                          Contact our{" "}
+                          <Link href="/events" className="text-primary hover:underline">
+                            events team
+                          </Link>{" "}
+                          for booking and menu options
                         </p>
                       </div>
                     </div>

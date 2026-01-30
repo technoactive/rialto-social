@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
@@ -63,7 +64,11 @@ export default function TermsPage() {
                 Contact Information
               </h2>
               <p className="text-muted-foreground">
-                For any questions regarding our terms of service, please contact us at:{" "}
+                For any questions regarding our terms of service, please{" "}
+                <Link href="/contact" className="text-primary hover:underline">
+                  contact us
+                </Link>{" "}
+                or email us at:{" "}
                 <a href="mailto:dorking@rialtolounge.co.uk" className="text-primary hover:underline">
                   dorking@rialtolounge.co.uk
                 </a>{" "}
