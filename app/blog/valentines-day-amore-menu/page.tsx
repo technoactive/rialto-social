@@ -572,7 +572,7 @@ export default function ValentinesDayBlogPost() {
             <div className="max-w-3xl mx-auto py-8">
               <Link 
                 href="/blog" 
-                className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
+                className="group flex items-center gap-3 text-muted-foreground hover:text-pink-600 transition-colors"
               >
                 <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                 <span className="text-sm font-medium">All Articles</span>
