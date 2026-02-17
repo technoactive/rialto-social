@@ -96,17 +96,17 @@ export default function ValentinesDayBlogPost() {
 
   return (
     <>
-      {/* Reading Progress Bar */}
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-pink-500 to-red-500 origin-left z-[100]"
-        style={{ scaleX }}
-      />
-
       <Header />
       
-      <main className="pt-20">
-        {/* Hero Section */}
-        <section className="relative min-h-[70vh] flex items-center overflow-hidden">
+      {/* Reading Progress Bar - Below header */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-pink-500 to-red-500 origin-left z-[70]"
+        style={{ scaleX }}
+      />
+      
+      <main>
+        {/* Hero Section - Full bleed behind header */}
+        <section className="relative min-h-screen flex items-center overflow-hidden pt-32">
           {/* Animated Background */}
           <div className="absolute inset-0 bg-gradient-to-br from-pink-500 via-red-500 to-pink-600">
             {/* Floating Hearts Animation */}
