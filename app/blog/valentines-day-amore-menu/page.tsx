@@ -1,311 +1,604 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingActionButton } from "@/components/ui/floating-action-button";
 import Link from "next/link";
-import Image from "next/image";
-import { Calendar, Clock, ArrowLeft, Heart, Phone, Utensils, Wine, Cake } from "lucide-react";
+import { motion, useScroll, useSpring } from "framer-motion";
+import { 
+  Calendar, 
+  Clock, 
+  ArrowLeft, 
+  Heart, 
+  Phone, 
+  Utensils, 
+  Wine, 
+  Cake,
+  Share2,
+  Facebook,
+  Twitter,
+  ChevronRight,
+  Star,
+  Users,
+  Sparkles,
+  Check
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-export const metadata: Metadata = {
-  title: "Valentine's Day Special at Rialto | Restaurants in Dorking",
-  description: "Enjoy heart-shaped ravioli on Valentine's Day with Rialto's special Amore menu—one of the most unique offered at restaurants in Dorking.",
-  keywords: ["Valentine's Day Dorking", "romantic restaurant Dorking", "Valentine's dinner Surrey", "Amore menu", "Italian Valentine's Day", "restaurants in Dorking"],
-  alternates: {
-    canonical: "https://www.rialtosocial.co.uk/blog/valentines-day-amore-menu",
-  },
-  openGraph: {
-    title: "Valentine's Day Special at Rialto | Restaurants in Dorking",
-    description: "Enjoy heart-shaped ravioli on Valentine's Day with Rialto's special Amore menu—one of the most unique offered at restaurants in Dorking.",
-    type: "article",
-    publishedTime: "2026-02-14T00:00:00.000Z",
-    authors: ["Rialto Social"],
-  },
-};
+// Table of contents items
+const tableOfContents = [
+  { id: "pricing", label: "Pricing" },
+  { id: "starters", label: "Starters" },
+  { id: "mains", label: "Main Courses" },
+  { id: "desserts", label: "Desserts" },
+  { id: "wine", label: "Wine Selection" },
+  { id: "booking", label: "Book Now" },
+];
+
+// Menu data
+const starters = [
+  { name: "Smoked Salmon Carpaccio", desc: "With avocado and a light citrus dressing", tag: "Pescatarian" },
+  { name: "Mozzarella in Carrozza", desc: "Crisp and golden with irresistibly molten centres", tag: "Vegetarian" },
+  { name: "Arancini al Ragù", desc: "Slow-cooked ragù and molten mozzarella in a crunchy shell", tag: "Chef's Pick" },
+  { name: "Beetroot Carpaccio", desc: "Soft goat's cheese and toasted hazelnuts", tag: "Vegan" },
+  { name: "Butter-Chilli-Garlic Prawns", desc: "Rich and savoury, leaves room for courses ahead", tag: "Pescatarian" },
+];
+
+const mains = [
+  { name: "Heart-Shaped Ravioli", desc: "Ricotta and spinach in a silky pink sauce", tag: "Signature", featured: true },
+  { name: '"Marry Me" Pasta', desc: "Tender ribbons with charred chicken", tag: "Popular" },
+  { name: "Gamberi e Zucchine Risotto", desc: "Prawns, monk fish, and soft courgette", tag: "Seafood" },
+  { name: "Gnocchi with Ribeye", desc: "Rich tomato sauce, sliced ribeye, fresh rocket", tag: "Meat" },
+  { name: "Green Beans & Pesto Spaghetti", desc: "Hearty option with soft potatoes", tag: "Vegan" },
+];
+
+const desserts = [
+  { name: "Rosa d'Amore", desc: "Blushing panna cotta that trembles like a shy heartbeat", color: "from-pink-100 to-rose-100" },
+  { name: "Tiramisù d'Amore", desc: "Espresso-soaked savoiardi and velvety mascarpone", color: "from-amber-100 to-orange-100" },
+  { name: "Millefoglie d'Amore", desc: "Classic Italian wedding cake with delicate cream", color: "from-yellow-50 to-amber-50" },
+];
 
 export default function ValentinesDayBlogPost() {
+  const [activeSection, setActiveSection] = useState("");
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
+
+  // Track active section for TOC
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-20% 0px -70% 0px" }
+    );
+
+    tableOfContents.forEach(({ id }) => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <>
-      <Header />
-      <main className="pt-24 pb-16">
-        {/* Hero Section */}
-        <section className="relative py-16 md:py-24 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-pink-100/50 via-red-50/30 to-background" />
-          
-          {/* Decorative Hearts */}
-          <div className="absolute top-20 left-10 text-pink-200/30">
-            <Heart className="w-24 h-24 fill-current" />
-          </div>
-          <div className="absolute bottom-10 right-10 text-red-200/30">
-            <Heart className="w-32 h-32 fill-current" />
-          </div>
-          
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-4xl mx-auto">
-              {/* Back Link */}
-              <Link 
-                href="/blog" 
-                className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                Back to Blog
-              </Link>
+      {/* Reading Progress Bar */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-pink-500 to-red-500 origin-left z-[100]"
+        style={{ scaleX }}
+      />
 
-              {/* Category & Meta */}
-              <div className="flex flex-wrap items-center gap-4 mb-6">
-                <span className="bg-gradient-to-r from-pink-500 to-red-500 text-white text-sm font-semibold px-4 py-1.5 rounded-full">
-                  Special Menus
-                </span>
-                <span className="flex items-center gap-1.5 text-muted-foreground text-sm">
-                  <Calendar className="w-4 h-4" />
-                  14 February 2026
-                </span>
-                <span className="flex items-center gap-1.5 text-muted-foreground text-sm">
-                  <Clock className="w-4 h-4" />
-                  4 min read
-                </span>
-              </div>
+      <Header />
+      
+      <main className="pt-20">
+        {/* Hero Section */}
+        <section className="relative min-h-[70vh] flex items-center overflow-hidden">
+          {/* Animated Background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-pink-500 via-red-500 to-pink-600">
+            {/* Floating Hearts Animation */}
+            <div className="absolute inset-0 overflow-hidden">
+              {[...Array(12)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute"
+                  initial={{ 
+                    x: `${Math.random() * 100}%`, 
+                    y: "110%",
+                    rotate: Math.random() * 360,
+                    scale: 0.5 + Math.random() * 0.5
+                  }}
+                  animate={{ 
+                    y: "-10%",
+                    rotate: Math.random() * 360 + 360,
+                  }}
+                  transition={{ 
+                    duration: 10 + Math.random() * 10,
+                    repeat: Infinity,
+                    delay: Math.random() * 5,
+                    ease: "linear"
+                  }}
+                >
+                  <Heart className={cn(
+                    "text-white/10 fill-white/10",
+                    i % 3 === 0 ? "w-16 h-16" : i % 3 === 1 ? "w-10 h-10" : "w-8 h-8"
+                  )} />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-4xl mx-auto text-center text-white">
+              {/* Breadcrumb */}
+              <motion.nav
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="flex items-center justify-center gap-2 text-sm text-white/70 mb-8"
+              >
+                <Link href="/" className="hover:text-white transition-colors">Home</Link>
+                <ChevronRight className="w-4 h-4" />
+                <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
+                <ChevronRight className="w-4 h-4" />
+                <span className="text-white">Valentine&apos;s Menu</span>
+              </motion.nav>
+
+              {/* Category Badge */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6"
+              >
+                <Sparkles className="w-4 h-4" />
+                <span className="text-sm font-medium">Limited Edition Menu</span>
+              </motion.div>
 
               {/* Title */}
-              <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-                Introducing Rialto&apos;s <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-red-500">&quot;Amore&quot;</span> Menu: The Best Valentine&apos;s Day Culinary Experience at Restaurants in Dorking
-              </h1>
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+              >
+                The &quot;Amore&quot; Menu
+                <span className="block text-2xl md:text-3xl lg:text-4xl font-normal mt-4 text-white/90">
+                  A Valentine&apos;s Day Culinary Experience
+                </span>
+              </motion.h1>
 
-              {/* Intro */}
-              <p className="text-xl text-muted-foreground leading-relaxed">
-                It&apos;s February already, and love is in the air—and in our dishes. This Valentine&apos;s Day, 
-                our restaurants in Dorking are celebrating romance the best way we know how: with delectable, 
-                Italian-inspired flavours specially curated for the occasion.
-              </p>
-            </div>
-          </div>
-        </section>
+              {/* Meta Info */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="flex flex-wrap items-center justify-center gap-6 text-white/80 mb-10"
+              >
+                <span className="flex items-center gap-2">
+                  <Calendar className="w-5 h-5" />
+                  14 February 2026
+                </span>
+                <span className="flex items-center gap-2">
+                  <Clock className="w-5 h-5" />
+                  4 min read
+                </span>
+                <span className="flex items-center gap-2">
+                  <Users className="w-5 h-5" />
+                  Perfect for couples
+                </span>
+              </motion.div>
 
-        {/* Featured Image */}
-        <section className="py-8">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <div className="relative aspect-[16/9] rounded-2xl overflow-hidden bg-gradient-to-br from-pink-200 to-red-200 shadow-xl">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <Heart className="w-20 h-20 text-white/80 mx-auto mb-4 fill-current" />
-                    <p className="text-white/90 font-display text-2xl font-bold">Amore Menu</p>
-                    <p className="text-white/70">Valentine&apos;s Day 2026</p>
-                  </div>
+              {/* Quick Price Preview */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="inline-flex items-center gap-4 bg-white/10 backdrop-blur-md rounded-2xl px-8 py-4 border border-white/20"
+              >
+                <div className="text-center px-4">
+                  <p className="text-3xl font-bold">£23.50</p>
+                  <p className="text-sm text-white/70">2 Courses</p>
                 </div>
-              </div>
+                <div className="w-px h-12 bg-white/30" />
+                <div className="text-center px-4">
+                  <p className="text-3xl font-bold">£27.50</p>
+                  <p className="text-sm text-white/70">3 Courses</p>
+                </div>
+              </motion.div>
             </div>
           </div>
+
+          {/* Scroll Indicator */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1 }}
+            className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          >
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-1"
+            >
+              <div className="w-1 h-3 bg-white/50 rounded-full" />
+            </motion.div>
+          </motion.div>
         </section>
 
-        {/* Article Content */}
-        <article className="py-12">
+        {/* Main Content with Sidebar */}
+        <section className="py-16">
           <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto prose prose-lg">
+            <div className="flex gap-12 max-w-6xl mx-auto">
               
-              {/* How the Menu Works */}
-              <div className="bg-gradient-to-r from-pink-50 to-red-50 rounded-2xl p-8 mb-12 not-prose">
-                <h2 className="font-display text-2xl font-bold mb-4 flex items-center gap-3">
-                  <Utensils className="w-6 h-6 text-pink-500" />
-                  How the Menu Works
-                </h2>
-                <p className="text-muted-foreground mb-6">
-                  You can order &quot;Amore&quot; a la carte as either a 2-course or a 3-course menu. 
-                  Our menu is uncomplicated and is designed to give you and your partner or friends 
-                  a memorable evening without anything excessively elaborate.
-                </p>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-pink-100">
-                    <p className="text-3xl font-bold text-pink-500 mb-1">£23.50</p>
-                    <p className="text-sm text-muted-foreground">2 Courses</p>
-                  </div>
-                  <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-red-100">
-                    <p className="text-3xl font-bold text-red-500 mb-1">£27.50</p>
-                    <p className="text-sm text-muted-foreground">3 Courses</p>
-                  </div>
-                </div>
-                <p className="text-sm text-muted-foreground mt-4 text-center">
-                  One of the best deals you can receive at restaurants in Dorking this season!
-                </p>
-              </div>
+              {/* Sticky Sidebar - Desktop Only */}
+              <aside className="hidden lg:block w-64 flex-shrink-0">
+                <div className="sticky top-24">
+                  {/* Table of Contents */}
+                  <nav className="bg-card rounded-2xl p-6 shadow-lg border border-border/50 mb-6">
+                    <h3 className="font-semibold text-sm uppercase tracking-wider text-muted-foreground mb-4">
+                      In This Article
+                    </h3>
+                    <ul className="space-y-2">
+                      {tableOfContents.map(({ id, label }) => (
+                        <li key={id}>
+                          <button
+                            onClick={() => scrollToSection(id)}
+                            className={cn(
+                              "text-sm w-full text-left px-3 py-2 rounded-lg transition-all",
+                              activeSection === id
+                                ? "bg-pink-100 text-pink-700 font-medium"
+                                : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                            )}
+                          >
+                            {label}
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  </nav>
 
-              {/* Appetisers */}
-              <div className="mb-12">
-                <h2 className="font-display text-2xl md:text-3xl font-bold mb-6 flex items-center gap-3">
-                  <Heart className="w-6 h-6 text-pink-500 fill-pink-500" />
-                  Appetisers as Memorable as a First Kiss
-                </h2>
-                <p className="text-muted-foreground mb-6">
-                  We have a variety of appetisers to help you begin your &quot;Amore&quot; experience. 
-                  Options are carefully chosen to awaken the palate without overwhelming it—and also 
-                  to help propel conversation with your date!
-                </p>
-                
-                <div className="space-y-4">
-                  <div className="bg-card rounded-xl p-5 border border-border/50 hover:border-pink-200 transition-colors">
-                    <h3 className="font-semibold mb-2">Smoked Salmon Carpaccio</h3>
-                    <p className="text-sm text-muted-foreground">With avocado and a light citrus dressing — rich and creamy</p>
-                  </div>
-                  <div className="bg-card rounded-xl p-5 border border-border/50 hover:border-pink-200 transition-colors">
-                    <h3 className="font-semibold mb-2">Mozzarella in Carrozza</h3>
-                    <p className="text-sm text-muted-foreground">Crisp and golden with irresistibly molten centres</p>
-                  </div>
-                  <div className="bg-card rounded-xl p-5 border border-border/50 hover:border-pink-200 transition-colors">
-                    <h3 className="font-semibold mb-2">Arancini al Ragù</h3>
-                    <p className="text-sm text-muted-foreground">Slow-cooked ragù and molten mozzarella within a crunchy shell</p>
-                  </div>
-                  <div className="bg-card rounded-xl p-5 border border-border/50 hover:border-pink-200 transition-colors">
-                    <h3 className="font-semibold mb-2">Beetroot Carpaccio</h3>
-                    <p className="text-sm text-muted-foreground">Paired with soft goat&apos;s cheese and toasted hazelnuts — vegetarian</p>
-                  </div>
-                  <div className="bg-card rounded-xl p-5 border border-border/50 hover:border-pink-200 transition-colors">
-                    <h3 className="font-semibold mb-2">Butter-Chilli-Garlic Prawns</h3>
-                    <p className="text-sm text-muted-foreground">A rich and savoury treat that leaves room for courses ahead</p>
-                  </div>
-                </div>
-                
-                <p className="text-sm text-muted-foreground mt-4 italic">
-                  Our choice of appetisers is suited for the palates of vegans, vegetarians and pescatarians.
-                </p>
-              </div>
-
-              {/* Mains */}
-              <div className="mb-12">
-                <h2 className="font-display text-2xl md:text-3xl font-bold mb-6 flex items-center gap-3">
-                  <Heart className="w-6 h-6 text-red-500 fill-red-500" />
-                  Mains to Fall in Love With
-                </h2>
-                <p className="text-muted-foreground mb-6">
-                  Valentine&apos;s Day deserves dishes that feel as special as the company you&apos;re keeping. 
-                  The &quot;Amore&quot; mains are carefully selected to be hearty and elegant, indulgent yet easy 
-                  to enjoy in front of someone you like without the worry of embarrassment.
-                </p>
-                
-                <div className="grid gap-4">
-                  <div className="bg-gradient-to-r from-pink-50 to-white rounded-xl p-6 border-2 border-pink-200">
-                    <div className="flex items-start gap-3">
-                      <Heart className="w-5 h-5 text-pink-500 fill-pink-500 mt-1 flex-shrink-0" />
-                      <div>
-                        <h3 className="font-semibold text-lg mb-1">Heart-Shaped Ravioli</h3>
-                        <p className="text-muted-foreground">Filled with ricotta and spinach, served in a silky pink sauce</p>
-                      </div>
+                  {/* Share Buttons */}
+                  <div className="bg-card rounded-2xl p-6 shadow-lg border border-border/50">
+                    <h3 className="font-semibold text-sm uppercase tracking-wider text-muted-foreground mb-4">
+                      Share
+                    </h3>
+                    <div className="flex gap-2">
+                      <button className="flex-1 flex items-center justify-center gap-2 bg-[#1877f2] text-white py-2 rounded-lg hover:opacity-90 transition-opacity">
+                        <Facebook className="w-4 h-4" />
+                      </button>
+                      <button className="flex-1 flex items-center justify-center gap-2 bg-[#1da1f2] text-white py-2 rounded-lg hover:opacity-90 transition-opacity">
+                        <Twitter className="w-4 h-4" />
+                      </button>
+                      <button className="flex-1 flex items-center justify-center gap-2 bg-gray-800 text-white py-2 rounded-lg hover:opacity-90 transition-opacity">
+                        <Share2 className="w-4 h-4" />
+                      </button>
                     </div>
                   </div>
-                  <div className="bg-card rounded-xl p-5 border border-border/50 hover:border-red-200 transition-colors">
-                    <h3 className="font-semibold mb-2">&quot;Marry Me&quot; Pasta</h3>
-                    <p className="text-sm text-muted-foreground">Tender ribbons of pasta with charred chicken</p>
-                  </div>
-                  <div className="bg-card rounded-xl p-5 border border-border/50 hover:border-red-200 transition-colors">
-                    <h3 className="font-semibold mb-2">Gamberi e Zucchine Risotto</h3>
-                    <p className="text-sm text-muted-foreground">With prawns, monk fish, and soft courgette</p>
-                  </div>
-                  <div className="bg-card rounded-xl p-5 border border-border/50 hover:border-red-200 transition-colors">
-                    <h3 className="font-semibold mb-2">Gnocchi with Ribeye</h3>
-                    <p className="text-sm text-muted-foreground">In a rich tomato sauce topped with sliced ribeye and fresh rocket</p>
-                  </div>
-                  <div className="bg-card rounded-xl p-5 border border-border/50 hover:border-red-200 transition-colors">
-                    <h3 className="font-semibold mb-2">Green Beans & Pesto Spaghetti</h3>
-                    <p className="text-sm text-muted-foreground">Hearty vegetarian option with soft potatoes</p>
-                  </div>
                 </div>
-              </div>
+              </aside>
 
-              {/* Desserts */}
-              <div className="mb-12">
-                <h2 className="font-display text-2xl md:text-3xl font-bold mb-6 flex items-center gap-3">
-                  <Cake className="w-6 h-6 text-pink-500" />
-                  Sweet and Memorable Desserts
-                </h2>
-                <p className="text-muted-foreground mb-6">
-                  It&apos;s not a Valentine&apos;s celebration without the sweets. The final course will be as 
-                  a kiss goodbye, intended to be savoured slowly. Our desserts are crafted to be heartwarming, 
-                  leaving a delightful taste that will linger long after the meal ends.
-                </p>
+              {/* Main Article Content */}
+              <article className="flex-1 max-w-3xl">
                 
-                <div className="space-y-4">
-                  <div className="bg-gradient-to-r from-pink-100 to-red-100 rounded-xl p-6">
-                    <h3 className="font-semibold text-lg mb-2">Rosa d&apos;Amore</h3>
-                    <p className="text-muted-foreground">A blushing panna cotta that trembles like a shy heartbeat, served gorgeously</p>
-                  </div>
-                  <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl p-6">
-                    <h3 className="font-semibold text-lg mb-2">Tiramisù d&apos;Amore</h3>
-                    <p className="text-muted-foreground">Devilishly delightful espresso-soaked savoiardi and velvety mascarpone</p>
-                  </div>
-                  <div className="bg-gradient-to-r from-yellow-50 to-cream-50 rounded-xl p-6">
-                    <h3 className="font-semibold text-lg mb-2">Millefoglie d&apos;Amore</h3>
-                    <p className="text-muted-foreground">The classic Italian wedding cake — melt-in-your-mouth pastry and delicate cream</p>
-                  </div>
+                {/* Introduction */}
+                <div className="prose prose-lg max-w-none mb-12">
+                  <p className="text-xl text-muted-foreground leading-relaxed first-letter:text-5xl first-letter:font-display first-letter:font-bold first-letter:text-pink-500 first-letter:mr-3 first-letter:float-left">
+                    It&apos;s February already, and love is in the air—and in our dishes. This Valentine&apos;s Day, 
+                    our restaurants in Dorking are celebrating romance the best way we know how: with delectable, 
+                    Italian-inspired flavours specially curated for the occasion.
+                  </p>
                 </div>
-              </div>
 
-              {/* Wine Selection */}
-              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 mb-12 not-prose">
-                <h2 className="font-display text-2xl font-bold mb-4 flex items-center gap-3">
-                  <Wine className="w-6 h-6 text-purple-500" />
-                  Wine Selection (Optional)
-                </h2>
-                <p className="text-muted-foreground mb-4">
-                  Complement your meal with a bottle from our wine selection—one of the most extensive 
-                  at restaurants in Dorking. We have crisp Italian whites, bold Greek reds, delicate rosés 
-                  and sparkling Prosecco, among others.
-                </p>
-                <p className="text-muted-foreground mb-4">
-                  Glasses of lively Trebbiano or silky Montepulciano would surely spark interesting conversation.
-                </p>
-                <p className="text-sm text-muted-foreground italic">
-                  Please note the wines are sold separately.
-                </p>
-              </div>
+                {/* Pricing Section */}
+                <section id="pricing" className="mb-16 scroll-mt-24">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="bg-gradient-to-br from-pink-50 to-red-50 rounded-3xl p-8 md:p-10"
+                  >
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-red-500 rounded-xl flex items-center justify-center">
+                        <Utensils className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <h2 className="font-display text-2xl font-bold">How It Works</h2>
+                        <p className="text-muted-foreground">Simple, memorable, delicious</p>
+                      </div>
+                    </div>
+                    
+                    <p className="text-muted-foreground mb-8">
+                      Order &quot;Amore&quot; a la carte as either a 2-course or 3-course experience. 
+                      Our menu brings together rich, tender flavours with something for everyone.
+                    </p>
 
-              {/* CTA */}
-              <div className="bg-gradient-to-r from-pink-500 to-red-500 rounded-2xl p-8 md:p-12 text-center text-white not-prose">
-                <Heart className="w-12 h-12 mx-auto mb-4 fill-white/30" />
-                <h2 className="font-display text-2xl md:text-3xl font-bold mb-4">
-                  Reserve Your Table Early
-                </h2>
-                <p className="text-white/90 mb-6 max-w-lg mx-auto">
-                  Don&apos;t wait to book. Call now to claim a spot before other lovebirds do. 
-                  We can accommodate special requests and dietary requirements upon request.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button size="lg" className="bg-white text-pink-600 hover:bg-pink-50 font-bold shadow-lg">
-                    <Link href="/contact" className="flex items-center gap-2">
-                      Book Online
-                    </Link>
-                  </Button>
-                  <Button size="lg" className="bg-white/20 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-pink-600 font-bold transition-all">
-                    <a href="tel:+441306742885" className="flex items-center gap-2">
-                      <Phone className="w-4 h-4" />
-                      01306 742885
-                    </a>
-                  </Button>
-                </div>
-              </div>
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div className="bg-white rounded-2xl p-6 text-center shadow-sm border-2 border-transparent hover:border-pink-300 transition-colors">
+                        <p className="text-4xl font-bold text-pink-600 mb-1">£23.50</p>
+                        <p className="font-medium mb-2">2 Courses</p>
+                        <p className="text-sm text-muted-foreground">Starter + Main or Main + Dessert</p>
+                      </div>
+                      <div className="bg-white rounded-2xl p-6 text-center shadow-sm border-2 border-pink-300 relative overflow-hidden">
+                        <div className="absolute top-2 right-2">
+                          <span className="bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded-full">Best Value</span>
+                        </div>
+                        <p className="text-4xl font-bold text-pink-600 mb-1">£27.50</p>
+                        <p className="font-medium mb-2">3 Courses</p>
+                        <p className="text-sm text-muted-foreground">Full romantic experience</p>
+                      </div>
+                    </div>
+                  </motion.div>
+                </section>
 
+                {/* Starters Section */}
+                <section id="starters" className="mb-16 scroll-mt-24">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="flex items-center gap-3 mb-8">
+                      <Heart className="w-8 h-8 text-pink-500 fill-pink-500" />
+                      <h2 className="font-display text-2xl md:text-3xl font-bold">
+                        Starters as Memorable as a First Kiss
+                      </h2>
+                    </div>
+                    
+                    <p className="text-muted-foreground mb-8">
+                      Options carefully chosen to awaken the palate without overwhelming it—perfect for sparking conversation with your date.
+                    </p>
+
+                    <div className="grid gap-4">
+                      {starters.map((item, index) => (
+                        <motion.div
+                          key={item.name}
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: index * 0.1 }}
+                          className="group bg-white rounded-xl p-5 shadow-sm border border-border/50 hover:border-pink-200 hover:shadow-md transition-all flex items-start justify-between gap-4"
+                        >
+                          <div>
+                            <h3 className="font-semibold text-lg group-hover:text-pink-600 transition-colors">{item.name}</h3>
+                            <p className="text-muted-foreground text-sm mt-1">{item.desc}</p>
+                          </div>
+                          <span className={cn(
+                            "text-xs font-medium px-3 py-1 rounded-full flex-shrink-0",
+                            item.tag === "Chef's Pick" ? "bg-amber-100 text-amber-700" :
+                            item.tag === "Vegan" ? "bg-green-100 text-green-700" :
+                            item.tag === "Vegetarian" ? "bg-emerald-100 text-emerald-700" :
+                            "bg-blue-100 text-blue-700"
+                          )}>
+                            {item.tag}
+                          </span>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </motion.div>
+                </section>
+
+                {/* Mains Section */}
+                <section id="mains" className="mb-16 scroll-mt-24">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="flex items-center gap-3 mb-8">
+                      <Heart className="w-8 h-8 text-red-500 fill-red-500" />
+                      <h2 className="font-display text-2xl md:text-3xl font-bold">
+                        Mains to Fall in Love With
+                      </h2>
+                    </div>
+                    
+                    <p className="text-muted-foreground mb-8">
+                      Dishes that feel as special as the company you&apos;re keeping—hearty and elegant, 
+                      indulgent yet easy to enjoy.
+                    </p>
+
+                    <div className="space-y-4">
+                      {mains.map((item, index) => (
+                        <motion.div
+                          key={item.name}
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: index * 0.1 }}
+                          className={cn(
+                            "group rounded-xl p-6 transition-all flex items-start justify-between gap-4",
+                            item.featured 
+                              ? "bg-gradient-to-r from-pink-100 to-red-100 border-2 border-pink-300 shadow-md" 
+                              : "bg-white shadow-sm border border-border/50 hover:border-pink-200 hover:shadow-md"
+                          )}
+                        >
+                          <div className="flex items-start gap-4">
+                            {item.featured && (
+                              <div className="w-10 h-10 bg-gradient-to-br from-pink-500 to-red-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                <Heart className="w-5 h-5 text-white fill-white" />
+                              </div>
+                            )}
+                            <div>
+                              <h3 className={cn(
+                                "font-semibold text-lg transition-colors",
+                                item.featured ? "text-pink-700" : "group-hover:text-pink-600"
+                              )}>
+                                {item.name}
+                              </h3>
+                              <p className="text-muted-foreground text-sm mt-1">{item.desc}</p>
+                              {item.featured && (
+                                <p className="text-pink-600 text-sm font-medium mt-2 flex items-center gap-1">
+                                  <Star className="w-4 h-4 fill-current" /> Our Signature Dish
+                                </p>
+                              )}
+                            </div>
+                          </div>
+                          <span className={cn(
+                            "text-xs font-medium px-3 py-1 rounded-full flex-shrink-0",
+                            item.featured ? "bg-white text-pink-600" :
+                            item.tag === "Popular" ? "bg-amber-100 text-amber-700" :
+                            item.tag === "Vegan" ? "bg-green-100 text-green-700" :
+                            item.tag === "Seafood" ? "bg-blue-100 text-blue-700" :
+                            "bg-red-100 text-red-700"
+                          )}>
+                            {item.tag}
+                          </span>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </motion.div>
+                </section>
+
+                {/* Desserts Section */}
+                <section id="desserts" className="mb-16 scroll-mt-24">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="flex items-center gap-3 mb-8">
+                      <Cake className="w-8 h-8 text-pink-500" />
+                      <h2 className="font-display text-2xl md:text-3xl font-bold">
+                        Sweet & Memorable Desserts
+                      </h2>
+                    </div>
+                    
+                    <p className="text-muted-foreground mb-8">
+                      The final course, like a kiss goodbye—intended to be savoured slowly, 
+                      leaving a delightful taste that lingers.
+                    </p>
+
+                    <div className="grid gap-4">
+                      {desserts.map((item, index) => (
+                        <motion.div
+                          key={item.name}
+                          initial={{ opacity: 0, scale: 0.95 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: index * 0.1 }}
+                          className={cn(
+                            "rounded-2xl p-6 bg-gradient-to-r",
+                            item.color
+                          )}
+                        >
+                          <h3 className="font-display text-xl font-bold mb-2">{item.name}</h3>
+                          <p className="text-muted-foreground">{item.desc}</p>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </motion.div>
+                </section>
+
+                {/* Wine Section */}
+                <section id="wine" className="mb-16 scroll-mt-24">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8"
+                  >
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
+                        <Wine className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <h2 className="font-display text-2xl font-bold">Wine Selection</h2>
+                        <p className="text-muted-foreground">One of the most extensive in Dorking</p>
+                      </div>
+                    </div>
+                    
+                    <p className="text-muted-foreground mb-6">
+                      Complement your meal with crisp Italian whites, bold Greek reds, delicate rosés 
+                      or sparkling Prosecco. Glasses of lively Trebbiano or silky Montepulciano 
+                      will surely spark interesting conversation.
+                    </p>
+                    
+                    <div className="flex flex-wrap gap-3">
+                      {["Italian Whites", "Greek Reds", "Rosé", "Prosecco"].map((wine) => (
+                        <span key={wine} className="bg-white/80 px-4 py-2 rounded-full text-sm font-medium text-purple-700">
+                          {wine}
+                        </span>
+                      ))}
+                    </div>
+                    
+                    <p className="text-sm text-muted-foreground mt-6 italic">
+                      * Wines sold separately
+                    </p>
+                  </motion.div>
+                </section>
+
+                {/* Booking CTA */}
+                <section id="booking" className="scroll-mt-24">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="bg-gradient-to-r from-pink-500 via-red-500 to-pink-500 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden"
+                  >
+                    {/* Background Hearts */}
+                    <Heart className="absolute top-4 left-4 w-16 h-16 text-white/10 fill-white/10" />
+                    <Heart className="absolute bottom-4 right-4 w-20 h-20 text-white/10 fill-white/10" />
+                    
+                    <div className="relative z-10">
+                      <Heart className="w-12 h-12 mx-auto mb-4 fill-white/30" />
+                      <h2 className="font-display text-2xl md:text-3xl font-bold mb-4">
+                        Reserve Your Table Early
+                      </h2>
+                      <p className="text-white/90 mb-8 max-w-lg mx-auto">
+                        Don&apos;t wait to book. Call now to claim a spot before other lovebirds do. 
+                        We accommodate special requests and dietary requirements.
+                      </p>
+                      
+                      <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <Button size="lg" className="bg-white text-pink-600 hover:bg-pink-50 font-bold shadow-lg">
+                          <Link href="/contact" className="flex items-center gap-2">
+                            <Check className="w-4 h-4" />
+                            Book Online
+                          </Link>
+                        </Button>
+                        <Button size="lg" className="bg-white/20 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-pink-600 font-bold transition-all">
+                          <a href="tel:+441306742885" className="flex items-center gap-2">
+                            <Phone className="w-4 h-4" />
+                            01306 742885
+                          </a>
+                        </Button>
+                      </div>
+                    </div>
+                  </motion.div>
+                </section>
+
+              </article>
             </div>
           </div>
-        </article>
+        </section>
 
-        {/* Related Links */}
-        <section className="py-12 bg-accent/5">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="font-display text-2xl font-bold mb-6">Explore More</h2>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Button asChild variant="outline">
-                  <Link href="/menu">View Full Menu</Link>
-                </Button>
-                <Button asChild variant="outline">
-                  <Link href="/gallery">See Our Gallery</Link>
-                </Button>
-                <Button asChild variant="outline">
-                  <Link href="/about">Our Story</Link>
-                </Button>
-              </div>
-            </div>
+        {/* Back to Blog */}
+        <section className="py-12 bg-muted/30">
+          <div className="container mx-auto px-4 text-center">
+            <Link 
+              href="/blog" 
+              className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back to all articles
+            </Link>
           </div>
         </section>
       </main>
+      
       <Footer />
       <FloatingActionButton />
     </>
