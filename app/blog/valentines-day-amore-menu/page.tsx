@@ -566,21 +566,20 @@ export default function ValentinesDayBlogPost() {
           </div>
         </section>
 
-        {/* Back to Blog */}
-        <section className="py-16 bg-gradient-to-b from-background to-muted/30">
+        {/* Article Footer Navigation */}
+        <div className="border-t border-border">
           <div className="container mx-auto px-4">
-            <div className="max-w-xl mx-auto text-center">
-              <p className="text-muted-foreground mb-6">Enjoyed this article?</p>
+            <div className="max-w-3xl mx-auto py-8">
               <Link 
                 href="/blog" 
-                className="group inline-flex items-center gap-3 bg-card hover:bg-primary text-foreground hover:text-white px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-border hover:border-primary"
+                className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
               >
-                <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-                <span className="font-semibold">Back to All Articles</span>
+                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                <span className="text-sm font-medium">All Articles</span>
               </Link>
             </div>
           </div>
-        </section>
+        </div>
       </main>
       
       <Footer />
