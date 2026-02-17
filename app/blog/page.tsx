@@ -42,10 +42,10 @@ export default function BlogPage() {
   return (
     <>
       <Header />
-      <main className="pt-24 pb-16">
+      <main className="pt-24 pb-16 bg-white dark:bg-gray-950">
         {/* Hero Section */}
         <section className="relative py-16 md:py-24 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/5 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-br from-pink-50 via-red-50/50 to-white dark:from-pink-950/30 dark:via-red-950/20 dark:to-gray-950" />
           <div className="container mx-auto px-4 relative z-10">
             <div className="text-center max-w-3xl mx-auto">
               <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full mb-6">
@@ -55,7 +55,7 @@ export default function BlogPage() {
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
                 News & <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Updates</span>
               </h1>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-lg text-gray-600 dark:text-gray-400">
                 Stay updated with the latest news, special menus, events, and culinary inspirations 
                 from Rialto Social - Dorking&apos;s favourite Italian restaurant.
               </p>
@@ -70,7 +70,7 @@ export default function BlogPage() {
               {blogPosts.map((post) => (
                 <article 
                   key={post.slug}
-                  className="group bg-card rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-border/50 hover:border-pink-300"
+                  className="group bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 dark:border-gray-800 hover:border-pink-300 dark:hover:border-pink-500"
                 >
                   <Link href={`/blog/${post.slug}`}>
                     {/* Image / Visual */}
@@ -114,7 +114,7 @@ export default function BlogPage() {
                     {/* Content */}
                     <div className="p-5">
                       {/* Meta */}
-                      <div className="flex items-center gap-3 text-xs text-muted-foreground mb-2">
+                      <div className="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400 mb-2">
                         <span className="flex items-center gap-1">
                           <Calendar className="w-3.5 h-3.5" />
                           {formatDate(post.date)}
@@ -126,12 +126,12 @@ export default function BlogPage() {
                       </div>
 
                       {/* Title */}
-                      <h2 className="font-display text-lg font-bold mb-2 group-hover:text-pink-600 transition-colors">
+                      <h2 className="font-display text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors">
                         {post.title}
                       </h2>
 
                       {/* Excerpt */}
-                      <p className="text-muted-foreground text-sm line-clamp-2 mb-3">
+                      <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-2 mb-3">
                         {post.excerpt}
                       </p>
 
@@ -149,9 +149,9 @@ export default function BlogPage() {
             {/* Empty State - shown when no posts */}
             {blogPosts.length === 0 && (
               <div className="text-center py-20">
-                <BookOpen className="w-16 h-16 text-muted-foreground/30 mx-auto mb-4" />
-                <h2 className="font-display text-2xl font-bold mb-2">Coming Soon</h2>
-                <p className="text-muted-foreground">
+                <BookOpen className="w-16 h-16 text-gray-300 dark:text-gray-700 mx-auto mb-4" />
+                <h2 className="font-display text-2xl font-bold text-gray-900 dark:text-white mb-2">Coming Soon</h2>
+                <p className="text-gray-600 dark:text-gray-400">
                   We&apos;re working on exciting content. Check back soon!
                 </p>
               </div>

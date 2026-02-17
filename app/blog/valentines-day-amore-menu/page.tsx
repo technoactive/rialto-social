@@ -220,8 +220,8 @@ export default function ValentinesDayBlogPost() {
           </motion.div>
         </section>
 
-        {/* Main Content with Sidebar */}
-        <section className="py-16">
+        {/* Main Content with Sidebar - Force light mode for Valentine's theme */}
+        <section className="py-16 bg-white text-gray-900">
           <div className="container mx-auto px-4">
             <div className="flex gap-12 max-w-6xl mx-auto">
               
