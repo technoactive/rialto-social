@@ -21,6 +21,7 @@ const navItems = [
   { name: "Entertainment", href: "/entertainment", highlight: false },
   { name: "Events", href: "/events", highlight: true },
   { name: "Gallery", href: "/gallery", highlight: false },
+  { name: "Blog", href: "/blog", highlight: false },
   { name: "Contact", href: "/contact", highlight: false },
 ];
 

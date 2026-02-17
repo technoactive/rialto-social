@@ -118,6 +118,7 @@ export function Footer() {
                 { href: "/about", label: "About Us" },
                 { href: "/entertainment", label: "Entertainment" },
                 { href: "/gallery", label: "Gallery" },
+                { href: "/blog", label: "Blog" },
                 { href: "/contact", label: "Reservations" }
               ].map((link) => (
                 <li key={link.href}>
