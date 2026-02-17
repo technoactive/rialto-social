@@ -268,12 +268,12 @@ export default function ValentinesDayBlogPost() {
                   We can accommodate special requests and dietary requirements upon request.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button size="lg" className="bg-white text-pink-600 hover:bg-white/90 font-bold">
+                  <Button size="lg" className="bg-white text-pink-600 hover:bg-pink-50 font-bold shadow-lg">
                     <Link href="/contact" className="flex items-center gap-2">
                       Book Online
                     </Link>
                   </Button>
-                  <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 font-bold">
+                  <Button size="lg" className="bg-white/20 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-pink-600 font-bold transition-all">
                     <a href="tel:+441306742885" className="flex items-center gap-2">
                       <Phone className="w-4 h-4" />
                       01306 742885
