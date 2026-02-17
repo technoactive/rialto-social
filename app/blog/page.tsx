@@ -4,7 +4,7 @@ import { Footer } from "@/components/layout/Footer";
 import { FloatingActionButton } from "@/components/ui/floating-action-button";
 import Link from "next/link";
 import Image from "next/image";
-import { Calendar, Clock, ArrowRight, BookOpen } from "lucide-react";
+import { Calendar, Clock, ArrowRight, BookOpen, Heart } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Blog | Rialto Social - News & Updates from Dorking's Italian Restaurant",
@@ -19,12 +19,13 @@ export const metadata: Metadata = {
 const blogPosts = [
   {
     slug: "valentines-day-amore-menu",
-    title: "Introducing Rialto's \"Amore\" Menu: The Best Valentine's Day Culinary Experience",
-    excerpt: "This Valentine's Day, celebrate romance the best way we know how: with delectable, Italian-inspired flavours. Our limited-edition \"Amore\" menu features heart-shaped ravioli, romantic desserts, and more.",
+    title: "Valentine's Day \"Amore\" Menu",
+    excerpt: "Celebrate romance with our limited-edition menu featuring heart-shaped ravioli, romantic desserts, and Italian-inspired flavours. 2 courses £23.50 / 3 courses £27.50.",
     date: "2026-02-14",
     readTime: "4 min read",
-    image: "/pictures/blog/valentines-day-menu.jpg",
+    image: null, // Will use custom Valentine's visual
     category: "Special Menus",
+    theme: "valentines", // Custom theme for visual
   },
 ];
 
@@ -65,64 +66,78 @@ export default function BlogPage() {
         {/* Blog Posts Grid */}
         <section className="py-12">
           <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
               {blogPosts.map((post) => (
                 <article 
                   key={post.slug}
-                  className="group bg-card rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-border/50 hover:border-primary/30"
+                  className="group bg-card rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-border/50 hover:border-pink-300"
                 >
                   <Link href={`/blog/${post.slug}`}>
-                    {/* Image */}
-                    <div className="relative aspect-[16/10] overflow-hidden bg-gradient-to-br from-primary/20 to-accent/20">
+                    {/* Image / Visual */}
+                    <div className="relative aspect-[4/3] overflow-hidden">
                       {post.image ? (
-                        <Image
-                          src={post.image}
-                          alt={post.title}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
+                        <>
+                          <Image
+                            src={post.image}
+                            alt={post.title}
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                        </>
                       ) : (
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <BookOpen className="w-16 h-16 text-primary/30" />
+                        /* Valentine's Day themed visual */
+                        <div className="absolute inset-0 bg-gradient-to-br from-pink-400 via-red-400 to-pink-500 flex items-center justify-center">
+                          {/* Decorative hearts */}
+                          <Heart className="absolute top-4 left-4 w-8 h-8 text-white/20 fill-white/20" />
+                          <Heart className="absolute top-8 right-6 w-6 h-6 text-white/15 fill-white/15" />
+                          <Heart className="absolute bottom-12 left-8 w-5 h-5 text-white/15 fill-white/15" />
+                          <Heart className="absolute bottom-6 right-4 w-7 h-7 text-white/20 fill-white/20" />
+                          
+                          {/* Center content */}
+                          <div className="text-center text-white z-10">
+                            <Heart className="w-12 h-12 mx-auto mb-2 fill-white/90" />
+                            <p className="font-display text-2xl font-bold drop-shadow-lg">Amore</p>
+                            <p className="text-sm text-white/80">Valentine&apos;s Menu</p>
+                          </div>
                         </div>
                       )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                       
                       {/* Category Badge */}
-                      <div className="absolute top-4 left-4">
-                        <span className="bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full">
+                      <div className="absolute top-3 left-3 z-10">
+                        <span className="bg-white/90 text-pink-600 text-xs font-bold px-3 py-1 rounded-full shadow-sm">
                           {post.category}
                         </span>
                       </div>
                     </div>
 
                     {/* Content */}
-                    <div className="p-6">
+                    <div className="p-5">
                       {/* Meta */}
-                      <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
+                      <div className="flex items-center gap-3 text-xs text-muted-foreground mb-2">
                         <span className="flex items-center gap-1">
-                          <Calendar className="w-4 h-4" />
+                          <Calendar className="w-3.5 h-3.5" />
                           {formatDate(post.date)}
                         </span>
                         <span className="flex items-center gap-1">
-                          <Clock className="w-4 h-4" />
+                          <Clock className="w-3.5 h-3.5" />
                           {post.readTime}
                         </span>
                       </div>
 
                       {/* Title */}
-                      <h2 className="font-display text-xl font-bold mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                      <h2 className="font-display text-lg font-bold mb-2 group-hover:text-pink-600 transition-colors">
                         {post.title}
                       </h2>
 
                       {/* Excerpt */}
-                      <p className="text-muted-foreground text-sm line-clamp-3 mb-4">
+                      <p className="text-muted-foreground text-sm line-clamp-2 mb-3">
                         {post.excerpt}
                       </p>
 
                       {/* Read More */}
-                      <span className="inline-flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition-all">
-                        Read Article
+                      <span className="inline-flex items-center gap-2 text-pink-600 font-semibold text-sm group-hover:gap-3 transition-all">
+                        Read More
                         <ArrowRight className="w-4 h-4" />
                       </span>
                     </div>
