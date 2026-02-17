@@ -229,8 +229,8 @@ export default function ValentinesDayBlogPost() {
               <aside className="hidden lg:block w-64 flex-shrink-0">
                 <div className="sticky top-24">
                   {/* Table of Contents */}
-                  <nav className="bg-card rounded-2xl p-6 shadow-lg border border-border/50 mb-6">
-                    <h3 className="font-semibold text-sm uppercase tracking-wider text-muted-foreground mb-4">
+                  <nav className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200 mb-6">
+                    <h3 className="font-semibold text-sm uppercase tracking-wider text-gray-500 mb-4">
                       In This Article
                     </h3>
                     <ul className="space-y-2">
@@ -242,7 +242,7 @@ export default function ValentinesDayBlogPost() {
                               "text-sm w-full text-left px-3 py-2 rounded-lg transition-all",
                               activeSection === id
                                 ? "bg-pink-100 text-pink-700 font-medium"
-                                : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                                : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
                             )}
                           >
                             {label}
@@ -253,8 +253,8 @@ export default function ValentinesDayBlogPost() {
                   </nav>
 
                   {/* Share Buttons */}
-                  <div className="bg-card rounded-2xl p-6 shadow-lg border border-border/50">
-                    <h3 className="font-semibold text-sm uppercase tracking-wider text-muted-foreground mb-4">
+                  <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
+                    <h3 className="font-semibold text-sm uppercase tracking-wider text-gray-500 mb-4">
                       Share
                     </h3>
                     <div className="flex gap-2">
@@ -277,7 +277,7 @@ export default function ValentinesDayBlogPost() {
                 
                 {/* Introduction */}
                 <div className="prose prose-lg max-w-none mb-12">
-                  <p className="text-xl text-muted-foreground leading-relaxed first-letter:text-5xl first-letter:font-display first-letter:font-bold first-letter:text-pink-500 first-letter:mr-3 first-letter:float-left">
+                  <p className="text-xl text-gray-700 leading-relaxed first-letter:text-5xl first-letter:font-display first-letter:font-bold first-letter:text-pink-500 first-letter:mr-3 first-letter:float-left">
                     It&apos;s February already, and love is in the air—and in our dishes. This Valentine&apos;s Day, 
                     our restaurants in Dorking are celebrating romance the best way we know how: with delectable, 
                     Italian-inspired flavours specially curated for the occasion.
@@ -297,12 +297,12 @@ export default function ValentinesDayBlogPost() {
                         <Utensils className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <h2 className="font-display text-2xl font-bold">How It Works</h2>
-                        <p className="text-muted-foreground">Simple, memorable, delicious</p>
+                        <h2 className="font-display text-2xl font-bold text-gray-900">How It Works</h2>
+                        <p className="text-gray-600">Simple, memorable, delicious</p>
                       </div>
                     </div>
                     
-                    <p className="text-muted-foreground mb-8">
+                    <p className="text-gray-600 mb-8">
                       Order &quot;Amore&quot; a la carte as either a 2-course or 3-course experience. 
                       Our menu brings together rich, tender flavours with something for everyone.
                     </p>
@@ -310,16 +310,16 @@ export default function ValentinesDayBlogPost() {
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div className="bg-white rounded-2xl p-6 text-center shadow-sm border-2 border-transparent hover:border-pink-300 transition-colors">
                         <p className="text-4xl font-bold text-pink-600 mb-1">£23.50</p>
-                        <p className="font-medium mb-2">2 Courses</p>
-                        <p className="text-sm text-muted-foreground">Starter + Main or Main + Dessert</p>
+                        <p className="font-medium text-gray-900 mb-2">2 Courses</p>
+                        <p className="text-sm text-gray-600">Starter + Main or Main + Dessert</p>
                       </div>
                       <div className="bg-white rounded-2xl p-6 text-center shadow-sm border-2 border-pink-300 relative overflow-hidden">
                         <div className="absolute top-2 right-2">
                           <span className="bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded-full">Best Value</span>
                         </div>
                         <p className="text-4xl font-bold text-pink-600 mb-1">£27.50</p>
-                        <p className="font-medium mb-2">3 Courses</p>
-                        <p className="text-sm text-muted-foreground">Full romantic experience</p>
+                        <p className="font-medium text-gray-900 mb-2">3 Courses</p>
+                        <p className="text-sm text-gray-600">Full romantic experience</p>
                       </div>
                     </div>
                   </motion.div>
@@ -351,11 +351,11 @@ export default function ValentinesDayBlogPost() {
                           whileInView={{ opacity: 1, x: 0 }}
                           viewport={{ once: true }}
                           transition={{ delay: index * 0.1 }}
-                          className="group bg-white rounded-xl p-5 shadow-sm border border-border/50 hover:border-pink-200 hover:shadow-md transition-all flex items-start justify-between gap-4"
+                          className="group bg-white rounded-xl p-5 shadow-sm border border-gray-200 hover:border-pink-200 hover:shadow-md transition-all flex items-start justify-between gap-4"
                         >
                           <div>
-                            <h3 className="font-semibold text-lg group-hover:text-pink-600 transition-colors">{item.name}</h3>
-                            <p className="text-muted-foreground text-sm mt-1">{item.desc}</p>
+                            <h3 className="font-semibold text-lg text-gray-900 group-hover:text-pink-600 transition-colors">{item.name}</h3>
+                            <p className="text-gray-600 text-sm mt-1">{item.desc}</p>
                           </div>
                           <span className={cn(
                             "text-xs font-medium px-3 py-1 rounded-full flex-shrink-0",
@@ -403,7 +403,7 @@ export default function ValentinesDayBlogPost() {
                             "group rounded-xl p-6 transition-all flex items-start justify-between gap-4",
                             item.featured 
                               ? "bg-gradient-to-r from-pink-100 to-red-100 border-2 border-pink-300 shadow-md" 
-                              : "bg-white shadow-sm border border-border/50 hover:border-pink-200 hover:shadow-md"
+                              : "bg-white shadow-sm border border-gray-200 hover:border-pink-200 hover:shadow-md"
                           )}
                         >
                           <div className="flex items-start gap-4">
@@ -415,11 +415,11 @@ export default function ValentinesDayBlogPost() {
                             <div>
                               <h3 className={cn(
                                 "font-semibold text-lg transition-colors",
-                                item.featured ? "text-pink-700" : "group-hover:text-pink-600"
+                                item.featured ? "text-pink-700" : "text-gray-900 group-hover:text-pink-600"
                               )}>
                                 {item.name}
                               </h3>
-                              <p className="text-muted-foreground text-sm mt-1">{item.desc}</p>
+                              <p className="text-gray-600 text-sm mt-1">{item.desc}</p>
                               {item.featured && (
                                 <p className="text-pink-600 text-sm font-medium mt-2 flex items-center gap-1">
                                   <Star className="w-4 h-4 fill-current" /> Our Signature Dish
@@ -475,8 +475,8 @@ export default function ValentinesDayBlogPost() {
                             item.color
                           )}
                         >
-                          <h3 className="font-display text-xl font-bold mb-2">{item.name}</h3>
-                          <p className="text-muted-foreground">{item.desc}</p>
+                          <h3 className="font-display text-xl font-bold text-gray-900 mb-2">{item.name}</h3>
+                          <p className="text-gray-600">{item.desc}</p>
                         </motion.div>
                       ))}
                     </div>
@@ -496,12 +496,12 @@ export default function ValentinesDayBlogPost() {
                         <Wine className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <h2 className="font-display text-2xl font-bold">Wine Selection</h2>
-                        <p className="text-muted-foreground">One of the most extensive in Dorking</p>
+                        <h2 className="font-display text-2xl font-bold text-gray-900">Wine Selection</h2>
+                        <p className="text-gray-600">One of the most extensive in Dorking</p>
                       </div>
                     </div>
                     
-                    <p className="text-muted-foreground mb-6">
+                    <p className="text-gray-600 mb-6">
                       Complement your meal with crisp Italian whites, bold Greek reds, delicate rosés 
                       or sparkling Prosecco. Glasses of lively Trebbiano or silky Montepulciano 
                       will surely spark interesting conversation.
@@ -515,7 +515,7 @@ export default function ValentinesDayBlogPost() {
                       ))}
                     </div>
                     
-                    <p className="text-sm text-muted-foreground mt-6 italic">
+                    <p className="text-sm text-gray-500 mt-6 italic">
                       * Wines sold separately
                     </p>
                   </motion.div>
@@ -567,12 +567,12 @@ export default function ValentinesDayBlogPost() {
         </section>
 
         {/* Article Footer Navigation */}
-        <div className="border-t border-border">
+        <div className="border-t border-gray-200 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto py-8">
               <Link 
                 href="/blog" 
-                className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-muted/50 hover:bg-pink-50 border border-transparent hover:border-pink-200 text-muted-foreground hover:text-pink-600 transition-all duration-200"
+                className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white hover:bg-pink-50 border border-gray-200 hover:border-pink-200 text-gray-600 hover:text-pink-600 transition-all duration-200 shadow-sm"
               >
                 <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
                 <span className="text-sm font-medium">All Articles</span>
