@@ -106,11 +106,11 @@ export default function ValentinesDayBlogPost() {
       
       <main>
         {/* Hero Section - Full bleed behind header */}
-        <section className="relative min-h-screen flex items-center overflow-hidden pt-32">
+        <section className="relative min-h-[100svh] flex items-center overflow-hidden py-24 md:py-32">
           {/* Animated Background */}
           <div className="absolute inset-0 bg-gradient-to-br from-pink-500 via-red-500 to-pink-600">
-            {/* Floating Hearts - CSS Animation (no hydration issues) */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            {/* Floating Hearts - CSS Animation (hidden on mobile for performance) */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none hidden sm:block">
               <Heart className="absolute w-16 h-16 text-white/10 fill-white/10 animate-float-1" style={{ left: '5%' }} />
               <Heart className="absolute w-10 h-10 text-white/10 fill-white/10 animate-float-2" style={{ left: '15%' }} />
               <Heart className="absolute w-8 h-8 text-white/10 fill-white/10 animate-float-3" style={{ left: '25%' }} />
@@ -124,12 +124,12 @@ export default function ValentinesDayBlogPost() {
 
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center text-white">
-              {/* Breadcrumb */}
+              {/* Breadcrumb - Hidden on very small screens */}
               <motion.nav
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="flex items-center justify-center gap-2 text-sm text-white/70 mb-8"
+                className="hidden sm:flex items-center justify-center gap-2 text-sm text-white/70 mb-6 md:mb-8"
               >
                 <Link href="/" className="hover:text-white transition-colors">Home</Link>
                 <ChevronRight className="w-4 h-4" />
@@ -143,10 +143,10 @@ export default function ValentinesDayBlogPost() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6"
+                className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 py-1.5 sm:px-4 sm:py-2 rounded-full mb-4 sm:mb-6"
               >
-                <Sparkles className="w-4 h-4" />
-                <span className="text-sm font-medium">Limited Edition Menu</span>
+                <Sparkles className="w-3 h-3 sm:w-4 sm:h-4" />
+                <span className="text-xs sm:text-sm font-medium">Limited Edition Menu</span>
               </motion.div>
 
               {/* Title */}
@@ -154,10 +154,10 @@ export default function ValentinesDayBlogPost() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+                className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight px-2"
               >
                 The &quot;Amore&quot; Menu
-                <span className="block text-2xl md:text-3xl lg:text-4xl font-normal mt-4 text-white/90">
+                <span className="block text-lg sm:text-2xl md:text-3xl lg:text-4xl font-normal mt-2 sm:mt-4 text-white/90">
                   A Valentine&apos;s Day Culinary Experience
                 </span>
               </motion.h1>
@@ -167,18 +167,18 @@ export default function ValentinesDayBlogPost() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="flex flex-wrap items-center justify-center gap-6 text-white/80 mb-10"
+                className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-2 sm:gap-4 md:gap-6 text-white/80 text-sm sm:text-base mb-6 sm:mb-10"
               >
                 <span className="flex items-center gap-2">
-                  <Calendar className="w-5 h-5" />
+                  <Calendar className="w-4 h-4 sm:w-5 sm:h-5" />
                   14 February 2026
                 </span>
                 <span className="flex items-center gap-2">
-                  <Clock className="w-5 h-5" />
+                  <Clock className="w-4 h-4 sm:w-5 sm:h-5" />
                   4 min read
                 </span>
                 <span className="flex items-center gap-2">
-                  <Users className="w-5 h-5" />
+                  <Users className="w-4 h-4 sm:w-5 sm:h-5" />
                   Perfect for couples
                 </span>
               </motion.div>
@@ -188,27 +188,27 @@ export default function ValentinesDayBlogPost() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="inline-flex items-center gap-4 bg-white/10 backdrop-blur-md rounded-2xl px-8 py-4 border border-white/20"
+                className="inline-flex items-center gap-2 sm:gap-4 bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl px-4 sm:px-8 py-3 sm:py-4 border border-white/20"
               >
-                <div className="text-center px-4">
-                  <p className="text-3xl font-bold">£23.50</p>
-                  <p className="text-sm text-white/70">2 Courses</p>
+                <div className="text-center px-2 sm:px-4">
+                  <p className="text-xl sm:text-2xl md:text-3xl font-bold">£23.50</p>
+                  <p className="text-xs sm:text-sm text-white/70">2 Courses</p>
                 </div>
-                <div className="w-px h-12 bg-white/30" />
-                <div className="text-center px-4">
-                  <p className="text-3xl font-bold">£27.50</p>
-                  <p className="text-sm text-white/70">3 Courses</p>
+                <div className="w-px h-10 sm:h-12 bg-white/30" />
+                <div className="text-center px-2 sm:px-4">
+                  <p className="text-xl sm:text-2xl md:text-3xl font-bold">£27.50</p>
+                  <p className="text-xs sm:text-sm text-white/70">3 Courses</p>
                 </div>
               </motion.div>
             </div>
           </div>
 
-          {/* Scroll Indicator */}
+          {/* Scroll Indicator - Hidden on mobile */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
-            className="absolute bottom-8 left-1/2 -translate-x-1/2"
+            className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 hidden sm:block"
           >
             <motion.div
               animate={{ y: [0, 10, 0] }}
