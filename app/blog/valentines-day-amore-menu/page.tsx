@@ -109,35 +109,16 @@ export default function ValentinesDayBlogPost() {
         <section className="relative min-h-screen flex items-center overflow-hidden pt-32">
           {/* Animated Background */}
           <div className="absolute inset-0 bg-gradient-to-br from-pink-500 via-red-500 to-pink-600">
-            {/* Floating Hearts Animation */}
-            <div className="absolute inset-0 overflow-hidden">
-              {[...Array(12)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute"
-                  initial={{ 
-                    x: `${Math.random() * 100}%`, 
-                    y: "110%",
-                    rotate: Math.random() * 360,
-                    scale: 0.5 + Math.random() * 0.5
-                  }}
-                  animate={{ 
-                    y: "-10%",
-                    rotate: Math.random() * 360 + 360,
-                  }}
-                  transition={{ 
-                    duration: 10 + Math.random() * 10,
-                    repeat: Infinity,
-                    delay: Math.random() * 5,
-                    ease: "linear"
-                  }}
-                >
-                  <Heart className={cn(
-                    "text-white/10 fill-white/10",
-                    i % 3 === 0 ? "w-16 h-16" : i % 3 === 1 ? "w-10 h-10" : "w-8 h-8"
-                  )} />
-                </motion.div>
-              ))}
+            {/* Floating Hearts - CSS Animation (no hydration issues) */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <Heart className="absolute w-16 h-16 text-white/10 fill-white/10 animate-float-1" style={{ left: '5%' }} />
+              <Heart className="absolute w-10 h-10 text-white/10 fill-white/10 animate-float-2" style={{ left: '15%' }} />
+              <Heart className="absolute w-8 h-8 text-white/10 fill-white/10 animate-float-3" style={{ left: '25%' }} />
+              <Heart className="absolute w-12 h-12 text-white/10 fill-white/10 animate-float-4" style={{ left: '40%' }} />
+              <Heart className="absolute w-16 h-16 text-white/10 fill-white/10 animate-float-5" style={{ left: '55%' }} />
+              <Heart className="absolute w-8 h-8 text-white/10 fill-white/10 animate-float-6" style={{ left: '70%' }} />
+              <Heart className="absolute w-10 h-10 text-white/10 fill-white/10 animate-float-7" style={{ left: '80%' }} />
+              <Heart className="absolute w-14 h-14 text-white/10 fill-white/10 animate-float-8" style={{ left: '92%' }} />
             </div>
           </div>
 
@@ -586,15 +567,18 @@ export default function ValentinesDayBlogPost() {
         </section>
 
         {/* Back to Blog */}
-        <section className="py-12 bg-muted/30">
-          <div className="container mx-auto px-4 text-center">
-            <Link 
-              href="/blog" 
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Back to all articles
-            </Link>
+        <section className="py-16 bg-gradient-to-b from-background to-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-xl mx-auto text-center">
+              <p className="text-muted-foreground mb-6">Enjoyed this article?</p>
+              <Link 
+                href="/blog" 
+                className="group inline-flex items-center gap-3 bg-card hover:bg-primary text-foreground hover:text-white px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-border hover:border-primary"
+              >
+                <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
+                <span className="font-semibold">Back to All Articles</span>
+              </Link>
+            </div>
           </div>
         </section>
       </main>
