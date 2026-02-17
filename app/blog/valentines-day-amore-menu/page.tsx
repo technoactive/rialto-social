@@ -126,9 +126,9 @@ export default function ValentinesDayBlogPost() {
             <div className="max-w-4xl mx-auto text-center text-white">
               {/* Breadcrumb - Hidden on very small screens */}
               <motion.nav
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
                 className="hidden sm:flex items-center justify-center gap-2 text-sm text-white/70 mb-6 md:mb-8"
               >
                 <Link href="/" className="hover:text-white transition-colors">Home</Link>
@@ -140,9 +140,9 @@ export default function ValentinesDayBlogPost() {
 
               {/* Category Badge */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                 className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 py-1.5 sm:px-4 sm:py-2 rounded-full mb-4 sm:mb-6"
               >
                 <Sparkles className="w-3 h-3 sm:w-4 sm:h-4" />
@@ -151,9 +151,9 @@ export default function ValentinesDayBlogPost() {
 
               {/* Title */}
               <motion.h1
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
+                transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
                 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight px-2"
               >
                 The &quot;Amore&quot; Menu
@@ -164,9 +164,9 @@ export default function ValentinesDayBlogPost() {
 
               {/* Meta Info */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
                 className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-2 sm:gap-4 md:gap-6 text-white/80 text-sm sm:text-base mb-6 sm:mb-10"
               >
                 <span className="flex items-center gap-2">
@@ -185,9 +185,9 @@ export default function ValentinesDayBlogPost() {
 
               {/* Quick Price Preview */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
+                transition={{ duration: 1, delay: 0.7, ease: "easeOut" }}
                 className="inline-flex items-center gap-2 sm:gap-4 bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl px-4 sm:px-8 py-3 sm:py-4 border border-white/20"
               >
                 <div className="text-center px-2 sm:px-4">
@@ -287,9 +287,10 @@ export default function ValentinesDayBlogPost() {
                 {/* Pricing Section */}
                 <section id="pricing" className="mb-16 scroll-mt-24">
                   <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
                     className="bg-gradient-to-br from-pink-50 to-red-50 rounded-3xl p-8 md:p-10"
                   >
                     <div className="flex items-center gap-3 mb-6">
@@ -328,9 +329,10 @@ export default function ValentinesDayBlogPost() {
                 {/* Starters Section */}
                 <section id="starters" className="mb-16 scroll-mt-24">
                   <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
                   >
                     <div className="flex items-center gap-3 mb-8">
                       <Heart className="w-8 h-8 text-pink-500 fill-pink-500" />
@@ -344,13 +346,9 @@ export default function ValentinesDayBlogPost() {
                     </p>
 
                     <div className="grid gap-4">
-                      {starters.map((item, index) => (
-                        <motion.div
+                      {starters.map((item) => (
+                        <div
                           key={item.name}
-                          initial={{ opacity: 0, x: -20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: index * 0.1 }}
                           className="group bg-white rounded-xl p-5 shadow-sm border border-gray-200 hover:border-pink-200 hover:shadow-md transition-all flex items-start justify-between gap-4"
                         >
                           <div>
@@ -366,7 +364,7 @@ export default function ValentinesDayBlogPost() {
                           )}>
                             {item.tag}
                           </span>
-                        </motion.div>
+                        </div>
                       ))}
                     </div>
                   </motion.div>
@@ -375,9 +373,10 @@ export default function ValentinesDayBlogPost() {
                 {/* Mains Section */}
                 <section id="mains" className="mb-16 scroll-mt-24">
                   <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
                   >
                     <div className="flex items-center gap-3 mb-8">
                       <Heart className="w-8 h-8 text-red-500 fill-red-500" />
@@ -392,13 +391,9 @@ export default function ValentinesDayBlogPost() {
                     </p>
 
                     <div className="space-y-4">
-                      {mains.map((item, index) => (
-                        <motion.div
+                      {mains.map((item) => (
+                        <div
                           key={item.name}
-                          initial={{ opacity: 0, x: -20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: index * 0.1 }}
                           className={cn(
                             "group rounded-xl p-6 transition-all flex items-start justify-between gap-4",
                             item.featured 
@@ -437,7 +432,7 @@ export default function ValentinesDayBlogPost() {
                           )}>
                             {item.tag}
                           </span>
-                        </motion.div>
+                        </div>
                       ))}
                     </div>
                   </motion.div>
@@ -446,9 +441,10 @@ export default function ValentinesDayBlogPost() {
                 {/* Desserts Section */}
                 <section id="desserts" className="mb-16 scroll-mt-24">
                   <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
                   >
                     <div className="flex items-center gap-3 mb-8">
                       <Cake className="w-8 h-8 text-pink-500" />
@@ -463,13 +459,9 @@ export default function ValentinesDayBlogPost() {
                     </p>
 
                     <div className="grid gap-4">
-                      {desserts.map((item, index) => (
-                        <motion.div
+                      {desserts.map((item) => (
+                        <div
                           key={item.name}
-                          initial={{ opacity: 0, scale: 0.95 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: index * 0.1 }}
                           className={cn(
                             "rounded-2xl p-6 bg-gradient-to-r",
                             item.color
@@ -477,7 +469,7 @@ export default function ValentinesDayBlogPost() {
                         >
                           <h3 className="font-display text-xl font-bold text-gray-900 mb-2">{item.name}</h3>
                           <p className="text-gray-600">{item.desc}</p>
-                        </motion.div>
+                        </div>
                       ))}
                     </div>
                   </motion.div>
@@ -486,9 +478,10 @@ export default function ValentinesDayBlogPost() {
                 {/* Wine Section */}
                 <section id="wine" className="mb-16 scroll-mt-24">
                   <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
                     className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8"
                   >
                     <div className="flex items-center gap-3 mb-6">
@@ -524,9 +517,10 @@ export default function ValentinesDayBlogPost() {
                 {/* Booking CTA */}
                 <section id="booking" className="scroll-mt-24">
                   <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
                     className="bg-gradient-to-r from-pink-500 via-red-500 to-pink-500 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden"
                   >
                     {/* Background Hearts */}
