@@ -279,8 +279,8 @@ export default function ValentinesDayBlogPost() {
                 <div className="prose prose-lg max-w-none mb-12">
                   <p className="text-xl text-gray-700 leading-relaxed first-letter:text-5xl first-letter:font-display first-letter:font-bold first-letter:text-pink-500 first-letter:mr-3 first-letter:float-left">
                     It&apos;s February already, and love is in the air—and in our dishes. This Valentine&apos;s Day, 
-                    our restaurants in Dorking are celebrating romance the best way we know how: with delectable, 
-                    Italian-inspired flavours specially curated for the occasion.
+                    our <Link href="/about" className="text-pink-600 hover:text-pink-700 underline underline-offset-2">restaurant in Dorking</Link> is celebrating romance the best way we know how: with delectable, 
+                    Italian-inspired flavours from our <Link href="/menu" className="text-pink-600 hover:text-pink-700 underline underline-offset-2">seasonal menu</Link>, specially curated for the occasion.
                   </p>
                 </div>
 
@@ -341,8 +341,9 @@ export default function ValentinesDayBlogPost() {
                       </h2>
                     </div>
                     
-                    <p className="text-muted-foreground mb-8">
-                      Options carefully chosen to awaken the palate without overwhelming it—perfect for sparking conversation with your date.
+                    <p className="text-gray-600 mb-8">
+                      Options carefully chosen to awaken the palate without overwhelming it—perfect for sparking conversation 
+                      in our <Link href="/gallery" className="text-pink-600 hover:text-pink-700 underline underline-offset-2">intimate dining space</Link>.
                     </p>
 
                     <div className="grid gap-4">
@@ -385,9 +386,10 @@ export default function ValentinesDayBlogPost() {
                       </h2>
                     </div>
                     
-                    <p className="text-muted-foreground mb-8">
+                    <p className="text-gray-600 mb-8">
                       Dishes that feel as special as the company you&apos;re keeping—hearty and elegant, 
-                      indulgent yet easy to enjoy.
+                      indulgent yet easy to enjoy. Check our <Link href="/events" className="text-pink-600 hover:text-pink-700 underline underline-offset-2">upcoming events</Link> for 
+                      more special dining experiences.
                     </p>
 
                     <div className="space-y-4">
@@ -496,7 +498,8 @@ export default function ValentinesDayBlogPost() {
                     
                     <p className="text-gray-600 mb-6">
                       Complement your meal with crisp Italian whites, bold Greek reds, delicate rosés 
-                      or sparkling Prosecco. Glasses of lively Trebbiano or silky Montepulciano 
+                      or sparkling Prosecco. Browse our <Link href="/menu" className="text-purple-700 hover:text-purple-800 underline underline-offset-2">full drinks menu</Link> for 
+                      the complete selection—glasses of lively Trebbiano or silky Montepulciano 
                       will surely spark interesting conversation.
                     </p>
                     
@@ -534,7 +537,9 @@ export default function ValentinesDayBlogPost() {
                       </h2>
                       <p className="text-white/90 mb-8 max-w-lg mx-auto">
                         Don&apos;t wait to book. Call now to claim a spot before other lovebirds do. 
-                        We accommodate special requests and dietary requirements.
+                        We accommodate special requests and dietary requirements. After dinner, 
+                        explore our <Link href="/entertainment" className="text-white underline underline-offset-2 hover:text-pink-100">entertainment options</Link> for 
+                        the perfect ending to your evening.
                       </p>
                       
                       <div className="flex flex-col sm:flex-row gap-4 justify-center">
