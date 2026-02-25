@@ -270,7 +270,17 @@ export function Footer() {
             <div className="flex flex-col md:flex-row items-center gap-4 text-sm text-white/60">
               <p>&copy; {new Date().getFullYear()} Rialto Social. All rights reserved.</p>
               <span className="hidden md:inline text-white/30">•</span>
-              <p className="text-center">Authentic Italian Dining & Entertainment</p>
+              <p className="text-center">
+                Website by{" "}
+                <a 
+                  href="https://technoactive.co.uk" 
+                  target="_blank" 
+                  rel="noopener" 
+                  className="text-white/80 hover:text-primary transition-colors"
+                >
+                  TechnoActive
+                </a>
+              </p>
             </div>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
               {[
