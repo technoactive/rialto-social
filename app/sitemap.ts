@@ -54,6 +54,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: `${baseUrl}/blog/gelato-made-from-scratch`,
+      lastModified: new Date('2026-03-31'),
+      changeFrequency: 'yearly' as const,
+      priority: 0.6,
+    },
+    {
       url: `${baseUrl}/blog/valentines-day-amore-menu`,
       lastModified: new Date('2026-02-14'),
       changeFrequency: 'yearly' as const,

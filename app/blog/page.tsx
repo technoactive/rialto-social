@@ -6,12 +6,22 @@ import { Footer } from "@/components/layout/Footer";
 import { FloatingActionButton } from "@/components/ui/floating-action-button";
 import Link from "next/link";
 import Image from "next/image";
-import { Calendar, Clock, ArrowRight, Heart, ChevronRight, Utensils, Sparkles, Mail, Instagram, Facebook } from "lucide-react";
+import { Calendar, Clock, ArrowRight, Heart, ChevronRight, Utensils, Sparkles, Mail, Instagram, Facebook, IceCream } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 
 // Blog posts data - add new posts here
 const blogPosts = [
+  {
+    slug: "gelato-made-from-scratch",
+    title: "We Spend 3 Days Making Something You'll Eat in 4 Minutes",
+    excerpt: "Learn why Rialto takes three days to make gelato on-site. Made from scratch, in the authentic Venetian tradition, with fresh ingredients — for a truly incredible experience.",
+    date: "2026-03-31",
+    readTime: "5 min read",
+    image: null,
+    category: "Behind the Scenes",
+    theme: "gelato",
+  },
   {
     slug: "valentines-day-amore-menu",
     title: "Valentine's Day \"Amore\" Menu",
@@ -24,7 +34,7 @@ const blogPosts = [
   },
 ];
 
-const categories = ["All", "Special Menus", "Events", "Recipes"];
+const categories = ["All", "Special Menus", "Behind the Scenes", "Events", "Recipes"];
 
 function formatDate(dateString: string) {
   const date = new Date(dateString);
@@ -186,6 +196,19 @@ export default function BlogPage() {
                               <Heart className="w-12 sm:w-14 h-12 sm:h-14 mx-auto mb-2 sm:mb-3 fill-white drop-shadow-lg group-hover:scale-110 transition-transform duration-300" />
                               <p className="font-display text-2xl sm:text-3xl font-bold drop-shadow-lg">Amore</p>
                               <p className="text-xs sm:text-sm text-white/80 mt-1">Valentine&apos;s Menu</p>
+                            </div>
+                          </div>
+                        </div>
+                      ) : post.theme === "gelato" ? (
+                        <div className="absolute inset-0 bg-gradient-to-br from-amber-300 via-yellow-400 to-amber-500">
+                          <div className="absolute top-4 left-4 w-8 h-8 bg-white/20 rounded-full" />
+                          <div className="absolute top-10 right-6 w-5 h-5 bg-white/15 rounded-full" />
+                          <div className="absolute bottom-8 left-8 w-6 h-6 bg-white/10 rounded-full" />
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="text-center text-white">
+                              <IceCream className="w-12 sm:w-14 h-12 sm:h-14 mx-auto mb-2 sm:mb-3 text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-300" />
+                              <p className="font-display text-2xl sm:text-3xl font-bold drop-shadow-lg">Gelato</p>
+                              <p className="text-xs sm:text-sm text-white/80 mt-1">Made from scratch</p>
                             </div>
                           </div>
                         </div>
