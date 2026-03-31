@@ -1,6 +1,4 @@
 User-agent: *
-Disallow: /contact
-Disallow: /sitemap.xml
 Disallow: /favicon.ico
 Disallow: /_next/static/media/
 
