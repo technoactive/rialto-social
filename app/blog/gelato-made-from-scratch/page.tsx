@@ -362,13 +362,13 @@ export default function GelatoBlogPost() {
                     Why Our Gelato Takes 3 Days to Make
                   </h2>
                   <p className="text-gray-700 leading-relaxed mb-4">
-                    We make our gelato in the authentic Venetian tradition, unlike many other places in the UK. We learned the recipe from chefs who travelled to Veneto every year, specifically to study gelato.
+                    We make our gelato in the authentic Venetian tradition, unlike many other <Link href="/about" className="text-amber-600 hover:text-amber-700 underline underline-offset-2">Italian restaurants in Dorking</Link>. We learned the recipe from chefs who travelled to Veneto every year, specifically to study gelato.
                   </p>
                   <p className="text-gray-700 leading-relaxed mb-4">
                     The Venetian tradition relies on milk and cream, which makes the gelato less sweet than Sicilian gelato but much richer in texture. It also has a depth that sits somewhere between a dessert and an experience.
                   </p>
                   <p className="text-gray-700 leading-relaxed">
-                    Carefully crafting a delicacy that is also a unique experience requires time, the right ingredients, and a bit of obsession.
+                    Carefully crafting a delicacy that is also a unique experience requires time, the right ingredients, and a bit of obsession. You can see it all in our <Link href="/gallery" className="text-amber-600 hover:text-amber-700 underline underline-offset-2">restaurant gallery</Link>.
                   </p>
                 </motion.section>
 
@@ -393,8 +393,8 @@ export default function GelatoBlogPost() {
                         className={cn("rounded-2xl p-6 sm:p-8 bg-gradient-to-br scroll-mt-24", d.color)}
                       >
                         <div className="flex items-start gap-4">
-                          <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 text-white text-sm font-bold", d.iconColor)}>
-                            {d.day.split(" ")[1]}
+                          <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 text-white text-lg font-bold", d.iconColor)}>
+                            {d.day.split(" ")[1] === "One" ? "1" : d.day.split(" ")[1] === "Two" ? "2" : "3"}
                           </div>
                           <div>
                             <p className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-1">{d.day}</p>
@@ -409,7 +409,8 @@ export default function GelatoBlogPost() {
                   <div className="mt-8 bg-gray-900 rounded-2xl p-6 sm:p-8 text-white">
                     <p className="text-lg font-medium leading-relaxed">
                       We have <span className="text-amber-400 font-bold">34 flavours</span>. Each is made the same way, with the same patience. Some flavours are seasonal. Some are permanent.{" "}
-                      <span className="text-amber-400">The pistachio is permanent.</span>
+                      <span className="text-amber-400">The pistachio is permanent.</span>{" "}
+                      Browse our full <Link href="/menu" className="text-amber-400 hover:text-amber-300 underline underline-offset-2">menu</Link> or <Link href="/contact" className="text-amber-400 hover:text-amber-300 underline underline-offset-2">book a table</Link> to try them.
                     </p>
                   </div>
                 </motion.section>
